@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "品牌故事",
+  "navigationBarTextStyle": "#ffffff",
+  "usingComponents": {
+    "technical-component": "/component/technical/technical"
+  }
+}

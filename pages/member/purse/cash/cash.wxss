@@ -1,0 +1,131 @@
+@import "/template/password/payPassword.wxss";
+page {
+  background: #f1f1f1;
+  height: 100%;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px; 
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  position: fixed;
+  background: #f1f1f1;
+  z-index: 1;
+  display: flex;
+  background: #f1f1f1;
+}
+
+.swiper-tab:after{
+  content: " ";
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+
+.swiper-tab>view {
+  width: 100%;
+  font-size: 30rpx;
+}
+
+.on::after {
+  display: block;
+  width: 60%;
+  margin-left: 20%;
+  content: '';
+  height: 2px;
+  background: #F85151;
+}
+
+swiper-item>view {
+  display: flex;
+  background: #fff;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 1px;
+}
+picker{
+  width: 100%;
+}
+picker .line{
+    display: flex;
+    width: 100%;
+}
+
+.line image {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+.line input {
+  height: 50px;
+  line-height: 40px;
+}
+
+.start {
+  margin: 0 2%;
+}
+
+.start.stTop {
+  margin: 0;
+  width: 40px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.end {
+  text-align: right;
+  margin-right: 5%;
+  position: relative;
+}
+.end .calcfeeload{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 12px;
+  left: -24px;
+  animation: rotate 1s infinite linear;
+}
+@keyframes rotate{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
+}
+.mid {
+  flex: 1;
+}
+
+button {
+  position: fixed;
+  width: 70%;
+  left: 15%;
+  bottom: 10%;
+}
+
+
+
+.addcard text{
+  width: 100%;
+  text-align: center;
+}
