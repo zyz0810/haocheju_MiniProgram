@@ -1,0 +1,24 @@
+<!--pages/discount/view/view.wxml-->
+<view class='lineItemTitle f12 border_bottom'>填写以下信息即可获得经销商回复的车型底价</view>
+<view class='lineItem border information'>
+  <view class='left'><image src='http://www.0556360.com/weixin/images/static/home/ad_big.jpg'></image></view>
+  <view class='center'>
+    <view class='f15 gray02'>[朗逸] 2018款 280TSI DSG舒适型G舒适型G舒适型G舒适型G舒适型</view>
+    <view class='f14 clr_lightGray'>指导价：14.99万</view>
+  </view>
+</view>
+<view class='box border_bottom'>
+<view class='lineItem f16 border'>
+  <view class='left clr_mediumGray'>购买城市</view>
+  <view class='center'><input type='text' value='安庆'></input></view>
+</view>
+<view class='lineItem f16 border'>
+  <view class='left clr_mediumGray'>姓名</view>
+  <view class='center'><input type='text'placeholder="请输入姓名"></input></view>
+</view>
+<view class='lineItem f16'>
+  <view class='left clr_mediumGray'>手机号码</view>
+  <view class='center'><input type='number' placeholder='15155133955'></input></view>
+</view>
+</view>
+<button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即发布 </button>

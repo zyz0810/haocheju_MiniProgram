@@ -13,23 +13,27 @@
 </view>
 <view class='menu clr_mediumGray'>
   <view class='menu_item f12 tc'>
-    <view class='iconfont icon-maiche f24'></view>
-    <view>我发布的拼车</view>
+    <view class='iconfont icon-baoxian f24'></view>
+    <view>我的保险</view>
   </view>
    <view class='menu_item f12 tc'>
-   <view class='iconfont icon-icon- f24'></view>
-    <view>我的订单</view>
+   <view class='iconfont icon-zhengchekucun- f24'></view>
+    <view>我的车库</view>
   </view>
    <view class='menu_item f12 tc'>
-   <view class='iconfont icon-shangpinshoucang f24'></view>
-    <view>我的商品收藏</view>
+   <view class='iconfont icon-resume1 f24'></view>
+    <view>我的简历</view>
   </view>
    <view class='menu_item f12 tc'>
    <view class='iconfont icon-shoucang f24'></view>
-    <view>我的车辆收藏</view>
+    <view>我的收藏</view>
   </view>
   <view class='menu_item f12 tc'>
   <view class='iconfont icon-fabiaohuati f24'></view>
     <view>我的发表</view>
+  </view>
+   <view class='menu_item f12 tc'>
+  <view class='iconfont icon-maiche f24'></view>
+    <view>我的拼车</view>
   </view>
 </view>

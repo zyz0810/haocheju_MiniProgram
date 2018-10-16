@@ -1,0 +1,92 @@
+<!--pages/discount/discount.wxml-->
+<view class='container'>
+  <!-- <view class='swiper'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> -->
+
+  <view class='search'>
+    <view class='search_frame'>
+      <input type='text' class='f12' placeholder='搜索 品牌/车系/参数/商家'></input>
+    </view>
+    <view class='history'>
+      <view class='f12 clr-white'>特惠促销 优惠大放送</view>
+      <view class='history_cont f13 clr_mediumGray'>
+        <text class='active'>奥迪</text>
+        <text>宝马</text>
+        <text>大众</text>
+        <text>别克</text>
+        <text>本田</text>
+        <text>奥迪</text>
+        <text>宝马</text>
+        <text>大众</text>
+        <text>别克</text>
+        <text>本田</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='list'>
+    <view class='list_item' bindtap='goView'>
+      <text class='tag clr-white f13'>特惠</text>
+      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
+      <view class='item_txt'>
+        <view class='f15 tc clr_gray01'>朗逸</view>
+        <view class='f12 tc clr_gray01'>最多可优惠
+          <text class='clr_orange'>3.3万</text>
+        </view>
+        <view class='clearfix'>
+          <text class='f12 fl clr_mediumGray'>3.3万起</text>
+          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
+        </view>
+      </view>
+    </view>
+    <view class='list_item' bindtap='goView'>
+      <text class='tag clr-white f13'>特惠</text>
+      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
+      <view class='item_txt'>
+        <view class='f15 tc clr_gray01'>朗逸</view>
+        <view class='f12 tc clr_gray01'>最多可优惠
+          <text class='clr_orange'>3.3万</text>
+        </view>
+        <view class='clearfix'>
+          <text class='f12 fl clr_mediumGray'>3.3万起</text>
+          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
+        </view>
+      </view>
+    </view>
+    <view class='list_item' bindtap='goView'>
+      <text class='tag clr-white f13'>特惠</text>
+      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
+      <view class='item_txt'>
+        <view class='f15 tc clr_gray01'>朗逸</view>
+        <view class='f12 tc clr_gray01'>最多可优惠
+          <text class='clr_orange'>3.3万</text>
+        </view>
+        <view class='clearfix'>
+          <text class='f12 fl clr_mediumGray'>3.3万起</text>
+          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
+        </view>
+      </view>
+    </view>
+    <view class='list_item' bindtap='goView'>
+      <text class='tag clr-white f13'>特惠</text>
+      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
+      <view class='item_txt'>
+        <view class='f15 tc clr_gray01'>朗逸</view>
+        <view class='f12 tc clr_gray01'>最多可优惠
+          <text class='clr_orange'>3.3万</text>
+        </view>
+        <view class='clearfix'>
+          <text class='f12 fl clr_mediumGray'>3.3万起</text>
+          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

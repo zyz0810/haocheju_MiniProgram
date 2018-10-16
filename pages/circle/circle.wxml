@@ -1,0 +1,56 @@
+<!--pages/circle/circle.wxml-->
+<view id="publish" class="publish f40 tc">+</view>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class='list'>
+  <view class='list_item'>
+    <view class='lineItem'>
+      <view class='left headImg'>
+        <image src='http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ1hVHWkkE81E7ib94B6Acj9gEyZ66tTb2rw4YVNetroNvqJ1lG0hBZA2no5Hq4h44lOnfb7wg2s1g/132' mode='widthFix'></image>
+      </view>
+      <view class='center'>
+        <view class='f13 clr_mediumGray'>Doralf</view>
+        <view class='f13'>今天天气真好</view>
+
+        <view class='img'>
+          <image src='http://www.chexiangguan.com/Upload/Carfans/image/2018-07-25/5b57f4b26a147.JPG' mode='widthFix'></image>
+        </view>
+        <view class='lineItem'>
+          <view class='left f10 gray01'>一周前</view>
+          <view class='center'></view>
+          <view class='right prise_btn'>
+            <text class="iconfont icon-pinglun f20 blue01 operation_btn"></text>
+            <!-- <view class='flex prise_cont'>
+              <view class='flex-item'>点赞</view>
+              <view class='flex-item none'>取消</view>
+              <view class='flex-item'>评论</view>
+            </view> -->
+          </view>
+        </view>
+        <view class='operationTxt'>
+        <text class='arrow_top'></text>
+        <view class='praise'>
+          <text class='iconfont icon-heart f13 blue02'></text>
+          <text class='blue02 f13'>Doralf</text>
+          <text class='blue02 f13'>,11</text>
+        </view>
+        <view class='reply top_border'>
+          <view class='f13 clr_mediumGray'><text class='blue01'>Doralf</text>:你的小可爱呢</view>
+          <view class='f13 clr_mediumGray'><text class='blue01'>Doralf</text>:你的小可爱呢</view>
+          <view class='f13 clr_mediumGray'><text class='blue01'>Doralf</text>:你的小可爱呢</view>
+          <view class='f13 clr_mediumGray'><text class='blue01'>Doralf</text>:你的小可爱呢</view>
+          <view class='f13 clr_mediumGray'><text class='blue01'>Doralf</text>:你的小可爱呢</view>
+          <view class='f13 clr_mediumGray'><text class='blue01'>Doralf</text>:你的小可爱呢</view>
+          <view class='f13 clr_mediumGray'><text class='blue01'>11</text>回复<text class='blue01'>Doralf</text>:你的小可爱呢</view>
+        </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

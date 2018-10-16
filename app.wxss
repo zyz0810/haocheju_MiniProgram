@@ -13,6 +13,9 @@ page {
   height: 100vh;
 }
 
+button{
+  width: 80%;
+}
 
 /* 加载中 */
 
@@ -69,7 +72,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .f10 {
   font-size: 20rpx;
 }
-
+.f11 {
+  font-size: 22rpx;
+}
 .f12 {
   font-size: 24rpx;
 }
@@ -166,6 +171,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .gray01{
   color: #ccc;
 }
+.gray02 {
+    color: #494949;
+}
 .blue01{
   color:#99aacd; 
 }
@@ -179,6 +187,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 
 .clr_red {
   color: #ec0909;
+}
+.yellow01 {
+    color: #febf00!important;
 }
 
 .clr_gold {
@@ -225,6 +236,12 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
  * 公用样式
  */
 
+.title_common{
+      line-height: 1;
+    padding: 0 0 0 2%;
+    margin: 2% 4%;
+    border-left: 3px solid #0f84de;
+}
 
 .top_border {
   position: relative;
@@ -494,6 +511,10 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   top: 50%;
   margin-top: -4px;
   right: 2px;
+}
+.lineItemTitle{
+  color: #999;
+  padding: 2%;
 }
 
 /*

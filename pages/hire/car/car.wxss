@@ -1,0 +1,50 @@
+/* pages/hire/car/car.wxss */
+.start_icon {
+  background: #0f84de;
+}
+.end_icon {
+    background: #ec0909;
+}
+
+.start_icon,.end_icon {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  line-height: 6vw;
+  margin-right: 2vw;
+  border-radius: 50%;
+}
+.lineItem{
+  align-items: center;
+}
+.lineItem .left{
+  margin-right: 20rpx;
+}
+.lineItem .left .iconfont{
+  margin-right: 0rpx;
+}
+textarea{
+  width: 100%;
+  height: 150rpx;
+  padding: 2%;
+  background: #fff;
+}
+button{
+  color: #fff !important;
+  margin-top: 50rpx;
+  background: rgb(204, 204, 204) !important;
+}
+button.active{
+  background:#0f84de !important; 
+}
+.statement{
+  margin: 20rpx;
+  background: transparent;
+}
+.statement .lineItem .left {
+  margin-right: 0 !important;
+}
+.statement .center{
+  flex-direction: row;
+  justify-content:left;
+}

@@ -1,0 +1,84 @@
+/* pages/circle/circle.wxss */
+
+swiper image{
+  width: 100%;
+}
+
+.headImg {
+  font-size: 0;
+  width: 10vw;
+  height: 10vw;
+  margin-right: 2%;
+}
+
+.headImg image {
+  width: 100%;
+  border-radius: 2px;
+}
+
+.img{
+  padding-top: 2%;
+}
+
+.img image {
+  width: 32%;
+  margin: 0 2% 2% 0;
+  cursor: pointer;
+  float: left;
+}
+
+.reply {
+  line-height: 1.5em;
+  padding: 0 2% 2%;
+}
+
+.praise {
+  padding: 2% 2% 0;
+}
+
+.praise>text {
+  margin-right: 10rpx;
+}
+
+.operationTxt {
+  position: relative;
+  padding: 0;
+  margin: 8px 0 0;
+  border-radius: 3px;
+  background: #f3f3f5;
+}
+
+.arrow_top {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-width: 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #f3f3f5;
+}
+
+.publish {
+    display: block;
+    position: fixed;
+    bottom: 66rpx;
+    right: 10px;
+    z-index: 9999;
+    background: #0f84de;
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0f84de;
+}
+
+.prise_btn{
+  position: relative;
+}
+.prise_cont{
+  position: absolute;
+  top: 0;
+  left: 0;
+}

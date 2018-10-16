@@ -1,0 +1,21 @@
+/* pages/news/view/view.wxss */
+.container{
+  height: 100%;
+  background: #fff;
+  overflow-y: auto;
+}
+.top{
+  color: #666;
+  padding: 2%;
+  background: #f4f4f4;
+}
+.top .title{
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.top text{
+  margin-right: 10rpx;
+}
+.cont{
+  padding: 2%;
+}

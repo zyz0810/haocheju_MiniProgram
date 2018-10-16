@@ -2,7 +2,6 @@
 ### [微信公众平台](https://mp.weixin.qq.com/)
        公众号登录账号：2922559285@qq.com，登录密码：baomanzhenzhi123
        小程序登录账号：3596966870@qq.com，登录密码：baomanzhenzhi123
-       店猫账号：15888820085，登录密码：123456
 
 ### 小程序ID
         appid: wx598a34393c2e44e0

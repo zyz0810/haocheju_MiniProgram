@@ -1,0 +1,93 @@
+<!--pages/hire/hire.wxml-->
+
+<view class='swiper'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class='flex tc publish f15'>
+  <view class='flex-item' bindtap='findCar'>
+    <view>发布找车</view>
+  </view>
+  <view class='flex-item' bindtap='findPeople'>
+    <view>发布找人</view>
+  </view>
+</view>
+
+<view class='flex tab f15'>
+  <view class='flex-item tr {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tabClick'>
+    <text class='tr'>车找人</text>
+  </view>
+  <view class='flex-item tl {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tabClick'>
+    <text class='tl'>人找车</text>
+  </view>
+</view>
+
+<view class='list'>
+  <view class='list_item'>
+    <view class='carpool_call f16 clr-white tc'>拨号</view>
+    <view class='lineItem border'>
+      <view class='left headImg'>
+        <image src='/resources/images/tabBar/me.png' mode='widthFix'></image>
+      </view>
+      <view class='center f15'>15155133955</view>
+      <view class='right f12 clr_lightGray'>2018-11-12 8:30</view>
+    </view>
+    <view class='lineItem site'>
+      <view class='left start_icon f10 clr-white'>起</view>
+      <view class='center f14'>合肥
+
+      </view>
+    </view>
+    <view class='lineItem site'>
+      <view class='left end_icon f10 clr-white'>终</view>
+      <view class='center f14'>安庆</view>
+    </view>
+    <view class='lineItem site'>
+      <view class='left'></view>
+      <view class='center f14'>
+        <view>提供座位
+          <text class='clr_red'> 3 </text>个</view>
+        <view>汽车型号 大众</view>
+        <view>车牌号 皖322256</view>
+        <view>出发时间 2018-08-05 16:40</view>
+        <view class='clr_lightGray'>车主留言：时间可商议</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='list_item'>
+    <view class='carpool_call f16 clr-white tc'>拨号</view>
+    <view class='lineItem border'>
+      <view class='left headImg'>
+        <image src='/resources/images/tabBar/me.png' mode='widthFix'></image>
+      </view>
+      <view class='center f15'>15155133955</view>
+      <view class='right f12 clr_lightGray'>2018-11-12 8:30</view>
+    </view>
+    <view class='lineItem site'>
+      <view class='left start_icon f10 clr-white'>起</view>
+      <view class='center f14'>合肥</view>
+    </view>
+    <view class='lineItem site'>
+      <view class='left end_icon f10 clr-white'>终</view>
+      <view class='center f14'>安庆</view>
+    </view>
+    <view class='lineItem site'>
+      <view class='left'></view>
+      <view class='center f14'>
+        <view>座位需求
+          <text class='clr_red'> 3 </text>个</view>
+        <view>汽车型号 大众</view>
+        <view>出发时间 2018-08-05 16:40</view>
+        <view class='clr_lightGray'>留言：时间可商议，可提前预约，时间可商议，可提前预约，时间可商议，可提前预约。</view>
+      </view>
+    </view>
+  </view>
+
+</view>
