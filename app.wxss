@@ -60,7 +60,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 /*
  * 字体样式
  */
-@import "./resources/font/font.wxss";
+@import "./resources/font/iconfont.wxss";
 
 /*
  * 字体大小
@@ -73,6 +73,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .f12 {
   font-size: 24rpx;
 }
+
 .f13 {
   font-size: 26rpx;
 }
@@ -81,9 +82,18 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   font-size: 28rpx;
 }
 
+
+.f15 {
+  font-size: 30rpx;
+}
+
 .f16 {
   font-size: 32rpx;
 }
+.f17 {
+  font-size: 34rpx;
+}
+
 
 .f18 {
   font-size: 36rpx;
@@ -95,6 +105,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 
 .f22 {
   font-size: 44rpx;
+}
+.f24 {
+  font-size: 48rpx;
 }
 
 .f40 {
@@ -123,24 +136,20 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
  */
 
 .baseBg {
-  background-color: #F85151 !important;
+  background-color: #0f84de !important;
 }
 
 .baseColor {
-  color: #F85151 !important;
+  color: #0f84de !important;
 }
 
-.shelfBg {
-  background-color: #F85151 !important;
-}
-
-.shelfColor {
-  color: #F85151 !important;
-}
 
 /*
  * 颜色样式
  */
+ clr_gray01{
+   color: #494949;
+ }
 
 .clr_lightGray {
   color: #999;
@@ -154,12 +163,22 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   color: #161616;
 }
 
+.gray01{
+  color: #ccc;
+}
+.blue01{
+  color:#99aacd; 
+}
+.blue02{
+  color:#5e6d90;
+}
+
 .clr_lightBlue {
   color: #5e93fc;
 }
 
 .clr_red {
-  color: red;
+  color: #ec0909;
 }
 
 .clr_gold {
@@ -175,7 +194,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 }
 
 .clr_orange {
-  color: #F85151;
+  color: #ff9501;
 }
 
 .orange_bg {
@@ -205,6 +224,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 /*
  * 公用样式
  */
+
 
 .top_border {
   position: relative;
@@ -560,6 +580,10 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   width: 100%;
 }
 
+.swiper,.swiper image{
+  width: 100%;
+}
+
 /* 分页底部提醒 */
 
 .tips {
@@ -592,30 +616,4 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   margin: 20% auto;
   width: 60%;
   height: 60%;
-}
-
-.technical_support {
-  padding: 20rpx 0;
-  width: 100%;
-  display: block !important;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.technical_support.static {
-  position: static;
-}
-
-.bottom50 {
-  bottom: 100rpx;
-}
-
-.technical_support image {
-  width: 203rpx !important;
-  height: 105rpx !important;
-  display: block;
-  margin: 0 auto;
-  border-radius: 0 !important;
 }

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "评价",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "technical-component": "/component/technical/technical"
-  }
-}

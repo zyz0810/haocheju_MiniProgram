@@ -1,5 +1,0 @@
-<view class='flex tc'>
-  <view class='flex-item'>卡一</view>
-  <view class='flex-item'>卡二</view>
-  <view class='flex-item'>卡三</view>
-</view>

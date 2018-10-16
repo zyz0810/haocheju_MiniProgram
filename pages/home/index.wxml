@@ -3,8 +3,7 @@
 <import src="/template/search/search.wxml" />
 <!--swiper  -->
 <import src="/template/swiperIndex/swiper.wxml" />
-<!-- coupon -->
-<import src="/template/coupon/couponList.wxml" />
+
 
 <view class="container" wx:if="{{homeLoadReady}}">
   <!-- <scroll-view bindscroll="scroll" scroll-y scroll-with-animation enable-back-to-top bindscrolltolower="toLower" scroll-into-view="{{scrollTo}}" style="height:100%">  -->
@@ -66,8 +65,7 @@
       </block>
     </view>
 
-    <!-- 优惠券列表 -->
-    <template is="couponList" data="{{data:couponList}}"></template>
+
 
     <view class='timeLimit' hidden='{{limitLength}}'>
       <view class='title f20'>限时抢购

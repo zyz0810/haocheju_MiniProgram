@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "搜索",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "technical-component": "/component/technical/technical",
-    "shadow-component": "/component/shadow/shadow"
-  }
-}

@@ -1,7 +1,3 @@
 {
-  "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "technical-component": "/component/technical/technical",
-    "shadow-component": "/component/shadow/shadow"
-  }
+  "navigationBarTitleText": "好车居"
 }
