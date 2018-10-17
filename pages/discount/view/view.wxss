@@ -23,5 +23,5 @@ page{
 button{
   color: #fff !important;
   background: #0f84de !important;
-  margin: 50rpx;
+  margin: 50rpx auto;
 }

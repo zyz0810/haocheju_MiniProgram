@@ -13,7 +13,11 @@ Page({
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    list: [
+      { show: true },
+      { show: true }
+    ],
   },
 
   /**
@@ -35,6 +39,20 @@ Page({
    */
   onShow: function () {
 
+  },
+  contBtn: function (e) {
+    var that = this,
+      listArr = that.data.list,
+      index = e.currentTarget.dataset.index;
+    console.log(index)
+    if (listArr[index].show == false) {
+      listArr[index].show = true
+    } else {
+      listArr[index].show = false
+    }
+    that.setData({
+      list: listArr
+    })
   },
 
   /**

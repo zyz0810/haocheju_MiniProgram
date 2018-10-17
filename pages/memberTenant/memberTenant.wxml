@@ -8,11 +8,11 @@
       <view>好车居</view>
       <view>just do it!</view>
     </view>
-    <view class='right'><text class='iconfont icon-icon-edit f20 white'></text></view>
+    <view class='right' bindtap='goEdit'><text class='iconfont icon-icon-edit f20 white'></text></view>
   </view>
 </view>
 <view class='menu clr_mediumGray'>
-  <view class='menu_item f12 tc'>
+  <view class='menu_item f12 tc' bindtap='goInsurance'>
     <view class='iconfont icon-baoxian f24'></view>
     <view>我的保险</view>
   </view>
@@ -28,11 +28,11 @@
    <view class='iconfont icon-shoucang f24'></view>
     <view>我的收藏</view>
   </view>
-  <view class='menu_item f12 tc'>
+  <view class='menu_item f12 tc' bindtap='goCircle'>
   <view class='iconfont icon-fabiaohuati f24'></view>
     <view>我的发表</view>
   </view>
-   <view class='menu_item f12 tc'>
+   <view class='menu_item f12 tc' bindtap='goCarpool'>
   <view class='iconfont icon-maiche f24'></view>
     <view>我的拼车</view>
   </view>

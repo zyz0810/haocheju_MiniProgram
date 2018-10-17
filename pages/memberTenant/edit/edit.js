@@ -1,13 +1,11 @@
-// pages/memberTenant/memberTenant.js
-let app = getApp(),
-  util = require("../../utils/util.js")
+// pages/member/edit/edit.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    date: '2016-09-01',
   },
 
   /**
@@ -15,27 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-  goEdit:function(){
-    util.navigateTo({
-      url: 'edit/edit',
-    })
-  },
-
-  goInsurance:function(){
-    util.navigateTo({
-      url: 'insurance/insurance',
-    })
-  },
-  goCircle: function () {
-    util.navigateTo({
-      url: 'circle/circle',
-    })
-  },
-  goCarpool:function(){
-    util.navigateTo({
-      url: 'carpool/carpool',
-    })
   },
 
   /**
@@ -51,7 +28,12 @@ Page({
   onShow: function () {
 
   },
-
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

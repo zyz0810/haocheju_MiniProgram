@@ -1,4 +1,6 @@
 // pages/memberTenant/insurance/insurance.js
+let app = getApp(),
+util = require("../../../utils/util.js")
 Page({
 
   /**
@@ -28,6 +30,26 @@ Page({
   onShow: function () {
 
   },
+
+  goOffer: function () {
+    util.navigateTo({
+      url: 'offer/offer',
+    })
+  },
+
+
+  goClaims: function () {
+    util.navigateTo({
+      url: 'claims/claims',
+    })
+  },
+
+  goProduct: function () {
+    util.navigateTo({
+      url: 'product/product',
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏

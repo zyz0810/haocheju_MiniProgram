@@ -1,6 +1,4 @@
-// pages/memberTenant/memberTenant.js
-let app = getApp(),
-  util = require("../../utils/util.js")
+// pages/memberTenant/insurance/offer/offer.js
 Page({
 
   /**
@@ -15,27 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-  goEdit:function(){
-    util.navigateTo({
-      url: 'edit/edit',
-    })
-  },
-
-  goInsurance:function(){
-    util.navigateTo({
-      url: 'insurance/insurance',
-    })
-  },
-  goCircle: function () {
-    util.navigateTo({
-      url: 'circle/circle',
-    })
-  },
-  goCarpool:function(){
-    util.navigateTo({
-      url: 'carpool/carpool',
-    })
   },
 
   /**

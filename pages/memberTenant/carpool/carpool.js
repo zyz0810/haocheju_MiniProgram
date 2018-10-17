@@ -1,13 +1,14 @@
-// pages/memberTenant/memberTenant.js
+// pages/member/carpool/carpool.js
 let app = getApp(),
-  util = require("../../utils/util.js")
+  util = require("../../../utils/util.js"),
+  navCart = require("../../../template/cart/cart.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    tab_current: 0
   },
 
   /**
@@ -15,27 +16,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-  goEdit:function(){
-    util.navigateTo({
-      url: 'edit/edit',
-    })
-  },
-
-  goInsurance:function(){
-    util.navigateTo({
-      url: 'insurance/insurance',
-    })
-  },
-  goCircle: function () {
-    util.navigateTo({
-      url: 'circle/circle',
-    })
-  },
-  goCarpool:function(){
-    util.navigateTo({
-      url: 'carpool/carpool',
-    })
   },
 
   /**
@@ -50,6 +30,12 @@ Page({
    */
   onShow: function () {
 
+  },
+  tabClick: function (e) {
+    var that = this;
+    that.setData({
+      tab_current: e.currentTarget.dataset.id
+    })
   },
 
   /**

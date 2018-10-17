@@ -3,15 +3,15 @@
   <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
 </view>
 <view class='flex nav tc'>
-  <view class='flex-item'>
+  <view class='flex-item' bindtap='goOffer'>
     <image src='http://www.0556360.com/weixin/images/static/home/channel01.jpg'></image>
     <view class='f13 clr_mediumGray'>车险预算</view>
   </view>
-  <view class='flex-item'>
+  <view class='flex-item' bindtap='goClaims'>
     <image src='http://www.0556360.com/weixin/images/static/home/channel01.jpg'></image>
     <view class='f13 clr_mediumGray'>理赔查询</view>
   </view>
-  <view class='flex-item'>
+  <view class='flex-item' bindtap='goProduct'>
     <image src='http://www.0556360.com/weixin/images/static/home/channel01.jpg'></image>
     <view class='f13 clr_mediumGray'>热销产品</view>
   </view>

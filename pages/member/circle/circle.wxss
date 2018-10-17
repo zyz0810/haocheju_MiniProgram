@@ -1,8 +1,4 @@
-/* pages/circle/circle.wxss */
-
-swiper image{
-  width: 100%;
-}
+/* pages/member/circle/circle.wxss *//* pages/circle/circle.wxss */
 
 .headImg {
   font-size: 0;

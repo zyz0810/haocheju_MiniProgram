@@ -1,0 +1,18 @@
+<!--pages/memberTenant/insurance/offer/offer.wxml-->
+<view class='banner'>
+  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+</view>
+<view class='cont'>
+  <view class='lineItem f12 clr_red'>
+    <view class='left'>费改红利，保费低至2.3折，测测爱车保护费吧~</view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'>车牌号</view>
+    <view class='center'>皖<input type='text' placeholder='请输入车牌号'></input></view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'>手机号</view>
+    <view class='center'><input type='text' placeholder='请输入手机号码'></input></view>
+  </view>
+  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即报价 </button>
+</view>

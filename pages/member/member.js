@@ -15,10 +15,19 @@ Page(Object.assign({}, navCart, {
   onShow: function () {
     
   },
-  //我的钱包
-  purse: function () {
+  goEdit: function () {
     util.navigateTo({
-      url: 'purse/purse',
+      url: 'edit/edit',
     })
   },
+  goCarpool: function () {
+    util.navigateTo({
+      url: 'carpool/carpool',
+    })
+  },
+  goCircle:function(){
+    util.navigateTo({
+      url: 'circle/circle',
+    })
+  }
 }))

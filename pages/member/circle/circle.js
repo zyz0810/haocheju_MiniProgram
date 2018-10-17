@@ -1,13 +1,14 @@
-// pages/memberTenant/memberTenant.js
-let app = getApp(),
-  util = require("../../utils/util.js")
+// pages/member/circle/circle.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:[
+      { show: true},
+      { show: true}
+    ],
   },
 
   /**
@@ -15,27 +16,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-  goEdit:function(){
-    util.navigateTo({
-      url: 'edit/edit',
-    })
-  },
-
-  goInsurance:function(){
-    util.navigateTo({
-      url: 'insurance/insurance',
-    })
-  },
-  goCircle: function () {
-    util.navigateTo({
-      url: 'circle/circle',
-    })
-  },
-  goCarpool:function(){
-    util.navigateTo({
-      url: 'carpool/carpool',
-    })
   },
 
   /**
@@ -51,6 +31,21 @@ Page({
   onShow: function () {
 
   },
+  contBtn: function (e) {
+    var that = this,
+    listArr = that.data.list,
+      index = e.currentTarget.dataset.index;
+    console.log(index)
+    if (listArr[index].show == false) {
+      listArr[index].show = true
+    } else {
+      listArr[index].show = false
+    }
+    that.setData({
+      list: listArr
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏

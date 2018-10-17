@@ -1,14 +1,6 @@
-<!--pages/circle/circle.wxml-->
-<view id="publish" class="publish f40 tc">+</view>
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image" width="355" height="150" />
-    </swiper-item>
-  </block>
-</swiper>
-<view class='list'>
+<!--pages/member/circle/circle.wxml-->
 <block wx:for='{{list}}' wx:key='index'>
+<view class='list'>
   <view class='list_item'>
     <view class='lineItem head'>
       <view class='left headImg'>
@@ -51,7 +43,6 @@
         </view>
       </view>
     </view>
-
   </view>
-  </block>
 </view>
+</block>

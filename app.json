@@ -1,19 +1,28 @@
 {
   "pages": [
+    "pages/circle/circle",
+    "pages/member/circle/circle",
+    
+    "pages/member/member",
+    
+    "pages/memberTenant/memberTenant",
+    "pages/memberTenant/insurance/product/product",
+    "pages/memberTenant/insurance/claims/claims",
+    "pages/memberTenant/insurance/offer/offer",
     "pages/memberTenant/insurance/insurance",
     "pages/member/car/car",
     "pages/member/carpool/carpool",
     "pages/member/edit/edit",
-    "pages/memberTenant/memberTenant",
-    
+    "pages/memberTenant/carpool/carpool",
+    "pages/memberTenant/edit/edit",
     "pages/discount/discount",
     "pages/discount/view/view",
     "pages/hire/people/people",
     "pages/hire/car/car",
     "pages/hire/hire",
     "pages/home/home",
-    "pages/circle/circle",
-    "pages/member/member",
+    
+    
     
     
     
