@@ -39,6 +39,36 @@ Page(Object.assign({}, swiperAutoHeight, navCart, {
   onLoad: function(options) {
     
   },
+  goMaintain:function(){
+    util.navigateTo({
+      url: 'maintain/maintain',
+    })
+  },
+  goAccessories:function(){
+    util.navigateTo({
+      url: 'accessories/accessories',
+    })
+  },
+  goSteamProtection: function () {
+    util.navigateTo({
+      url: 'steamProtection/steamProtection',
+    })
+  },
+  goInsurance:function(){
+    util.navigateTo({
+      url: 'insurance/insurance',
+    })
+  },
+  goTransaction: function () {
+    util.navigateTo({
+      url: 'transaction/transaction',
+    })
+  },
+  goBeauty: function () {
+    util.navigateTo({
+      url: 'beauty/beauty',
+    })
+  },
   //跳转资讯列表页
   goNewsList(e){
     let id = e.currentTarget.dataset.id

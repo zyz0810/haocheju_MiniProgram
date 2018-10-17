@@ -6,6 +6,9 @@
   position: relative;
   /* background: #f4f4f4; */
 }
+image{
+  width: 100%;
+}
 
 page {
   background: #f4f4f4;

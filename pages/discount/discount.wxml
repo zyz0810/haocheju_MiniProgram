@@ -12,7 +12,7 @@
 
   <view class='search'>
     <view class='search_frame'>
-      <input type='text' class='f12' placeholder='搜索 品牌/车系/参数/商家'></input>
+      <input type='text' class='f12' placeholder='搜索 车品牌/型号'></input>
     </view>
     <view class='history'>
       <view class='f12 clr-white'>特惠促销 优惠大放送</view>

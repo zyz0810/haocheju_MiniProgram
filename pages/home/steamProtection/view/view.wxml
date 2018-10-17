@@ -1,0 +1,58 @@
+<!--pages/home/maintain/view/view.wxml-->
+<view class='container'>
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='lineItem'>
+  <view class='center clr_gray01 f16 overTwo'>开瑞 开瑞K60 2018款 1.5T 手动豪华型</view>
+</view>
+<view class='lineItem price'>
+  <view class='center'>
+  <text class='clr_gray01'>一口价</text>
+  <text class='yellow01'>￥45.6</text>
+  <text class='clr_mediumGray old_price'>￥100</text>
+  </view>
+</view>
+<view class='lineItemTitle f10 clr_lightGray tag'>
+  <text>认证商家</text>
+  <text>专属顾问</text>
+</view>
+<view class='parameter'>
+<view class='title_common'>产品参数</view>
+<view class='cont f12 clr_mediumGray'>
+  <view>品牌：3E</view>
+  <view>型号：OP-1</view>
+  <view>汽车品牌：东南 宝骏 传祺 雪佛兰 起亚 哈佛 比亚迪 丰田 现代 长安 宝马</view>
+  <view>车系：DX3</view>
+  <view>颜色：黑色 灰色</view>
+</view>
+</view>
+<view class='parameter'>
+<view class='title_common'>亮点介绍</view>
+
+<view class='cont f12'>
+  <image src='http://www.0556360.com/weixin/images/static/home/ad.jpg' mode='widthFix'></image>
+激情于心，卓越于行。宋DM，以百公里4.9秒凌厉加速，
+                            伴全新一代主流精英，全速进取。
+                            超广视野全景天窗，打开一片独属于你的风景。绝妙的开阔感受，自然之美触手可及，时刻激发向往自由之心。
+                            装配LED前大灯，彰显时尚更添科技之美，夜间行车视野更清晰，前行方向了然于心。
+                            360°高清全景影像 · 行享安全
+                        </view>
+</view>
+<view class='flex tc f16 bottom'>
+  <view class='flex-item collect'>
+    <view>收藏</view>
+  </view>
+  <view class='flex-item'>
+    <view>商家</view>
+  </view>
+  <view class='flex-item buy_btn'>
+    <view>立即预约</view>
+  </view>
+</view>
+</view>

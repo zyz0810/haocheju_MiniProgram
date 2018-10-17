@@ -1,0 +1,30 @@
+/* pages/memberTenant/insurance/offer/offer.wxss */
+
+.cont {
+  position: relative;
+  z-index: 998;
+  background: #fff;
+  width: 88vw;
+  padding: 2vw;
+  margin: -2em auto 0;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #0f84de;
+}
+.cont .left,.cont .center{
+  justify-content: center;
+  align-items: center;
+}
+.cont .center{
+  flex-direction: row;
+}
+button{
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto 20rpx;
+}
+
+#getcap{
+  width: 150rpx;
+  background:#00a0e9;
+  border-radius: 10rpx;
+}

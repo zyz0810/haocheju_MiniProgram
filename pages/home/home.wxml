@@ -10,11 +10,11 @@
     </swiper>
   </view>
   <view class='nav f10'>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goMaintain'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916366156235.jpg' mode='widthFix'></image>
       <view>维修保养</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goAccessories'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916408192791.jpg' mode='widthFix'></image>
       <view>用品配车</view>
     </view>
@@ -34,7 +34,7 @@
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916576503730.jpg' mode='widthFix'></image>
       <view>网上驾校</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goSteamProtection'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916601839440.jpg' mode='widthFix'></image>
       <view>汽保设备</view>
     </view>
@@ -42,15 +42,15 @@
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916625145046.jpg' mode='widthFix'></image>
       <view>汽车人才</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goInsurance'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916647999447.jpg' mode='widthFix'></image>
       <view>保险理赔</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goTransaction'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916647999447.jpg' mode='widthFix'></image>
       <view>汽贸交易</view>
     </view>
-     <view class='nav_item tc'>
+     <view class='nav_item tc' bindtap='goBeauty'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916647999447.jpg' mode='widthFix'></image>
       <view>美容装饰</view>
     </view>

@@ -1,0 +1,14 @@
+/* pages/memberTenant/insurance/product/product.wxss */
+page{
+  background: #fff;
+}
+.list{
+  padding: 4vw 4vw 0;
+}
+.list image{
+  width: 100%;
+  border-radius: 20rpx;
+}
+.list view{
+  line-height: 1.6em;
+}

@@ -1,5 +1,18 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/home/steamProtection/steamProtection",
+    "pages/home/steamProtection/view/view",
+    "pages/home/insurance/insurance",
+    "pages/home/insurance/view/view",
+    "pages/home/accessories/accessories",
+    "pages/home/accessories/view/view",
+    "pages/home/maintain/view/view",
+    "pages/home/maintain/maintain",
+    "pages/home/transaction/transaction",
+    "pages/home/transaction/view/view",
+    "pages/home/beauty/beauty",
+    "pages/home/beauty/view/view",
     "pages/circle/circle",
     "pages/member/circle/circle",
     
@@ -20,7 +33,7 @@
     "pages/hire/people/people",
     "pages/hire/car/car",
     "pages/hire/hire",
-    "pages/home/home",
+    
     
     
     
