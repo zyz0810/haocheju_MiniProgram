@@ -1,0 +1,81 @@
+/* pages/home/school/school.wxss */
+page{
+  background: url("http://www.0556360.com/weixin/images/static/usedCar/bg.png") no-repeat;
+  background-size: 100% auto;
+}
+.bg {
+  padding: 20rpx 0;
+}
+
+.bg .lineItem {
+  width: 88%;
+  padding: 10rpx 0;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+
+.bg .lineItem .left {
+  position: relative;
+  width: 20%;
+  margin-right: 20rpx;
+  line-height: 40rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg .lineItem .left:after {
+  border-right: 1px solid #cdcdcd;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  content: " ";
+  position: absolute;
+  color: #cdcdcd;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.bg .lineItem .center {
+  position: relative;
+  margin-left: 20rpx;
+}
+
+.bg .lineItem .iconfont {
+  position: absolute;
+  left: 0;
+  top: 15rpx;
+}
+
+.bg .lineItem input {
+  padding: 0 10rpx 0 50rpx;
+}
+.list{
+  padding: 0 3vw;
+}
+.list_item{
+      display: block;
+    padding: 2% 2% 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    margin-top: 2%;
+    background: #fff;
+}
+.school_logo{
+    width: 22vw;
+    height: 22vw;
+    margin-right: 2vw;
+    border-radius: 5px;
+}
+.call {
+    color: #fff;
+    background: #00c876;
+    padding: 3px 10px;
+    letter-spacing: 2px;
+}

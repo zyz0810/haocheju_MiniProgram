@@ -1,0 +1,117 @@
+<!--pages/home/trial/trial.wxml-->
+<view class='flex clr-white baseBg tc f16 tab'>
+  <view class='flex-item {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tab_switch'><text>违章</text></view>
+  <view class='flex-item {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tab_switch'><text>年审</text></view>
+</view>
+<view class='peccancy f16' hidden='{{tab_current == 0?false:true}}'>
+  <view class='lineItem border license'>
+    <view class='left'>车牌号</view>
+    <view class='center'>
+      <view class='area_txt' bindtap='areaShow'>{{areaTxt}}<image src='http://www.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
+      <input type='text' placeholder='请输入完整车牌'></input>
+    </view>
+  </view>
+  <view class='lineItem border'>
+    <view class='left'>车架号</view>
+    <view class='center'><input type='text' placeholder='请输入完整车架号'></input></view>
+  </view>
+  <view class='lineItem border'>
+    <view class='left'>发动机号</view>
+    <view class='center'><input type='text' placeholder='请输入发动机号6位'></input></view>
+  </view>
+  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 提交 </button>
+  <view class='areaCont f17' hidden='{{area}}'>
+    <text data-txt='京' bindtap='areaChoose'>京</text>
+    <text data-txt='沪' bindtap='areaChoose'>沪</text>
+    <text data-txt='浙' bindtap='areaChoose'>浙</text>
+    <text data-txt='苏' bindtap='areaChoose'>苏</text>
+    <text data-txt='粤' bindtap='areaChoose'>粤</text>
+    <text data-txt='鲁' bindtap='areaChoose'>鲁</text>
+    <text data-txt='晋' bindtap='areaChoose'>晋</text>
+    <text data-txt='冀' bindtap='areaChoose'>冀</text>
+    <text data-txt='豫' bindtap='areaChoose'>豫</text>
+    <text data-txt='川' bindtap='areaChoose'>川</text>
+    <text data-txt='渝' bindtap='areaChoose'>渝</text>
+    <text data-txt='辽' bindtap='areaChoose'>辽</text>
+    <text data-txt='吉' bindtap='areaChoose'>吉</text>
+    <text data-txt='黑' bindtap='areaChoose'>黑</text>
+    <text data-txt='皖' bindtap='areaChoose'>皖</text>
+    <text data-txt='鄂' bindtap='areaChoose'>鄂</text>
+    <text data-txt='湘' bindtap='areaChoose'>湘</text>
+    <text data-txt='赣' bindtap='areaChoose'>赣</text>
+    <text data-txt='闽' bindtap='areaChoose'>闽</text>
+    <text data-txt='陕' bindtap='areaChoose'>陕</text>
+    <text data-txt='甘' bindtap='areaChoose'>甘</text>
+    <text data-txt='宁' bindtap='areaChoose'>宁</text>
+    <text data-txt='蒙' bindtap='areaChoose'>蒙</text>
+    <text data-txt='津' bindtap='areaChoose'>津</text>
+    <text data-txt='贵' bindtap='areaChoose'>贵</text>
+    <text data-txt='云' bindtap='areaChoose'>云</text>
+    <text data-txt='桂' bindtap='areaChoose'>桂</text>
+    <text data-txt='琼' bindtap='areaChoose'>琼</text>
+    <text data-txt='青' bindtap='areaChoose'>青</text>
+    <text data-txt='新' bindtap='areaChoose'>新</text>
+    <text data-txt='藏' bindtap='areaChoose'>藏</text>
+  </view>
+</view>
+
+<view class='trial_cont f16' hidden='{{tab_current == 1?false:true}}'>
+  <view class='lineItem border'>
+    <view class='left'>姓名</view>
+    <view class='center'><input type='text' placeholder='请输入姓名'></input></view>
+  </view>
+  <view class='lineItem border'>
+    <view class='left'>手机号</view>
+    <view class='center'><input type='text' placeholder='请输入手机号'></input></view>
+  </view>
+  <view class='lineItem border license'>
+    <view class='left'>车牌号</view>
+    <view class='center'>
+      <view class='area_txt' bindtap='trialAreaShow'>{{trialAreaTxt}}<image src='http://www.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
+      <input type='text' placeholder='请输入完整车牌'></input>
+    </view>
+  </view>
+  <view class='lineItem border'>
+    <view class='left'>车辆位置</view>
+    <view class='center'><input type='text' placeholder='请输入车辆位置'></input></view>
+  </view>
+  <view class='lineItem border'>
+    <view class='left'>购车年限</view>
+    <view class='center'><input type='text' placeholder='请输入购车年限'></input></view>
+  </view>
+  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 提交 </button>
+  <view class='areaCont f17' hidden='{{trialArea}}'>
+    <text data-txt='京' bindtap='trialAreaChoose'>京</text>
+    <text data-txt='沪' bindtap='trialAreaChoose'>沪</text>
+    <text data-txt='浙' bindtap='trialAreaChoose'>浙</text>
+    <text data-txt='苏' bindtap='trialAreaChoose'>苏</text>
+    <text data-txt='粤' bindtap='trialAreaChoose'>粤</text>
+    <text data-txt='鲁' bindtap='trialAreaChoose'>鲁</text>
+    <text data-txt='晋' bindtap='trialAreaChoose'>晋</text>
+    <text data-txt='冀' bindtap='trialAreaChoose'>冀</text>
+    <text data-txt='豫' bindtap='trialAreaChoose'>豫</text>
+    <text data-txt='川' bindtap='trialAreaChoose'>川</text>
+    <text data-txt='渝' bindtap='trialAreaChoose'>渝</text>
+    <text data-txt='辽' bindtap='trialAreaChoose'>辽</text>
+    <text data-txt='吉' bindtap='trialAreaChoose'>吉</text>
+    <text data-txt='黑' bindtap='trialAreaChoose'>黑</text>
+    <text data-txt='皖' bindtap='trialAreaChoose'>皖</text>
+    <text data-txt='鄂' bindtap='trialAreaChoose'>鄂</text>
+    <text data-txt='湘' bindtap='trialAreaChoose'>湘</text>
+    <text data-txt='赣' bindtap='trialAreaChoose'>赣</text>
+    <text data-txt='闽' bindtap='trialAreaChoose'>闽</text>
+    <text data-txt='陕' bindtap='trialAreaChoose'>陕</text>
+    <text data-txt='甘' bindtap='trialAreaChoose'>甘</text>
+    <text data-txt='宁' bindtap='trialAreaChoose'>宁</text>
+    <text data-txt='蒙' bindtap='trialAreaChoose'>蒙</text>
+    <text data-txt='津' bindtap='trialAreaChoose'>津</text>
+    <text data-txt='贵' bindtap='trialAreaChoose'>贵</text>
+    <text data-txt='云' bindtap='trialAreaChoose'>云</text>
+    <text data-txt='桂' bindtap='trialAreaChoose'>桂</text>
+    <text data-txt='琼' bindtap='trialAreaChoose'>琼</text>
+    <text data-txt='青' bindtap='trialAreaChoose'>青</text>
+    <text data-txt='新' bindtap='trialAreaChoose'>新</text>
+    <text data-txt='藏' bindtap='trialAreaChoose'>藏</text>
+  </view>
+</view>
+

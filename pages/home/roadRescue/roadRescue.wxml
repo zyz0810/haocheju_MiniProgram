@@ -1,0 +1,83 @@
+<!--pages/home/roadRescue/roadRescue.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='list'>
+  <view class='lineItem list_item'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem lineItem_access border'>
+        <view class='center f16'>好车居汽车连锁服务</view>
+        <view class='right'></view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>
+          <view>地址：宿松县孚玉镇宿松路7号</view>
+          <view>联系电话：18800556622</view>
+          <view class='tr'><text class='call'>拨号</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem list_item'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem lineItem_access border'>
+        <view class='center f16'>好车居汽车连锁服务</view>
+        <view class='right'></view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>
+          <view>地址：宿松县孚玉镇宿松路7号</view>
+          <view>联系电话：18800556622</view>
+          <view class='tr'><text class='call'>拨号</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem list_item'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem lineItem_access border'>
+        <view class='center f16'>好车居汽车连锁服务</view>
+        <view class='right'></view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>
+          <view>地址：宿松县孚玉镇宿松路7号</view>
+          <view>联系电话：18800556622</view>
+          <view class='tr'><text class='call'>拨号</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem list_item'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem lineItem_access border'>
+        <view class='center f16'>好车居汽车连锁服务</view>
+        <view class='right'></view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>
+          <view>地址：宿松县孚玉镇宿松路7号</view>
+          <view>联系电话：18800556622</view>
+          <view class='tr'><text class='call'>拨号</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

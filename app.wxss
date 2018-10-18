@@ -180,6 +180,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .gray03 {
     color: #333;
 }
+.gray04 {
+    color: #5d5d5d;
+}
 .blue01{
   color:#99aacd; 
 }

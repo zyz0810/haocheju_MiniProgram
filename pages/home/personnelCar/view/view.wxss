@@ -1,0 +1,43 @@
+/* pages/home/personnelCar/view/view.wxss */
+.info .right{
+  flex-direction: row;
+  align-items: baseline;
+}
+.infomation {
+  padding: 2%;
+  background: #fff;
+}
+.infomation .li{
+  width: 50%;
+}
+.call {
+    color: #fff;
+    background: #00c876;
+    padding: 3px 10px;
+    letter-spacing: 2px;
+}
+.contacts{
+  padding: 2%;
+  margin: 20rpx 0;
+   background: #fff;
+}
+.contacts .lineItem{
+  padding: 0;
+  line-height: 1.8em;
+}
+.details{
+  padding: 2%;
+  line-height: 1.8em;
+  background: #fff;
+}
+
+.details .tit{
+      padding: 2% 0;
+    margin-bottom: 2%;
+    background: #fff;
+    position: relative;
+  border-bottom: 1px solid #999;
+}
+
+
+

@@ -1,0 +1,23 @@
+/* pages/home/roadRescue/roadRescue.wxss */
+.list{
+  padding: 0 3vw;
+}
+.list_item{
+    padding: 2%;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    margin-top: 2%;
+    background: #fff;
+}
+.logo{
+      width: 22vw;
+    height: 22vw;
+    margin-right: 2vw;
+    border-radius: 5px;
+}
+.call {
+    color: #fff;
+    background: #00c876;
+    padding: 3px 10px;
+    letter-spacing: 2px;
+}

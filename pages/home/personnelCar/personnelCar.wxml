@@ -1,0 +1,97 @@
+<!--pages/home/personnelCar/personnelCar.wxml-->
+<view class='bg'>
+  <view class='lineItem'>
+    <view class='left tc f14'>安庆</view>
+    <view class='center'>
+      <text class='iconfont icon-sousuo f16 baseColor'></text>
+      <input type='search' class='f14'></input>
+    </view>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class='flex tc publish f15'>
+  <view class='flex-item' bindtap='findCar'>
+    <view>发布找车</view>
+  </view>
+  <view class='flex-item' bindtap='findPeople'>
+    <view>发布找人</view>
+  </view>
+</view>
+
+<view class='list'>
+  <view class='lineItem list_item' data-id='1' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem'>
+        <view class='center f16 gray03'>程序员鼓励师</view>
+        <view class='right f16 baseColor'>2000元/月</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>门店</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>宿松县安瑞酒店 2年经验</view>
+      </view>
+    </view>
+  </view> 
+  <view class='lineItem list_item' data-id='1' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem'>
+        <view class='center f16 gray03'>程序员鼓励师</view>
+        <view class='right f16 baseColor'>2000元/月</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>门店</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>宿松县安瑞酒店 2年经验</view>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem list_item' data-id='1' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem'>
+        <view class='center f16 gray03'>程序员鼓励师</view>
+        <view class='right f16 baseColor'>2000元/月</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>门店</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>宿松县安瑞酒店 2年经验</view>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem list_item' data-id='1' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='lineItem'>
+        <view class='center f16 gray03'>程序员鼓励师</view>
+        <view class='right f16 baseColor'>2000元/月</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>门店</view>
+      </view>
+      <view class='lineItem'>
+        <view class='center f13 clr_mediumGray'>宿松县安瑞酒店 2年经验</view>
+      </view>
+    </view>
+  </view>
+</view>

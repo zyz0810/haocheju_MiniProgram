@@ -11,10 +11,10 @@
 </view>
 
 <view class='flex tc publish f15'>
-  <view class='flex-item' bindtap='findCar'>
+  <view class='flex-item'>
     <view>发布找车</view>
   </view>
-  <view class='flex-item' bindtap='findPeople'>
+  <view class='flex-item'>
     <view>发布找人</view>
   </view>
 </view>

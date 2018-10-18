@@ -1,0 +1,70 @@
+/* pages/home/trial/trial.wxss */
+
+.tab .flex-item {
+  padding: 20rpx 0;
+}
+
+.tab .flex-item.active text {
+  border-bottom: 2px solid #fff;
+}
+
+.license .center {
+  position: relative;
+}
+
+.area_txt {
+  height: 1.6em;
+  line-height: 1.6em;
+  padding: 0 3px;
+  border: 2px solid #0f84de;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: -5%;
+}
+
+.area_txt image {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  z-index: 999;
+  width: 6px;
+  height: 6px;
+}
+
+.license .center input {
+  margin-left: 60rpx;
+}
+
+.lineItem .left {
+  width: 200rpx;
+}
+
+.areaCont {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3.5% 0 3.5% 3.5%;
+  background: #f6f6f6;
+  border-top: 1px solid #cdcdcd;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.areaCont text {
+  display: block;
+  float: left;
+  text-align: center;
+  width: 9%;
+  margin: 2% 3.5% 0 0;
+  background: #fff;
+  box-shadow: 0 0 2px #ccc;
+}
+.lineItem .left{
+  align-items: center;
+}
+button{
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto;
+}
