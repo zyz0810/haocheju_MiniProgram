@@ -18,19 +18,19 @@
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916408192791.jpg' mode='widthFix'></image>
       <view>用品配车</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goHire'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916433811654.jpg' mode='widthFix'></image>
       <view>租车代驾</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goTrial'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916512240845.jpg' mode='widthFix'></image>
       <view>违章年审</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goRoadRescue'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916536983093.jpg' mode='widthFix'></image>
       <view>道路救援</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goSchool'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916576503730.jpg' mode='widthFix'></image>
       <view>网上驾校</view>
     </view>
@@ -38,7 +38,7 @@
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916601839440.jpg' mode='widthFix'></image>
       <view>汽保设备</view>
     </view>
-    <view class='nav_item tc'>
+    <view class='nav_item tc' bindtap='goPersonnelCar'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916625145046.jpg' mode='widthFix'></image>
       <view>汽车人才</view>
     </view>

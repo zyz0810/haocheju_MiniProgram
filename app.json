@@ -1,9 +1,13 @@
 {
   "pages": [
-  "pages/home/trial/trial",
+    "pages/home/home",
+    "pages/member/authentication/authentication",
+    "pages/home/hire/car/car",
+    "pages/home/hire/hire",
+    
+    "pages/home/trial/trial",
     "pages/home/roadRescue/roadRescue",
     "pages/home/school/school",
-    "pages/home/home",
     "pages/home/personnelCar/view/view",
     "pages/home/personnelCar/personnelCar",
     "pages/home/steamProtection/steamProtection",

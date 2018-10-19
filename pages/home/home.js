@@ -48,6 +48,31 @@ Page(Object.assign({}, swiperAutoHeight, navCart, {
     util.navigateTo({
       url: 'accessories/accessories',
     })
+  }, 
+  goHire: function() {
+    util.navigateTo({
+      url: 'hire/hire',
+    })
+  },
+  goTrial:function(){
+    util.navigateTo({
+      url: 'trial/trial',
+    })
+  },
+  goRoadRescue:function(){
+    util.navigateTo({
+      url: 'roadRescue/roadRescue',
+    })
+  },
+  goSchool: function () {
+    util.navigateTo({
+      url: 'school/school',
+    })
+  },
+  goPersonnelCar:function(){
+    util.navigateTo({
+      url: 'personnelCar/personnelCar',
+    })
   },
   goSteamProtection: function () {
     util.navigateTo({

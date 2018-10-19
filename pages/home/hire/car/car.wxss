@@ -1,0 +1,15 @@
+/* pages/home/hire/car/car.wxss */
+.left image{
+      width: 30vw;
+      height: 20vw;
+    margin-right: 2vw;
+}
+.center .border_bottom{
+  padding-bottom: 10rpx;
+}
+.lineItem{
+  margin-bottom: 2%;
+}
+.lineItem .center{
+  justify-content: space-between;
+}

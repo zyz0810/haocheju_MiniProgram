@@ -1,0 +1,45 @@
+<!--pages/home/hire/car/car.wxml-->
+<view class='lineItem' bindtap='goAuthentication'>
+  <view class='left'>
+    <image src='http://www.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+  </view>
+  <view class='center clr_lightGray'>
+    <view class='f15'>别克凯越</view>
+    <view class='f13 border_bottom'>三厢 1.6自动 乘坐5人</view>
+    <view class='f10'>
+      <text class='yellow01 f16'>129</text>/日均</view>
+  </view>
+</view>
+<view class='lineItem' bindtap='goAuthentication'>
+  <view class='left'>
+    <image src='http://www.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+  </view>
+  <view class='center clr_lightGray'>
+    <view class='f15'>别克凯越</view>
+    <view class='f13 border_bottom'>三厢 1.6自动 乘坐5人</view>
+    <view class='f10'>
+      <text class='yellow01 f16'>129</text>/日均</view>
+  </view>
+</view>
+<view class='lineItem' bindtap='goAuthentication'>
+  <view class='left'>
+    <image src='http://www.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+  </view>
+  <view class='center clr_lightGray'>
+    <view class='f15'>别克凯越</view>
+    <view class='f13 border_bottom'>三厢 1.6自动 乘坐5人</view>
+    <view class='f10'>
+      <text class='yellow01 f16'>129</text>/日均</view>
+  </view>
+</view>
+<view class='lineItem' bindtap='goAuthentication'>
+  <view class='left'>
+    <image src='http://www.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+  </view>
+  <view class='center clr_lightGray'>
+    <view class='f15'>别克凯越</view>
+    <view class='f13 border_bottom'>三厢 1.6自动 乘坐5人</view>
+    <view class='f10'>
+      <text class='yellow01 f16'>129</text>/日均</view>
+  </view>
+</view>

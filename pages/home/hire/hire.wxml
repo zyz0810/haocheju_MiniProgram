@@ -1,0 +1,144 @@
+<!--pages/home/hire/hire.wxml-->
+<view class='flex clr-white baseBg tc f16 tab'>
+  <view class='flex-item {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tab_switch'>
+    <text>租车</text>
+  </view>
+  <view class='flex-item {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tab_switch'>
+    <text>代驾</text>
+  </view>
+</view>
+
+<view class='hire' hidden='{{tab_current == 0 ? false:true}}'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='lineItem border mode f16'>
+    <view class='left'>安庆</view>
+    <view class='center'>安庆市宿松县</view>
+    <view class='right f11'>
+      <text class='{{mode == 0?"active":""}}' data-id='0' bindtap='modeClick'>上门</text>
+      <text class='{{mode == 1?"active":""}}' data-id='1' bindtap='modeClick'>到店</text>
+    </view>
+  </view>
+  <view class='lineItem border mode f16'>
+    <view class='left'>安庆</view>
+    <view class='center'>安庆市宿松县</view>
+    <view class='right f11'>
+      <text class='{{mode1 == 0?"active":""}}' data-id='0' bindtap='modeClick1'>上门</text>
+      <text class='{{mode1 == 1?"active":""}}' data-id='1' bindtap='modeClick1'>到店</text>
+    </view>
+  </view>
+
+  <view class='flex car_time'>
+    <view class='flex-item tc'>
+      <view class='f14'>取车时间</view>
+      <view class='f17'>
+        <picker mode="date" value="{{pickUpDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="pickUpDateChange">
+          <view class="picker">
+            {{pickUpDate}}
+          </view>
+        </picker>
+      </view>
+      <view class='f14'>
+        <picker mode="time" value="{{pickUpTime}}" start="00:00" end="23:59" bindchange="pickUpTimeChange">
+          <view class="picker">
+            {{pickUpTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='flex-item arrow'>
+      <view class='circle tc'>
+        <view class='baseColor f18'>{{days}}</view>
+        <view>天</view>
+      </view>
+    </view>
+    <view class='flex-item tc'>
+      <view class='f14'>还车时间</view>
+      <view class='f17'>
+        <picker mode="date" value="{{returnDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="returnDateChange">
+          <view class="picker">
+            {{returnDate}}
+          </view>
+        </picker>
+      </view>
+      <view class='f14'>
+        <picker mode="time" value="{{returnTime}}" start="00:00" end="23:59" bindchange="returnTimeChange">
+          <view class="picker">
+            {{returnTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+ <button type="default" class='clr-white' bindtap="goCar" hover-class="other-button-hover"> 立即去选车 </button>
+</view>
+
+<view class='driving' hidden='{{tab_current == 1 ? false:true}}'>
+
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='lineItem border'>
+    <view class='center f16'>
+      <input type='text' placeholder='请输入您的位置'></input>
+    </view>
+  </view>
+  <view class='lineItem border'>
+    <view class='center f16'>
+      <input type='text' placeholder='请输入目的地'></input>
+    </view>
+  </view>
+  <view class='lineItem lineItem_access driving_time'>
+    <view class='center'>
+      <picker mode="date" value="{{drivingDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          {{drivingDate}}
+        </view>
+      </picker>
+      <picker mode="time" value="{{drivingTime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+        <view class="picker">
+          {{drivingTime}}
+        </view>
+      </picker>
+    </view>
+    <view class='right'></view>
+  </view>
+  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即下单预约 </button>
+
+</view>
+
+<view class='address' hidden='{{addressShow}}'>
+  <view class='lineItem border' bindtap='addressChoose'>
+    <view class='center'>
+      <view class='f15'>好车居汽车服务连锁0</view>
+      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
+    </view>
+  </view>
+  <view class='lineItem border' bindtap='addressChoose'>
+    <view class='center'>
+      <view class='f15'>好车居汽车服务连锁1</view>
+      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
+    </view>
+  </view>
+  <view class='lineItem border' bindtap='addressChoose'>
+    <view class='center'>
+      <view class='f15'>好车居汽车服务连锁2</view>
+      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
+    </view>
+  </view>
+  <view class='lineItem border' bindtap='addressChoose'>
+    <view class='center'>
+      <view class='f15'>好车居汽车服务连锁3</view>
+      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
+    </view>
+  </view>
+</view>

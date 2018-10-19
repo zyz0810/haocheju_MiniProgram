@@ -1,0 +1,9 @@
+/* pages/member/authentication/authentication.wxss */
+page{
+  padding-top: 2vw;
+}
+button {
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto;
+}
