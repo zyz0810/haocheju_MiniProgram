@@ -1,6 +1,7 @@
 <!--pages/home/maintain/maintain.wxml-->
 
 <view class='search_frame'>
+<text class='iconfont icon-sousuo f16 baseColor'></text>
       <input type='text' class='f12' placeholder='搜索 车品牌/型号'></input>
     </view>
 

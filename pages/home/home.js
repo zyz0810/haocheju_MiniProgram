@@ -39,6 +39,11 @@ Page(Object.assign({}, swiperAutoHeight, navCart, {
   onLoad: function(options) {
     
   },
+  goUsedCar:function(){
+    util.navigateTo({
+      url: 'usedCar/index',
+    })
+  },
   goMaintain:function(){
     util.navigateTo({
       url: 'maintain/maintain',

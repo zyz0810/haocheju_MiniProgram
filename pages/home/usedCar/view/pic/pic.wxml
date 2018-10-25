@@ -1,0 +1,22 @@
+<!--pages/usedCar/view/pic/pic.wxml-->
+<view class='title_common f14'>外观</view>
+<view class='img'>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+</view>
+<view class='title_common f14'>内饰</view>
+<view class='img'>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+</view>
+<view class='title_common f14'>轻微损伤及其他</view>
+<view class='img'>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+<image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+</view>

@@ -12,21 +12,22 @@
 
   <view class='search'>
     <view class='search_frame'>
+    <text class='iconfont icon-sousuo f16 baseColor'></text>
       <input type='text' class='f12' placeholder='搜索 车品牌/型号'></input>
     </view>
     <view class='history'>
       <view class='f12 clr-white'>特惠促销 优惠大放送</view>
       <view class='history_cont f13 clr_mediumGray'>
-        <text class='active'>奥迪</text>
-        <text>宝马</text>
-        <text>大众</text>
-        <text>别克</text>
-        <text>本田</text>
-        <text>奥迪</text>
-        <text>宝马</text>
-        <text>大众</text>
-        <text>别克</text>
-        <text>本田</text>
+        <text class='active' data-txt='奥迪' bindtap='goSearch'>奥迪</text>
+        <text data-txt='宝马' bindtap='goSearch'>宝马</text>
+        <text data-txt='大众' bindtap='goSearch'>大众</text>
+        <text data-txt='别克' bindtap='goSearch'>别克</text>
+        <text data-txt='本田' bindtap='goSearch'>本田</text>
+        <text data-txt='奥迪' bindtap='goSearch'>奥迪</text>
+        <text data-txt='大众' bindtap='goSearch'>大众</text>
+        <text data-txt='大众' bindtap='goSearch'>大众</text>
+        <text data-txt='别克' bindtap='goSearch'>别克</text>
+        <text data-txt='本田' bindtap='goSearch'>本田</text>
       </view>
     </view>
   </view>

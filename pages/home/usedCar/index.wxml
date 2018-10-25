@@ -1,0 +1,113 @@
+<!--pages/usedCar/index.wxml-->
+<view class='bg'>
+  <view class='lineItem'>
+    <view class='left tc f14'>安庆</view>
+    <view class='center'>
+      <text class='iconfont icon-sousuo f16 baseColor'></text>
+      <input type='search' class='f14' placeholder='搜索 品牌/车系/参数/商家'></input>
+    </view>
+  </view>
+  <view class='f13 baseColor usedTxt'>好车居二手车，买卖更放心</view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class='flex tc publish f15' bindtap='goBuy'>
+  <view class='flex-item'>我要买车</view>
+  <view class='flex-item'>大量二手车在售</view>
+</view>
+
+<view class='hr'></view>
+
+<view class='ad'>
+  <view>
+    <image src='http://www.0556360.com/weixin/images/static/usedCar/ad.png'></image>
+  </view>
+  <view>
+    <image src='http://www.0556360.com/weixin/images/static/usedCar/ad.png'></image>
+  </view>
+  <view>
+    <image src='http://www.0556360.com/weixin/images/static/usedCar/ad.png'></image>
+  </view>
+  <view>
+    <image src='http://www.0556360.com/weixin/images/static/usedCar/ad.png'></image>
+  </view>
+</view>
+
+<view class='title_common f15'>猜你喜欢</view>
+
+<view class='list'>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+</view>

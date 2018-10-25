@@ -1,8 +1,7 @@
-// pages/discount/discount.js
-let swiperAutoHeight = require("../../template/swiperIndex/swiper.js"),
-  app = getApp(),
-  util = require("../../utils/util.js"),
-  navCart = require("../../template/cart/cart.js")
+// pages/home/maintain/view/view.js
+let app = getApp(),
+  util = require("../../../../utils/util.js")
+ 
 Page({
 
   /**
@@ -32,7 +31,6 @@ Page({
    */
   onReady: function () {
 
-
   },
 
   /**
@@ -41,19 +39,13 @@ Page({
   onShow: function () {
 
   },
-  goSearch:function(e){
-      console.log(e)
-    let txt = e.currentTarget.dataset.txt;
-    util.navigateTo({
-      url: '../search/search?txt='+txt,
-    })
-  },
-  goView:function(e){
+  goPicture:function(e){
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'view/view',
+      url: 'pic/pic?id='+id,
     })
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

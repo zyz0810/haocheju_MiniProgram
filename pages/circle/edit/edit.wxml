@@ -1,0 +1,9 @@
+<!--pages/circle/edit/edit.wxml-->
+<view class='container'>
+  <view class='flex f16 clr_mediumGray'>
+    <view class='flex-item tl'>取消</view>
+    <view class='flex-item tr'>发表</view>
+  </view>
+  <textarea placeholder='说点什么……' class='f14'></textarea>
+  <view class='chooseImg'>选择图片</view>
+</view>

@@ -1,0 +1,106 @@
+<!--pages/usedCar/buy/buy.wxml-->
+<view class='mask' hidden='{{brand && price && rank}}' bindtap='maskBtn'></view>
+<view class='flex tc f16 screen'>
+  <view class='flex-item {{defaultOrder == false?"baseColor":""}}' bindtap='defaultBtn'>默认排序</view>
+  <view class='flex-item {{brand == false?"baseColor":""}}' bindtap='brandBtn'>品牌</view>
+  <view class='flex-item {{price == false?"baseColor":""}}' bindtap='priceBtn'>价格</view>
+  <view class='flex-item {{rank == false?"baseColor":""}}' bindtap='rankBtn'>级别</view>
+</view>
+<view class='screen_cont brand f14 gray03' hidden='{{brand}}'>
+  <text class='tc active' bindtap='conditionBtn'>宝马</text>
+  <text class='tc' bindtap='conditionBtn'>奥迪</text>
+  <text class='tc' bindtap='conditionBtn'>大众</text>
+  <text class='tc' bindtap='conditionBtn'>马自达</text>
+  <text class='tc' bindtap='conditionBtn'>奥迪</text>
+  <text class='tc' bindtap='conditionBtn'>大众</text>
+  <text class='tc' bindtap='conditionBtn'>马自达</text>
+</view>
+<view class='screen_cont price f14 gray03' hidden='{{price}}'>
+  <text class='tc active' bindtap='conditionBtn'>0-3万</text>
+  <text class='tc' bindtap='conditionBtn'>3-5万</text>
+  <text class='tc' bindtap='conditionBtn'>大众</text>
+  <text class='tc' bindtap='conditionBtn'>马自达</text>
+  <text class='tc' bindtap='conditionBtn'>奥迪</text>
+  <text class='tc' bindtap='conditionBtn'>大众</text>
+  <text class='tc' bindtap='conditionBtn'>马自达</text>
+</view>
+<view class='screen_cont rank f14 gray03' hidden='{{rank}}'>
+  <text class='tc active'>宝马</text>
+  <text class='tc'>奥迪</text>
+  <text class='tc'>大众</text>
+  <text class='tc'>马自达</text>
+  <text class='tc'>奥迪</text>
+  <text class='tc'>大众</text>
+  <text class='tc'>马自达</text>
+</view>
+
+<view class='list'>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+  <view class='lineItem' bindtap='goView'>
+    <view class='left'>
+      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    </view>
+    <view class='center'>
+      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
+      <view class='tag'>
+        <text class='tag_orange orange01 f10'>准新车</text>
+        <text class='tag_yellow yellow01 f10'>质保</text>
+      </view>
+      <view class='orange01 f12'>
+        <text class='f15 price'>69.68万</text>
+        <text>首付20.9万</text>
+      </view>
+    </view>
+  </view>
+</view>

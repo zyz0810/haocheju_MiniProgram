@@ -1,0 +1,150 @@
+/* pages/usedCar/index.wxss */
+
+page {
+  background: #fff;
+}
+
+.bg {
+  padding: 4%;
+  background: url("http://www.0556360.com/weixin/images/static/usedCar/bg.png") no-repeat;
+  background-size: 100% 90%;
+}
+
+.bg .lineItem {
+  width: 100%;
+  padding: 10rpx 0;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+
+.bg .lineItem .left {
+  position: relative;
+  width: 20%;
+  margin-right: 20rpx;
+  line-height: 40rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg .lineItem .left:after {
+  border-right: 1px solid #cdcdcd;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  content: " ";
+  position: absolute;
+  color: #cdcdcd;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.bg .lineItem .center {
+  position: relative;
+  margin-left: 20rpx;
+}
+
+.bg .lineItem .iconfont {
+  position: absolute;
+  left: 0;
+  top: 15rpx;
+}
+
+.bg .lineItem input {
+  padding: 0 10rpx 0 50rpx;
+}
+
+swiper {
+  width: 100%;
+}
+
+swiper image {
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.usedTxt {
+  line-height: 3em;
+}
+
+.publish {
+  width: 92%;
+  background: #dceffd;
+  margin: 0 auto;
+}
+
+.publish .flex-item {
+  padding: 2%;
+  color: #0f84de;
+}
+
+.hr {
+  width: 80%;
+  height: 1px;
+  background: #cbcbcb;
+  margin: 4vw auto 2vw;
+}
+
+.ad {
+  font-size: 0;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.ad>view {
+  width: 45vw;
+  height: 22vw;
+  margin: 0 0 2vw 0;
+  display: inline-block;
+}
+
+.ad>view:nth-child(2n) {
+  margin-left: 2vw;
+}
+
+.ad>view image {
+  width: 100%;
+  height: 100%;
+}
+
+.list .lineItem .center {
+  justify-content: space-between;
+}
+
+.list .lineItem .left {
+  width: 37.33vw;
+  height: 22.66vw;
+  margin-right: 2vw;
+}
+
+.list .lineItem .left image {
+  width: 100%;
+  height: 100%;
+}
+
+.price{
+  margin-right: 20rpx;
+}
+
+.tag{
+      display: inline-block;
+    line-height: 1.2;
+}
+.tag text{
+  padding: 0 10rpx;
+  margin-right: 10rpx;
+}
+.tag_orange {
+    background: #fbd6a9;
+    border: 1px solid #fc9000;
+}
+.tag_yellow {
+    background: #fbf6a9;
+    border: 1px solid #febf00;
+}

@@ -10,6 +10,10 @@
     </swiper>
   </view>
   <view class='nav f10'>
+   <view class='nav_item tc' bindtap='goUsedCar'>
+      <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916366156235.jpg' mode='widthFix'></image>
+      <view>二手车区</view>
+    </view>
     <view class='nav_item tc' bindtap='goMaintain'>
       <image src='http://www.chexiangguan.com/Upload/image//ueditor/20180625/1529916366156235.jpg' mode='widthFix'></image>
       <view>维修保养</view>

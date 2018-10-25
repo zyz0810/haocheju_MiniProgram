@@ -1,0 +1,11 @@
+/* pages/circle/edit/edit.wxss */
+.container{
+  padding: 0 2%;
+  background: #fff;
+}
+textarea{
+  width: 96%;
+  padding: 2%;
+  margin: 2% 0;
+  background: #f2f2f2;
+}

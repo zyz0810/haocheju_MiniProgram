@@ -1,0 +1,13 @@
+/* pages/usedCar/view/pic/pic.wxss */
+page{
+  background: #fff;
+}
+.img{
+  font-size: 0;
+  padding: 1% 2% 2% 4%;
+}
+.img image{
+  width: 29vw;
+  height: 25vw;
+  margin: 0 2vw 2vw 0;
+}
