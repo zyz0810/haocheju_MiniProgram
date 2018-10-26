@@ -10,7 +10,9 @@ Page({
     defaultOrder:false,
     brand:true,
     price:true,
-    rank:true
+    rank:true,
+    topIndex:"0",
+    activeIndex:'1-1'
   },
 
   /**
@@ -53,7 +55,8 @@ Page({
       defaultOrder:true,
       brand: true,
       price: true,
-      rank: true
+      rank: true,
+      topIndex:"0"
     })
   },
   brandBtn: function () {
@@ -62,7 +65,8 @@ Page({
       defaultOrder: true,
       brand: false,
       price: true,
-      rank: true
+      rank: true,
+      topIndex: "1"
     })
   },
   priceBtn: function () {
@@ -71,7 +75,8 @@ Page({
       defaultOrder: true,
       brand: true,
       price: false,
-      rank: true
+      rank: true,
+      topIndex: "2"
     })
   },
   rankBtn: function () {
@@ -80,7 +85,19 @@ Page({
       defaultOrder: true,
       brand: true,
       price: true,
-      rank: false
+      rank: false,
+      topIndex: "3"
+    })
+  },
+  conditionBtn:function(e){
+    console.log(e)
+    let id = e.currentTarget.dataset.id;
+    this.setData({
+      defaultOrder: true,
+      brand: true,
+      price: true,
+      rank: true,
+      activeIndex:id
     })
   },
 
