@@ -1,4 +1,7 @@
 /* pages/hire/car/car.wxss */
+.container{
+  width: 100%;
+}
 .start_icon {
   background: #0f84de;
 }
@@ -24,7 +27,7 @@
   margin-right: 0rpx;
 }
 textarea{
-  width: 100%;
+  width: 96%;
   height: 150rpx;
   padding: 2%;
   background: #fff;

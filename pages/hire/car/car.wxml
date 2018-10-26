@@ -1,4 +1,5 @@
 <!--pages/hire/car/car.wxml-->
+<view class='container'>
 <view class='lineItemTitle f14'>确定联系人信息</view>
 <view class='lineItem border f14'>
   <view class='left'>
@@ -83,3 +84,4 @@
 </label>
 
 <button type="default" class='clr-white {{checked == true ? "active":""}}' bindtap="default" hover-class="other-button-hover"> 立即发布 </button>
+</view>

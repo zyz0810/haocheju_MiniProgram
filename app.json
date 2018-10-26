@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/circle/edit/edit",
     "pages/home/usedCar/view/view",
     "pages/home/usedCar/view/pic/pic",
     "pages/home/usedCar/buy/buy",
     "pages/home/usedCar/index",
     "pages/discount/discount",
     "pages/search/search",
-    "pages/circle/edit/edit",
     "pages/circle/circle",
     "pages/member/authentication/authentication",
     "pages/home/hire/car/car",
@@ -98,8 +98,8 @@
   },
   "window": {
     "backgroundTextStyle": "#F85151",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#0f84de",
     "navigationBarTitleText": ".",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "#fff"
   }
 }

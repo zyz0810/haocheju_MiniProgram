@@ -1,4 +1,6 @@
 // pages/circle/circle.js
+let app = getApp(),
+  util = require("../../utils/util.js")
 Page({
 
   /**
@@ -47,6 +49,11 @@ Page({
    */
   onShow: function() {
 
+  },
+  publish:function(){
+    util.navigateTo({
+      url: 'edit/edit',
+    })
   },
   contBtn: function(e) {
     var that = this,

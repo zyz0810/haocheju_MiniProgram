@@ -1,101 +1,103 @@
 <!--pages/hire/car/car.wxml-->
-<view class='lineItemTitle f14'>确定联系人信息</view>
-<view class='lineItem border f14'>
-  <view class='left'>
-    <text class='iconfont icon-xingming f20'></text>
-  </view>
-  <view class='center'>
-    <input type='text' placeholder='请填写姓名'></input>
-  </view>
-  <view class='right'></view>
-</view>
-<view class='lineItem border f14'>
-  <view class='left'>
-    <text class='iconfont icon-shoujihaoma f18'></text>
-  </view>
-  <view class='center'>
-    <input type='text' placeholder='请填写手机号码'></input>
-  </view>
-  <view class='right'></view>
-</view>
-<view class='lineItemTitle f14'>填写拼车信息</view>
-<view class='lineItem border f14'>
-  <view class='left'>
-    <text class='start_icon f10 clr-white'>起</text>出发地</view>
-  <view class='center'>
-    <input type='text' placeholder='请填写出发地'></input>
-  </view>
-</view>
-<view class='lineItem border f14'>
-  <view class='left' style=''>
-    <text class='end_icon f10 clr-white'>终</text>目的地</view>
-  <view class='center'>
-    <input type='text' placeholder='请填写目的地'></input>
-  </view>
-</view>
-<view class='lineItem lineItem_access border f14'>
-  <view class='left' style='padding-left:8vw;'>出发日期</view>
-  <view class='center'>
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2019-09-01" bindchange="bindDateChange">
-      <view class="picker">
-        {{date}}
-      </view>
-    </picker>
-  </view>
-  <view class='right'></view>
-</view>
-<view class='lineItem lineItem_access border f14'>
-  <view class='left' style='padding-left:8vw;'>出发时间</view>
-  <view class='center'>
-    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
-      <view class="picker">
-        {{time}}
-      </view>
-    </picker>
-  </view>
-  <view class='right'></view>
-</view>
-<view class='lineItem lineItem_access border f14'>
-  <view class='left' style='padding-left:8vw;'>空位</view>
-  <view class='center'>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
-        {{array[index]}}
-      </view>
-    </picker>
-  </view>
-  <view class='right'></view>
-</view>
-<view class='lineItem lineItem_access border f14'>
-  <view class='left' style='padding-left:8vw;'>车型</view>
-  <view class='center car_model'>
-    <picker bindchange="bindBrandChange" value="{{brandNum}}" range="{{brand}}">
-      <view class="picker">
-        {{brand[brandNum]}}
-      </view>
-    </picker>
-    <picker bindchange="bindSystemChange" value="{{systemNum}}" range="{{system}}">
-      <view class="picker">
-        {{system[systemNum]}}
-      </view>
-    </picker>
-  </view>
-  <view class='right'></view>
-</view>
-
-<view class='lineItemTitle f14'>备注留言</view>
-<textarea class='f14' placeholder='以上信息还不够，此处可填写备注哦~'></textarea>
-<label>
-  <view class='lineItem f12 statement'>
+<view class='container'>
+  <view class='lineItemTitle f14'>确定联系人信息</view>
+  <view class='lineItem border f14'>
     <view class='left'>
-    <checkbox-group bindchange="checkboxChange">
-      <checkbox value='11' checked="{{checked}}"></checkbox>
-      </checkbox-group>
+      <text class='iconfont icon-xingming f20'></text>
     </view>
-    <view class='center'>阅读并同意
-      <text class='blue01'>《免责声明》</text>
+    <view class='center'>
+      <input type='text' placeholder='请填写姓名'></input>
+    </view>
+    <view class='right'></view>
+  </view>
+  <view class='lineItem border f14'>
+    <view class='left'>
+      <text class='iconfont icon-shoujihaoma f18'></text>
+    </view>
+    <view class='center'>
+      <input type='text' placeholder='请填写手机号码'></input>
+    </view>
+    <view class='right'></view>
+  </view>
+  <view class='lineItemTitle f14'>填写拼车信息</view>
+  <view class='lineItem border f14'>
+    <view class='left'>
+      <text class='start_icon f10 clr-white'>起</text>出发地</view>
+    <view class='center'>
+      <input type='text' placeholder='请填写出发地'></input>
     </view>
   </view>
-</label>
+  <view class='lineItem border f14'>
+    <view class='left' style=''>
+      <text class='end_icon f10 clr-white'>终</text>目的地</view>
+    <view class='center'>
+      <input type='text' placeholder='请填写目的地'></input>
+    </view>
+  </view>
+  <view class='lineItem lineItem_access border f14'>
+    <view class='left' style='padding-left:8vw;'>出发日期</view>
+    <view class='center'>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2019-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class='right'></view>
+  </view>
+  <view class='lineItem lineItem_access border f14'>
+    <view class='left' style='padding-left:8vw;'>出发时间</view>
+    <view class='center'>
+      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+        <view class="picker">
+          {{time}}
+        </view>
+      </picker>
+    </view>
+    <view class='right'></view>
+  </view>
+  <view class='lineItem lineItem_access border f14'>
+    <view class='left' style='padding-left:8vw;'>空位</view>
+    <view class='center'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class='right'></view>
+  </view>
+  <view class='lineItem lineItem_access border f14'>
+    <view class='left' style='padding-left:8vw;'>车型</view>
+    <view class='center car_model'>
+      <picker bindchange="bindBrandChange" value="{{brandNum}}" range="{{brand}}">
+        <view class="picker">
+          {{brand[brandNum]}}
+        </view>
+      </picker>
+      <picker bindchange="bindSystemChange" value="{{systemNum}}" range="{{system}}">
+        <view class="picker">
+          {{system[systemNum]}}
+        </view>
+      </picker>
+    </view>
+    <view class='right'></view>
+  </view>
 
-<button type="default" class='clr-white {{checked == true ? "active":""}}' bindtap="default" hover-class="other-button-hover"> 立即发布 </button>
+  <view class='lineItemTitle f14'>备注留言</view>
+  <textarea class='f14' placeholder='以上信息还不够，此处可填写备注哦~'></textarea>
+  <label>
+    <view class='lineItem f12 statement'>
+      <view class='left'>
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox value='11' checked="{{checked}}"></checkbox>
+        </checkbox-group>
+      </view>
+      <view class='center'>阅读并同意
+        <text class='blue01'>《免责声明》</text>
+      </view>
+    </view>
+  </label>
+
+  <button type="default" class='clr-white {{checked == true ? "active":""}}' bindtap="default" hover-class="other-button-hover"> 立即发布 </button>
+</view>
