@@ -77,7 +77,7 @@
       <view>收藏</view>
     </view>
 
-    <view class='flex-item buy_btn'>
+    <view class='flex-item buy_btn' bindtap='goBuy'>
       <view>立即预约</view>
     </view>
   </view>

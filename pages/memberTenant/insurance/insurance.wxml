@@ -1,18 +1,18 @@
 <!--pages/memberTenant/insurance/insurance.wxml-->
 <view>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
 </view>
 <view class='flex nav tc'>
   <view class='flex-item' bindtap='goOffer'>
-    <image src='http://www.0556360.com/weixin/images/static/home/channel01.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/channel01.jpg'></image>
     <view class='f13 clr_mediumGray'>车险预算</view>
   </view>
   <view class='flex-item' bindtap='goClaims'>
-    <image src='http://www.0556360.com/weixin/images/static/home/channel01.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/channel01.jpg'></image>
     <view class='f13 clr_mediumGray'>理赔查询</view>
   </view>
   <view class='flex-item' bindtap='goProduct'>
-    <image src='http://www.0556360.com/weixin/images/static/home/channel01.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/channel01.jpg'></image>
     <view class='f13 clr_mediumGray'>热销产品</view>
   </view>
 </view>
@@ -20,25 +20,25 @@
 <view class='title_common'>精品推荐</view>
 <view class='list'>
   <view class='list_item tc'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     <view class='f14'>之家用户专享车险</view>
     <view class='f13'>费改红利</view>
     <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
   </view>
   <view class='list_item tc'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     <view class='f14'>之家用户专享车险</view>
     <view class='f13'>费改红利</view>
     <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
   </view>
   <view class='list_item tc'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     <view class='f14'>之家用户专享车险</view>
     <view class='f13'>费改红利</view>
     <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
   </view>
   <view class='list_item tc'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     <view class='f14'>之家用户专享车险</view>
     <view class='f13'>费改红利</view>
     <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>

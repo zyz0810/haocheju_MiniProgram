@@ -203,6 +203,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .clr_red {
   color: #ec0909;
 }
+.clr_red02{
+  color: #ee0808;
+}
 .yellow01 {
     color: #febf00!important;
 }
@@ -216,7 +219,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 }
 
 .clr_wxGreen {
-  color: #04d102;
+  color: #07bd13;
 }
 
 .clr_orange {

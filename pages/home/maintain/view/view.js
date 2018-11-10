@@ -1,4 +1,6 @@
 // pages/home/maintain/view/view.js
+let app = getApp(),
+  util = require("../../../../utils/util.js")
 Page({
 
   /**
@@ -35,6 +37,12 @@ Page({
    */
   onShow: function () {
 
+  },
+  goBuy: function (e) {
+    let id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/pay/pay?id=' + id,
+    })
   },
 
   /**

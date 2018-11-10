@@ -13,7 +13,7 @@
       <view class='lineItem head'>
         <view class='left headImg'>
 
-<image src='http://www.chexiangguan.com/Upload/Carfans/image/2018-07-25/5b57f4b26a147.JPG'></image>
+          <image src='http://www.chexiangguan.com/Upload/Carfans/image/2018-07-25/5b57f4b26a147.JPG'></image>
         </view>
         <view class='center'>
           <view class='f13 clr_mediumGray'>Doralf</view>
@@ -34,7 +34,7 @@
               <view class='flex-item tc'>
                 <text class='iconfont icon-heart f16'></text>点赞</view>
               <view class='flex-item tc none'>取消</view>
-              <view class='flex-item tc'>评论</view>
+              <view class='flex-item tc' data-index='{{index}}' bindtap='goReply'>评论</view>
             </view>
           </view>
           <view class='operationTxt'>
@@ -45,19 +45,19 @@
               <text class='blue02 f13'>,11</text>
             </view>
             <view class='reply top_border'>
-              <view class='f13 clr_mediumGray' bindtap='reply'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray'>
+              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
                 <text class='blue01'>11</text>回复
                 <text class='blue01'>Doralf</text>:你的小可爱呢</view>
             </view>
@@ -67,4 +67,13 @@
 
     </view>
   </block>
+  <view class='mask' bindtap='hiddenReply' hidden='{{!replyInput}}'></view>
+  <view class='reply_input lineItem f14' hidden='{{!replyInput}}'>
+    <view class='center'>
+      <input type='text' placeholder='回复{{name}}：' bindblur='inputCont'></input>
+    </view>
+    <view class='right'>
+      <text class='send_btn baseBg f14 clr-white' data-cont='' bindtap='goSend'>发送</text>
+    </view>
+  </view>
 </view>

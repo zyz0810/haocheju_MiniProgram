@@ -1,31 +1,31 @@
 <!--pages/memberTenant/insurance/product/product.wxml-->
 <view class='list'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   <view class='f14 gray03'>之家用户专享车险</view>
   <view class='f12 clr_lightGray'>费改红利，速享！</view>
 </view>
 <view class='list'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   <view class='f14 gray03'>之家用户专享车险</view>
   <view class='f12 clr_lightGray'>费改红利，速享！</view>
 </view>
 <view class='list'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   <view class='f14 gray03'>之家用户专享车险</view>
   <view class='f12 clr_lightGray'>费改红利，速享！</view>
 </view>
 <view class='list'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   <view class='f14 gray03'>之家用户专享车险</view>
   <view class='f12 clr_lightGray'>费改红利，速享！</view>
 </view>
 <view class='list'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   <view class='f14 gray03'>之家用户专享车险</view>
   <view class='f12 clr_lightGray'>费改红利，速享！</view>
 </view>
 <view class='list'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   <view class='f14 gray03'>之家用户专享车险</view>
   <view class='f12 clr_lightGray'>费改红利，速享！</view>
 </view>

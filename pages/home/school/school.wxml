@@ -12,7 +12,7 @@
   <view class='list_item'>
     <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' mode='widthFix'></image>
     <view class='lineItem'>
-      <view class='left'><image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='school_logo'></image></view>
+      <view class='left'><image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='school_logo'></image></view>
       <view class='center'>
         <view class='lineItem lineItem_access border'>
           <view class='center f15 gray03'>好车居驾校</view>
@@ -31,7 +31,7 @@
   <view class='list_item'>
     <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' mode='widthFix'></image>
     <view class='lineItem'>
-      <view class='left'><image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='school_logo'></image></view>
+      <view class='left'><image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='school_logo'></image></view>
       <view class='center'>
         <view class='lineItem lineItem_access border'>
           <view class='center f15 gray03'>好车居驾校</view>
@@ -50,7 +50,7 @@
   <view class='list_item'>
     <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' mode='widthFix'></image>
     <view class='lineItem'>
-      <view class='left'><image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='school_logo'></image></view>
+      <view class='left'><image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='school_logo'></image></view>
       <view class='center'>
         <view class='lineItem lineItem_access border'>
           <view class='center f15 gray03'>好车居驾校</view>

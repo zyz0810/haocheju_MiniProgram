@@ -45,6 +45,12 @@ Page({
       url: 'pic/pic?id='+id,
     })
   },
+  goBuy: function (e) {
+    let id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/pay/pay?id=' + id,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

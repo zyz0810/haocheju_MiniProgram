@@ -1,7 +1,7 @@
 <!--pages/member/edit/edit.wxml-->
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>头像</view>
-  <view class='right tr'><image src='http://www.0556360.com/weixin/images/placeholder/logo.png' class='hearImg'></image></view>
+  <view class='right tr'><image src='http://m.0556360.com/weixin/images/placeholder/logo.png' class='hearImg'></image></view>
 </view>
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>昵称</view>

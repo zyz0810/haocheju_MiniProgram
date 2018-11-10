@@ -1,6 +1,6 @@
 <!--pages/memberTenant/insurance/offer/offer.wxml-->
 <view class='banner'>
-  <image src='http://www.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
 </view>
 <view class='cont'>
   <view class='lineItem f12 clr_red'>

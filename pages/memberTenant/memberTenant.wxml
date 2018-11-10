@@ -1,7 +1,7 @@
 <view class="top">
   <view class='lineItem clr-white'>
     <view class='left'>
-    <image src='http://www.0556360.com/weixin/images/placeholder/logo.png'></image>
+    <image src='http://m.0556360.com/weixin/images/placeholder/logo.png'></image>
     <text class='grade clr-white'>v</text>
     </view>
     <view class='center'>

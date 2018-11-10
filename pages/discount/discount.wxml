@@ -1,6 +1,6 @@
 <!--pages/discount/discount.wxml-->
 <view class='container'>
-  <!-- <view class='swiper'>
+  <view class='swiper'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
@@ -8,7 +8,7 @@
         </swiper-item>
       </block>
     </swiper>
-  </view> -->
+  </view>
 
   <view class='search'>
     <view class='search_frame'>

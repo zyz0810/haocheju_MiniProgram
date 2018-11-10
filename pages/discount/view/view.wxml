@@ -1,7 +1,7 @@
 <!--pages/discount/view/view.wxml-->
 <view class='lineItemTitle f12 border_bottom'>填写以下信息即可获得经销商回复的车型底价</view>
 <view class='lineItem border information'>
-  <view class='left'><image src='http://www.0556360.com/weixin/images/static/home/ad_big.jpg'></image></view>
+  <view class='left'><image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image></view>
   <view class='center'>
     <view class='f15 gray02'>[朗逸] 2018款 280TSI DSG舒适型G舒适型G舒适型G舒适型G舒适型</view>
     <view class='f14 clr_lightGray'>指导价：14.99万</view>

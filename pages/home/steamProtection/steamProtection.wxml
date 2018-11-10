@@ -17,25 +17,25 @@
 <view class='hot_list'>
   <view class='hot_item' data-id='1' bindtap='goView'>
     <text class='hot_num f16'>1</text>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='overTwo f14 clr_gray01'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='yellow01 f13 price'>销售价：8.99万元</view>
   </view>
   <view class='hot_item' data-id='1' bindtap='goView'>
     <text class='hot_num f16'>1</text>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='overTwo f14 clr_gray01'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='yellow01 f13 price'>销售价：8.99万元</view>
   </view>
   <view class='hot_item' data-id='1' bindtap='goView'>
     <text class='hot_num f16'>1</text>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='overTwo f14 clr_gray01'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='yellow01 f13 price'>销售价：8.99万元</view>
   </view>
   <view class='hot_item' data-id='1' bindtap='goView'>
     <text class='hot_num f16'>1</text>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='overTwo f14 clr_gray01'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='yellow01 f13 price'>销售价：8.99万元</view>
   </view>
@@ -44,25 +44,25 @@
 <view class='title_common f15'>推荐导购</view>
 <view class='commend_list'>
   <view class='commend_item' data-id='1' bindtap='goView'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='yellow01 f13 price'>8.99万元</view>
     <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='f10 overone clr_lightGray'>已有3人购买</view>
   </view>
   <view class='commend_item' data-id='1' bindtap='goView'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='yellow01 f13 price'>8.99万元</view>
     <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='f10 overone clr_lightGray'>已有3人购买</view>
   </view>
   <view class='commend_item' data-id='1' bindtap='goView'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='yellow01 f13 price'>8.99万元</view>
     <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='f10 overone clr_lightGray'>已有3人购买</view>
   </view>
   <view class='commend_item' data-id='1' bindtap='goView'>
-    <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
     <view class='yellow01 f13 price'>8.99万元</view>
     <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
     <view class='f10 overone clr_lightGray'>已有3人购买</view>

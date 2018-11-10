@@ -36,7 +36,7 @@
 <view class='title_common'>亮点介绍</view>
 
 <view class='cont f12'>
-  <image src='http://www.0556360.com/weixin/images/static/home/ad.jpg' mode='widthFix'></image>
+  <image src='http://m.0556360.com/weixin/images/static/home/ad.jpg' mode='widthFix'></image>
 激情于心，卓越于行。宋DM，以百公里4.9秒凌厉加速，
                             伴全新一代主流精英，全速进取。
                             超广视野全景天窗，打开一片独属于你的风景。绝妙的开阔感受，自然之美触手可及，时刻激发向往自由之心。
@@ -51,7 +51,7 @@
   <view class='flex-item'>
     <view>商家</view>
   </view>
-  <view class='flex-item buy_btn'>
+  <view class='flex-item buy_btn' bindtap='goBuy'>
     <view>立即预约</view>
   </view>
 </view>

@@ -75,7 +75,7 @@
       </view>
     </view>
   </view>
- <button type="default" class='clr-white' bindtap="goCar" hover-class="other-button-hover"> 立即去选车 </button>
+  <button type="default" class='clr-white' bindtap="goCar" hover-class="other-button-hover"> 立即去选车 </button>
 </view>
 
 <view class='driving' hidden='{{tab_current == 1 ? false:true}}'>
@@ -87,17 +87,41 @@
       </swiper-item>
     </block>
   </swiper>
-  <view class='lineItem border'>
+
+
+  <!-- <view class='lineItem border'>
+    <view class='left'><text class='iconfont icon-weizhi'></text></view>
     <view class='center f16'>
       <input type='text' placeholder='请输入您的位置'></input>
     </view>
   </view>
   <view class='lineItem border'>
+  
     <view class='center f16'>
       <input type='text' placeholder='请输入目的地'></input>
     </view>
+  </view> -->
+
+
+  <view class='lineItem border driving_address'>
+    <view class='left'>
+      <text class='iconfont icon-weizhi f20'></text>
+    </view>
+    <view class='center'>
+      <view class='f16 border_bottom'>
+        <input type='text' placeholder='请输入您的位置'></input>
+      </view>
+      <view class='f16'>
+        <input type='text' placeholder='请输入目的地'></input>
+      </view>
+    </view>
   </view>
-  <view class='lineItem lineItem_access driving_time'>
+
+
+  <view class='lineItem border lineItem_access driving_time'>
+    <view class='left'>
+      <text class='iconfont icon-shijian f18'></text>
+    </view>
     <view class='center'>
       <picker mode="date" value="{{drivingDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="bindDateChange">
         <view class="picker">
@@ -111,6 +135,21 @@
       </picker>
     </view>
     <view class='right'></view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'></view>
+    <view class='center'>
+      <input type='text' placeholder='请输入手机号'></input>
+    </view>
+    <view class='right tc clr-white'>
+      <input type='button' id="getcap" class="f12" value="发送验证码"></input>
+    </view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'></view>
+    <view class='center'>
+      <input type='number' placeholder='请输入验证码'></input>
+    </view>
   </view>
   <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即下单预约 </button>
 

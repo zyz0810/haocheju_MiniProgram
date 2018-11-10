@@ -10,7 +10,7 @@
 <view class='list'>
   <view class='lineItem list_item'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
     </view>
     <view class='center'>
       <view class='lineItem lineItem_access border'>
@@ -28,7 +28,7 @@
   </view>
   <view class='lineItem list_item'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
     </view>
     <view class='center'>
       <view class='lineItem lineItem_access border'>
@@ -46,7 +46,7 @@
   </view>
   <view class='lineItem list_item'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
     </view>
     <view class='center'>
       <view class='lineItem lineItem_access border'>
@@ -64,7 +64,7 @@
   </view>
   <view class='lineItem list_item'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg' class='logo'></image>
     </view>
     <view class='center'>
       <view class='lineItem lineItem_access border'>

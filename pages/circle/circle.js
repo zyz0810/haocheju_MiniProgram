@@ -17,17 +17,20 @@ Page({
     interval: 5000,
     duration: 1000,
     list: [{
-      id:0,
+        id: 0,
         img: ['http://www.chexiangguan.com/Upload/Carfans/image/2018-07-25/5b57f4b26a147.JPG',
-          'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'],
+          'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+        ],
         show: true
       },
       {
-        id:1,
+        id: 1,
         img: ['http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'],
         show: true
       }
     ],
+    replyInput: false,
+    name: ''
   },
 
   /**
@@ -50,7 +53,7 @@ Page({
   onShow: function() {
 
   },
-  publish:function(){
+  publish: function() {
     util.navigateTo({
       url: 'edit/edit',
     })
@@ -78,7 +81,41 @@ Page({
       urls: this.data.list[index].img
     })
   },
+  goReply: function(e) {
+    var id = e.target.dataset.id;
+    var name = e.target.dataset.name;
+    this.setData({
+      replyInput: true,
+      name: name
+    })
 
+    var that = this,
+      listArr = that.data.list,
+      index = e.currentTarget.dataset.index;
+    console.log(index)
+    if (listArr[index].show == false) {
+      listArr[index].show = true
+    } else {
+      listArr[index].show = false
+    }
+    that.setData({
+      list: listArr
+    })
+
+  },
+  hiddenReply: function() {
+    this.setData({
+      replyInput: false
+    })
+  },
+  goSend:function(e){
+    let cont = e.currentTarget.dataset.cont;
+  },
+  inputCont:function(e){
+    this.setData({
+      cont: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

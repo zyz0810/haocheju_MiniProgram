@@ -7,7 +7,7 @@
   <view class='lineItem border license'>
     <view class='left'>车牌号</view>
     <view class='center'>
-      <view class='area_txt' bindtap='areaShow'>{{areaTxt}}<image src='http://www.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
+      <view class='area_txt' bindtap='areaShow'>{{areaTxt}}<image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
       <input type='text' placeholder='请输入完整车牌'></input>
     </view>
   </view>
@@ -67,7 +67,7 @@
   <view class='lineItem border license'>
     <view class='left'>车牌号</view>
     <view class='center'>
-      <view class='area_txt' bindtap='trialAreaShow'>{{trialAreaTxt}}<image src='http://www.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
+      <view class='area_txt' bindtap='trialAreaShow'>{{trialAreaTxt}}<image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
       <input type='text' placeholder='请输入完整车牌'></input>
     </view>
   </view>

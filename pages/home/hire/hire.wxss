@@ -62,7 +62,7 @@ button {
 }
 
 .arrow {
-  background: url(http://www.0556360.com/weixin/images/static/hire/arrow.png) no-repeat 100%;
+  background: url(http://m.0556360.com/weixin/images/static/hire/arrow.png) no-repeat 100%;
   position: relative;
 }
 
@@ -85,4 +85,26 @@ button {
   left: 0;
   background: #fff;
   z-index: 999;
+}
+#getcap{
+  width: 150rpx;
+  background:#00a0e9;
+  border-radius: 10rpx;
+}
+
+.driving .lineItem .left{
+  width: 45rpx;
+}
+.lineItem.driving_address{
+  align-items: baseline;
+}
+.lineItem.driving_address .left{
+  /* align-items:  flex-start; */
+}
+.driving_address .center>view:first-child{
+  padding-bottom: 2%;
+}
+
+.driving_address .center>view:last-child{
+  padding-top: 2%;
 }

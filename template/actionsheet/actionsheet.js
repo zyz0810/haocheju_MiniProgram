@@ -27,7 +27,6 @@ module.exports = {
       submit: 'actionsheetConfirm',
       item: [
         {
-
           name: '订单消息',
           content: '转账',
           more: false,
@@ -63,6 +62,7 @@ module.exports = {
   },
   //隐藏
   ActionsheetHide() {
+    console.log(1111)
     this.ActionsheetInitData()
     this.setData({
       __actionsheet: Object.assign({}, this.data.__actionsheet, {

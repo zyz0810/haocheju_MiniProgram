@@ -37,7 +37,7 @@
 <view class='list'>
   <view class='lineItem' bindtap='goView'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     </view>
     <view class='center'>
       <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
@@ -54,7 +54,7 @@
   </view>
   <view class='lineItem' bindtap='goView'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     </view>
     <view class='center'>
       <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
@@ -71,7 +71,7 @@
   </view>
   <view class='lineItem' bindtap='goView'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     </view>
     <view class='center'>
       <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
@@ -88,7 +88,7 @@
   </view>
   <view class='lineItem' bindtap='goView'>
     <view class='left'>
-      <image src='http://www.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
+      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
     </view>
     <view class='center'>
       <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
