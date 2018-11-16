@@ -158,7 +158,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 /*
  * 颜色样式
  */
- clr_gray01{
+.clr_gray01{
    color: #494949;
  }
 

@@ -29,5 +29,11 @@ Page(Object.assign({}, navCart, {
     util.navigateTo({
       url: 'circle/circle',
     })
+  },
+  goOrder:function(e){
+    var id = e.currentTarget.dataset.current
+    util.navigateTo({
+      url: 'order/order?id=' + id,
+    })
   }
 }))

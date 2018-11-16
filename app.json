@@ -1,8 +1,14 @@
 {
   "pages": [
-    "pages/member/order/order",
-    "pages/member/member",
     "pages/home/home",
+    "pages/member/order/use/use",
+    "pages/memberTenant/memberTenant",
+    "pages/member/member",
+    
+    
+    "pages/member/order/order",
+    
+    
     "pages/home/hire/hire",
     
     
@@ -40,7 +46,7 @@
     "pages/home/beauty/view/view",
     "pages/member/circle/circle",
     
-    "pages/memberTenant/memberTenant",
+    
     "pages/memberTenant/insurance/product/product",
     "pages/memberTenant/insurance/claims/claims",
     "pages/memberTenant/insurance/offer/offer",
