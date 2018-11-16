@@ -1,0 +1,24 @@
+<!--pages/memberTenant/insurance/offer/offer.wxml-->
+<view class='banner'>
+  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+</view>
+<view class='cont'>
+  <view class='lineItem f16 border'>
+    <view class='left'>车牌号</view>
+    <view class='center'>皖<input type='text' placeholder='请输入车牌号'></input></view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'>身份证号</view>
+    <view class='center'><input type='text' placeholder='请输入身份证号'></input></view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'>手机号</view>
+    <view class='center'><input type='text' placeholder='请输入手机号'></input></view> 
+    <view class='right tc clr-white'><input type='button' id="getcap" class="f12" value="发送验证码"></input></view>
+  </view>
+  <view class='lineItem f16 border'>
+    <view class='left'>验证码</view>
+    <view class='center'><input type='number' placeholder='请输入验证码'></input></view>
+  </view>
+  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即查询 </button>
+</view>

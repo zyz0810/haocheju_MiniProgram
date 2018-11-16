@@ -1,6 +1,4 @@
-// pages/memberTenant/memberTenant.js
-let app = getApp(),
-  util = require("../../utils/util.js")
+// pages/memberTenant/insurance/offer/offer.js
 Page({
 
   /**
@@ -16,33 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  goEdit:function(){
-    util.navigateTo({
-      url: 'edit/edit',
-    })
-  },
 
-  goInsurance:function(){
-    util.navigateTo({
-      url: 'insurance/insurance',
-    })
-  },
-  goCircle: function () {
-    util.navigateTo({
-      url: 'circle/circle',
-    })
-  },
-  goCarpool:function(){
-    util.navigateTo({
-      url: 'carpool/carpool',
-    })
-  },
-  goOrder: function (e) {
-    var id = e.currentTarget.dataset.current
-    util.navigateTo({
-      url: 'order/order?id=' + id,
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

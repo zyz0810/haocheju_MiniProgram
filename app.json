@@ -1,12 +1,14 @@
 {
   "pages": [
+
+    "pages/member/member",
     "pages/home/home",
     "pages/member/order/use/use",
     "pages/memberTenant/memberTenant",
-    "pages/member/member",
     
+    "pages/member/order/order",    
     
-    "pages/member/order/order",
+   
     
     
     "pages/home/hire/hire",
@@ -26,6 +28,7 @@
     "pages/discount/discount",
     "pages/search/search",
     "pages/member/authentication/authentication",
+    "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",
    
     "pages/home/trial/trial",
@@ -46,7 +49,10 @@
     "pages/home/beauty/view/view",
     "pages/member/circle/circle",
     
-    
+    "pages/member/insurance/product/product",
+    "pages/member/insurance/claims/claims",
+    "pages/member/insurance/offer/offer",
+    "pages/member/insurance/insurance",
     "pages/memberTenant/insurance/product/product",
     "pages/memberTenant/insurance/claims/claims",
     "pages/memberTenant/insurance/offer/offer",
@@ -67,7 +73,6 @@
     "pages/pay/success",
     "pages/pay/payZero",
     "pages/member/password/password",
-    "pages/member/favorite/favorite",
     "pages/member/bind/bind",
     "pages/include/captcha/captcha",
     "pages/message/index",
