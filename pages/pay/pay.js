@@ -1,7 +1,6 @@
 let app = getApp();
 let actionsheet = require("../../template/actionsheet/payactionsheet.js");
 let util = require('../../utils/util.js');
-let receiver = require('../../service/receiver.js');
 let order = require('../../service/order.js');
 let member = require('../../service/member.js');
 let tenant = require('../../service/tenant.js');

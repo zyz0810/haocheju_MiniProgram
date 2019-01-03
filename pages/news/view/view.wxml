@@ -1,13 +1,19 @@
 <!--pages/news/view/view.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class='container'>
   <view class='top'>
-    <view class='title f17'>资讯详情资讯详情</view>
+    <view class='title f17'>{{title}}</view>
     <view class='f13'>
-      <text>2018-9-26</text>
-      <text>浏览20次</text>
+      <text>{{author}}</text>
+      <text>{{addtime}}</text>
+      <text>浏览{{hitcount}}次</text>
     </view>
   </view>
-  <view class='cont f13'>
-    富士康发为啥飞机考完试就福克斯将咖啡机是咖啡机是砍价副科级是咖啡机看
+  <view class='cont f13 wxParse'>
+    <!-- {{content}} -->
+
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+
+
   </view>
 </view>

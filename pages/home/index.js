@@ -1,16 +1,11 @@
 // pages/home/home.js
 
 let swiperAutoHeight = require("../../template/swiperIndex/swiper.js"),
-  Product = require("../../service/product.js"),
-  Cart = require("../../service/cart.js"),
-  Coupon = require("../../service/coupon.js"),
-  Tenant = require("../../service/tenant.js"),
-  Ad = require("../../service/ad.js"),
   app = getApp(),
-  util = require("../../utils/util.js"),
-  navCart = require("../../template/cart/cart.js")
+  util = require("../../utils/util.js")
+ 
 
-Page(Object.assign({}, swiperAutoHeight, navCart, {
+Page(Object.assign({}, swiperAutoHeight, {
 
   /**
    * 页面的初始数据

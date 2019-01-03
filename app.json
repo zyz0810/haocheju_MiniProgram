@@ -1,19 +1,13 @@
 {
   "pages": [
-
-    "pages/member/member",
+        "pages/carpool/carpool",
     "pages/home/home",
+    "pages/member/member",
+    "pages/news/news",
     "pages/member/order/use/use",
     "pages/memberTenant/memberTenant",
-    
-    "pages/member/order/order",    
-    
-   
-    
-    
+    "pages/member/order/order",
     "pages/home/hire/hire",
-    
-    
     "pages/circle/circle",
     "pages/home/accessories/view/view",
     "pages/home/insurance/offer/offer",
@@ -30,7 +24,6 @@
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",
-   
     "pages/home/trial/trial",
     "pages/home/roadRescue/roadRescue",
     "pages/home/school/school",
@@ -48,7 +41,6 @@
     "pages/home/beauty/beauty",
     "pages/home/beauty/view/view",
     "pages/member/circle/circle",
-    
     "pages/member/insurance/product/product",
     "pages/member/insurance/claims/claims",
     "pages/member/insurance/offer/offer",
@@ -63,12 +55,12 @@
     "pages/memberTenant/carpool/carpool",
     "pages/memberTenant/edit/edit",
     "pages/discount/view/view",
-    "pages/hire/people/people",
-    "pages/hire/car/car",
-    "pages/hire/hire",
+    "pages/carpool/people/people",
+    "pages/carpool/car/car",
+    
     "pages/home/index",
     "pages/news/view/view",
-    "pages/news/news",
+
     "pages/pay/fastPay",
     "pages/pay/success",
     "pages/pay/payZero",
@@ -81,37 +73,37 @@
   "tabBar": {
     "color": "#666666",
     "backgroundColor": "#fff",
-    "selectedColor": "#F85151",
+    "selectedColor": "#0f84de",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/resources/images/tabBar/home.png",
-        "selectedIconPath": "/resources/images/tabBar/home-sel.png"
+        "selectedIconPath": "/resources/images/tabBar/home_sel.png"
       },
       {
         "pagePath": "pages/circle/circle",
         "text": "车友圈",
-        "iconPath": "/resources/images/tabBar/contact.png",
-        "selectedIconPath": "/resources/images/tabBar/contact-sel.png"
+        "iconPath": "/resources/images/tabBar/circle.png",
+        "selectedIconPath": "/resources/images/tabBar/circle_sel.png"
       },
       {
-        "pagePath": "pages/hire/hire",
+        "pagePath": "pages/carpool/carpool",
         "text": "在线拼车",
-        "iconPath": "/resources/images/tabBar/category.png",
-        "selectedIconPath": "/resources/images/tabBar/category-sel.png"
+        "iconPath": "/resources/images/tabBar/carpool.png",
+        "selectedIconPath": "/resources/images/tabBar/carpool_sel.png"
       },
       {
         "pagePath": "pages/discount/discount",
         "text": "商家优惠",
-        "iconPath": "/resources/images/tabBar/cart.png",
-        "selectedIconPath": "/resources/images/tabBar/cart-sel.png"
+        "iconPath": "/resources/images/tabBar/discount.png",
+        "selectedIconPath": "/resources/images/tabBar/discount_sel.png"
       },
       {
         "pagePath": "pages/member/member",
         "text": "我的",
         "iconPath": "/resources/images/tabBar/me.png",
-        "selectedIconPath": "/resources/images/tabBar/me-sel.png"
+        "selectedIconPath": "/resources/images/tabBar/me_sel.png"
       }
     ]
   },

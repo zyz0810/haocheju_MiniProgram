@@ -2,9 +2,9 @@
 
 <view class='swiper'>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
+    <block wx:for="{{banner}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
+        <image src="{{item.img}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
@@ -29,37 +29,39 @@
 </view>
 
 <view class='list'>
-  <view class='list_item'>
-    <view class='carpool_call f16 clr-white tc'>拨号</view>
-    <view class='lineItem border'>
-      <view class='left headImg'>
-        <image src='/resources/images/tabBar/me.png' mode='widthFix'></image>
-      </view>
-      <view class='center f15'>15155133955</view>
-      <view class='right f12 clr_lightGray'>2018-11-12 8:30</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left start_icon f10 clr-white'>起</view>
-      <view class='center f14'>合肥
 
+  <block wx:for="{{carpoolList}}" wx:key="index">
+    <view class='list_item' data-id='{{item.id}}'>
+      <view class='carpool_call f16 clr-white tc' data-id='{{item.mobile}}' bindtap='callUs'>拨号</view>
+      <view class='lineItem border'>
+        <view class='left headImg'>
+          <image src='{{item.headerimg}}' mode='widthFix'></image>
+        </view>
+        <view class='center f15 overone'>{{item.name}}</view>
+        <view class='right f12 clr_lightGray'>{{item.wz_addtime}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left start_icon f10 clr-white'>起</view>
+        <view class='center f14'>{{item.start}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left end_icon f10 clr-white'>终</view>
+        <view class='center f14'>{{item.end}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left'></view>
+        <view class='center f14'>
+          <view>提供座位
+            <text class='clr_red'> {{item.seat}} </text>个</view>
+          <view>汽车型号 {{item.brand}} {{item.series}}</view>
+          <!-- <view>车牌号 皖322256</view> -->
+          <view>出发时间 {{item.startdate}} {{item.starttime}} 16:40</view>
+          <view class='clr_lightGray'>车主留言：{{item.remarks}}</view>
+        </view>
       </view>
     </view>
-    <view class='lineItem site'>
-      <view class='left end_icon f10 clr-white'>终</view>
-      <view class='center f14'>安庆</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left'></view>
-      <view class='center f14'>
-        <view>提供座位
-          <text class='clr_red'> 3 </text>个</view>
-        <view>汽车型号 大众</view>
-        <view>车牌号 皖322256</view>
-        <view>出发时间 2018-08-05 16:40</view>
-        <view class='clr_lightGray'>车主留言：时间可商议</view>
-      </view>
-    </view>
-  </view>
+  </block>
+
 
   <view class='list_item'>
     <view class='carpool_call f16 clr-white tc'>拨号</view>

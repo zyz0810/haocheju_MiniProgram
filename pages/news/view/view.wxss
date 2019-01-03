@@ -1,4 +1,5 @@
 /* pages/news/view/view.wxss */
+@import "../../wxParse/wxParse.wxss";
 .container{
   height: 100%;
   background: #fff;
@@ -18,4 +19,7 @@
 }
 .cont{
   padding: 2%;
+}
+.cont image{
+  max-width: 100%;
 }

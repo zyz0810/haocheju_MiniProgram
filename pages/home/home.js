@@ -1,16 +1,11 @@
 // pages/home/home.js
 
 let swiperAutoHeight = require("../../template/swiperIndex/swiper.js"),
-  Product = require("../../service/product.js"),
-  Cart = require("../../service/cart.js"),
-  Coupon = require("../../service/coupon.js"),
-  Tenant = require("../../service/tenant.js"),
-  Ad = require("../../service/ad.js"),
+  First = require("../../service/first.js"),
   app = getApp(),
-  util = require("../../utils/util.js"),
-  navCart = require("../../template/cart/cart.js")
+  util = require("../../utils/util.js")
 
-Page(Object.assign({}, swiperAutoHeight, navCart, {
+Page(Object.assign({}, swiperAutoHeight, {
 
   /**
    * 页面的初始数据
@@ -37,21 +32,33 @@ Page(Object.assign({}, swiperAutoHeight, navCart, {
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    //获取首页内容
+    new First(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        menu: res.data.return_meun,
+        ad: res.data.return_place,
+        news: res.data.return_new
+      })
+    }).do()
   },
-  goUsedCar:function(){
+  
+  goMenu:function(e){
+    console.log(e)
+    let urlCurrent = e.currentTarget.dataset.url
     util.navigateTo({
-      url: 'usedCar/index',
+      url: urlCurrent,
     })
   },
   goMaintain:function(){
     util.navigateTo({
-      url: 'maintain/maintain',
+      url: '/pages/home/maintain/maintain',
     })
   },
   goAccessories:function(){
     util.navigateTo({
-      url: 'accessories/accessories',
+      url: '/pages/home/accessories/accessories',
     })
   }, 
   goHire: function() {

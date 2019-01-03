@@ -2,73 +2,27 @@
 <view class='container'>
   <view class='banner'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}" wx:key="index">
+      <block wx:for="{{banner}}" wx:key="index">
         <swiper-item>
-          <image src="{{item}}" class="slide-image"/>
+          <image src="{{item.img}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
   </view>
   <view class='list'>
-    <view class='lineItem border' bindtap='goNewsView'>
+    <block wx:for="{{news}}" wx:key="index">
+      <view class='lineItem border' data-id='{{item.id}}' bindtap='goNewsView'>
         <view class='center'>
-          <view class='f12 tit'>编辑编辑</view>
+          <view class='f12 tit'>{{item.title}}</view>
           <view class='clearfix f10'>
-            <text class='fl'>阅读：233</text>
-            <text class='fr'>2018-09-23</text>
+            <text class='fl'>阅读：{{hitcount}}</text>
+            <text class='fr'>{{item.addtime}}</text>
           </view>
         </view>
-        <view class='right'><image src='/resources/images/home/ad_small.jpg' mode='widthFix'></image></view>
-      </view>
-      <view class='lineItem border' bindtap='goNewsView'>
-        <view class='center'>
-          <view class='f12 tit'>编辑编辑</view>
-          <view class='clearfix f10'>
-            <text class='fl'>阅读：233</text>
-            <text class='fr'>2018-09-23</text>
-          </view>
+        <view class='right'>
+          <image src='{{item.imgurl ? item.imgurl:"/resources/images/logo.png"}}' mode='widthFix'></image>
         </view>
-        <view class='right'><image src='/resources/images/home/ad_small.jpg' mode='widthFix'></image></view>
       </view>
-      <view class='lineItem border' bindtap='goNewsView'>
-        <view class='center'>
-          <view class='f12 tit'>编辑编辑</view>
-          <view class='clearfix f10'>
-            <text class='fl'>阅读：233</text>
-            <text class='fr'>2018-09-23</text>
-          </view>
-        </view>
-        <view class='right'><image src='/resources/images/home/ad_small.jpg' mode='widthFix'></image></view>
-      </view>
-      <view class='lineItem border' bindtap='goNewsView'>
-        <view class='center'>
-          <view class='f12 tit'>编辑编辑</view>
-          <view class='clearfix f10'>
-            <text class='fl'>阅读：233</text>
-            <text class='fr'>2018-09-23</text>
-          </view>
-        </view>
-        <view class='right'><image src='/resources/images/home/ad_small.jpg' mode='widthFix'></image></view>
-      </view>
-      <view class='lineItem border' bindtap='goNewsView'>
-        <view class='center'>
-          <view class='f12 tit'>编辑编辑</view>
-          <view class='clearfix f10'>
-            <text class='fl'>阅读：233</text>
-            <text class='fr'>2018-09-23</text>
-          </view>
-        </view>
-        <view class='right'><image src='/resources/images/home/ad_small.jpg' mode='widthFix'></image></view>
-      </view>
-      <view class='lineItem border' bindtap='goNewsView'>
-        <view class='center'>
-          <view class='f12 tit'>编辑编辑</view>
-          <view class='clearfix f10'>
-            <text class='fl'>阅读：233</text>
-            <text class='fr'>2018-09-23</text>
-          </view>
-        </view>
-        <view class='right'><image src='/resources/images/home/ad_small.jpg' mode='widthFix'></image></view>
-      </view>
+    </block>
   </view>
 </view>
