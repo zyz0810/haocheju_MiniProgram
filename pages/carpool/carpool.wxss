@@ -53,6 +53,9 @@ page {
   height: 9vw;
   border-radius: 50%;
 }
+.name{
+  margin: 0 20rpx;
+}
 
 .headImg image {
   width: 100%;

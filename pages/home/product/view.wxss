@@ -1,5 +1,4 @@
 /* pages/home/maintain/view/view.wxss */
-@import "../../../wxParse/wxParse.wxss";
 .container{
   padding-bottom: 53px;
 }
@@ -26,9 +25,6 @@
 .cont{
   padding: 0 4%;
   line-height: 1.6em;
-}
-.cont>view{
-  width: 50%
 }
 .cont image{
   width: 100%;
@@ -59,36 +55,4 @@
 .bottom .flex-item>text:first-child{
   margin-top: 20rpx;
   margin-bottom: 10rpx;
-}
-.tenantLogo{
-  width: 18vw;
-  position: relative;
-}
-.tenantLogo::after{
-  border-left: 1px solid #cdcdcd;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 100%;
-    -webkit-transform: scaleX(.5);
-    transform: scaleX(.5);
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    content: " ";
-    position: absolute;
-    color: #cdcdcd;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
-.tenantLogo image{
-  width: 96%;
-  margin-left: 4%;
-}
-.new_instro{
-  padding: 0 2%;
-}
-.new_instro .center>view{
- line-height: 2;
 }

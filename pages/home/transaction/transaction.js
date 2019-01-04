@@ -1,17 +1,14 @@
 // pages/home/maintain/maintain.js
-let app = getApp(),
+let swiperAutoHeight = require("../../../template/swiperIndex/swiper.js"),
+  Cars = require("../../../service/cars.js"), 
+  app = getApp(),
   util = require("../../../utils/util.js")
-Page({
+Page(Object.assign({}, swiperAutoHeight,{
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
@@ -22,7 +19,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //获取首页内容
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        hotList: res.data.return_oldcar.data,
+        commendList: res.data.return_newcar.data,
+      })
+    }).newList()
   },
 
   /**
@@ -38,6 +43,13 @@ Page({
   onShow: function () {
 
   },
+  goOldView: function (e) {
+    let id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/home/usedCar/view/view?id=' + id,
+    })
+  },
+
   goView:function(e){
     let id = e.currentTarget.dataset.id
     util.navigateTo({
@@ -79,4 +91,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+}))

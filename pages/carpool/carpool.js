@@ -10,16 +10,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
     duration: 1000,
-    tab_current:0
+    tab_current:1,
+    carTips: '下拉刷新',
+    peopleTips: '下拉刷新',
+    sType: ['1', '2'],
   },
 
   /**
@@ -31,7 +29,9 @@ Page({
       console.log(res)
       this.setData({
         banner: res.data.return_banner,
-        carpoolList: res.data.return_new.data
+        carpoolList: res.data.return_new.data,
+        newsPage: res.data.return_new.pageTotal,
+        currentPage: res.data.return_new.currentPage
       })
     }).carPool({page:1,pageSize:10,type:'2'})
   },
@@ -79,8 +79,10 @@ Page({
   tabClick:function(e){
     var that = this;
     that.setData({
-      tab_current: e.currentTarget.dataset.id
+      tab_current: e.currentTarget.dataset.id,
+      stype: e.currentTarget.dataset.name
     })
+    pageing(that, '1', e.currentTarget.dataset.id, e.currentTarget.dataset.name)
   },
 
   /**
@@ -108,7 +110,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // pageing(this.data.tab_current)
   },
 
   /**
@@ -119,7 +121,41 @@ Page({
   }
   
 })
-function paging(that, sType, direction, cb) {
+
+
+function pageing(that, currentPage, type, sType){
+  var that = this;
+  wx.showNavigationBarLoading();
+  // var pageModel = this.data.pageModel;
+  // var newPage = this.data.newsPage;
+  var currentPage = currentPage;
+  var carpoolList = that.data[sType];
+  new Cars(res => {
+    console.log(res)
+  
+    wx.hideNavigationBarLoading() //完成停止加载
+    if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
+      wx.hideNavigationBarLoading()
+      that.setData({
+        tips: '',
+        showtips: false
+      })
+    } else {
+      carpoolList = carpoolList.concat(res.data.return_new.data)
+      this.setData({
+        carpoolList: carpoolList,
+        currentPage: res.data.return_new.currentPage
+      })
+    }
+
+
+
+
+  }).carPool({ page: ++newPage, pageSize: 10, type: type })
+}
+
+
+function paging(that, sType, direction) {
   var tips = that.data[sType + 'Tips']
   var info = that.data[sType]
   if (direction == 'up') {
@@ -138,7 +174,7 @@ function paging(that, sType, direction, cb) {
         [sType + 'Tips']: '暂无列表！',
         [sType]: []
       })
-      cb ? cb() : ''
+ 
       return
     }
     info = info.concat(data.data)
@@ -147,21 +183,16 @@ function paging(that, sType, direction, cb) {
         [sType + 'Tips']: '',
         [sType]: info
       })
-      if (data.pageModel.totalPages < data.pageModel.pageNumber) {
-        cb ? cb() : ''
-        return
-      }
+    
     } else {
       that.setData({
         [sType + 'Tips']: "上拉加载",
         [sType]: info
       })
     }
-    cb ? cb() : ''
-  }).list({
+  }).carPool({
     type: sType,
     pageNumber: direction == 'up' ? that.pageModel[sType].pageNumber = 1 : ++that.pageModel[sType].pageNumber,
-    pageSize: that.pageModel[sType].pageSize,
-    tenantId: app.globalData.tenantId
+    pageSize: 10,
   })
 }

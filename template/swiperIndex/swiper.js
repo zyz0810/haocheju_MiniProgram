@@ -7,8 +7,8 @@ module.exports = {
     let index = e.currentTarget.dataset.index
     let imageWidth = e.detail.width
     let imageHeight = e.detail.height
-    // let height = (screenWidth / imageWidth) * imageHeight
-    let height = (( screenWidth - 48 ) / imageWidth) * imageHeight * 0.96
+    let height = (screenWidth / imageWidth) * imageHeight
+    // let height = (( screenWidth - 48 ) / imageWidth) * imageHeight * 0.96
     let _swiper = this.data._swiper ? this.data._swiper : {}
     _swiper[name] = _swiper[name] || {
       isLoad: [],

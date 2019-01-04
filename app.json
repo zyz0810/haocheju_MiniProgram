@@ -1,7 +1,14 @@
 {
   "pages": [
-        "pages/carpool/carpool",
     "pages/home/home",
+    "pages/home/product/view",
+    "pages/home/maintain/maintain",
+    
+    "pages/home/beauty/beauty",
+    "pages/home/transaction/transaction",
+    "pages/carpool/car/car",
+    "pages/carpool/people/people",
+    "pages/carpool/carpool",
     "pages/member/member",
     "pages/news/news",
     "pages/member/order/use/use",
@@ -35,10 +42,9 @@
     "pages/home/insurance/view/view",
     "pages/home/accessories/accessories",
     "pages/home/maintain/view/view",
-    "pages/home/maintain/maintain",
-    "pages/home/transaction/transaction",
+    
     "pages/home/transaction/view/view",
-    "pages/home/beauty/beauty",
+   
     "pages/home/beauty/view/view",
     "pages/member/circle/circle",
     "pages/member/insurance/product/product",
@@ -55,20 +61,14 @@
     "pages/memberTenant/carpool/carpool",
     "pages/memberTenant/edit/edit",
     "pages/discount/view/view",
-    "pages/carpool/people/people",
-    "pages/carpool/car/car",
-    
     "pages/home/index",
     "pages/news/view/view",
-
     "pages/pay/fastPay",
     "pages/pay/success",
     "pages/pay/payZero",
     "pages/member/password/password",
     "pages/member/bind/bind",
-    "pages/include/captcha/captcha",
-    "pages/message/index",
-    "pages/message/pushMsg/pushMsg"
+    "pages/include/captcha/captcha"
   ],
   "tabBar": {
     "color": "#666666",

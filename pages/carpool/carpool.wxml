@@ -20,10 +20,10 @@
 </view>
 
 <view class='flex tab f15'>
-  <view class='flex-item tr {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tabClick'>
+  <view class='flex-item tr {{tab_current == 1 ? "active":""}}' data-id='1' data-name='car' bindtap='tabClick'>
     <text class='tr'>车找人</text>
   </view>
-  <view class='flex-item tl {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tabClick'>
+  <view class='flex-item tl {{tab_current == 2 ? "active":""}}' data-id='2' data-name='people' bindtap='tabClick'>
     <text class='tl'>人找车</text>
   </view>
 </view>
@@ -37,7 +37,7 @@
         <view class='left headImg'>
           <image src='{{item.headerimg}}' mode='widthFix'></image>
         </view>
-        <view class='center f15 overone'>{{item.name}}</view>
+        <view class='center f15 name'>{{item.name}}</view>
         <view class='right f12 clr_lightGray'>{{item.wz_addtime}}</view>
       </view>
       <view class='lineItem site'>
@@ -61,6 +61,8 @@
       </view>
     </view>
   </block>
+
+  
 
 
   <view class='list_item'>

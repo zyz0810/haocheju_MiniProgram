@@ -1,11 +1,12 @@
 
 ### [微信公众平台](https://mp.weixin.qq.com/)
-       公众号登录账号：，登录密码：
+       开放平台登录账号：chexiangguan@0556360.com，登录密码：qwe123QWE
        小程序登录账号：xiaochengxu@chexiangguan.com  登录密码：qwe123QWE
+       公众号登录账号：chexiangguan  登录密码：ZZZ123654
 
 ### 小程序ID
-        appid: wx598a34393c2e44e0
-        appsecret  9680bb64240d6d82c46f22f8dc91d2a5
+        appid: wx968b7c21f293681f
+        appsecret  485c039d839355a7dab224e78c0647f4
 
 ### storge
         JSESSIONID: 小程序登陆cookie

@@ -41,6 +41,10 @@ swiper{
 .price {
   margin-top: 10rpx;
 }
+.name{
+  height: 80rpx;
+  line-height: 40rpx;
+}
 
 .hot_num {
   position: absolute;

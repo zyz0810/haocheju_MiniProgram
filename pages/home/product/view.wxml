@@ -1,0 +1,46 @@
+<!--pages/home/maintain/view/view.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<import src="/template/swiperProduct/swiper.wxml" />
+<view class='container'>
+    <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner,fn:'adTap',showDot:true}}"></template>
+  <view class='lineItem'>
+    <view class='center clr_gray01 f16 overTwo'></view>
+  </view>
+  <view class='lineItem price'>
+    <view class='center'>
+      <text class='clr_gray01'>一口价</text>
+      <text class='yellow01'>￥{{price}}</text>
+      <text class='clr_mediumGray old_price'>￥{{oldPrice}}</text>
+    </view>
+  </view>
+  <view class='lineItemTitle f10 clr_lightGray tag'>
+    <text>认证商家</text>
+    <text>专属顾问</text>
+  </view>
+  <!-- <view class='parameter'>
+    <view class='title_common'>产品参数</view>
+    <view class='cont f12 clr_mediumGray'>
+      <view>品牌：3E</view>
+      <view>型号：OP-1</view>
+      <view>汽车品牌：东南 宝骏 传祺 雪佛兰 起亚 哈佛 比亚迪 丰田 现代 长安 宝马</view>
+      <view>车系：DX3</view>
+      <view>颜色：黑色 灰色</view>
+    </view>
+  </view> -->
+  <view class='parameter'>
+    <view class='title_common'>亮点介绍</view>
+
+    <view class='cont f12'>
+      <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+    </view>
+  </view>
+  <view class='flex tc f16 bottom clr_lightGray'>
+    <view class='flex-item collect' bindtap='callUs'>
+    <text class='iconfont icon-dianhua f20'></text>
+      <text>电话</text>
+    </view>
+    <view class='flex-item buy_btn' bindtap='goBuy'>
+      <view>立即购买</view>
+    </view>
+  </view>
+</view>

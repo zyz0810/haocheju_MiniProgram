@@ -15,24 +15,25 @@ module.exports = class Member extends Ajax {
   }
 
   /**
-   * 获取用户基本信息
+   * 绑定手机
+   * phonenum 手机号
+   * captcha 验证码
+   * userId 用户Id
+   */
+  bindMobile(data) {
+    super.post({
+      url: 'api/users/bindPhone',
+      data: data
+    })
+  }
+
+  /**
+   * 用户信息
+   * userId 用户ID
    */
   view(data) {
-    super.get({
-      url: 'applet/member/view.jhtml',
-      hideErrorTip: true,
-      data: data
-    })
-  }
-
-  /**
-   * 更新用户基本信息
-   * headImg   nickName
-   */
-  update(data) {
     super.post({
-      url: 'applet/member/update.jhtml',
-      hideErrorTip: true,
+      url: 'api/users/center',
       data: data
     })
   }
@@ -41,149 +42,154 @@ module.exports = class Member extends Ajax {
 
 
   /**
-   * 绑定手机号发送短信
-   * @param:
-   * mobile  手机号
+   * 修改用户信息
+   * userId 用户ID
+   * phonenum 手机号
+   * nickname 用户名
+   * sex 性别  1、男 2、女
+   * signature 签名
    */
-  sendMsgToBindPhone(data) {
+  edit(data) {
     super.post({
-      url: "applet/member/mobile/send_mobile.jhtml",
+      url: "api/users/edit",
       data: data
     })
   }
 
   /**
-   * 绑定手机号确定
-   * @param:
-   * captcha  验证码
+   * 发短信
+   * phonenum 手机号
    */
-  bindPhone(data) {
+  getCode(data) {
     super.post({
-      url: "applet/member/mobile/binded.jhtml",
+      url: "api/code/getcode",
       data: data
     })
   }
 
   /**
-   * 卡号获取银行信息
-   * @param cardNo 卡号
+   * 实名认证
+   * username 姓名
+   * idcard 身份证
+   * userId 用户Id
    */
-  getCardInfoByCardNo(data) {
-    super.get({
-      url: "applet/member/bankcard/bank_info.jhtml",
-      data: data
-    })
-  }
-
-  /**
-   * 绑定银行卡发送短信
-   *  @param mobile 手机号
-   */
-  bindCardSendCode(data) {
+  autonym(data) {
     super.post({
-      url: "applet/member/bank/sendCode.jhtml",
+      url: "api/illegal/autonym",
       data: data
     })
   }
 
   /**
-   * 绑定银行卡
-   * @param captcha 验证码
-   * @param cardNo  卡号
-   *
-   * @param bankInfoId 银行Id
-   * @param name     开户名
+   * 实名认证
+   * type 1、新车 2、二手车
    */
-  bindCard(data) {
+  collection(data) {
     super.post({
-      url: "applet/member/bankcard/save.jhtml",
-      data: data
-    })
-  }
-
-
-  /**
-   * 我的银行卡列表
-   */
-  bankList() {
-    super.get({
-      url: 'applet/member/bankcard/list.jhtml'
-    });
-  }
-
-  /**
-  * 我的银行卡列表
-  */
-  canbankList() {
-    super.get({
-      url: 'applet/member/bank/bank_info/list.jhtml'
-    });
-  }
-  /**
-      * 删除银行卡
-      * @param data
-      * id 银行卡Id
-      */
-  deleteCard(data) {
-    super.post({
-      url: 'applet/member/bank/delete.jhtml',
-      data: data
-    });
-  }
-
-
-  /**
-   * 重置支付密码发送短信
-   */
-  resetPaySendCode(data) {
-    super.post({
-      url: "applet/member/password/send_mobile.jhtml"
-    })
-  }
-
-  /**
-   * 检查重置密码的验证码是否正确
-   @param captcha  验证码
-   */
-  resetPayCheckCode(data) {
-    super.post({
-      url: "applet/member/password/check_captcha.jhtml",
+      url: "api/collect/user",
       data: data
     })
   }
 
   /**
-   * 重置支付密码
-   * @param captcha  验证码
-   * @param newPass   加密后的密码
+   * 添加车商
+   *    userId 用户Id
+   *    providername 车商名字
+   *    prividerperson 联系人
+   *    address 公司地址
+   *    position 职位
+   *    phone 手机号
+   *    logo logo
+   *    images 门面图
+   *    license 营业执照
+   *    name 账号（只能是英文或数字）
    */
-  resetPay(data) {
+  dealer(data) {
     super.post({
-      url: "applet/member/password/update.jhtml",
+      url: "api/provider/add",
       data: data
     })
   }
 
+
+
   /**
-   * 我收藏的商品
-   * pageSize 页大小
-   * pageNumber 页码
+   * 上传图片
+   *    file 文件名
    */
-  productList(data) {
-    super.get({
-      url: 'applet/member/favorite/product/list.jhtml',
+  uploads(data) {
+    super.post({
+      url: 'api/users/uploads',
       data: data
     });
   }
 
   /**
-   * 根据货架号获取所属店铺员工数据
-   * shelvesNo 货架号
+   * 分享
+   *    url 当前页面路径
    */
-  employeeShelves(data) {
-    super.get({
-      hideErrorTip: true,
-      url: 'applet/member/shelves/employee.jhtml',
+  shareApi(data) {
+    super.post({
+      url: 'api/share/index',
+      data: data
+    })
+  }
+
+  /**
+   * 保险
+   *    carno 车牌号
+   *    mobile 手机号
+   */
+  insuranceAdd(data) {
+    super.post({
+      url: 'api/insurance/add',
+      data: data
+    })
+  }
+
+  /**
+   * 检验验证码
+   *    phonenum
+   *    code
+   */
+  getcodeCheck(data) {
+    super.post({
+      url: 'api/code/ckeckCode',
+      data: data
+    })
+  }
+
+  /**http://che.0556360.com/api/index/wxusers?code=0114lvtS1LYku41qlbuS1Q2ctS14lvt6&from=844b&vit=fps
+   * 微信获取用户信息
+   *    code 微信code
+   */
+  wxLogin(data) {
+    super.post({
+      url: 'api/index/wxusers',
+      data: data
+    })
+  }
+
+  /**
+   * 获取当前页面url
+   *    url 当前页面url
+   */
+  wxUrl(data) {
+    super.post({
+      url: 'api/share/wxurl',
+      data: data
+    })
+  }
+  /**
+   * 建议反馈
+   *    phone 手机号
+   *    images 图片
+   *    content 内容
+   *    userId 用户Id
+   */
+  feedback(data) {
+    super.post({
+      url: 'api/feedback/index',
       data: data
     })
   }
