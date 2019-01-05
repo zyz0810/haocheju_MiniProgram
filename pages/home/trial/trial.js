@@ -18,8 +18,14 @@ Page({
     rulesVin: '',
     rulesEngine: '',
     reault: true,
-    mask: true
+    mask: true,
+    trialName:'',
+    trialPhone:'',
+    trialLicense:'',
+    trialLocation:'',
+    trialAge:''
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -116,10 +122,23 @@ Page({
       reault: true,
       area: true,
       trialArea: true,
+      mask:true
     })
   },
   peccancy_btn: function() {
     var that = this
+    if (that.data.rulesLicense == '') {
+      util.errShow('请填写车牌号');
+      return;
+    }
+    if (that.data.rulesVin == '') {
+      util.errShow('请填写车架号');
+      return;
+    }
+    if (that.data.rulesEngine == '') {
+      util.errShow('请填写发动机号');
+      return;
+    }
     new Drivers(res => {
       console.log(res)
       that.setData({
@@ -134,6 +153,73 @@ Page({
       engineno: that.data.rulesEngine
     })
   },
+  trialName:function(e){
+    this.setData({
+      trialName: e.detail.value
+    })
+  },
+  trialPhone: function (e) {
+    this.setData({
+      trialPhone: e.detail.value
+    })
+  },
+  trialLicense: function (e) {
+    this.setData({
+      trialLicense: e.detail.value
+    })
+  },
+  trialLocation: function (e) {
+    this.setData({
+      trialLocation: e.detail.value
+    })
+  },
+  trialAge: function (e) {
+    this.setData({
+      trialAge: e.detail.value
+    })
+  },
+  trialBtn:function(){
+    var that = this
+    if (that.data.trialName == '') {
+      util.errShow('请填写姓名');
+      return;
+    }
+    if (!(/^1\d{10}$/.test(that.data.trialPhone))) {
+      util.errShow('手机号格式错误');
+      return;
+    } else if (that.data.trialPhone.length == 0) {
+      util.errShow('请填写手机号');
+      return;
+    }
+    if (that.data.trialLicense == '') {
+      util.errShow('请填写车牌号');
+      return;
+    }
+    if (that.data.trialLocation == '') {
+      util.errShow('请填写车辆位置');
+      return;
+    }
+    if (that.data.trialAge == '') {
+      util.errShow('请填写车辆年限');
+      return;
+    }
+    
+    new Drivers(res => {
+      console.log(res)
+      wx.showToast({
+        title: '提交成功',
+      })
+    }).examination({
+      name: that.data.trialName,
+      mobile: that.data.trialPhone,
+      carno: that.data.trialAreaTxt + that.data.trialLicense,
+      caraddress: that.data.trialLocation,
+      caryear: that.data.trialAge
+    })
+
+
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

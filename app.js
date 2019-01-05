@@ -15,71 +15,125 @@ App({
   onLaunch(opData) {
     let that = this
     let username = '', headImg = '';
-    const shelvesNo = opData.query.scene && decodeURIComponent(opData.query.scene).split("#")[1];
+
+
+
 //     wx.login({
-//       success(data) {
+//       success(res) {
+//         if (res.code) {
 
-
-// console.log(112121212)
-
-//         //用户登陆成功
-//         tryLogin({ code: data.code, username, headImg, shelvesNo }, (res) => {
-//           that.globalData.LOGIN_STATUS = true
-//           that.globalData.tenantId = res.data.tenantId
-//           that.globalData.mainColor = res.data.colour ? res.data.colour : '#F85151'
-//           wx.setStorageSync('tenantId', res.data.tenantId)
+// debugger
+// console.log('登陆成功')
 //           new Member(res => {
-//             that.globalData.memberInfo = res.data
-//             wx.setStorageSync('memberInfo', res.data)
-//             if (that.loginOkCallback) {
-//               that.loginOkCallback()
-//             }
-//             if (that.loginOkCallbackList.length > 0) {
-//               for (let i = 0; i < that.loginOkCallbackList.length; i++) {
-//                 if (typeof that.loginOkCallbackList[i] === 'function') {
-//                   that.loginOkCallbackList[i]()
-//                 }
-//                 continue
-//               }
-//             }
-//           }).view({
-//             appid: config.APPID
+//             debugger
+//             console.log(66565)
+//             console.log('1121' + res.unionid)
+//             console.log(res)
+//             wx.setStorageSync('openid', res.data.openid)
+//             wx.setStorageSync('unionid', res.data.unionid)
+            
+//           }).loginC({
+//             code: res.code
 //           })
-//         })
+
+//         } else {
+//           console.log('登录失败！' + res.errMsg)
+//         }
 //       }
 //     })
+
+
+
+
+
+   
+
+
+    wx.login({
+      success(data) {
+
+
+        console.log(data.code)
+        //用户登陆成功
+        tryLogin({ code: data.code }, (res) => {
+
+
+          that.globalData.LOGIN_STATUS = true
+
+
+
+          // new Member(res => {
+
+          //   that.globalData.memberInfo = res.data
+          //   wx.setStorageSync('memberInfo', res.data)
+
+          //   if (that.loginOkCallback) {
+          //     that.loginOkCallback()
+          //   }
+          //   if (that.loginOkCallbackList.length > 0) {
+          //     for (let i = 0; i < that.loginOkCallbackList.length; i++) {
+          //       if (typeof that.loginOkCallbackList[i] === 'function') {
+          //         that.loginOkCallbackList[i]()
+          //       }
+          //       continue
+          //     }
+          //   }
+          // }).view({
+          //   appid: config.APPID
+          // })
+        })
+      }
+
+
+    })
+
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        }
+      }
+    })
+
   }
+
+  
 })
 
 //登陆，获取sessionid
-// var tryLogin = (function () {
-//   let count = 0
-//   return function (data, fn) {
-//     if (count >= config.LOGIN_ERROR_TRY_COUNT) {
-//       util.errShow('登陆超时')
-//       return
-//     }
-//     new Member(function (res) {
-//       if (res.data.login || res.data.sessionId !== null) {
-//         //设置请求session到本地
-//         wx.setStorageSync('JSESSIONID', res.data.sessionId)
+var tryLogin = (function () {
+  let count = 0
+  return function (data, fn) {
+    if (count >= config.LOGIN_ERROR_TRY_COUNT) {
+      util.errShow('登陆超时')
+      return
+    }
+    console.log(8989)
+ 
+    new Member(function (res) {
+      if (res.data.openid || res.data.unionid !== null) {
+        //设置请求session到本地
 
-//         fn ? fn(res) : ''
-//       } else {
-//         setTimeout(function () {
-//           tryLogin(data.code)
-//           count++
-//         }, config.LOGIN_ERROR_TRY_TIMEOUT)
-//       }
-//     }, function (err) {
-//       util.errShow('登陆失败', 50000)
-//     }).login({
-//       js_code: data.code,
-//       cid: 1,
-//       appid: config.APPID,
-//       nickName: data.username,
-//       headImg: data.headImg,
-//       shelvesNo: data.shelvesNo ? data.shelvesNo : ''
-//     })
-//   }
-// })()
+        wx.setStorageSync('openid', res.data.openid)
+        wx.setStorageSync('unionid', res.data.unionid)
+
+
+        fn ? fn(res) : ''
+      } else {
+        console.log(8722)
+        setTimeout(function () {
+          tryLogin(data.code)
+          count++
+        }, config.LOGIN_ERROR_TRY_TIMEOUT)
+      }
+    }, function (err) {
+      
+      util.errShow('登陆失败', 50000)
+      }).loginC({
+      code: data.code,
+    })
+  }
+})()

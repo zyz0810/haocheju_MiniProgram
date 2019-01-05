@@ -1,8 +1,13 @@
 {
   "pages": [
-    "pages/users/login",
-    "pages/home/trial/trial",
     "pages/home/home",
+    "pages/home/trial/trial",
+    
+    "pages/users/login",
+    "pages/scope/index",
+    
+    
+    
     "pages/home/product/view",
     "pages/home/maintain/maintain",
     

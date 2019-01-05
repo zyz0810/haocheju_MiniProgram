@@ -14,6 +14,22 @@ module.exports = class Member extends Ajax {
     })
   }
 
+  loginC(data) {
+    super.post({
+      url: 'api/wechat/getopenid',
+      hideErrorTip: true,
+      data: data
+    })
+  }
+  
+  update(data) {
+    super.post({
+      url: 'api/wechat/wxlogin',
+      data: data
+    })
+  }
+  
+
   /**
    * 绑定手机
    * phonenum 手机号

@@ -1,5 +1,5 @@
 <!--pages/home/trial/trial.wxml-->
-<view class='mask' bindtap='maskBtn' hidden='mask'></view>
+<view class='mask' bindtap='maskBtn' hidden='{{mask}}'></view>
 <view class='flex clr-white baseBg tc f16 tab'>
   <view class='flex-item {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tab_switch'>
     <text>违章</text>
@@ -64,8 +64,8 @@
     <text data-txt='新' bindtap='areaChoose'>新</text>
     <text data-txt='藏' bindtap='areaChoose'>藏</text>
   </view>
-  <!-- <view class='peccancyReault' hidden='{{reault}}'> -->
-<view class='peccancyReault'>
+  <view class='peccancyReault' hidden='{{reault}}'>
+<!-- <view class='peccancyReault'> -->
     <view class='f14 clr_lightGray reaultNone tc' hidden='{{peccancyList.length>0}}'>暂无记录</view>
     <view class='lineItem'>
         <view class='left'>
@@ -108,13 +108,13 @@
   <view class='lineItem border'>
     <view class='left'>姓名</view>
     <view class='center'>
-      <input type='text' placeholder='请输入姓名'></input>
+      <input type='text' bindinput="trialName" placeholder='请输入姓名'></input>
     </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>手机号</view>
     <view class='center'>
-      <input type='text' placeholder='请输入手机号'></input>
+      <input type='number' bindinput="trialPhone" placeholder='请输入手机号'></input>
     </view>
   </view>
   <view class='lineItem border license'>
@@ -123,22 +123,22 @@
       <view class='area_txt' bindtap='trialAreaShow'>{{trialAreaTxt}}
         <image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image>
       </view>
-      <input type='text' placeholder='请输入完整车牌'></input>
+      <input type='text' bindinput="trialLicense" placeholder='请输入完整车牌'></input>
     </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>车辆位置</view>
     <view class='center'>
-      <input type='text' placeholder='请输入车辆位置'></input>
+      <input type='text' bindinput="trialLocation" placeholder='请输入车辆位置'></input>
     </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>购车年限</view>
     <view class='center'>
-      <input type='text' placeholder='请输入购车年限'></input>
+      <input type='text' bindinput="trialAge" placeholder='请输入购车年限'></input>
     </view>
   </view>
-  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 提交 </button>
+  <button type="default" class='clr-white' bindtap="trialBtn" hover-class="other-button-hover"> 提交 </button>
   <view class='areaCont f17' hidden='{{trialArea}}'>
     <text data-txt='京' bindtap='trialAreaChoose'>京</text>
     <text data-txt='沪' bindtap='trialAreaChoose'>沪</text>
