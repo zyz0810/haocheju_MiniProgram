@@ -1,25 +1,36 @@
 <!--pages/home/trial/trial.wxml-->
+<view class='mask' bindtap='maskBtn' hidden='mask'></view>
 <view class='flex clr-white baseBg tc f16 tab'>
-  <view class='flex-item {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tab_switch'><text>违章</text></view>
-  <view class='flex-item {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tab_switch'><text>年审</text></view>
+  <view class='flex-item {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tab_switch'>
+    <text>违章</text>
+  </view>
+  <view class='flex-item {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tab_switch'>
+    <text>年审</text>
+  </view>
 </view>
 <view class='peccancy f16' hidden='{{tab_current == 0?false:true}}'>
   <view class='lineItem border license'>
     <view class='left'>车牌号</view>
     <view class='center'>
-      <view class='area_txt' bindtap='areaShow'>{{areaTxt}}<image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
-      <input type='text' placeholder='请输入完整车牌'></input>
+      <view class='area_txt' bindtap='areaShow'>{{areaTxt}}
+        <image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image>
+      </view>
+      <input type='text' bindinput="rulesLicense" placeholder='请输入完整车牌'></input>
     </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>车架号</view>
-    <view class='center'><input type='text' placeholder='请输入完整车架号'></input></view>
+    <view class='center'>
+      <input type='text' bindinput="rulesVin" placeholder='请输入完整车架号'></input>
+    </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>发动机号</view>
-    <view class='center'><input type='text' placeholder='请输入发动机号6位'></input></view>
+    <view class='center'>
+      <input type='text' bindinput="rulesEngine" placeholder='请输入发动机号6位'></input>
+    </view>
   </view>
-  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 提交 </button>
+  <button type="default" class='clr-white' hover-class="other-button-hover" bindtap='peccancy_btn'> 提交 </button>
   <view class='areaCont f17' hidden='{{area}}'>
     <text data-txt='京' bindtap='areaChoose'>京</text>
     <text data-txt='沪' bindtap='areaChoose'>沪</text>
@@ -53,31 +64,79 @@
     <text data-txt='新' bindtap='areaChoose'>新</text>
     <text data-txt='藏' bindtap='areaChoose'>藏</text>
   </view>
+  <!-- <view class='peccancyReault' hidden='{{reault}}'> -->
+<view class='peccancyReault'>
+    <view class='f14 clr_lightGray reaultNone tc' hidden='{{peccancyList.length>0}}'>暂无记录</view>
+    <view class='lineItem'>
+        <view class='left'>
+          <view>{{item.wz_code}}</view>
+          <view class='f12 clr_lightGray'>{{item.wz_city}}</view>
+        </view>
+        <view class='center'>
+          <view class='overtwo f12 clr_lightGray'>{{item.act}}</view>
+          <view class='overtwo f14'>{{item.area}}</view>
+          <view class='f12 clr_lightGray'>{{item.wz_date}}</view>
+        </view>
+        <view class='right'>
+          <view>扣{{item.fen}}分</view>
+          <view>罚款{{item.money}}元</view>
+          <view class='{{item.handled==0?"red":"clr_lightGray"}}'>{{item.handled==0?"未处理":"已处理"}}</view>
+        </view>
+      </view>
+    <block wx:for="{{peccancyList}}" wx:key="index">
+      <view class='lineItem'>
+        <view class='left'>
+          <view>{{item.wz_code}}</view>
+          <view class='f12 clr_lightGray'>{{item.wz_city}}</view>
+        </view>
+        <view class='center'>
+          <view class='overtwo f12 clr_lightGray'>{{item.act}}</view>
+          <view class='overtwo f14'>{{item.area}}</view>
+          <view class='f12 clr_lightGray'>{{item.wz_date}}</view>
+        </view>
+        <view class='right'>
+          <view>扣{{item.fen}}分</view>
+          <view>罚款{{item.money}}元</view>
+          <view class='{{item.handled==0?"red":"clr_lightGray"}}'>{{item.handled==0?"未处理":"已处理"}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
 </view>
 
 <view class='trial_cont f16' hidden='{{tab_current == 1?false:true}}'>
   <view class='lineItem border'>
     <view class='left'>姓名</view>
-    <view class='center'><input type='text' placeholder='请输入姓名'></input></view>
+    <view class='center'>
+      <input type='text' placeholder='请输入姓名'></input>
+    </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>手机号</view>
-    <view class='center'><input type='text' placeholder='请输入手机号'></input></view>
+    <view class='center'>
+      <input type='text' placeholder='请输入手机号'></input>
+    </view>
   </view>
   <view class='lineItem border license'>
     <view class='left'>车牌号</view>
     <view class='center'>
-      <view class='area_txt' bindtap='trialAreaShow'>{{trialAreaTxt}}<image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image></view>
+      <view class='area_txt' bindtap='trialAreaShow'>{{trialAreaTxt}}
+        <image src='http://m.0556360.com/weixin/images/static/trial/arrow.png'></image>
+      </view>
       <input type='text' placeholder='请输入完整车牌'></input>
     </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>车辆位置</view>
-    <view class='center'><input type='text' placeholder='请输入车辆位置'></input></view>
+    <view class='center'>
+      <input type='text' placeholder='请输入车辆位置'></input>
+    </view>
   </view>
   <view class='lineItem border'>
     <view class='left'>购车年限</view>
-    <view class='center'><input type='text' placeholder='请输入购车年限'></input></view>
+    <view class='center'>
+      <input type='text' placeholder='请输入购车年限'></input>
+    </view>
   </view>
   <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 提交 </button>
   <view class='areaCont f17' hidden='{{trialArea}}'>
@@ -114,4 +173,3 @@
     <text data-txt='藏' bindtap='trialAreaChoose'>藏</text>
   </view>
 </view>
-

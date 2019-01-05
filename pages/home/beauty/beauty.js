@@ -9,15 +9,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000
+
   },
 
   /**
@@ -29,10 +21,12 @@ Page(Object.assign({}, swiperAutoHeight, {
       console.log(res)
       this.setData({
         banner: res.data.return_banner,
-        hotList: res.data.return_oldcar.data,
-        commendList: res.data.return_newcar.data,
+        hotList: res.data.return_hot.data,
+        commendList: res.data.return_shop.data,
+        commendPage: res.data.return_shop.pageTotal,
+        currentPage: res.data.return_shop.currentPage
       })
-    }).list({ page: 1, pageSize: 10, type: 3})
+    }).list({ page: 1, pageSize: 10, type: 4 })
   },
 
   /**
@@ -48,10 +42,11 @@ Page(Object.assign({}, swiperAutoHeight, {
   onShow: function () {
 
   },
-  goView:function(e){
+  goView: function (e) {
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'view/view?id='+id,
+
+      url: '/pages/home/product/view?id=' + id,
     })
   },
 
@@ -80,7 +75,38 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var that = this;
+    wx.showNavigationBarLoading();
+    // var pageModel = this.data.pageModel;
+    var newPage = this.data.commendPage;
+    var currentPage = this.data.currentPage;
+    var commendList = this.data.commendList;
 
+
+    console.log(currentPage)
+
+    new Product(res => {
+      console.log(res)
+      wx.hideNavigationBarLoading() //完成停止加载
+      if (res.data.return_shop.totalPages < res.data.return_shop.currentPage) {
+        wx.hideNavigationBarLoading()
+        that.setData({
+          tips: '',
+          showtips: false
+        })
+      } else {
+        commendList = commendList.concat(res.data.return_shop.data)
+        this.setData({
+          commendList: commendList,
+          currentPage: res.data.return_shop.currentPage
+        })
+      }
+
+    }).list({
+      page: ++currentPage,
+      pageSize: 10,
+      type: 4
+    })
   },
 
   /**

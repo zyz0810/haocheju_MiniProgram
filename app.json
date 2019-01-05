@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/users/login",
+    "pages/home/trial/trial",
     "pages/home/home",
     "pages/home/product/view",
     "pages/home/maintain/maintain",
@@ -31,7 +33,7 @@
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",
-    "pages/home/trial/trial",
+   
     "pages/home/roadRescue/roadRescue",
     "pages/home/school/school",
     "pages/home/personnelCar/view/view",
