@@ -30,6 +30,7 @@ Page({
       new member(res => {
 
         wx.setStorageSync('userId', res.data.id)
+        console.log(wx.getStorageSync('userId'))
 
       // that.globalData.memberInfo = res.data
       //       wx.setStorageSync('memberInfo', res.data)

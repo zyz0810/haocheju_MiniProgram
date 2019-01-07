@@ -1,16 +1,37 @@
 <!--pages/search/search.wxml-->
 <view class='search'>
-  <view class='search_frame'>
-    <text class='iconfont icon-sousuo f16 baseColor'></text>
-    <input type='text' class='f12' placeholder='搜索 车品牌/型号'></input>
+  <view class='search_frame lineItem'>
+    <view class='left'><text class='iconfont icon-sousuo f16 baseColor'></text></view>
+    <view class='center'><input type='text' class='f12' bindinput='searchKey' placeholder='搜索 车品牌/型号'></input></view>
+    <view class='right f14'><text class='clr-white searchBtn baseBg' bindtap='goSearch'>搜索</text></view>
+     
   </view>
 </view>
 <view class='cont'>
-  <view class='f13'>热门搜索</view>
+  <!-- <view class='f13'>热门搜索</view>
   <view class='f12 clr_mediumGray hotSearch'>
     <text>大众</text>
     <text>5万以下</text>
     <text>大众</text>
     <text>大众</text>
-  </view>
+  </view> -->
+
+
+
+  <block wx:for="{{product}}" wx:key="{{index}}">
+    <view class='lineItem listItem_row' data-id='{{item.id}}' bindtap='goView'>
+      <view class='left'>
+        <image src='{{item.logo?item.logo:"/resources/images/logo.png"}}' mode='widthFix'></image>
+      </view>
+      <view class='center'>
+        <view class='f14 clr_gray01 overtwo'>{{item.shopgoods}}</view>
+        <view class='f12 gray06 overone'>{{item.desc}}</view>
+        <view class='f12'>
+          <text class='clr_orange f14 fl'>￥{{item.cost}}</text>
+          <text class='fr gray06 f12 oldPrice'>￥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
 </view>

@@ -1,39 +1,37 @@
 <!--pages/discount/discount.wxml-->
+<import src="/template/swiperWidth/swiper.wxml" />
 <view class='container'>
-  <view class='swiper'>
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
-        <swiper-item>
-          <image src="{{item}}" class="slide-image" width="355" height="150" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+
 
   <view class='search'>
-    <view class='search_frame'>
-    <text class='iconfont icon-sousuo f16 baseColor'></text>
-      <input type='text' class='f12' placeholder='搜索 车品牌/型号'></input>
+    <view class='search_frame lineItem'>
+      <view class='left'>
+        <text class='iconfont icon-sousuo f16 baseColor'></text>
+      </view>
+      <view class='center'>
+        <input type='text' class='f12' bindinput='searchKey' placeholder='搜索 车品牌/型号'></input>
+      </view>
+      <view class='right f14'>
+        <text class='clr-white searchBtn baseBg' bindtap='goSearchBtn'>搜索</text>
+      </view>
+
+    </view>
+    <view style='width:92%; margin:20rpx auto 0;'>
+      <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap',showDot:true}}"></template>
     </view>
     <view class='history'>
       <view class='f12 clr-white'>特惠促销 优惠大放送</view>
       <view class='history_cont f13 clr_mediumGray'>
-        <text class='active' data-txt='奥迪' bindtap='goSearch'>奥迪</text>
-        <text data-txt='宝马' bindtap='goSearch'>宝马</text>
-        <text data-txt='大众' bindtap='goSearch'>大众</text>
-        <text data-txt='别克' bindtap='goSearch'>别克</text>
-        <text data-txt='本田' bindtap='goSearch'>本田</text>
-        <text data-txt='奥迪' bindtap='goSearch'>奥迪</text>
-        <text data-txt='大众' bindtap='goSearch'>大众</text>
-        <text data-txt='大众' bindtap='goSearch'>大众</text>
-        <text data-txt='别克' bindtap='goSearch'>别克</text>
-        <text data-txt='本田' bindtap='goSearch'>本田</text>
+
+        <block wx:for="{{brand}}" wx:key="index">
+          <text class='{{index==0?"active":""}}' data-txt='{{item.brandname}}' bindtap='goSearch'>{{item.brandname}}</text>
+        </block>
       </view>
     </view>
   </view>
 
   <view class='list'>
-    <view class='list_item' bindtap='goView'>
+    <!-- <view class='list_item' bindtap='goView'>
       <text class='tag clr-white f13'>特惠</text>
       <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
       <view class='item_txt'>
@@ -46,48 +44,24 @@
           <text class='f13 fr price_btn baseBg clr-white'>询价</text>
         </view>
       </view>
-    </view>
-    <view class='list_item' bindtap='goView'>
-      <text class='tag clr-white f13'>特惠</text>
-      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
-      <view class='item_txt'>
-        <view class='f15 tc clr_gray01'>朗逸</view>
-        <view class='f12 tc clr_gray01'>最多可优惠
-          <text class='clr_orange'>3.3万</text>
+    </view> -->
+
+    <block wx:for="{{product}}" wx:key="{{index}}">
+      <view class='lineItem listItem_row' data-id='{{item.id}}' bindtap='goView'>
+        <view class='left'>
+          <text class='tag clr-white f13'>特价</text>
+          <image src='{{item.logo?item.logo:"/resources/images/logo.png"}}' mode='widthFix'></image>
         </view>
-        <view class='clearfix'>
-          <text class='f12 fl clr_mediumGray'>3.3万起</text>
-          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
-        </view>
-      </view>
-    </view>
-    <view class='list_item' bindtap='goView'>
-      <text class='tag clr-white f13'>特惠</text>
-      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
-      <view class='item_txt'>
-        <view class='f15 tc clr_gray01'>朗逸</view>
-        <view class='f12 tc clr_gray01'>最多可优惠
-          <text class='clr_orange'>3.3万</text>
-        </view>
-        <view class='clearfix'>
-          <text class='f12 fl clr_mediumGray'>3.3万起</text>
-          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
+        <view class='center'>
+          <view class='f14 clr_gray01 overtwo'>{{item.shopgoods}}</view>
+          <view class='f12 gray06 overone'>{{item.desc}}</view>
+          <view class='f12'>
+            <text class='clr_orange f14 fl'>￥{{item.cost}}</text>
+            <text class='fr gray06 f12 oldPrice'>￥{{item.price}}</text>
+          </view>
         </view>
       </view>
-    </view>
-    <view class='list_item' bindtap='goView'>
-      <text class='tag clr-white f13'>特惠</text>
-      <image src='http://cdn.tiaohuo.com/upload/image/201704/1a9fa1fb-5c6a-4a15-8728-39b9d2a336e1.jpg' mode='widthFix'></image>
-      <view class='item_txt'>
-        <view class='f15 tc clr_gray01'>朗逸</view>
-        <view class='f12 tc clr_gray01'>最多可优惠
-          <text class='clr_orange'>3.3万</text>
-        </view>
-        <view class='clearfix'>
-          <text class='f12 fl clr_mediumGray'>3.3万起</text>
-          <text class='f13 fr price_btn baseBg clr-white'>询价</text>
-        </view>
-      </view>
-    </view>
+    </block>
+
   </view>
 </view>

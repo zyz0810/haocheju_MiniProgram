@@ -27,7 +27,7 @@
   line-height: 1.6em;
 }
 .cont image{
-  width: 100%;
+  max-width: 100% !important;
 }
 .flex .flex-item.buy_btn {
     -webkit-box-flex: 2;

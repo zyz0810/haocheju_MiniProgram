@@ -70,7 +70,7 @@
     <view class='cont'>
 
       <block wx:for="{{news}}" wx:key="{{index}}">
-        <view class='lineItem border' bindtap='goNewsView'>
+        <view class='lineItem border' data-id='{{item.id}}' bindtap='goNewsView'>
           <view class='center'>
             <view class='f12 tit'>{{item.title}}</view>
             <view class='clearfix f10'>

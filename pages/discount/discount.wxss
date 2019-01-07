@@ -95,3 +95,21 @@
   color: #0f84de;
   background: #e5f4ff;
 }
+.listItem_row{
+  padding: 2% 0;
+}
+.listItem_row .left{
+  width: 45vw;
+  margin-right: 2vw;
+  position: relative;
+}
+.listItem_row .center{
+  width: 60vw;
+}
+.oldPrice{
+  text-decoration: line-through;
+}
+.searchBtn{
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}

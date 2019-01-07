@@ -7,25 +7,25 @@
   <view class='lineItem title'>
     <view class='center f16'>个人信息</view>
   </view>
-  <view class='f13'>联系人：爱吃的懒猫</view>
-  <view class='f13'>联系电话：15155133955</view>
+  <view class='f13'>联系人：{{nickname}}</view>
+  <view class='f13'>联系电话：{{phone}}</view>
 </view>
 
 <view class='border_bottom information_order'>
   <view class='lineItem title'>
     <view class='center f16'>订单信息</view>
   </view>
-  <view class='f13 clr_lightGray'>下单编号：126899099</view>
-  <view class='f13 clr_lightGray border_bottom time'>下单时间：2018-10-16</view>
+  <view class='f13 clr_lightGray'>下单编号：{{trade_no}}</view>
+  <view class='f13 clr_lightGray border_bottom time'>下单时间：{{addtime}}</view>
   <view class='lineItem border_bottom product'>
     <view class='left'>
-      <image src='http://m.0556360.com/weixin/images/placeholder/logo.png'></image>
+      <image src='{{goodsLogo}}'></image>
     </view>
-    <view class='center f15 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
+    <view class='center f15 overtwo'>{{shopgoods}}</view>
   </view>
   <view class='lineItem border_bottom'>
     <view class='left f15 clr_mediumGray'>优惠：</view>
-    <view class='center f15 tr clr_red02'>-300</view>
+    <view class='center f15 tr clr_red02'>-{{discount}}</view>
   </view>
   <view class='lineItem border_bottom'>
     <view class='left f15 clr_mediumGray'>备注留言：</view>
@@ -36,18 +36,18 @@
   <view class='lineItem'>
     <view class='center tr f15 clr_mediumGray'>共一件商品 合计：
     </view>
-    <view class='f15 clr_red02'>￥3000元</view>
+    <view class='f15 clr_red02'>￥{{cost}}元</view>
   </view>
 </view>
-<form bindsubmit="formSubmit" report-submit bindreset="formReset" class='submit'>
+<form bindsubmit="orderBtn" class='submit'>
   <button class='right' form-type="submit" style='border-radius:0'>确认下单</button>
 </form>
 
 
 
-<view class="actionsheetMask" catchtouchmove="ActionsheetCatchMove" bindtap="ActionsheetHide" hidden="{{!__actionsheet.show}}"></view>
+<view class="actionsheetMask" catchtouchmove="ActionsheetCatchMove" bindtap="ActionsheetHide" hidden="{{actionsheet}}"></view>
 <!-- <view class="actionsheetMask" catchtouchmove="ActionsheetCatchMove" bindtap="ActionsheetHide"></view> -->
-<view class="actionsheetWrap" hidden="{{!__actionsheet.show}}">
+<view class="actionsheetWrap" hidden="{{actionsheet}}">
   <view class="lineItem">
     <view class='center f15 tc bold'>支付方式</view>
     <view class='right f14 clr_lightGray' bindtap="ActionsheetHide">关闭</view>
@@ -59,5 +59,5 @@
       <checkbox checked="checked" />
     </view>
   </view>
-  <button class="actionsheet_btn {{__actionsheet.submit}}" bindtap="{{__actionsheet.submit}}" type="primary">立即支付￥3000</button>
+  <button class="actionsheet_btn {{__actionsheet.submit}}" bindtap="formSubmit" type="primary">立即支付￥{{cost}}</button>
 </view>

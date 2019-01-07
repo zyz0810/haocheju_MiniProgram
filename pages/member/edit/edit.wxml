@@ -1,35 +1,28 @@
 <!--pages/member/edit/edit.wxml-->
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>头像</view>
-  <view class='right tr'><image src='http://m.0556360.com/weixin/images/placeholder/logo.png' class='hearImg'></image></view>
+  <view class='right tr'><image src='{{avatar}}' class='hearImg'></image></view>
 </view>
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>昵称</view>
-  <view class='center tr'><input type='text' value='haocheju'></input></view>
+  <view class='center tr'><input type='text' value='{{nickname}}' bindinput='editName'></input></view>
 </view>
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>手机号</view>
-  <view class='center tr'><input type='number' value='15155133955'></input></view>
+  <view class='center tr'><input type='number' value='{{phone}}' bindinput='editPhone'></input></view>
 </view>
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>性别</view>
-  <view class='center tr'>女</view>
-</view>
-<view class='lineItem f16 clr_mediumGray border'>
-  <view class='left'>生日</view>
   <view class='center tr'>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-       {{date}}
-    </view>
+  <picker bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">
+    <view class="picker">{{array[sex]}}</view>
   </picker>
   </view>
 </view>
 <view class='lineItem f16 clr_mediumGray border'>
   <view class='left'>个性签名</view>
-  <view class='center tr'><input type='text' value='haocheju'></input></view>
 </view>
-<textarea class='f14' placeholder='介绍一下自己吧'></textarea>
+<textarea class='f14' placeholder='介绍一下自己吧' bindinput='editSignature'></textarea>
 
-<button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即发布 </button>
+<button type="default" class='clr-white' bindtap="editBtn" hover-class="other-button-hover"> 立即发布 </button>
 

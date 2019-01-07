@@ -1,12 +1,20 @@
 {
   "pages": [
-    "pages/home/home",
+      "pages/home/home",
+    "pages/home/school/school",
+    "pages/home/school/view/view",
+  
+    "pages/home/roadRescue/roadRescue",
+    "pages/member/member",
+    "pages/member/edit/edit",
+    "pages/discount/discount",
+    
     "pages/home/trial/trial",
     
     "pages/users/login",
     "pages/scope/index",
     
-    
+    "pages/search/search",
     
     "pages/home/product/view",
     "pages/home/maintain/maintain",
@@ -16,7 +24,7 @@
     "pages/carpool/car/car",
     "pages/carpool/people/people",
     "pages/carpool/carpool",
-    "pages/member/member",
+    
     "pages/news/news",
     "pages/member/order/use/use",
     "pages/memberTenant/memberTenant",
@@ -33,14 +41,14 @@
     "pages/home/usedCar/view/pic/pic",
     "pages/home/usedCar/buy/buy",
     "pages/home/usedCar/index",
-    "pages/discount/discount",
-    "pages/search/search",
+    
+   
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",
    
-    "pages/home/roadRescue/roadRescue",
-    "pages/home/school/school",
+    
+    
     "pages/home/personnelCar/view/view",
     "pages/home/personnelCar/personnelCar",
     "pages/home/steamProtection/steamProtection",
@@ -64,7 +72,7 @@
     "pages/memberTenant/insurance/insurance",
     "pages/member/car/car",
     "pages/member/carpool/carpool",
-    "pages/member/edit/edit",
+    
     "pages/memberTenant/carpool/carpool",
     "pages/memberTenant/edit/edit",
     "pages/discount/view/view",

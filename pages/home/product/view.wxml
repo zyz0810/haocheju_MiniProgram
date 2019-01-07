@@ -4,7 +4,7 @@
 <view class='container'>
     <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner,fn:'adTap',showDot:true}}"></template>
   <view class='lineItem'>
-    <view class='center clr_gray01 f16 overTwo'></view>
+    <view class='center clr_gray01 f16 overTwo'>{{shopgoods}}</view>
   </view>
   <view class='lineItem price'>
     <view class='center'>
