@@ -50,7 +50,7 @@
     </view>
   </view>
   <view class='flex tc f16 bottom clr_lightGray'>
-    <view class='flex-item collect {{isCollection==0?"":"yellow01"}}' data-id='{{isCollection}}'>
+    <view class='flex-item collect {{isCollection==0?"":"yellow01"}}' data-id='{{isCollection}}' data-cid='{{cid}}' bindtap='collect'>
       <text class='iconfont {{isCollection==0?" icon-heart":" icon-icon3"}}   f24'></text>
       <text>{{isCollection==0?"收藏":"已收藏"}}</text>
     </view>

@@ -1,8 +1,9 @@
 // pages/news/news.js
-let Zixun = require("../../service/zixun.js"),
+let swiperAutoHeight = require("../../template/swiperIndex/swiper.js"), 
+  Zixun = require("../../service/zixun.js"),
   app = getApp(),
   util = require("../../utils/util.js")
-Page({
+Page(Object.assign({}, swiperAutoHeight, {
 
   /**
    * 页面的初始数据
@@ -129,4 +130,4 @@ Page({
   onShareAppMessage: function() {
 
   }
-})
+}))

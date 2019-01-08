@@ -1,46 +1,69 @@
-<!--pages/memberTenant/insurance/insurance.wxml-->
-<view>
-  <image src='http://m.0556360.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+<!--pages/memberTenant/insurance/offer/offer.wxml-->
+<view class='banner'>
+  <image src='http://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
 </view>
-<view class='flex nav tc'>
-  <view class='flex-item' bindtap='goOffer'>
-    <image src='http://m.0556360.com/weixin/images/static/home/channel01.jpg'></image>
-    <view class='f13 clr_mediumGray'>车险预算</view>
+<view class='areaCont f17' hidden='{{area}}'>
+    <text data-txt='京' bindtap='areaChoose'>京</text>
+    <text data-txt='沪' bindtap='areaChoose'>沪</text>
+    <text data-txt='浙' bindtap='areaChoose'>浙</text>
+    <text data-txt='苏' bindtap='areaChoose'>苏</text>
+    <text data-txt='粤' bindtap='areaChoose'>粤</text>
+    <text data-txt='鲁' bindtap='areaChoose'>鲁</text>
+    <text data-txt='晋' bindtap='areaChoose'>晋</text>
+    <text data-txt='冀' bindtap='areaChoose'>冀</text>
+    <text data-txt='豫' bindtap='areaChoose'>豫</text>
+    <text data-txt='川' bindtap='areaChoose'>川</text>
+    <text data-txt='渝' bindtap='areaChoose'>渝</text>
+    <text data-txt='辽' bindtap='areaChoose'>辽</text>
+    <text data-txt='吉' bindtap='areaChoose'>吉</text>
+    <text data-txt='黑' bindtap='areaChoose'>黑</text>
+    <text data-txt='皖' bindtap='areaChoose'>皖</text>
+    <text data-txt='鄂' bindtap='areaChoose'>鄂</text>
+    <text data-txt='湘' bindtap='areaChoose'>湘</text>
+    <text data-txt='赣' bindtap='areaChoose'>赣</text>
+    <text data-txt='闽' bindtap='areaChoose'>闽</text>
+    <text data-txt='陕' bindtap='areaChoose'>陕</text>
+    <text data-txt='甘' bindtap='areaChoose'>甘</text>
+    <text data-txt='宁' bindtap='areaChoose'>宁</text>
+    <text data-txt='蒙' bindtap='areaChoose'>蒙</text>
+    <text data-txt='津' bindtap='areaChoose'>津</text>
+    <text data-txt='贵' bindtap='areaChoose'>贵</text>
+    <text data-txt='云' bindtap='areaChoose'>云</text>
+    <text data-txt='桂' bindtap='areaChoose'>桂</text>
+    <text data-txt='琼' bindtap='areaChoose'>琼</text>
+    <text data-txt='青' bindtap='areaChoose'>青</text>
+    <text data-txt='新' bindtap='areaChoose'>新</text>
+    <text data-txt='藏' bindtap='areaChoose'>藏</text>
   </view>
-  <view class='flex-item' bindtap='goClaims'>
-    <image src='http://m.0556360.com/weixin/images/static/home/channel01.jpg'></image>
-    <view class='f13 clr_mediumGray'>理赔查询</view>
-  </view>
-  <view class='flex-item' bindtap='goProduct'>
-    <image src='http://m.0556360.com/weixin/images/static/home/channel01.jpg'></image>
-    <view class='f13 clr_mediumGray'>热销产品</view>
-  </view>
-</view>
 <view class='cont'>
-<view class='title_common'>精品推荐</view>
-<view class='list'>
-  <view class='list_item tc'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    <view class='f14'>之家用户专享车险</view>
-    <view class='f13'>费改红利</view>
-    <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
+  <view class='lineItem f16 border'>
+    <view class='left'>车牌号</view>
+    <view class='center' style='position: relative'>
+      <view class='area_txt' bindtap='areaShow'>{{areaTxt}}
+        <image src='http://www.chexiangguan.com/weixin/images/static/trial/arrow.png'></image>
+      </view>
+      <input type='text' placeholder='请输入车牌号' bindinput='license' style='margin-left:30px;'></input>
+    </view>
   </view>
-  <view class='list_item tc'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    <view class='f14'>之家用户专享车险</view>
-    <view class='f13'>费改红利</view>
-    <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
+  <!-- <view class='lineItem f16 border'>
+    <view class='left'>身份证号</view>
+    <view class='center'><input type='text' placeholder='请输入身份证号'></input></view>
+  </view> -->
+  <view class='lineItem f16 border'>
+    <view class='left'>手机号</view>
+    <view class='center'>
+      <input type='number' placeholder='请输入手机号' bindinput='phone'></input>
+    </view>
+    <view class='right tc clr-white'>
+      <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->
+       <button type="primary" bindtap="getcap" class="captach f15" id='getcap' disabled="{{disabled}}">{{tips}}</button>
+    </view>
   </view>
-  <view class='list_item tc'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    <view class='f14'>之家用户专享车险</view>
-    <view class='f13'>费改红利</view>
-    <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
+  <view class='lineItem f16 border'>
+    <view class='left'>验证码</view>
+    <view class='center tl'>
+      <input type='number' placeholder='请输入验证码' bindinput='code'></input>
+    </view>
   </view>
-  <view class='list_item tc'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    <view class='f14'>之家用户专享车险</view>
-    <view class='f13'>费改红利</view>
-    <view class='f14'>最低<text class='clr_red'>2.3</text>折</view>
-  </view>
-</view></view>
+  <button type="default" class='clr-white' bindtap="submit" hover-class="other-button-hover"> 立即预约 </button>
+</view>

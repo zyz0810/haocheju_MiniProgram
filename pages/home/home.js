@@ -24,6 +24,10 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    
+  },
+
+  onShow(){
     //获取首页内容
     new First(res => {
       console.log(res)

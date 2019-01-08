@@ -10,7 +10,7 @@ page{
 }
 
 .bg .lineItem {
-  width: 88%;
+  width: 92%;
   padding: 10rpx 0;
   margin: 0 auto;
   border-radius: 10rpx;
@@ -60,7 +60,7 @@ page{
 }
 
 swiper {
-  width: 88%;
+  width: 92%;
   margin: 20rpx auto;
 }
 

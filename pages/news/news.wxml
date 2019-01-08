@@ -1,13 +1,8 @@
 <!--pages/news/news.wxml-->
+<import src="/template/swiperIndex/swiper.wxml" />
 <view class='container'>
   <view class='banner'>
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{banner}}" wx:key="index">
-        <swiper-item>
-          <image src="{{item.img}}" class="slide-image" />
-        </swiper-item>
-      </block>
-    </swiper>
+    <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap',showDot:true}}"></template>
   </view>
   <view class='list'>
     <block wx:for="{{news}}" wx:key="index">

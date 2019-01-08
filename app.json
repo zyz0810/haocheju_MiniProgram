@@ -1,30 +1,27 @@
 {
   "pages": [
-      "pages/home/home",
+    "pages/tenant/tenant",
+    "pages/home/home",
+    "pages/home/insurance/insurance",
+    
+    "pages/home/personnelCar/personnelCar",
     "pages/home/school/school",
     "pages/home/school/view/view",
-  
     "pages/home/roadRescue/roadRescue",
     "pages/member/member",
     "pages/member/edit/edit",
     "pages/discount/discount",
-    
     "pages/home/trial/trial",
-    
     "pages/users/login",
     "pages/scope/index",
-    
     "pages/search/search",
-    
     "pages/home/product/view",
     "pages/home/maintain/maintain",
-    
     "pages/home/beauty/beauty",
     "pages/home/transaction/transaction",
     "pages/carpool/car/car",
     "pages/carpool/people/people",
     "pages/carpool/carpool",
-    
     "pages/news/news",
     "pages/member/order/use/use",
     "pages/memberTenant/memberTenant",
@@ -41,25 +38,17 @@
     "pages/home/usedCar/view/pic/pic",
     "pages/home/usedCar/buy/buy",
     "pages/home/usedCar/index",
-    
-   
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",
-   
-    
-    
     "pages/home/personnelCar/view/view",
-    "pages/home/personnelCar/personnelCar",
     "pages/home/steamProtection/steamProtection",
     "pages/home/steamProtection/view/view",
-    "pages/home/insurance/insurance",
+    
     "pages/home/insurance/view/view",
     "pages/home/accessories/accessories",
     "pages/home/maintain/view/view",
-    
     "pages/home/transaction/view/view",
-   
     "pages/home/beauty/view/view",
     "pages/member/circle/circle",
     "pages/member/insurance/product/product",
@@ -72,7 +61,6 @@
     "pages/memberTenant/insurance/insurance",
     "pages/member/car/car",
     "pages/member/carpool/carpool",
-    
     "pages/memberTenant/carpool/carpool",
     "pages/memberTenant/edit/edit",
     "pages/discount/view/view",

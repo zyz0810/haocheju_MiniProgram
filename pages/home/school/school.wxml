@@ -11,33 +11,33 @@
 <view class='list'>
 
   <block wx:for="{{list}}" wx:key="{{index}}">
-    <view class='list_item' data-id='{{item.id}}'>
+    <view class='list_item' data-id='{{item.id}}' bindtap='goView'>
       <view wx:for="{{item.banner}}" wx:for-item="items" wx:if="{{index==0}}">
         <image src='{{items}}' mode='widthFix'></image>
       </view>
 
-  <view class='lineItem' bindtap='goView'>
-    <view class='left'>
-      <image src='{{item.logo?item.logo:"/resources/images/logo.png"}}' class='school_logo'></image>
-    </view>
-    <view class='center'>
-      <view class='lineItem lineItem_access border'>
-
-        <view class='center f15 gray03'>{{item.name}}</view>
-        <view class='right'></view>
-      </view>
       <view class='lineItem'>
-        <view class='center f13 gray04'>
-          <view>驾校地址：{{item.address}}</view>
-          <view wx:if="{{item.mobile}}">联系电话：{{item.mobile}}</view>
-          <view class='tr'>
-            <text class='f13 call' data-id='{{item.mobile}}' wx:if="{{item.mobile}}" catchtap='callUs'>拨号</text>
+        <view class='left'>
+          <image src='{{item.logo?item.logo:"/resources/images/logo.png"}}' class='school_logo'></image>
+        </view>
+        <view class='center'>
+          <view class='lineItem lineItem_access border'>
+
+            <view class='center f15 gray03'>{{item.name}}</view>
+            <view class='right'></view>
+          </view>
+          <view class='lineItem'>
+            <view class='center f13 gray04'>
+              <view>驾校地址：{{item.address}}</view>
+              <view wx:if="{{item.mobile}}">联系电话：{{item.mobile}}</view>
+              <view class='tr'>
+                <text class='f13 call' data-id='{{item.mobile}}' wx:if="{{item.mobile}}" catchtap='callUs'>拨号</text>
+              </view>
+            </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
-  </view>
   </block>
 
 

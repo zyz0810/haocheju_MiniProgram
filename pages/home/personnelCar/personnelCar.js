@@ -1,22 +1,15 @@
 // pages/home/personnelCar/personnelCar.js
-let app = getApp(),
-  util = require("../../../utils/util.js"),
-  navCart = require("../../../template/cart/cart.js")
-Page({
+let swiperAutoHeight = require("../../../template/swiperWidth/swiper.js"),  
+  Personnel = require("../../../service/personal.js"), 
+  app = getApp(),
+  util = require("../../../utils/util.js")
+Page(Object.assign({}, swiperAutoHeight, {
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000
+
   },
 
   /**
@@ -33,11 +26,32 @@ Page({
 
   },
 
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //获取内容
+    new Personnel(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        job: res.data.return_job.data,
+        jobPage: res.data.return_job.pageTotal,
+        currentPage: res.data.return_job.currentPage
+      })
 
+      if (res.data.return_job.data.length == 0){
+        this.setData({
+          tips: '暂无列表',
+          showtips:false
+        })
+      }
+
+    }).list({
+      page: 1,
+      pageSize: 10
+    })
   },
   goView:function(e){
     let id = e.currentTarget.dataset.id
@@ -71,7 +85,37 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var that = this;
+    wx.showNavigationBarLoading();
+    // var pageModel = this.data.pageModel;
+    var newPage = this.data.jobPage;
+    var currentPage = this.data.currentPage;
+    var news = this.data.news;
 
+
+    console.log(currentPage)
+
+    new Zixun(res => {
+      console.log(res)
+      wx.hideNavigationBarLoading() //完成停止加载
+      if (res.data.return_job.totalPages < res.data.return_job.currentPage) {
+        wx.hideNavigationBarLoading()
+        that.setData({
+          tips: '',
+          showtips: false
+        })
+      } else {
+        job = job.concat(res.data.return_job.data)
+        this.setData({
+          job: job,
+          currentPage: res.data.return_job.currentPage
+        })
+      }
+
+    }).list({
+      page: ++currentPage,
+      pageSize: 10
+    })
   },
 
   /**
@@ -80,4 +124,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+}))

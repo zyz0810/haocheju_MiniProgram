@@ -1,26 +1,27 @@
 <!--pages/home/personnelCar/view/view.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
 <view class='lineItem info'>
-  <view class='center f16 gray03'>程序员鼓励师</view>
-  <view class='right f11 gray03'><text class='baseColor f16'>2000</text>/月</view>
+  <view class='center f16 gray03'>{{jobName}}</view>
+  <view class='right f11 gray03'><text class='baseColor f16'>{{money}}</text>/月</view>
 </view>
 <view class='infomation clearfix'>
-  <view class='li fl f13'>工作地点：宿松县安瑞酒店</view>
-  <view class='li fl f13'>工作经验：2年</view>
-  <view class='li fl f13'>学历：大专</view>
+  <view class='li fl f13' hidden='{{!address}}'>工作地点：{{address}}</view>
+  <view class='li fl f13' hidden='{{!experience}}'>工作经验：{{experience}}</view>
+  <view class='li fl f13' hidden='{{!education}}'>学历：{{education}}</view>
 </view>
 
 <view class='contacts'>
   <view class='lineItem f16'>
-    <view class='center'>猪八戒</view>
+    <view class='center'>{{name}}</view>
   </view>
    <view class='lineItem f13'>
-    <view class='center'>总经理</view>
-    <view class='right call f13'>拨号联系</view>
+    <view class='center' hidden='{{!position}}'>{{position}}</view>
+    <view class='right call f13' data-id='{{mobile}}' bindtap='callUs' hidden='{{mobile}}'>拨号联系</view>
   </view>
 </view>
 
 <view class='details f13'>
   <view class='f16 tit'>岗位职责：</view>
   <view>岗位职责：</view>
-  <view>程序员鼓励师岗位职责：职位要求：你的颜值需要对程序员有足够的震撼力，见面第一瞬间便激发程序员内心波澜，满满的正能力。你需要懂得赞美和鼓励程序员，能区别赞美和谄媚，平抚工程师、程序员等开发同事之间的心灵距离，清理程序员的交流障碍，将一个庞大繁长的开发项目组锻炼成一支能在恶劣条件下拿到目标，彼此紧密无缝的特种兵小队。你善于发现身边每一位工程师、程序员与生俱来的萌点，擅长倾听和沟通，成功将其驯服，并培养成阳光暖男、暖妹。在他们付出了辛勤而复杂的劳动后送上温暖，鼓励他们又猛又持久地工作。你需要有超强的适应能力与应变能力，在程序员和工程师需要帮助时及时协调资源予以支持，在他们情绪发生变化时，及时给予安慰与鼓励。任职资格需要有团队意识，偏好某个程序员，造成其他程序员不满的，不用；阿谀奉承，伤害程序员团队内心，制造负面能量的，不用。照片太美，ps到程序员难以辨识者，不用；要懂互联网行业，懂公司战略，不然聊起来云里雾里的，使得程序员团队受打击的，坚决不用。</view>
+  <view><template is="wxParse" data="{{wxParseData:content.nodes}}" /></view>
 </view>

@@ -34,7 +34,8 @@ module.exports = class Order extends Ajax {
    */
   pay(data) {
     super.post({
-      url: 'api/pay/wxpay',
+      // url: 'api/pay/wxpay',
+      url: 'api/pay/xcxpay',
       data: data,
       success: this.fn,
     });

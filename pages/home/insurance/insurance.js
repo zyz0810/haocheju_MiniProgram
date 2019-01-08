@@ -1,13 +1,21 @@
-// pages/memberTenant/insurance/insurance.js
-let app = getApp(),
-util = require("../../../utils/util.js")
+// pages/memberTenant/insurance/claims/claims.js
+var app = getApp()
+var Member = require("../../../service/member.js")
+var util = require("../../../utils/util")
+var countdown = util.countdown//验证码计时
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    area: true,
+    areaTxt: '皖',
+    license:'',
+    phone:'',
+    code:'',
+    tips: '发送验证码',
+    count: 60,
   },
 
   /**
@@ -30,27 +38,96 @@ Page({
   onShow: function () {
 
   },
-
-  goOffer: function () {
-    util.navigateTo({
-      url: 'offer/offer',
+  areaShow: function () {
+    var that = this;
+    if (that.data.area == true) {
+      that.setData({
+        area: false,
+        mask: false
+      })
+    } else {
+      that.setData({
+        area: true,
+        mask: true
+      })
+    }
+  },
+  areaChoose: function (e) {
+    console.log(e)
+    this.setData({
+      areaTxt: e.currentTarget.dataset.txt,
+      area: true,
+      mask: true
     })
   },
-
-
-  goClaims: function () {
-    util.navigateTo({
-      url: 'claims/claims',
+  code: function (e) {
+    this.setData({
+      code: e.detail.value
     })
   },
-
-  goProduct: function () {
-    util.navigateTo({
-      url: 'product/product',
+  phone:function(e){
+    this.setData({
+      phone: e.detail.value
     })
   },
+  license: function (e) {
+    this.setData({
+      license: e.detail.value
+    })
+  },
+  //获取验证码
+  getcap:function(){
+    var that = this
+    if(that.data.phone.length == 0){
+      util.errShow('请填写手机号');
+      return;
+    }else if (!(/^1\d{10}$/.test(that.data.phone))) {
+      util.errShow('手机号格式错误');
+      return;
+    }else{
+      
+      new Member(res => {
+        console.log(res)
+        countdown(that);
+      }).getCode({
+        phonenum: that.data.phone
+      })
 
 
+
+    } 
+  },
+  submit:function(){
+    var that = this
+
+    if (that.data.license.length==0){
+      wx.showToast({
+        title: '请输入车牌号',
+        image: '/resources/images/x.png'
+      })
+    }else{
+      new Member(res => {
+        console.log(res)
+
+        new Member(res => {
+          console.log(res)
+          wx.showToast({
+            title: '预约成功'
+          })
+        }).insuranceAdd({
+          carno: that.data.license,
+          mobile: that.data.phone
+        })
+
+      }).getcodeCheck({
+        phonenum: that.data.phone,
+        code: that.data.code
+      })
+
+    }
+   
+
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

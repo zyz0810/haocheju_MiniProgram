@@ -11,21 +11,30 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let carId = options.id
+    this.setData({
+      carId:carId
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     var that = this
     new Cars(res => {
       console.log(res)
@@ -48,23 +57,34 @@ Page(Object.assign({}, swiperAutoHeight, {
       })
       WxParse.wxParse('carcontent', 'html', carcontent, that, 0);
     }).newView({
-      id: options.id,
+      id: that.data.carId,
       userId: 1
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
+  collect:function(e){
+    console.log(1212)
+    
+    var userId = wx.getStorageSync('userId')
+    var that = this
+    console.log(that.data.carId)
+    let collectId = e.currentTarget.dataset.id
+    if (collectId == 0){
+      new Cars(function (res) {
+       that.setData({
+         isCollection:'1',
+         cid: res.data.cid
+       })
+        // toast.show('收藏成功');
+      }).favorite({ userId: userId, productId: that.data.carId, type: '1' })
+    }else{
+      new Cars(function (data) {
+        that.setData({
+          isCollection: '0',
+          cid: ''
+        })
+        // toast.show('收藏成功');
+      }).delFavorite({ cid: that.data.cid })
+    }
   },
   goBuy: function(e) {
     let id = e.currentTarget.dataset.id
