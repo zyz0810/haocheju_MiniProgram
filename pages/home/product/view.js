@@ -45,8 +45,8 @@ Page(Object.assign({}, swiperAutoHeight, {
       this.setData({
         banner: res.data.images,
         shopgoods: res.data.shopgoods,
-        price: res.data.cost,
-        oldPrice: res.data.price,
+        price: res.data.price,
+        oldPrice: res.data.cost,
         detail: res.data.detail
       })
       WxParse.wxParse('detail', 'html', detail, that, 0);
@@ -71,8 +71,8 @@ Page(Object.assign({}, swiperAutoHeight, {
     }).add({
       gid: that.data.productId,
       uid: userId,
-      money: that.data.price,
-      cost: that.data.oldPrice,
+      money: that.data.oldPrice,
+      cost: that.data.price,
       discount: '0'
     })
 

@@ -14,7 +14,7 @@
       <text class='hot_num f16'>{{index+1}}</text>
       <image src='{{item.logo ? item.logo : "/resources/images/logo.png"}}' mode='widthFix'></image>
       <view class='overTwo f14 clr_gray01'>{{item.shopgoods}}</view>
-      <view class='yellow01 f13 price'>销售价：{{item.cost}}元</view>
+      <view class='yellow01 f13 price'>销售价：{{item.price}}元</view>
     </view>
   </block>
 </view>
@@ -25,7 +25,7 @@
   <block wx:for="{{commendList}}" wx:key="index">
     <view class='commend_item' data-id='{{item.id}}' bindtap='goView'>
       <image src='{{item.logo ? item.logo : "/resources/images/logo.png"}}' mode='widthFix'></image>
-      <view class='yellow01 f13 price'>{{item.cost}}元</view>
+      <view class='yellow01 f13 price'>{{item.price}}元</view>
       <view class='f14 overtwo name gray02'>{{item.shopgoods}}</view>
       <view class='f10 overone clr_lightGray'>已有{{item.num}}人购买</view>
     </view>

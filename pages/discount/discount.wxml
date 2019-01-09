@@ -56,8 +56,8 @@
           <view class='f14 clr_gray01 overtwo'>{{item.shopgoods}}</view>
           <view class='f12 gray06 overone'>{{item.desc}}</view>
           <view class='f12'>
-            <text class='clr_orange f14 fl'>￥{{item.cost}}</text>
-            <text class='fr gray06 f12 oldPrice'>￥{{item.price}}</text>
+            <text class='clr_orange f14 fl'>￥{{item.price}}</text>
+            <text class='fr gray06 f12 oldPrice'>￥{{item.cost}}</text>
           </view>
         </view>
       </view>

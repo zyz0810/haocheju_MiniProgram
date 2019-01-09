@@ -43,7 +43,9 @@ Page({
     new Zixun(res => {
       console.log(res)
       var content = res.data.content;
-
+      wx.setNavigationBarTitle({
+        title: res.data.title
+      })
       this.setData({
         title: res.data.title,
         author: res.data.author,

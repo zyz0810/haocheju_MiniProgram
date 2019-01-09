@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/tenant/tenant",
+    "pages/appointment/appointment",
     "pages/home/home",
+    "pages/tenant/tenant",
     "pages/home/insurance/insurance",
-    
     "pages/home/personnelCar/personnelCar",
     "pages/home/school/school",
     "pages/home/school/view/view",
@@ -44,7 +44,6 @@
     "pages/home/personnelCar/view/view",
     "pages/home/steamProtection/steamProtection",
     "pages/home/steamProtection/view/view",
-    
     "pages/home/insurance/view/view",
     "pages/home/accessories/accessories",
     "pages/home/maintain/view/view",
