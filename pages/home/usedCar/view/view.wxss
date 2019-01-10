@@ -1,46 +1,56 @@
 /* pages/home/maintain/view/view.wxss */
-.container{
+
+.container {
   padding-bottom: 53px;
 }
-.price .center{
+
+.price .center {
   flex-direction: row;
   justify-content: flex-start;
 }
-.price .center text{
+
+.price .center text {
   margin-right: 20rpx;
 }
-.old_price{
-  text-decoration:  line-through;
+
+.old_price {
+  text-decoration: line-through;
 }
-.tag text{
+
+.tag text {
   margin-right: 20rpx;
 }
-.parameter{
+
+.parameter {
   padding: 2% 0;
   margin-bottom: 20rpx;
   background: #fff;
   border-top: 1rpx solid #f2f2f2;
-   border-bottom: 1rpx solid #f2f2f2;
+  border-bottom: 1rpx solid #f2f2f2;
 }
-.cont{
+
+.cont {
   padding: 0 4%;
   line-height: 1.6em;
 }
-.cont image{
-  width: 100%;
+
+.cont image {
+  max-width: 100%;
 }
+
 .flex .flex-item.buy_btn {
-    -webkit-box-flex: 2;
-    -webkit-flex: 2;
-    flex: 2;
-    
-    color: #fff;
-    background: #febf00;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+  color: #fff;
+  background: #febf00;
 }
-.collect{
+
+.collect {
   background: #e9e9e9;
 }
-.bottom{
+
+.bottom {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -49,31 +59,45 @@
   background: #fff;
 }
 
-.tenant{
+.bottom .flex-item>text {
+  display: block;
+  line-height: 1;
+}
+
+.bottom .flex-item>text:first-child {
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.tenant {
   border-top: 10rpx solid #f2f2f2;
   border-bottom: 10rpx solid #f2f2f2;
 }
-.archives{
+
+.archives {
   padding: 2% 0 0;
 }
-.archives>view{
+
+.archives>view {
   width: 33.33%;
-        margin-bottom: 2%;
-        display: inline-block;
+  margin-bottom: 2%;
+  display: inline-block;
 }
-.price .center{
+
+.price .center {
   align-items: flex-end;
   line-height: 1;
 }
 
-.banner{
+.banner {
   font-size: 0;
   position: relative;
 }
-.banner text{
+
+.banner text {
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 5rpx 20rpx;
-  background: rgba(0, 0, 0, 0.3)
+  background: rgba(0, 0, 0, 0.3);
 }

@@ -1,22 +1,10 @@
 <!--pages/usedCar/view/pic/pic.wxml-->
-<view class='title_common f14'>外观</view>
-<view class='img'>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-</view>
-<view class='title_common f14'>内饰</view>
-<view class='img'>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-</view>
-<view class='title_common f14'>轻微损伤及其他</view>
-<view class='img'>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-<image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-</view>
+<block wx:for="{{pic}}" wx:key="index">
+  <view class='title_common f14'>{{item.pictureCategory}}</view>
+  <view class='img'>
+    <view wx:for="{{item.picturelist}}" wx:for-item="items" wx:key="{{index}}">
+      <image src='{{items}}'></image>
+    </view>
+    
+  </view>
+</block>

@@ -34,7 +34,7 @@ textarea{
 }
 button{
   color: #fff !important;
-  margin-top: 50rpx;
+  margin: 50rpx auto;
   background: rgb(204, 204, 204) !important;
 }
 button.active{

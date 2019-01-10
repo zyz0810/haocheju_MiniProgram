@@ -1,4 +1,7 @@
 // pages/usedCar/view/pic/pic.js
+let Cars = require("../../../../../service/cars.js"),
+  app = getApp(),
+  util = require("../../../../../utils/util.js")
 Page({
 
   /**
@@ -12,7 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let carId = options.id
+    this.setData({
+      carId: carId
+    })
   },
 
   /**
@@ -26,7 +32,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    var userId = wx.getStorageSync('userId')
+    new Cars(res => {
+      console.log(res)
+      wx.setNavigationBarTitle({
+        title: res.data.cartype,
+      })
+      this.setData({
+        pic: res.data.pic
+      })
+    }).usedView({
+      id: that.data.carId,
+      userId: userId
+    })
   },
 
   /**

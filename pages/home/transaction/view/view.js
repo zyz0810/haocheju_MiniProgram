@@ -36,8 +36,12 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function() {
     var that = this
+    var userId = wx.getStorageSync('userId')
     new Cars(res => {
       console.log(res)
+      wx.setNavigationBarTitle({
+        title: res.data.cartype,
+      })
       var carcontent = res.data.carcontent;
       this.setData({
         banner: res.data.banner,
@@ -58,7 +62,7 @@ Page(Object.assign({}, swiperAutoHeight, {
       WxParse.wxParse('carcontent', 'html', carcontent, that, 0);
     }).newView({
       id: that.data.carId,
-      userId: 1
+      userId: userId
     })
   },
   collect:function(e){
@@ -86,10 +90,16 @@ Page(Object.assign({}, swiperAutoHeight, {
       }).delFavorite({ cid: that.data.cid })
     }
   },
+  goTenant: function (e) {
+    let id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/tenant/tenant?id=' + id,
+    })
+  },
   goBuy: function(e) {
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: '/pages/pay/pay?id=' + id,
+      url: '/pages/appointment/appointment?typeNew=false&typeOld=true&id=' + id,
     })
   },
 

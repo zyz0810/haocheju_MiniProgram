@@ -1,4 +1,5 @@
 <!--pages/usedCar/index.wxml-->
+<import src="/template/swiperIndex/swiper.wxml" />
 <view class='bg'>
   <view class='lineItem'>
     <view class='left tc f14'>安庆</view>
@@ -8,13 +9,7 @@
     </view>
   </view>
   <view class='f13 baseColor usedTxt'>好车居二手车，买卖更放心</view>
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="index">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
-      </swiper-item>
-    </block>
-  </swiper>
+  <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap'}}"></template>
 </view>
 
 <view class='flex tc publish f15' bindtap='goBuy'>
@@ -24,7 +19,7 @@
 
 <view class='hr'></view>
 
-<view class='ad'>
+<!-- <view class='ad'>
   <view>
     <image src='http://m.0556360.com/weixin/images/static/usedCar/ad.png'></image>
   </view>
@@ -37,77 +32,41 @@
   <view>
     <image src='http://m.0556360.com/weixin/images/static/usedCar/ad.png'></image>
   </view>
+</view> -->
+
+
+<view class='title_common f15' hidden='{{hotList.length == 0}}'>本周热销榜</view>
+<view class='hot_list' hidden='{{hotList.length == 0}}'>
+  <block wx:for="{{hotList}}" wx:key="index">
+    <view class='hot_item' data-id='{{item.oldproductid}}' bindtap='goView'>
+      <text class='hot_num f16'>{{index+1}}</text>
+      <image src='{{item.applistthumb ? item.applistthumb : "/resources/images/logo.png"}}' mode='widthFix'></image>
+      <view class='f14 clr_gray01 overtwo name'>{{item.carname}} {{item.cartype}} {{item.carconfig}}</view>
+      <view class='yellow01 f13 price'>销售价：{{item.saleprice}}元</view>
+    </view>
+  </block>
 </view>
 
-<view class='title_common f15'>猜你喜欢</view>
 
-<view class='list'>
-  <view class='lineItem' bindtap='goView'>
-    <view class='left'>
-      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    </view>
-    <view class='center'>
-      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
-      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
-      <view class='tag'>
+<view class='title_common f15' hidden='{{commendList.length == 0}}'>猜你喜欢</view>
+<view class='list' hidden='{{commendList.length == 0}}'>
+  <block wx:for="{{commendList}}" wx:key="{{index}}">
+    <view class='lineItem' data-id='{{item.oldproductid}}' bindtap='goView'>
+      <view class='left'>
+        <image src='{{item.applistthumb?item.applistthumb:"/resources/images/logo.png"}}'></image>
+      </view>
+      <view class='center'>
+        <view class='f12 gray03 overtwo'>{{item.carname}} {{item.cartype}} {{item.carconfig}}</view>
+        <view class='f10 gray05'>{{item.mileage}}/{{item.productiondate}}/{{item.attribution}}</view>
+        <!-- <view class='tag'>
         <text class='tag_orange orange01 f10'>准新车</text>
         <text class='tag_yellow yellow01 f10'>质保</text>
-      </view>
-      <view class='orange01 f12'>
-        <text class='f15 price'>69.68万</text>
-        <text>首付20.9万</text>
-      </view>
-    </view>
-  </view>
-  <view class='lineItem' bindtap='goView'>
-    <view class='left'>
-      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    </view>
-    <view class='center'>
-      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
-      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
-      <view class='tag'>
-        <text class='tag_orange orange01 f10'>准新车</text>
-        <text class='tag_yellow yellow01 f10'>质保</text>
-      </view>
-      <view class='orange01 f12'>
-        <text class='f15 price'>69.68万</text>
-        <text>首付20.9万</text>
+      </view> -->
+        <view class='orange01 f12'>
+          <text class='f15 price'>优惠价{{item.saleprice}}万</text>
+          <text>市场价{{item.totalprice}}</text>
+        </view>
       </view>
     </view>
-  </view>
-  <view class='lineItem' bindtap='goView'>
-    <view class='left'>
-      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    </view>
-    <view class='center'>
-      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
-      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
-      <view class='tag'>
-        <text class='tag_orange orange01 f10'>准新车</text>
-        <text class='tag_yellow yellow01 f10'>质保</text>
-      </view>
-      <view class='orange01 f12'>
-        <text class='f15 price'>69.68万</text>
-        <text>首付20.9万</text>
-      </view>
-    </view>
-  </view>
-  <view class='lineItem' bindtap='goView'>
-    <view class='left'>
-      <image src='http://m.0556360.com/weixin/images/static/home/ad_small.jpg'></image>
-    </view>
-    <view class='center'>
-      <view class='f12 gray03 overtwo'>奥迪A8 2017款 A8L 45 TFSI quattro 舒适性</view>
-      <view class='f10 gray05'>0.1万公里/2017-12/安庆</view>
-      <view class='tag'>
-        <text class='tag_orange orange01 f10'>准新车</text>
-        <text class='tag_yellow yellow01 f10'>质保</text>
-      </view>
-      <view class='orange01 f12'>
-        <text class='f15 price'>69.68万</text>
-        <text>首付20.9万</text>
-      </view>
-    </view>
-  </view>
+  </block>
 </view>

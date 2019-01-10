@@ -333,6 +333,17 @@ function formatTimeTwo(number, format) {
   }
   return format;
 }
+
+/** 
+ * 获取当前日期 格式：年-月-日 
+*/
+function formatDate(data) {
+
+  const year = data.getFullYear()
+  const month = data.getMonth() + 1
+  const day = data.getDate()
+  return [year,month,day].map(formatNumber).join('-');
+}
 module.exports = {
-  countdown, errShow, countdown2, luhmCheck, checkSystem, getTime, isEmojiCharacter, shareGetTime, getVersion, noHideShow, navigateTo, formatTimeTwo
+  countdown, errShow, countdown2, luhmCheck, checkSystem, getTime, isEmojiCharacter, shareGetTime, getVersion, noHideShow, navigateTo, formatTimeTwo, formatDate
 }

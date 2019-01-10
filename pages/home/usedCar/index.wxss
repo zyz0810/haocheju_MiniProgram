@@ -6,7 +6,7 @@ page {
 
 .bg {
   padding: 4%;
-  background: url("http://m.0556360.com/weixin/images/static/usedCar/bg.png") no-repeat;
+  background: url("http://www.chexiangguan.com/weixin/images/static/usedCar/bg.png") no-repeat;
   background-size: 100% 90%;
 }
 
@@ -147,4 +147,57 @@ swiper image {
 .tag_yellow {
     background: #fbf6a9;
     border: 1px solid #febf00;
+}
+
+.hot_list {
+  padding-left: 4vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.hot_item {
+  display: inline-block;
+  width: 42vw;
+  padding-bottom: 3vw;
+  margin-right: 3vw;
+  border: 1px solid #f4f4f4;
+  position: relative;
+}
+
+.hot_item image {
+  width: 42vw;
+  height: 25vw;
+  margin-bottom: 10rpx;
+}
+
+.hot_item>view {
+  padding: 0 2vw;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.price {
+  margin-top: 10rpx;
+}
+.name{
+  height: 80rpx;
+  line-height: 40rpx;
+}
+
+.hot_num {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  display: block;
+  width: 7vw;
+  line-height: 1;
+  padding-left: 2vw;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #fff;
+  background: -webkit-linear-gradient(left, #ff9c01, #fc1200);
+  background: linear-gradient(90deg, #ff9c01, #fc1200);
 }

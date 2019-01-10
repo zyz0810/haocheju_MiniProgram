@@ -24,16 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取首页内容
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        carpoolList: res.data.return_new.data,
-        newsPage: res.data.return_new.pageTotal,
-        currentPage: res.data.return_new.currentPage
-      })
-    }).carPool({page:1,pageSize:10,type:'2'})
+    
   },
 
   /**
@@ -59,12 +50,37 @@ Page({
       }
     })
   },
+  goView:function(e){
+    let id = e.currentTarget.dataset.id
+    let type = e.currentTarget.dataset.type
+    console.log('id:' + id)
+    util.navigateTo({
+      url: 'view/view?id=' + id + '&type=' + type,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //获取首页内容
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        oneList: res.data.return_new.data,
+        onePage: res.data.return_new.pageTotal,
+        currentOnePage: res.data.return_new.currentPage
+      })
+    }).carPool({ page: 1, pageSize: 10, type: '1' })
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        twoList: res.data.return_new.data,
+        twoPage: res.data.return_new.pageTotal,
+        currentTwoPage: res.data.return_new.currentPage
+      })
+    }).carPool({ page: 1, pageSize: 10, type: '2' })
   },
   findCar:function(){
     util.navigateTo({
@@ -82,7 +98,6 @@ Page({
       tab_current: e.currentTarget.dataset.id,
       stype: e.currentTarget.dataset.name
     })
-    pageing(that, '1', e.currentTarget.dataset.id, e.currentTarget.dataset.name)
   },
 
   /**
@@ -110,7 +125,64 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    // pageing(this.data.tab_current)
+
+    var that = this;
+
+    wx.showNavigationBarLoading();
+    // var pageModel = this.data.pageModel;
+
+
+    if (that.data.tab_current == 1){
+      var onePage = this.data.onePage;
+      var currentOnePage = this.data.currentOnePage;
+      var oneList = this.data.oneList;
+
+      new Cars(res => {
+        console.log(res)
+        wx.hideNavigationBarLoading() //完成停止加载
+        if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
+          wx.hideNavigationBarLoading()
+          that.setData({
+            tips: '',
+            showtips: false
+          })
+        } else {
+          oneList = oneList.concat(res.data.return_new.data)
+          this.setData({
+            oneList: oneList,
+            currentOnePage: res.data.return_new.currentPage
+          })
+        }
+
+      }).carPool({ page: ++currentOnePage, pageSize: 10, type: '1' })
+    }else{
+      var twoPage = this.data.twoPage;
+      var currentTwoPage = this.data.currentTwoPage;
+      var twoList = this.data.twoList;
+
+      new Cars(res => {
+        console.log(res)
+        wx.hideNavigationBarLoading() //完成停止加载
+        if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
+          wx.hideNavigationBarLoading()
+          that.setData({
+            tips: '',
+            showtips: false
+          })
+        } else {
+          twoList = twoList.concat(res.data.return_new.data)
+          this.setData({
+            twoList: twoList,
+            currentTwoPage: res.data.return_new.currentPage
+          })
+        }
+
+      }).carPool({ page: ++currentTwoPage, pageSize: 10, type: '2' })
+    }
+
+    
+
+
   },
 
   /**
@@ -121,78 +193,3 @@ Page({
   }
   
 })
-
-
-function pageing(that, currentPage, type, sType){
-  var that = this;
-  wx.showNavigationBarLoading();
-  // var pageModel = this.data.pageModel;
-  // var newPage = this.data.newsPage;
-  var currentPage = currentPage;
-  var carpoolList = that.data[sType];
-  new Cars(res => {
-    console.log(res)
-  
-    wx.hideNavigationBarLoading() //完成停止加载
-    if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
-      wx.hideNavigationBarLoading()
-      that.setData({
-        tips: '',
-        showtips: false
-      })
-    } else {
-      carpoolList = carpoolList.concat(res.data.return_new.data)
-      this.setData({
-        carpoolList: carpoolList,
-        currentPage: res.data.return_new.currentPage
-      })
-    }
-
-
-
-
-  }).carPool({ page: ++newPage, pageSize: 10, type: type })
-}
-
-
-function paging(that, sType, direction) {
-  var tips = that.data[sType + 'Tips']
-  var info = that.data[sType]
-  if (direction == 'up') {
-    info = []
-  }
-  if (direction !== 'up' && that.pageModel[sType].pageNumber + 1 > that.pageModel[sType].totalPages) {
-    return
-  }
-  that.setData({
-    [sType + 'Tips']: '加载中...'
-  })
-  new Cars(function (data) {
-    that.pageModel[sType].totalPages = data.pageModel.totalPages
-    if (data.pageModel.totalPages == 0) {
-      that.setData({
-        [sType + 'Tips']: '暂无列表！',
-        [sType]: []
-      })
- 
-      return
-    }
-    info = info.concat(data.data)
-    if (data.pageModel.totalPages <= data.pageModel.pageNumber) {
-      that.setData({
-        [sType + 'Tips']: '',
-        [sType]: info
-      })
-    
-    } else {
-      that.setData({
-        [sType + 'Tips']: "上拉加载",
-        [sType]: info
-      })
-    }
-  }).carPool({
-    type: sType,
-    pageNumber: direction == 'up' ? that.pageModel[sType].pageNumber = 1 : ++that.pageModel[sType].pageNumber,
-    pageSize: 10,
-  })
-}

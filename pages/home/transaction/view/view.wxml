@@ -54,11 +54,11 @@
       <text class='iconfont {{isCollection==0?" icon-heart":" icon-icon3"}}   f24'></text>
       <text>{{isCollection==0?"收藏":"已收藏"}}</text>
     </view>
-    <view class='flex-item' hidden='{{!tenant}}'>
+    <view class='flex-item clr_lightGray' hidden='{{!providerid}}' data-id='{{providerid}}' bindtap='goTenant'>
       <text class='iconfont icon-shangjia f24'></text>
       <text>商家</text>
     </view>
-    <view class='flex-item buy_btn' bindtap='goBuy'>
+    <view class='flex-item buy_btn' data-id='{{carId}}' bindtap='goBuy'>
       <view>立即预约</view>
     </view>
   </view>

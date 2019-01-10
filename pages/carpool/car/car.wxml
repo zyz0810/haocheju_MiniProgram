@@ -6,7 +6,7 @@
     <text class='iconfont icon-xingming f20'></text>
   </view>
   <view class='center'>
-    <input type='text' placeholder='请填写姓名'></input>
+    <input type='text' placeholder='请填写姓名' value='{{name}}' bindinput='name'></input>
   </view>
   <view class='right'></view>
 </view>
@@ -15,7 +15,7 @@
     <text class='iconfont icon-shoujihaoma f18'></text>
   </view>
   <view class='center'>
-    <input type='text' placeholder='请填写手机号码'></input>
+    <input type='text' placeholder='请填写手机号码' value='{{phone}}' bindinput='phone'></input>
   </view>
   <view class='right'></view>
 </view>
@@ -24,20 +24,20 @@
   <view class='left'>
     <text class='start_icon f10 clr-white'>起</text>出发地</view>
   <view class='center'>
-    <input type='text' placeholder='请填写出发地'></input>
+    <input type='text' placeholder='请填写出发地' bindinput='{{start}}'></input>
   </view>
 </view>
 <view class='lineItem border f14'>
   <view class='left' style=''>
     <text class='end_icon f10 clr-white'>终</text>目的地</view>
   <view class='center'>
-    <input type='text' placeholder='请填写目的地'></input>
+    <input type='text' placeholder='请填写目的地' bindinput='end'></input>
   </view>
 </view>
 <view class='lineItem lineItem_access border f14'>
   <view class='left' style='padding-left:8vw;'>出发日期</view>
   <view class='center'>
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2019-09-01" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" start="2019-01-02" end="2019-09-01" bindchange="bindDateChange">
       <view class="picker">
         {{date}}
       </view>
@@ -59,9 +59,9 @@
 <view class='lineItem lineItem_access border f14'>
   <view class='left' style='padding-left:8vw;'>乘车人数</view>
   <view class='center'>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <picker bindchange="bindPickerChange" value="{{seat}}" range="{{array}}">
       <view class="picker">
-        {{array[index]}}
+        {{array[seat-1]}}
       </view>
     </picker>
   </view>
@@ -69,7 +69,7 @@
 </view>
 
 <view class='lineItemTitle f14'>备注留言</view>
-<textarea class='f14' placeholder='以上信息还不够，此处可填写备注哦~'></textarea>
+<textarea class='f14' placeholder='以上信息还不够，此处可填写备注哦~' bindinput='remark'></textarea>
 <label>
   <view class='lineItem f12 statement'>
     <view class='left'>
@@ -83,5 +83,5 @@
   </view>
 </label>
 
-<button type="default" class='clr-white {{checked == true ? "active":""}}' bindtap="default" hover-class="other-button-hover"> 立即发布 </button>
+<button type="default" class='clr-white {{checked == true ? "active":""}}' bindtap="submit" hover-class="other-button-hover"> 立即发布 </button>
 </view>

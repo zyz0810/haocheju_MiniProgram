@@ -10,7 +10,7 @@ module.exports = {
   //上传接口地址
   UPLOAD_URL: "/applet/file/upload2local.jhtml",
   //上传临时文件接口地址
-  UPLOAD_TEMP_URL: "applet/file/upload_temp.jhtml",
+  UPLOAD_TEMP_URL: "api/users/uploads",
   //小程序id
   APPID: "wx598a34393c2e44e0"
 }

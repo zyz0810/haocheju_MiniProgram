@@ -19,15 +19,7 @@ Page(Object.assign({}, swiperAutoHeight,{
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取首页内容
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        hotList: res.data.return_oldcar.data,
-        commendList: res.data.return_newcar.data,
-      })
-    }).newList()
+    
   },
 
   /**
@@ -41,7 +33,15 @@ Page(Object.assign({}, swiperAutoHeight,{
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //获取首页内容
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        hotList: res.data.return_oldcar.data,
+        commendList: res.data.return_newcar.data,
+      })
+    }).newList()
   },
   goOldView: function (e) {
     let id = e.currentTarget.dataset.id

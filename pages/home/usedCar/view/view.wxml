@@ -1,59 +1,63 @@
 <!--pages/home/maintain/view/view.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
 <view class='container'>
-  <view class='banner'><image src='http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg' mode='widthFix'></image><text class='f14' data-id='1' bindtap='goPicture'>6张照片</text></view>
+  <view class='banner'>
+    <image src='{{banner}}' mode='widthFix'></image>
+    <text class='f14 clr-white' data-id='{{carId}}' bindtap='goPicture' hidden='{{!countpic}}'>共{{countpic}}张照片</text>
+  </view>
   <view class='lineItem'>
-    <view class='center clr_gray01 f16 overTwo'>开瑞 开瑞K60 2018款 1.5T 手动豪华型</view>
+    <view class='center clr_gray01 f16 overTwo'>{{carname}}</view>
   </view>
   <view class='lineItem price'>
     <view class='center'>
       <text class='f12 clr_gray01'>售价</text>
-      <text class='yellow01'>￥45.6</text>
+      <text class='yellow01'>￥{{totalprice}}</text>
       <text class='f12'>新车指导价</text>
-      <text class='f12 clr_mediumGray old_price'>￥100</text>
+      <text class='f12 clr_mediumGray old_price'>￥{{saleprice}}</text>
     </view>
   </view>
-  <view class='lineItem lineItem_access f14 tenant'>
+  <view class='lineItem lineItem_access f14 tenant' data-id='{{providerid}}' bindtap='goTenant'>
     <view class='left'>商家：</view>
-    <view class='center'>好车居</view>
+    <view class='center'>{{goodname}}</view>
     <view class='right'></view>
   </view>
   <view class='parameter'>
     <view class='title_common f15'>车辆档案</view>
     <view class='archives f12 clr_mediumGray tc'>
-      <view>
-        <view>112</view>
+      <view hidden='{{mileage==""}}'>
+        <view>{{mileage}}</view>
         <view>里程数</view>
       </view>
-       <view>
-        <view>112</view>
+      <view hidden='{{useproperty == ""}}'>
+        <view>{{useproperty}}</view>
         <view>使用性质</view>
       </view>
-       <view>
-        <view>112</view>
+      <view hidden='{{productiondate == ""}}'>
+        <view>{{productiondate}}</view>
         <view>出厂日期</view>
       </view>
-       <view>
-        <view>112</view>
+      <view hidden='{{licenceproperty == ""}}'>
+        <view>{{licenceproperty}}</view>
         <view>牌照性质</view>
       </view>
-      <view>
-        <view>112</view>
+      <view hidden='{{gearbox == ""}}'>
+        <view>{{gearbox}}</view>
         <view>变速箱</view>
       </view>
-       <view>
-        <view>112</view>
+      <view hidden='{{cardate == ""}}'>
+        <view>{{cardate}}</view>
         <view>上牌日期</view>
       </view>
-      <view>
-        <view>112</view>
+      <view hidden='{{displacement == ""}}'>
+        <view>{{displacement}}</view>
         <view>排量</view>
       </view>
-       <view>
-        <view>112</view>
+      <view hidden='{{attribution == ""}}'>
+        <view>{{attribution}}</view>
         <view>归属地</view>
       </view>
-      <view>
-        <view>112</view>
+      <view hidden='{{color == ""}}'>
+        <view>{{color}}</view>
         <view>颜色</view>
       </view>
     </view>
@@ -62,22 +66,26 @@
     <view class='title_common f15'>车况说明</view>
 
     <view class='cont f12'>
-      激情于心，卓越于行。宋DM，以百公里4.9秒凌厉加速， 伴全新一代主流精英，全速进取。 超广视野全景天窗，打开一片独属于你的风景。绝妙的开阔感受，自然之美触手可及，时刻激发向往自由之心。 装配LED前大灯，彰显时尚更添科技之美，夜间行车视野更清晰，前行方向了然于心。 360°高清全景影像 · 行享安全
+      <template is="wxParse" data="{{wxParseData:carintroduce.nodes}}" />
     </view>
   </view>
   <view class='parameter f15'>
     <view class='title_common'>服务费用</view>
 
     <view class='cont f12'>
-      激情于心，卓越于行。宋DM，以百公里4.9秒凌厉加速， 伴全新一代主流精英，全速进取。 超广视野全景天窗，打开一片独属于你的风景。绝妙的开阔感受，自然之美触手可及，时刻激发向往自由之心。 装配LED前大灯，彰显时尚更添科技之美，夜间行车视野更清晰，前行方向了然于心。 360°高清全景影像 · 行享安全
+      <template is="wxParse" data="{{wxParseData:servicefeedesc.nodes}}" />
     </view>
   </view>
-  <view class='flex tc f16 bottom'>
-    <view class='flex-item collect'>
-      <view>收藏</view>
+  <view class='flex tc f16 bottom clr_lightGray'>
+    <view class='flex-item collect {{isCollection==0?"":"yellow01"}}' data-id='{{isCollection}}' data-cid='{{cid}}' bindtap='collect'>
+      <text class='iconfont {{isCollection==0?" icon-heart":" icon-icon3"}}   f24'></text>
+      <text>{{isCollection==0?"收藏":"已收藏"}}</text>
     </view>
-
-    <view class='flex-item buy_btn' bindtap='goBuy'>
+    <view class='flex-item clr_lightGray' hidden='{{!providerid}}' data-id='{{providerid}}' bindtap='goTenant'>
+      <text class='iconfont icon-shangjia f24'></text>
+      <text>商家</text>
+    </view>
+    <view class='flex-item buy_btn' data-id='{{carId}}' bindtap='goBuy'>
       <view>立即预约</view>
     </view>
   </view>
