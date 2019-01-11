@@ -1,7 +1,7 @@
 // pages/search/search.js
 let app = getApp(),
   util = require("../../utils/util.js"),
-  Product = require("../../service/product.js")
+  Cars = require("../../service/cars.js")
 Page({
 
   /**
@@ -19,14 +19,14 @@ Page({
     that.setData({
       keyWord: options.keyWord ? options.keyWord:""
     })
-    new Product(res => {
+    new Cars(res => {
       console.log(res)
       this.setData({
-        product: res.data.return_shop.data,
-        productPage: res.data.return_shop.pageTotal,
-        currentPage: res.data.return_shop.currentPage
+        product: res.data.return_newcar.data,
+        productPage: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
       })
-    }).list({
+    }).usedList({
       pageSize: 10,
       page: 1,
       brandname: that.data.keyWord,
@@ -84,7 +84,7 @@ Page({
 
     console.log(currentPage)
 
-    new Product(res => {
+    new Cars(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
       if (res.data.return_newcar.totalPages < res.data.return_newcar.currentPage) {
@@ -101,7 +101,7 @@ Page({
         })
       }
 
-    }).list({
+    }).usedList({
       pageSize: 10,
       page: 1,
       brandname: that.data.keyWord,

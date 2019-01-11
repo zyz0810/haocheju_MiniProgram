@@ -24,15 +24,17 @@
   <view class='left'>
     <text class='start_icon f10 clr-white'>起</text>出发地</view>
   <view class='center'>
-    <input type='text' placeholder='请填写出发地' bindinput='{{start}}'></input>
+    <input type='text' placeholder='请填写出发地' value='{{start}}' bindinput='{{start}}'></input>
   </view>
+  <view class='right' style='width:50px;' bindtap='bindStart'><text class='iconfont icon-dingweiweizhi clr_lightGray'></text></view>
 </view>
 <view class='lineItem border f14'>
   <view class='left' style=''>
     <text class='end_icon f10 clr-white'>终</text>目的地</view>
   <view class='center'>
-    <input type='text' placeholder='请填写目的地' bindinput='end'></input>
+    <input type='text' placeholder='请填写目的地' value='{{end}}' bindinput='end'></input>
   </view>
+  <view class='right' style='width:50px;' bindtap='bindEnd'><text class='iconfont icon-dingweiweizhi clr_lightGray'></text></view>
 </view>
 <view class='lineItem lineItem_access border f14'>
   <view class='left' style='padding-left:8vw;'>出发日期</view>

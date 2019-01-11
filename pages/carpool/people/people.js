@@ -23,7 +23,7 @@ Page({
     phone: '',
     start: '',
     end: '',
-    remark: '',
+    remarks: '',
     seat: 1
 
   },
@@ -49,20 +49,35 @@ Page({
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      seat: parseInt(e.detail.value) + 1
     })
   },
   bindBrandChange: function(e) {
-    console.log('品牌', e.detail.value)
+    console.log('品牌', e)
+
+var that = this
+    var id = this.data.brand[e.detail.value].id
     this.setData({
-      brandNum: e.detail.value
+      brandNum: e.detail.value,
+      brandId: id
     })
+
+
+ 
+    new Cars(function (res) {
+      that.setData({
+        system: res.data
+      })
+    }).mode({ carId: id })
+
+
   },
   bindSystemChange: function(e) {
     console.log('车系', e.detail.value)
     this.setData({
       systemNum: e.detail.value
     })
+
   },
   checkboxChange: function(e) {
     var that = this;
@@ -82,14 +97,192 @@ Page({
   onReady: function() {
 
   },
-
+  name: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  phone: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  start: function (e) {
+    this.setData({
+      start: e.detail.value
+    })
+  },
+  end: function (e) {
+    this.setData({
+      end: e.detail.value
+    })
+  },
+  remarks: function (e) {
+    this.setData({
+      remarks: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that = this
+    var userId = wx.getStorageSync('userId')
+    new Member(function (res) {
+      that.setData({
+        name: res.data.username ? res.data.username : res.data.nickname,
+        phone: res.data.phone
+      })
+      if (res.data.phone == '') {
+        wx.showModal({
+          title: '',
+          content: '请先绑定手机',
+          success(res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              util.navigateTo({
+                url: '/pages/member/mobile/mobile',
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+              wx.navigateBack({})
+            }
+          }
+        })
+      }
+    }).view({
+      userId: userId
+    })
+    new Cars(function(res){
+      that.setData({
+        brand: res.data.productList,
+        brandId: res.data.productList[0].id
+      })
+      new Cars(function (res) {
+        that.setData({
+          system: res.data
+        })
+      }).mode({ carId: res.data.productList[0].id })
+    }).brand()
+
+    
+    
+  },
+  // chooseMode:function(e){
+  //   var that = this
+  //   new Cars(function (res) {
+  //     that.setData({
+  //       system: res.data
+  //     })
+  //   }).mode({ carId: that.data.brandId })
+  // },
+  bindStart: function () {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(latitude, longitude)
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18,
+        //   success: function(res) {
+
+        console.log('打开地图')
+
+        wx.chooseLocation({
+          success: function (res) {
+            console.log('选点')
+            console.log(res)
+
+            that.setData({
+              start: res.name,
+              startAddress: res.address
+            })
+          },
+        })
+        //   }
+        // })
+      }
+    })
+  },
+  bindEnd: function () {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(latitude, longitude)
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18,
+        //   success: function(res) {
+
+        console.log('打开地图')
+
+        wx.chooseLocation({
+          success: function (res) {
+            console.log('选点')
+            console.log(res)
+
+            that.setData({
+              end: res.name,
+              endAddress: res.address
+            })
+          },
+        })
+        //   }
+        // })
+      }
+    })
+  },
+  submit: function () {
+    var userId = wx.getStorageSync('userId')
+    var that = this
+
+
+    if (that.data.checked) {
+      new Cars(function (data) {
+        wx.showToast({
+          title: '发布成功',
+          success: function () {
+            wx.navigateBack({})
+          }
+        })
+
+      }).pullpool({
+        type: 1,
+        name: that.data.name,
+        phonenum: that.data.phone,
+        start: that.data.start,
+        end: that.data.end,
+        startdate: that.data.startdate,
+        starttime: that.data.starttime,
+        seat: that.data.seat,
+        brand: that.data.brand[that.data.brandNum].name,
+        series: that.data.system[that.data.systemNum].name,
+        remarks: that.data.remarks,
+        userId: userId,
+        start_address: that.data.startAddress,
+        end_address: that.data.endAddress
+      })
+    } else {
+      wx.showToast({
+        title: '请先阅读并同意《免责声明》',
+        image: '/resources/images/x.png'
+      })
+    }
+
 
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

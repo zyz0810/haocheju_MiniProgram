@@ -15,10 +15,12 @@ Page({
     checked: false,
     name: '',
     phone: '',
-    start:'',
-    end:'',
-    remark:'',
-    seat:1
+    start: '',
+    end: '',
+    remark: '',
+    seat: 1,
+    startAddress: '',
+    endAddress: ''
   },
 
   /**
@@ -58,22 +60,22 @@ Page({
       })
     }
   },
-  name: function (e) {
+  name: function(e) {
     this.setData({
       name: e.detail.value
     })
   },
-  phone: function (e) {
+  phone: function(e) {
     this.setData({
       phone: e.detail.value
     })
   },
-  start: function (e) {
+  start: function(e) {
     this.setData({
       start: e.detail.value
     })
   },
-  end: function (e) {
+  end: function(e) {
     this.setData({
       end: e.detail.value
     })
@@ -122,14 +124,87 @@ Page({
       userId: userId
     })
   },
+  bindStart: function() {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(latitude, longitude)
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18,
+        //   success: function(res) {
+
+        console.log('打开地图')
+
+        wx.chooseLocation({
+          success: function(res) {
+            console.log('选点')
+            console.log(res)
+
+            that.setData({
+              start: res.name,
+              startAddress: res.address
+            })
+          },
+        })
+        //   }
+        // })
+      }
+    })
+  },
+  bindEnd: function () {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(latitude, longitude)
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18,
+        //   success: function(res) {
+
+        console.log('打开地图')
+
+        wx.chooseLocation({
+          success: function (res) {
+            console.log('选点')
+            console.log(res)
+
+            that.setData({
+              end: res.name,
+              endAddress: res.address
+            })
+          },
+        })
+        //   }
+        // })
+      }
+    })
+  },
   submit: function() {
     var userId = wx.getStorageSync('userId')
     var that = this
 
 
-    if (that.data.checked){
-      new Cars(function (data) {
-
+    if (that.data.checked) {
+      new Cars(function(data) {
+        wx.showToast({
+          title: '发布成功',
+          success: function() {
+            wx.navigateBack({})
+          }
+        })
 
       }).pullpool({
         type: 2,
@@ -144,17 +219,17 @@ Page({
         series: '',
         remarks: that.data.remarks,
         userId: userId,
-        start_address: that.data.start_address,
-        end_address: that.data.end_address
+        start_address: that.data.startAddress,
+        end_address: that.data.endAddress
       })
-    }else{
+    } else {
       wx.showToast({
         title: '请先阅读并同意《免责声明》',
-        image:'/resources/images/x.png'
+        image: '/resources/images/x.png'
       })
     }
 
-    
+
   },
 
   /**

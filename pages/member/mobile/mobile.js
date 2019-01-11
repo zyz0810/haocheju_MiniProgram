@@ -86,7 +86,12 @@ Page({
     } else {
       new Member(res => {
         console.log(res)
-        wx.navigateBack({})
+        wx.showToast({
+          title: '绑定成功',
+          success:function(){
+            wx.navigateBack({})
+          }
+        })
       }).bindMobile({
         phonenum: that.data.phone,
         code: that.data.code,

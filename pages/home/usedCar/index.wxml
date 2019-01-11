@@ -1,13 +1,18 @@
 <!--pages/usedCar/index.wxml-->
 <import src="/template/swiperIndex/swiper.wxml" />
 <view class='bg'>
-  <view class='lineItem'>
-    <view class='left tc f14'>安庆</view>
-    <view class='center'>
-      <text class='iconfont icon-sousuo f16 baseColor'></text>
-      <input type='search' class='f14' placeholder='搜索 品牌/车系/参数/商家'></input>
+  <view class='search_frame lineItem'>
+      <view class='left'>
+        <text class='iconfont icon-sousuo f16 baseColor'></text>
+      </view>
+      <view class='center'>
+        <input type='text' class='f12' bindinput='searchKey' placeholder='搜索 车品牌/型号'></input>
+      </view>
+      <view class='right f14'>
+        <text class='clr-white searchBtn baseBg' bindtap='goSearchBtn'>搜索</text>
+      </view>
+
     </view>
-  </view>
   <view class='f13 baseColor usedTxt'>好车居二手车，买卖更放心</view>
   <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap'}}"></template>
 </view>

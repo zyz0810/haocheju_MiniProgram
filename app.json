@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/member/dealer/dealer",
     "pages/home/home",
+    "pages/home/usedCar/buy/buy",
+    
     "pages/carpool/people/people",
     "pages/carpool/car/car",
+    "pages/member/dealer/dealer",
     "pages/carpool/carpool",
     "pages/carpool/view/view",
     "pages/member/feedback/feedback",
@@ -41,7 +43,7 @@
     "pages/pay/pay",
     "pages/circle/edit/edit",
     "pages/home/usedCar/view/pic/pic",
-    "pages/home/usedCar/buy/buy",
+    
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",

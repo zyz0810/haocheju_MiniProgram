@@ -9,7 +9,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面的初始数据
    */
   data: {
-
+    keyWord:''
   },
 
   /**
@@ -18,16 +18,32 @@ Page(Object.assign({}, swiperAutoHeight, {
   onLoad: function (options) {
 
   },
+  searchKey: function (e) {
+    console.log(e)
+    let key = e.detail.value
+    this.setData({
+      keyWord: key
+    })
+  },
+  goSearchBtn: function (e) {
+    console.log(e)
+    let txt = this.data.keyWord;
+    util.navigateTo({
+      url: '../../search/search?keyWord=' + txt,
+    })
+  },
   goBuy: function () {
     util.navigateTo({
       url: 'buy/buy',
     })
   },
-  goView: function () {
+  goView: function (e) {
+    let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'view/view',
+      url: 'view/view?id=' + id,
     })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

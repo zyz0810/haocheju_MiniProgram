@@ -10,7 +10,7 @@ page {
   background-size: 100% 90%;
 }
 
-.bg .lineItem {
+/* .bg .lineItem {
   width: 100%;
   padding: 10rpx 0;
   margin: 0 auto;
@@ -58,7 +58,7 @@ page {
 
 .bg .lineItem input {
   padding: 0 10rpx 0 50rpx;
-}
+} */
 
 swiper {
   width: 100%;
@@ -200,4 +200,30 @@ swiper image {
   color: #fff;
   background: -webkit-linear-gradient(left, #ff9c01, #fc1200);
   background: linear-gradient(90deg, #ff9c01, #fc1200);
+}
+.search_frame {
+  background: #fff;
+  box-shadow: 0 0 8px #9ed3f7;
+  z-index: 999;
+  margin-top: 10px;
+  padding: 5px 0 5px 5px;
+  border-radius: 3px;
+  width: 94%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search_frame .iconfont{
+  position: absolute;
+  top: 20rpx;
+  left: 10rpx;
+}
+.search_frame input{
+  padding-left: 50rpx;
+  height: 50rpx !important;
+  min-height: 50rpx !important;
+}
+.searchBtn{
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
 }

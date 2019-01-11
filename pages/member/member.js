@@ -53,19 +53,17 @@ Page(Object.assign({}, navCart, {
   },
   goInsurance: function () {
     util.navigateTo({
-      url: 'insurance/insurance',
+      url: '/pages/home/insurance/insurance',
     })
   },
-  goPersonnel:function(){
-    wx.showToast({
-      icon:'none',
-      title: '此功能暂未开放',
+  goAuthentication:function(){
+    util.navigateTo({
+      url: 'authentication/authentication',
     })
   },
   goFavorite:function(){
-    wx.showToast({
-      icon: 'none',
-      title: '此功能暂未开放',
+    util.navigateTo({
+      url: 'car/car',
     })
   },
   goDealer: function () {
@@ -73,7 +71,16 @@ Page(Object.assign({}, navCart, {
       url: 'dealer/dealer',
     })
   },
-
+  goFeedback:function() {
+    util.navigateTo({
+      url: 'feedback/feedback',
+    })
+  }, 
+  goPhone: function() {
+    util.navigateTo({
+      url: 'mobile/mobile',
+    })
+  },
 
 
 }))

@@ -22,8 +22,8 @@ Page({
     position: '',
     person: '',
     num: '',
-    licenseImages:'',
-    shopImages:''
+    licenseImages: '',
+    shopImages: ''
   },
 
   /**
@@ -212,14 +212,14 @@ Page({
     var type = e.target.dataset.type;
 
     console.log(e)
-console.log(type)
+    console.log(type)
 
     if (type == 'pics') {
       var pics = pics
       that.data.pics.splice(index, 1)
       this.setData({
         pics: that.data.pics,
-        images:''
+        images: ''
       })
     } else if (type == 'shop') {
       console.log(that.data.shop)
@@ -227,7 +227,7 @@ console.log(type)
       that.data.shop.splice(index, 1)
       this.setData({
         shop: that.data.shop,
-        shopImages:''
+        shopImages: ''
       })
     } else {
       var license = license
@@ -239,7 +239,7 @@ console.log(type)
     }
 
 
-    
+
 
   },
   name: function(e) {
@@ -275,13 +275,13 @@ console.log(type)
   submit: function() {
     var that = this
     var userId = wx.getStorageSync('userId')
-    if (that.data.name == ''){
+    if (that.data.name == '') {
       wx.showToast({
         title: '请输入服务商名称',
         image: '/resources/images/x.png'
       })
       return
-    } 
+    }
     if (that.data.person == '') {
       wx.showToast({
         title: '请输入经办人',
@@ -347,6 +347,9 @@ console.log(type)
     new Member(function(res) {
       wx.showToast({
         title: '提交成功',
+        success:function(){
+          wx.navigateBack({})
+        }
       })
     }).dealer({
       userId: userId,
