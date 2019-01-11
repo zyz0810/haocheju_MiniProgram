@@ -37,7 +37,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(options.id)
+  
     var that = this
     //获取内容
     new Zixun(res => {
