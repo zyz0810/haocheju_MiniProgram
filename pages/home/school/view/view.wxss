@@ -1,0 +1,38 @@
+/* pages/home/school/view/view.wxss */
+
+.call {
+  color: #fff;
+  background: #00c876;
+  padding: 3px 10px;
+  letter-spacing: 2px;
+}
+
+.info {
+  margin-top: 2%;
+  background: #fff;
+}
+
+.info .flex {
+  padding-bottom: 2%;
+  margin: 0 2%;
+}
+
+.tit {
+  padding: 2% 1%;
+  margin: 0 2%;
+  background: #fff;
+  position: relative;
+}
+
+.intro_cont {
+  padding: 2%;
+}
+
+.environment {
+  padding: 2% 0 2% 2%;
+}
+
+.environment_img {
+  width: 48%;
+  margin: 0 2% 2% 0;
+}

@@ -1,0 +1,76 @@
+<!--pages/appointment/appointment.wxml-->
+<view hidden='{{typeNew}}'>
+  <view class='lineItem car' data-id='{{carId}}' bindtap='goNewView'>
+    <view class='left'>
+      <text class='tag f12'>新车</text>
+      <image src='{{brandlogo}}'></image>
+    </view>
+    <view class='center'>
+      <view class='f14'>{{carname}} {{cartype}}</view>
+      <view class='f12'>配置：{{carconfig}}</view>
+      <view class='f12 yellow01'>销售价：{{carprice}}元</view>
+    </view>
+  </view>
+
+  <view class='cont'>
+    <view class='lineItem f16 border'>
+      <view class='center'>
+        <input type='number' placeholder='请输入姓名' value='{{name}}' bindinput='name'></input>
+      </view>
+    </view>
+    <view class='lineItem f16 border'>
+      <view class='center'>
+        <input type='number' placeholder='请输入手机号' value='{{phone}}' bindinput='phone'></input>
+      </view>
+      <view class='right tc clr-white'>
+        <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->
+        <button type="primary" bindtap="getcap" class="captach f15" id='getcap' disabled="{{disabled}}">{{tips}}</button>
+      </view>
+    </view>
+    <view class='lineItem f16 border'>
+      <view class='center tl'>
+        <input type='number' placeholder='请输入验证码' bindinput='code'></input>
+      </view>
+    </view>
+    <button type="default" class='clr-white' bindtap="submitNew" hover-class="other-button-hover"> 提交 </button>
+    <view class='f12 clr_lightGray tc'>留下您的联系方式进行预约</view>
+  </view>
+</view>
+
+<view hidden='{{typeOld}}'>
+ <view class='lineItem car' data-id='{{carId}}' bindtap='goUsedView'>
+    <view class='left'>
+      <text class='tag f12'>新车</text>
+      <image src='{{brandlogo}}'></image>
+    </view>
+    <view class='center'>
+      <view class='f14'>{{carname}} {{cartype}}</view>
+      <view class='f12'>配置：{{carconfig}}</view>
+      <view class='f12 yellow01'>销售价：{{carprice}}元</view>
+    </view>
+  </view>
+
+  <view class='cont'>
+    <view class='lineItem f16 border'>
+      <view class='center'>
+        <input type='number' placeholder='请输入姓名' bindinput='name'></input>
+      </view>
+    </view>
+    <view class='lineItem f16 border'>
+      <view class='center'>
+        <input type='number' placeholder='请输入手机号' bindinput='phone'></input>
+      </view>
+      <view class='right tc clr-white'>
+        <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->
+        <button type="primary" bindtap="getcap" class="captach f15" id='getcap' disabled="{{disabled}}">{{tips}}</button>
+      </view>
+    </view>
+    <view class='lineItem f16 border'>
+      <view class='center tl'>
+        <input type='number' placeholder='请输入验证码' bindinput='code'></input>
+      </view>
+    </view>
+    <button type="default" class='clr-white' bindtap="submitUsed" hover-class="other-button-hover"> 提交 </button>
+    <view class='f12 clr_lightGray tc'>留下您的联系方式进行预约</view>
+  </view>
+</view>

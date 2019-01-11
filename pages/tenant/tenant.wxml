@@ -1,0 +1,59 @@
+<!--pages/tenant/tenant.wxml-->
+<import src="/template/swiperProduct/swiper.wxml" />
+<template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner,fn:'adTap',showDot:true}}"></template>
+<view class='info'>
+  <view class='lineItem border_bottom'>
+    <view class='center f16'>{{providername}}</view>
+  </view>
+  <view class='lineItem'>
+    <view class='center f16'>
+      <view>{{address}}</view>
+      <view class='f14'>{{phone}}</view>
+    </view>
+    <view class='right'>
+      <text class='call f14' data-id='{{phone}}' bindtap='callUs'>拨号</text>
+    </view>
+  </view>
+</view>
+<view class='tit f16'>店铺车辆</view>
+<view class='cont'>
+  <view class='flex'>
+    <view class='flex-item tc {{currentTab==0?"baseBg clr-white":""}}' data-id='0' bindtap='tabClick'>新车</view>
+    <view class='flex-item tc {{currentTab==1?"baseBg clr-white":""}}' data-id='1' bindtap='tabClick'>二手车</view>
+  </view>
+  <view class='list' hidden='{{news}}'>
+    <block wx:for="{{newList}}" wx:key="index">
+      <view class='lineItem' data-id='{{item.productid}}' bindtap='goNewView'>
+        <view class='left'>
+          <text class='tag f12'>新车</text>
+          <image src='{{item.carbanner}}'></image>
+        </view>
+        <view class='center'>
+          <view class='f14'>{{item.name}} {{item.type}}</view>
+          <view class='f12'>配置：{{item.carconfig}}</view>
+          <view class='f12 yellow01'>销售价：{{item.carprice}}元
+            <text class='fr call' data-id='{{item.productid}}' catchtap='callUs'>立即预约</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- <view class='tips'>{{tips}}</view> -->
+  </view>
+    <view class='list' hidden='{{used}}'>
+    <block wx:for="{{usedList}}" wx:key="index">
+      <view class='lineItem' data-id='{{item.oldproductid}}' bindtap='goUsedView'>
+        <view class='left'>
+          <text class='tag f12'>二手车</text>
+          <image src='{{item.applistthumb}}'></image>
+        </view>
+        <view class='center'>
+          <view class='f14'>{{item.name}} {{item.type}}</view>
+          <view class='f12'>配置：{{item.carconfig}}</view>
+          <view class='f12 yellow01'>销售价：{{item.saleprice}}元
+            <text class='fr call' data-id='{{item.productid}}' catchtap='appointment'>立即预约</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

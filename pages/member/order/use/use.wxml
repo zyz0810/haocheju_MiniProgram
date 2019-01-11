@@ -1,0 +1,32 @@
+<view class='content'>
+  <view class='lineItem f14 clr_mediumGray'>
+    <view class='left'>订单编号：</view>
+    <view class='center'>1541402566987</view>
+  </view>
+  <view class='circle'><view class='sawtooth_top'></view></view>
+  <!-- <view class='circle'><view class='sawtooth_bottom'></view></view> -->
+  <view class='ewm tc'><image src='https://p.ssl.qhimg.com/d/inn/0444533a/Snip20160525_6.png'></image></view>
+  <view class='lineItem'>
+    <view class='center f15 tc'>比速 比速T5 2017款1.5T手动尊贵型</view>
+  </view>
+  <view class='lineItem'>
+    <view class='center f15 clr_red tc'>￥3000.00</view>
+  </view>
+  <view class='lineItem border_bottom'>
+    <view class='center f11 clr_lightGray tc'>(请将此二维码展示给商家)</view>
+  </view>
+  <view class='lineItem f14 clr_mediumGray'>
+    <view class='center'>用户名：</view>
+    <view class='right'>爱吃的懒猫</view>
+  </view>
+  <view class='lineItem f14 clr_mediumGray'>
+    <view class='center'>支付时间</view>
+    <view class='right'>2018-11-1</view>
+  </view>
+</view>
+<view class='lineItem f14 clr_mediumGray verification'>
+  <view class='left'>核销码：</view>
+  <view class='center'>656231</view>
+</view>
+
+<view class='baseBg f16 clr-white tc return' bindtap='goReturn'>返回</view>

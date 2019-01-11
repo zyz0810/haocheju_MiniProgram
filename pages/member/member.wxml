@@ -58,7 +58,7 @@
     <view class='iconfont icon-resume1 f24'></view>
     <view>实名认证</view>
   </view>
-  <view class='menu_item f12 tc' bindtap='goTenanter' hidden='{{type==1}}'>
+  <view class='menu_item f12 tc' bindtap='goDealer' hidden='{{type==1}}'>
     <view class='iconfont icon-resume1 f24'></view>
     <view>成为车商</view>
   </view>

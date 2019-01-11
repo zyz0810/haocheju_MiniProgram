@@ -1,0 +1,59 @@
+/* pages/tenant/tenant.wxss */
+
+.info {
+  padding: 2%;
+  border-radius: 10rpx;
+}
+
+.call {
+  color: #fff;
+  background: #00c876;
+  padding: 3px 10px;
+  letter-spacing: 2px;
+}
+
+.tit {
+  padding: 2%;
+  background: #f0f0f0;
+}
+.cont{
+  padding: 2%;
+}
+.cont .flex {
+  line-height: 2em;
+  background: #fff;
+}
+
+.list{
+  padding: 2% 0;
+}
+.list .lineItem {
+  margin-bottom: 2%;
+}
+.list .lineItem .left {
+  position: relative;
+  width: 30vw;
+  height: 26vw;
+  margin-right: 2%;
+}
+
+.list .lineItem .left image {
+  width: 100%;
+  height: 100%;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 5px;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background: #0f84de;
+}
+.list .lineItem .center{
+  -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}

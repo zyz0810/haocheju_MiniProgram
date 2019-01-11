@@ -1,0 +1,32 @@
+<!--pages/home/school/view/view.wxml-->
+<import src="/template/swiperProduct/swiper.wxml" />
+<import src="../../../wxParse/wxParse.wxml" />
+
+<template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner,fn:'adTap',showDot:true}}"></template>
+<view class='info'>
+  <view class='lineItem'>
+    <view class='center f16 gray03'>{{name}}</view>
+    <view class='right' hidden='{{!mobile}}'><text class='call f13' data-id='{{mobile}}' bindtap='callUs'>拨号联系</text></view>
+  </view> 
+  <view class='flex f13 clr_mediumGray border_bottom'>
+    <view class='flex-item tl'>{{grade?"评分："+grade:"暂无评分"}}</view>|
+    <view class='flex-item tc'>{{college}}学员</view>|
+    <view class='flex-item tr'>合格率：{{qualified}}</view>
+  </view>
+  <view class='lineItem'>
+    <view class='center f13'>{{address}}</view>
+  </view>
+</view>
+<view class='info'>
+  <view class='tit f16 border_bottom'>简介</view>
+  <view class='intro_cont f13'><template is="wxParse" data="{{wxParseData:abstract.nodes}}" /></view>
+</view>
+
+<view class='info'>
+  <view class='tit f16 border_bottom'>驾校环境</view>
+  <view class='intro_cont f13'>
+    <block wx:for="{{environment}}" wx:key="index">
+    <image src='{{item}}' class='environment_img' mode='widthFix'></image>
+    </block>
+  </view>
+</view>

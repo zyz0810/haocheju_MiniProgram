@@ -1,0 +1,43 @@
+/* pages/member/order/use/use.wxss */
+.content{
+  width: 92%;
+  margin: 0 auto;
+  background: #fff;
+}
+.ewm{
+  position: relative;
+}
+
+.circle{
+  height: 20px;
+  position: relative;
+}
+.sawtooth_top {
+  height: 20px;
+  width: 100%;
+  display: inline-block;
+  background-image: -webkit-radial-gradient(15px 15px, #efeff4 4px, #fff 0px, #fff 5px);
+  background-image: radial-gradient(15px 15px, #efeff4 4px, #fff 0px, #fff 5px);
+  background-color: transparent;
+  background-repeat: repeat-x;
+  background-size: 10px 10px;
+  background-position: 0 0;
+}
+.ewm image{
+  width: 41.33vw;
+  height: 41.33vw;
+  margin: 50rpx auto;
+}
+
+.verification{
+  width: 88%;
+  margin: 20rpx auto;
+}
+
+.return{
+  position: fixed;
+  left: 0;
+  bottom: 50rpx;
+  width: 100%;
+  line-height: 50px;
+}

@@ -1,16 +1,13 @@
 {
   "pages": [
+    "pages/member/dealer/dealer",
     "pages/home/home",
-        "pages/carpool/people/people",
+    "pages/carpool/people/people",
     "pages/carpool/car/car",
-
     "pages/carpool/carpool",
     "pages/carpool/view/view",
-   
-    
     "pages/member/feedback/feedback",
     "pages/home/usedCar/index",
-    
     "pages/member/mobile/mobile",
     "pages/appointment/appointment",
     "pages/tenant/tenant",
@@ -30,8 +27,6 @@
     "pages/home/maintain/maintain",
     "pages/home/beauty/beauty",
     "pages/home/transaction/transaction",
-   
-    
     "pages/news/news",
     "pages/member/order/use/use",
     "pages/memberTenant/memberTenant",
@@ -47,7 +42,6 @@
     "pages/circle/edit/edit",
     "pages/home/usedCar/view/pic/pic",
     "pages/home/usedCar/buy/buy",
-    
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",

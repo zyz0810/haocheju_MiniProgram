@@ -1,0 +1,85 @@
+@import "/template/actionsheet/actionsheet.wxss";
+@import "/template/password/payPassword.wxss";
+@import "/template/jumpPay/jumpPay.wxss";
+
+page {
+  background: #f1f1f1;
+  height: 100%;
+  overflow: hidden;
+}
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-item {
+  overflow-y: auto;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  top: 0;
+  background: #f1f1f1;
+  z-index: 1;
+}
+.top {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: 33rpx;
+  background: #fafafa;
+}
+
+.top>view {
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  position: relative;
+}
+.top>view>text{
+  display: inline-block;
+  line-height: 40px;
+  border-bottom: 2px solid transparent;
+}
+.top>view>text.active{
+  border-bottom: 2px solid #0f84de;
+}
+.on {
+  color: #5e3c20;
+}
+
+.list_item{
+  margin-bottom: 20rpx;
+}
+
+.product_img image{
+  width: 16.66vw;
+  height: 16.66vw;
+  margin-right: 10rpx;
+}
+
+.product,.product .center{
+  justify-content: space-between;
+}
+
+.price .right{
+  margin-right: 50rpx;
+}
+
+.pay_btn{
+  padding: 5rpx 20rpx;
+  border: 1px solid #0f84de;
+  border-radius: 5rpx;
+}

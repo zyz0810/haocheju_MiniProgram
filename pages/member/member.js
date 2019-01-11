@@ -68,7 +68,11 @@ Page(Object.assign({}, navCart, {
       title: '此功能暂未开放',
     })
   },
-  
+  goDealer: function () {
+    util.navigateTo({
+      url: 'dealer/dealer',
+    })
+  },
 
 
 
