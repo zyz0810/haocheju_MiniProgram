@@ -1,28 +1,56 @@
 // pages/home/hire/hire.js
 
 let app = getApp(),
-  util = require("../../../utils/util.js")
+  util = require("../../../utils/util.js"),
+  Cars = require("../../../service/cars.js"),
+  Rent = require("../../../service/rent.js"),
+  Member = require("../../../service/member.js")
+var countdown = util.countdown //验证码计时
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tab_current: 1,
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
-    addressShow:true,
-    mode:0,
-    mode1: 0
+    tab_current: 0,
+    addressShow: true,
+    mode: 0,
+    mode1: 0,
+    start: '',
+    end: '',
+    startAddress: '',
+    endAddress: '',
+    drivingPhone: '',
+    drivingCode: '',
+    tips: '发送验证码',
+    count: 60,
+    drivingtips: '发送验证码',
+    drivingcount: 60,
+    addressChoosed: '请选择门店',
+    carModeChoosed: '请选择车型',
+    addressChoosedtwo: '',
+    addressIdChoosed: '',
+    carShow: true,
+    carChoosedfour: '',
+    phone:'',
+    code:'',
+    name:''
   },
-
+  chooseShop: function() {
+    this.setData({
+      addressShow: false
+    })
+  },
+  start: function(e) {
+    this.setData({
+      start: e.detail.value
+    })
+  },
+  end: function(e) {
+    this.setData({
+      end: e.detail.value
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -42,9 +70,9 @@ Page({
       drivingMonth: p(drivingMonth),
       drivingDay: p(drivingDay),
       drivingDate: drivingYear + '-' + p(drivingMonth) + '-' + p(drivingDay),
-      drivingTime: ' ' + p(drivingHour) + ':' + p(drivingMinutes) ,
+      drivingTime: ' ' + p(drivingHour) + ':' + p(drivingMinutes),
       pickUpDate: drivingYear + '-' + p(drivingMonth) + '-' + p(drivingDay),
-      pickUpTime: ' ' + p(drivingHour) + ':' + p(drivingMinutes), 
+      pickUpTime: ' ' + p(drivingHour) + ':' + p(drivingMinutes),
       returnDate: drivingYear + '-' + p(drivingMonth) + '-' + p(drivingDay + 1),
       returnTime: ' ' + p(drivingHour) + ':' + p(drivingMinutes),
       days: days
@@ -83,9 +111,168 @@ Page({
       }
       return days;
     }
-
-    
   },
+
+
+  bindStart: function() {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(latitude, longitude)
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18,
+        //   success: function(res) {
+
+        console.log('打开地图')
+
+        wx.chooseLocation({
+          success: function(res) {
+            console.log('选点')
+            console.log(res)
+
+            that.setData({
+              start: res.name,
+              startAddress: res.address
+            })
+          },
+        })
+        //   }
+        // })
+      }
+    })
+  },
+  bindEnd: function() {
+    var that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(latitude, longitude)
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18,
+        //   success: function(res) {
+
+        console.log('打开地图')
+
+        wx.chooseLocation({
+          success: function(res) {
+            console.log('选点')
+            console.log(res)
+
+            that.setData({
+              end: res.name,
+              endAddress: res.address
+            })
+          },
+        })
+        //   }
+        // })
+      }
+    })
+  },
+  drivingPhone: function(e) {
+    this.setData({
+      drivingPhone: e.detail.value
+    })
+  },
+  drivingCode: function(e) {
+    this.setData({
+      drivingCode: e.detail.value
+    })
+  },
+
+  //获取验证码
+  getcap: function() {
+    var that = this
+    if (that.data.drivingPhone.length == 0) {
+      util.errShow('请填写手机号');
+      return;
+    } else if (!(/^1\d{10}$/.test(that.data.drivingPhone))) {
+      util.errShow('手机号格式错误');
+      return;
+    } else {
+      new Member(res => {
+        console.log(res)
+        countdown(that);
+      }).getCode({
+        phonenum: that.data.drivingPhone
+      })
+    }
+  },
+
+  drivingSubmit: function() {
+    var userId = wx.getStorageSync('userId')
+    var that = this
+
+
+
+    if (that.data.start == '') {
+      wx.showToast({
+        title: '请填写出发地',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+    if (that.data.end == '') {
+      wx.showToast({
+        title: '请填写目的地',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+
+    if (that.data.drivingPhone == '') {
+      wx.showToast({
+        title: '请填写手机号',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+    if (that.data.drivingCode == '') {
+      wx.showToast({
+        title: '请填写验证码',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+
+
+    new Member(res => {
+      console.log(res)
+
+      new Rent(function() {
+        wx.showToast({
+          title: '预约成功'
+        })
+      }).driver({
+        mobile: that.data.drivingPhone,
+        start: that.data.start,
+        end: that.data.end,
+        datetime: that.data.drivingDate + that.data.datetime,
+        start_address: that.data.startAddress,
+        end_address: that.data.endAddress
+      })
+
+
+    }).getcodeCheck({
+      phonenum: that.data.drivingPhone,
+      code: that.data.drivingCode
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -98,7 +285,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var that = this
+    new Rent(function(res) {
+      that.setData({
+        addressList: res.data.data
+      })
+    }).tenant({
+      pageSize: 10,
+      page: 1
+    })
   },
   tab_switch: function(e) {
     var that = this;
@@ -109,24 +304,24 @@ Page({
     })
   },
 
-  modeClick:function(e){
+  modeClick: function(e) {
     var that = this
     console.log(e)
     var id = e.currentTarget.dataset.id
     that.setData({
-      mode:id
+      mode: id
     })
-    if(id == 1){
+    if (id == 1) {
       that.setData({
         addressShow: false
       })
-    }else{
+    } else {
       that.setData({
         addressShow: true
       })
     }
   },
-  modeClick1: function (e) {
+  modeClick1: function(e) {
     var that = this
     console.log(e)
     var id = e.currentTarget.dataset.id
@@ -143,29 +338,75 @@ Page({
       })
     }
   },
-  addressChoose:function(){
+  addressChoose: function(e) {
+    console.log(e)
+    var that = this
     console.log('addressChoose')
     this.setData({
-      addressShow: true
+      addressShow: true,
+      addressChoosed: '',
+      addressChoosedone: that.data.addressList[e.currentTarget.dataset.index].providername,
+      addressChoosedtwo: that.data.addressList[e.currentTarget.dataset.index].address,
+      addressIdChoosed: e.currentTarget.dataset.id
+    })
+
+    new Rent(function(res) {
+      that.setData({
+        carList: res.data.data
+      })
+    }).car({
+      pageSize: 10,
+      page: 1,
+      providerid: e.currentTarget.dataset.id
+    })
+
+  },
+  chooseCarMode: function() {
+    console.log(1212)
+    console.log(this.data.providerid)
+    if (this.data.addressIdChoosed == '') {
+      wx.showToast({
+        title: '请选择门店',
+        image: '/resources/images/x.png'
+      })
+      return
+    }
+    this.setData({
+      carShow: false,
+    })
+  },
+
+  carChoose: function(e) {
+    var that = this
+    console.log('addressChoose' + e.currentTarget.dataset.index)
+    this.setData({
+      carShow: true,
+      carChoosed: '',
+      carChoosedone: that.data.carList[e.currentTarget.dataset.index].images,
+      carChoosedtwo: that.data.carList[e.currentTarget.dataset.index].brand,
+      carChoosedthree: that.data.carList[e.currentTarget.dataset.index].type,
+      carChoosedfour: that.data.carList[e.currentTarget.dataset.index].price,
+      carIdChoosed: e.currentTarget.dataset.id,
+      carNameChoosed: e.currentTarget.dataset.txt
     })
   },
 
   // 代驾日期选择器
-  bindDateChange: function (e) {
+  bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       drivingDate: e.detail.value
     })
   },
   //代驾时间选择器
-  bindTimeChange: function (e) {
+  bindTimeChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       drivingTime: e.detail.value
     })
   },
-//取车日期选择器
-  pickUpDateChange:function(e){
+  //取车日期选择器
+  pickUpDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
 
 
@@ -173,6 +414,7 @@ Page({
       return s < 10 ? '0' + s : s;
     }
     var that = this
+
     function GetDateDiff(startTime, endTime, diffType) {
       //将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式
       startTime = startTime.replace(/\-/g, "/");
@@ -213,7 +455,7 @@ Page({
     })
   },
   //取车时间选择器
-  pickUpTimeChange: function (e) {
+  pickUpTimeChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       pickUpTime: e.detail.value
@@ -221,7 +463,7 @@ Page({
   },
 
   //还车日期选择器
-  returnDateChange: function (e) {
+  returnDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
 
 
@@ -229,7 +471,7 @@ Page({
       return s < 10 ? '0' + s : s;
     }
     var that = this
-      // days = GetDateDiff(that.data.pickUpDate, that.data.returnDate, 'day')
+    // days = GetDateDiff(that.data.pickUpDate, that.data.returnDate, 'day')
     // console.log('days' + days)
     function GetDateDiff(startTime, endTime, diffType) {
       //将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式
@@ -273,19 +515,93 @@ Page({
     })
   },
   //还车时间选择器
-  returnTimeChange: function (e) {
+  returnTimeChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       returnTime: e.detail.value
     })
   },
-  goCar:function(){
-    util.navigateTo({
-      url: 'car/car',
+  goCar: function() {
+    var that = this
+    if (that.data.addressIdChoosed == '') {
+      wx.showToast({
+        title: '请选择门店',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+    if (that.data.name == '') {
+      wx.showToast({
+        title: '请填写姓名',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+    if (that.data.phone == '') {
+      wx.showToast({
+        title: '请填写手机号',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+    if (that.data.code == '') {
+      wx.showToast({
+        title: '请填写验证码',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
+    
+    new Rent(function() {
+
+wx.showToast({
+  title: '租车成功',
+})
+    }).orderrent({
+      name: that.data.name,
+      mobile: that.data.mobile,
+      ordercar: that.data.carNameChoosed,
+      day: that.data.days,
+      price: that.data.carChoosedfour,
+      start: that.data.pickUpDate,
+      end: that.data.returnDate,
+      carid: that.data.carIdChoosed
     })
   },
 
-
+  name: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  phone: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  code: function (e) {
+    this.setData({
+      code: e.detail.value
+    })
+  },
+  //获取验证码
+  getcode: function () {
+    var that = this
+    if (that.data.phone.length == 0) {
+      util.errShow('请填写手机号');
+      return;
+    } else if (!(/^1\d{10}$/.test(that.data.phone))) {
+      util.errShow('手机号格式错误');
+      return;
+    } else {
+      new Member(res => {
+        console.log(res)
+        countdown(that);
+      }).getCode({
+        phonenum: that.data.phone
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

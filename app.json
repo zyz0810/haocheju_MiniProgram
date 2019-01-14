@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/hire/hire",
     "pages/home/home",
     "pages/home/usedCar/buy/buy",
     
@@ -33,7 +34,7 @@
     "pages/member/order/use/use",
     "pages/memberTenant/memberTenant",
     "pages/member/order/order",
-    "pages/home/hire/hire",
+    
     "pages/circle/circle",
     "pages/home/accessories/view/view",
     "pages/home/insurance/offer/offer",

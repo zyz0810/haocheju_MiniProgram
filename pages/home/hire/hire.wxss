@@ -77,7 +77,7 @@ button {
   border-radius: 50%;
 }
 
-.address {
+.address,.carMode {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -86,6 +86,9 @@ button {
   background: #fff;
   z-index: 999;
 }
+.carMode .lineItem .left{
+  width: 30vw;
+}
 #getcap{
   width: 150rpx;
   background:#00a0e9;
@@ -93,7 +96,7 @@ button {
 }
 
 .driving .lineItem .left{
-  width: 45rpx;
+  width: 8vw;
 }
 .lineItem.driving_address{
   align-items: baseline;
@@ -107,4 +110,36 @@ button {
 
 .driving_address .center>view:last-child{
   padding-top: 2%;
+}
+.start_icon {
+  background: #0f84de;
+}
+.end_icon {
+    background: #ec0909;
+}
+
+.start_icon,.end_icon {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  line-height: 6vw;
+  margin-right: 2vw;
+  border-radius: 50%;
+}
+button{
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto 20rpx;
+  padding: 0;
+}
+
+.getcap{
+  width: 200rpx;
+  background:#00a0e9;
+  border-radius: 10rpx;
+  margin: 0;
+  padding: 0;
+}
+.carMode{
+
 }

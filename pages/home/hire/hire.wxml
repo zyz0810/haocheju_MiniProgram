@@ -9,14 +9,10 @@
 </view>
 
 <view class='hire' hidden='{{tab_current == 0 ? false:true}}'>
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class='lineItem border mode f16'>
+  <view class='banner'>
+    <image src='http://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  </view>
+  <!-- <view class='lineItem border mode f16'>
     <view class='left'>安庆</view>
     <view class='center'>安庆市宿松县</view>
     <view class='right f11'>
@@ -31,62 +27,109 @@
       <text class='{{mode1 == 0?"active":""}}' data-id='0' bindtap='modeClick1'>上门</text>
       <text class='{{mode1 == 1?"active":""}}' data-id='1' bindtap='modeClick1'>到店</text>
     </view>
-  </view>
+  </view> -->
 
-  <view class='flex car_time'>
-    <view class='flex-item tc'>
-      <view class='f14'>取车时间</view>
-      <view class='f17'>
-        <picker mode="date" value="{{pickUpDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="pickUpDateChange">
-          <view class="picker">
-            {{pickUpDate}}
-          </view>
-        </picker>
-      </view>
-      <view class='f14'>
-        <picker mode="time" value="{{pickUpTime}}" start="00:00" end="23:59" bindchange="pickUpTimeChange">
-          <view class="picker">
-            {{pickUpTime}}
-          </view>
-        </picker>
-      </view>
+  <view class='lineItem border lineItem_access' bindtap='chooseShop'>
+    <view class='center f16'>
+      <view class='clr_mediumGray'>{{addressChoosed}}</view>
+      <view class='f15'>{{addressChoosedone}}</view>
+      <view class='f12 clr_mediumGray'>{{addressChoosedtwo != ''?"地址：":""}}{{addressChoosedtwo}}</view>
+
     </view>
-    <view class='flex-item arrow'>
-      <view class='circle tc'>
-        <view class='baseColor f18'>{{days}}</view>
-        <view>天</view>
-      </view>
+    <view class='right'></view>
+  </view>
+  <view class='lineItem border lineItem_access' bindtap='chooseCarMode'>
+
+    <view class='left' wx:if='{{carChoosedfour != ""}}'>
+      <image src='{{carChoosedone}}' mode='widthFix'></image>
     </view>
-    <view class='flex-item tc'>
-      <view class='f14'>还车时间</view>
-      <view class='f17'>
-        <picker mode="date" value="{{returnDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="returnDateChange">
-          <view class="picker">
-            {{returnDate}}
-          </view>
-        </picker>
-      </view>
-      <view class='f14'>
-        <picker mode="time" value="{{returnTime}}" start="00:00" end="23:59" bindchange="returnTimeChange">
-          <view class="picker">
-            {{returnTime}}
-          </view>
-        </picker>
-      </view>
+    <view class='center'>
+      <view class='f16'>{{carModeChoosed}}</view>
+      <view class='f15'>{{carChoosedtwo}}</view>
+      <view class='f13'>{{carChoosedthree}}</view>
+      <view class='f10'>
+        <text class='yellow01 f16'>{{carChoosedfour}}</text>{{carChoosedfour != ''?"/日均":""}}</view>
+    </view>
+
+  
+  <view class='right'></view>
+</view>
+
+<view class='flex car_time'>
+  <view class='flex-item tc'>
+    <view class='f14'>取车时间</view>
+    <view class='f17'>
+      <picker mode="date" value="{{pickUpDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="pickUpDateChange">
+        <view class="picker">
+          {{pickUpDate}}
+        </view>
+      </picker>
+    </view>
+    <view class='f14'>
+      <picker mode="time" value="{{pickUpTime}}" start="00:00" end="23:59" bindchange="pickUpTimeChange">
+        <view class="picker">
+          {{pickUpTime}}
+        </view>
+      </picker>
     </view>
   </view>
-  <button type="default" class='clr-white' bindtap="goCar" hover-class="other-button-hover"> 立即去选车 </button>
+  <view class='flex-item arrow'>
+    <view class='circle tc'>
+      <view class='baseColor f18'>{{days}}</view>
+      <view>天</view>
+    </view>
+  </view>
+  <view class='flex-item tc'>
+    <view class='f14'>还车时间</view>
+    <view class='f17'>
+      <picker mode="date" value="{{returnDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="returnDateChange">
+        <view class="picker">
+          {{returnDate}}
+        </view>
+      </picker>
+    </view>
+    <view class='f14'>
+      <picker mode="time" value="{{returnTime}}" start="00:00" end="23:59" bindchange="returnTimeChange">
+        <view class="picker">
+          {{returnTime}}
+        </view>
+      </picker>
+    </view>
+  </view>
 </view>
+<view class='lineItem f16 border'>
+      <view class='center'>
+        <input type='number' placeholder='请输入姓名' value='{{name}}' bindinput='name'></input>
+      </view>
+    </view>
+    <view class='lineItem f16 border'>
+      <view class='center'>
+        <input type='number' placeholder='请输入手机号' value='{{phone}}' bindinput='phone'></input>
+      </view>
+      <view class='right tc clr-white'>
+        <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->
+        <button type="primary" bindtap="getcode" class="captach f15 getcap" disabled="{{disabled}}">{{tips}}</button>
+      </view>
+    </view>
+    <view class='lineItem f16 border'>
+      <view class='center tl'>
+        <input type='number' placeholder='请输入验证码' bindinput='code'></input>
+      </view>
+    </view>
+<button type="default" class='clr-white' bindtap="goCar" hover-class="other-button-hover"> 立即去选车 </button>
+</view>
+
+
+
+
+
+
 
 <view class='driving' hidden='{{tab_current == 1 ? false:true}}'>
 
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
-      </swiper-item>
-    </block>
-  </swiper>
+  <view class='banner'>
+    <image src='http://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  </view>
 
 
   <!-- <view class='lineItem border'>
@@ -103,17 +146,27 @@
   </view> -->
 
 
-  <view class='lineItem border driving_address'>
+  <view class='lineItem border f16 driving_address'>
     <view class='left'>
-      <text class='iconfont icon-weizhi f20'></text>
+      <text class='start_icon f10 clr-white'>起</text>
     </view>
     <view class='center'>
-      <view class='f16 border_bottom'>
-        <input type='text' placeholder='请输入您的位置'></input>
-      </view>
-      <view class='f16'>
-        <input type='text' placeholder='请输入目的地'></input>
-      </view>
+      <input type='text' placeholder='请填写出发地' value='{{start}}' bindinput='{{start}}'></input>
+      <view>{{start_address}}</view>
+    </view>
+    <view class='right' style='width:50px;' bindtap='bindStart'>
+      <text class='iconfont icon-dingweiweizhi clr_lightGray'></text>
+    </view>
+  </view>
+  <view class='lineItem border f16 driving_address'>
+    <view class='left'>
+      <text class='end_icon f10 clr-white'>终</text>
+    </view>
+    <view class='center'>
+      <input type='text' placeholder='请填写目的地' value='{{end}}' bindinput='end'></input>
+    </view>
+    <view class='right' style='width:50px;' bindtap='bindEnd'>
+      <text class='iconfont icon-dingweiweizhi clr_lightGray'></text>
     </view>
   </view>
 
@@ -123,61 +176,75 @@
       <text class='iconfont icon-shijian f18'></text>
     </view>
     <view class='center'>
-      <picker mode="date" value="{{drivingDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="bindDateChange">
-        <view class="picker">
-          {{drivingDate}}
+      <view class='lineItem lineItem_access fl' style='width:49%; padding:0;'>
+        <view class='center'>
+          <picker mode="date" value="{{drivingDate}}" start="{{drivingYear}}-{{drivingMonth}}-{{drivingDay}}" end="2020-09-01" bindchange="bindDateChange" style='width:100%;'>
+            <view class="picker">
+              {{drivingDate}}
+            </view>
+          </picker>
         </view>
-      </picker>
-      <picker mode="time" value="{{drivingTime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
-        <view class="picker">
-          {{drivingTime}}
+        <view class='right'></view>
+      </view>
+
+      <view class='lineItem lineItem_access fl' style='width:49%;padding:0;margin-left:2%;'>
+        <view class='center'>
+          <picker mode="time" value="{{drivingTime}}" start="00:00" end="23:59" bindchange="bindTimeChange" style='width:100%;'>
+            <view class="picker">
+              {{drivingTime}}
+            </view>
+          </picker>
         </view>
-      </picker>
+        <view class='right'></view>
+      </view>
+
+
     </view>
-    <view class='right'></view>
+    <!-- <view class='right'></view> -->
   </view>
   <view class='lineItem f16 border'>
     <view class='left'></view>
     <view class='center'>
-      <input type='text' placeholder='请输入手机号'></input>
+      <input type='text' placeholder='请输入手机号' value='{{drivingPhone}}' bindinput='drivingPhone'></input>
     </view>
     <view class='right tc clr-white'>
-      <input type='button' id="getcap" class="f12" value="发送验证码"></input>
+      <!-- <input type='button' id="getcap" class="f12" value="发送验证码"></input> -->
+      <button type="primary" bindtap="getcap" class="captach f15 getcap" disabled="{{disabled}}">{{drivingtips}}</button>
     </view>
   </view>
   <view class='lineItem f16 border'>
     <view class='left'></view>
     <view class='center'>
-      <input type='number' placeholder='请输入验证码'></input>
+      <input type='number' placeholder='请输入验证码' value='{{drivingCode}}' bindinput='drivingCode'></input>
     </view>
   </view>
-  <button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 立即下单预约 </button>
+  <button type="default" class='clr-white' bindtap="drivingSubmit" hover-class="other-button-hover"> 确定 </button>
 
 </view>
 
 <view class='address' hidden='{{addressShow}}'>
-  <view class='lineItem border' bindtap='addressChoose'>
-    <view class='center'>
-      <view class='f15'>好车居汽车服务连锁0</view>
-      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
+  <block wx:for="{{addressList}}" wx:key="index">
+    <view class='lineItem border' data-index='{{index}}' data-id='{{item.id}}' bindtap='addressChoose'>
+      <view class='center'>
+        <view class='f15'>{{item.providername}}</view>
+        <view class='f12 clr_mediumGray'>地址：{{item.address}}</view>
+      </view>
     </view>
-  </view>
-  <view class='lineItem border' bindtap='addressChoose'>
-    <view class='center'>
-      <view class='f15'>好车居汽车服务连锁1</view>
-      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
+  </block>
+</view>
+
+<view class='carMode' hidden='{{carShow}}'>
+  <block wx:for="{{carList}}" wx:key="index">
+    <view class='lineItem border' data-index='{{index}}' data-id='{{item.id}}' data-txt="{{item.shopname}}---{{item.brand}}--{{item.type}}" bindtap='carChoose'>
+      <view class='left'>
+        <image src='{{item.images}}' mode='widthFix'></image>
+      </view>
+      <view class='center'>
+        <view class='f15'>{{item.brand}}</view>
+        <view class='f13'>{{item.type}}</view>
+        <view class='f10'>
+          <text class='yellow01 f16'>{{item.price}}</text>/日均</view>
+      </view>
     </view>
-  </view>
-  <view class='lineItem border' bindtap='addressChoose'>
-    <view class='center'>
-      <view class='f15'>好车居汽车服务连锁2</view>
-      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
-    </view>
-  </view>
-  <view class='lineItem border' bindtap='addressChoose'>
-    <view class='center'>
-      <view class='f15'>好车居汽车服务连锁3</view>
-      <view class='f12 clr_mediumGray'>地址：宿松县宿松路</view>
-    </view>
-  </view>
+  </block>
 </view>
