@@ -89,7 +89,9 @@ Page({
         wx.showToast({
           title: '绑定成功',
           success:function(){
-            wx.navigateBack({})
+            setTimeout(function () {
+              wx.navigateBack({})
+            }, 3000)
           }
         })
       }).bindMobile({

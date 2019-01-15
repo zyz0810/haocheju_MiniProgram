@@ -48,7 +48,7 @@ Page(Object.assign({}, navCart, {
   },
   goCar:function(){
     util.navigateTo({
-      url: 'car/car',
+      url: 'collection/collection',
     })
   },
   goInsurance: function () {
@@ -63,7 +63,7 @@ Page(Object.assign({}, navCart, {
   },
   goFavorite:function(){
     util.navigateTo({
-      url: 'car/car',
+      url: 'collection/collection',
     })
   },
   goDealer: function () {

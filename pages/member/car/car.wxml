@@ -7,7 +7,8 @@
     <text class='tl'>二手车</text>
   </view>
 </view>
-<view class='lineItemTitle f14'>2018年7月</view>
+<!-- <view class='lineItemTitle f14'>2018年7月</view> -->
+
 <view class='lineItem border information'>
   <view class='left'><image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image></view>
   <view class='center'>
@@ -16,6 +17,7 @@
     <view class='f11 clr_lightGray'>已有3人购买</view>
   </view>
 </view>
+
 <view class='lineItem border information'>
   <view class='left'><image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image></view>
   <view class='center'>

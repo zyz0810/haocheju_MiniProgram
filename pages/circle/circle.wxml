@@ -1,79 +1,78 @@
 <!--pages/circle/circle.wxml-->
+<import src="/template/swiperIndex/swiper.wxml" />
 <view bindtap='publish' class="publish f40 tc">+</view>
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image" width="355" height="150" />
-    </swiper-item>
-  </block>
-</swiper>
+<template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap',showDot:true}}"></template>
 <view class='list'>
   <block wx:for='{{list}}' wx:key='index'>
-    <view class='list_item'>
+    <view class='list_item' data-id='{{item.id}}'>
       <view class='lineItem head'>
         <view class='left headImg'>
 
-          <image src='http://www.chexiangguan.com/Upload/Carfans/image/2018-07-25/5b57f4b26a147.JPG'></image>
+          <image src='{{item.headerimg}}'></image>
         </view>
         <view class='center'>
-          <view class='f13 clr_mediumGray'>Doralf</view>
-          <view class='f13 cont_txt'>今天天气真好</view>
+          <view class='f13 clr_mediumGray'>{{item.username}}</view>
+          <view class='f13 cont_txt'>{{item.content}}</view>
 
-          <view class='img'>
-            <blcok wx:for='{{item.img}}' wx:for-item='items' wx:key='indexImg'>
-              <image src='{{items}}' data-src='{{items}}' data-id='{{item.id}}' mode='widthFix' bindtap='previewImage'></image>
-            </blcok>
+          <view class='img clearfix'>
+            <block wx:for='{{item.images}}' wx:for-item='items' wx:key='items.id' wx:for-index="indexI">
+              <image src='{{items}}' data-src='{{items}}' data-id='{{item.id}}' data-index='{{index}}' mode='widthFix' bindtap='previewImage'></image>
+            </block>
 
           </view>
           <view class='lineItem time'>
-            <view class='left f10 gray01'>一周前</view>
+            <view class='left f10 gray01'>{{item.addtime}}</view>
             <view class='center prise_btn' data-index='{{index}}' bindtap='contBtn'>
               <text class="iconfont icon-pinglun f20 blue01 operation_btn"></text>
             </view>
             <view class='flex prise_cont f14' hidden='{{item.show}}'>
-              <view class='flex-item tc'>
-                <text class='iconfont icon-heart f16'></text>点赞</view>
-              <view class='flex-item tc none'>取消</view>
-              <view class='flex-item tc' data-index='{{index}}' bindtap='goReply'>评论</view>
+
+              <view class='flex-item tc' data-id='{{item.id}}' data-index='{{index}}' hidden='{{item.isspot != 0}}' bindtap='like'>
+                <text class='iconfont icon-heart f16'></text>点赞
+              </view>
+
+              <view class='flex-item tc' data-id='{{item.id}}' data-index='{{index}}' hidden='{{item.isspot == 0}}' bindtap='like'>
+                <text class='iconfont icon-heart f16 blue02'></text>取消
+              </view>
+
+              <view class='flex-item tc' data-index='{{index}}' data-id='{{item.id}}' data-name='' bindtap='goReply'>评论</view>
+
             </view>
           </view>
-          <view class='operationTxt'>
+          <view class='operationTxt' hidden='{{item.spotlist.length==0 && item.comment.length==0}}'>
             <text class='arrow_top'></text>
-            <view class='praise'>
+            <view class='praise' hidden='{{item.spotlist.length==0}}'>
               <text class='iconfont icon-heart f13 blue02'></text>
-              <text class='blue02 f13'>Doralf</text>
-              <text class='blue02 f13'>,11</text>
+
+              <block wx:for="{{item.spotlist}}" wx:for-item="items" wx:key="items.id" wx:for-index="indexspotlist">
+                <text class='blue02 f13' data-id='{{items.id}}' wx:if="{{indexspotlist == 0}}">{{items.nickname}}</text>
+                <text class='blue02 f13' data-id='{{items.id}}' wx:if="{{indexspotlist != 0}}">, {{items.nickname}}</text>
+              </block>
+              <!-- <text class='blue02 f13'>,11</text> -->
             </view>
-            <view class='reply top_border'>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
-              <view class='f13 clr_mediumGray' data-id='0' data-name='Doralf' bindtap='goReply'>
-                <text class='blue01'>11</text>回复
-                <text class='blue01'>Doralf</text>:你的小可爱呢</view>
+            <view class='reply top_border' hidden='{{item.comment.length==0}}'>
+              <block wx:for="{{item.comment}}" wx:for-item="items" wx:key="items.id" wx:for-index="indexs">
+                <view class='f13 clr_mediumGray' data-id='{{item.id}}' data-name='{{items.author}}' data-index='{{index}}' bindtap='goPReply'>
+                  <text class='blue01'>{{items.author}}</text>
+                  <text hidden='{{items.pname == ""}}'>回复</text>
+                  <text class='blue01'>{{items.pname}}</text>:{{items.comment}}
+                </view>
+              </block>
             </view>
           </view>
         </view>
       </view>
 
     </view>
+    <!-- <view class='mask' bindtap='hiddenReply' hidden='{{item.replyInput}}'></view> -->
+    <view class='reply_input lineItem f14' data-index='{{index}}' hidden='{{item.replyInput}}'>
+      <view class='center'>
+        <input type='text' placeholder='回复{{name}}：' bindinput='content' focus='true' confirm-hold="true" confirm-type="发送" bindconfirm="goSend"></input>
+      </view>
+      <view class='right'>
+        <text class='send_btn baseBg f14 clr-white' data-cont='' data-id='{{item.id}}' data-index='{{index}}' bindtap='goSend'>发送</text>
+      </view>
+    </view>
   </block>
-  <view class='mask' bindtap='hiddenReply' hidden='{{!replyInput}}'></view>
-  <view class='reply_input lineItem f14' hidden='{{!replyInput}}'>
-    <view class='center'>
-      <input type='text' placeholder='回复{{name}}：' bindblur='inputCont'></input>
-    </view>
-    <view class='right'>
-      <text class='send_btn baseBg f14 clr-white' data-cont='' bindtap='goSend'>发送</text>
-    </view>
-  </view>
+
 </view>

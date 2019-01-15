@@ -34,7 +34,8 @@ Page({
     carChoosedfour: '',
     phone:'',
     code:'',
-    name:''
+    name:'',
+    carIdChoosed:''
   },
   chooseShop: function() {
     this.setData({
@@ -288,7 +289,9 @@ Page({
     var that = this
     new Rent(function(res) {
       that.setData({
-        addressList: res.data.data
+        addressList: res.data.data,
+        addressPage: res.data.pageTotal,
+        currentAddressPage : res.data.currentPage
       })
     }).tenant({
       pageSize: 10,
@@ -304,40 +307,40 @@ Page({
     })
   },
 
-  modeClick: function(e) {
-    var that = this
-    console.log(e)
-    var id = e.currentTarget.dataset.id
-    that.setData({
-      mode: id
-    })
-    if (id == 1) {
-      that.setData({
-        addressShow: false
-      })
-    } else {
-      that.setData({
-        addressShow: true
-      })
-    }
-  },
-  modeClick1: function(e) {
-    var that = this
-    console.log(e)
-    var id = e.currentTarget.dataset.id
-    that.setData({
-      mode1: id
-    })
-    if (id == 1) {
-      that.setData({
-        addressShow: false
-      })
-    } else {
-      that.setData({
-        addressShow: true
-      })
-    }
-  },
+  // modeClick: function(e) {
+  //   var that = this
+  //   console.log(e)
+  //   var id = e.currentTarget.dataset.id
+  //   that.setData({
+  //     mode: id
+  //   })
+  //   if (id == 1) {
+  //     that.setData({
+  //       addressShow: false
+  //     })
+  //   } else {
+  //     that.setData({
+  //       addressShow: true
+  //     })
+  //   }
+  // },
+  // modeClick1: function(e) {
+  //   var that = this
+  //   console.log(e)
+  //   var id = e.currentTarget.dataset.id
+  //   that.setData({
+  //     mode1: id
+  //   })
+  //   if (id == 1) {
+  //     that.setData({
+  //       addressShow: false
+  //     })
+  //   } else {
+  //     that.setData({
+  //       addressShow: true
+  //     })
+  //   }
+  // },
   addressChoose: function(e) {
     console.log(e)
     var that = this
@@ -351,9 +354,21 @@ Page({
     })
 
     new Rent(function(res) {
-      that.setData({
-        carList: res.data.data
-      })
+      if (res.data.total == '0'){
+        that.setData({
+          carModeChoosed:'此门店暂无车辆',
+          carModeLength:0
+        })
+      }else{
+        that.setData({
+          carList: res.data.data,
+          carModeChoosed: '请选择车型',
+          carModeLength: res.data.total,
+          carPage: res.data.pageTotal,
+          currentCarPage : res.data.currentPage
+        })
+      }
+    
     }).car({
       pageSize: 10,
       page: 1,
@@ -367,6 +382,13 @@ Page({
     if (this.data.addressIdChoosed == '') {
       wx.showToast({
         title: '请选择门店',
+        image: '/resources/images/x.png'
+      })
+      return
+    }
+    if (this.data.carModeLength == '0'){
+      wx.showToast({
+        title: '此门店暂无车辆',
         image: '/resources/images/x.png'
       })
       return
@@ -530,6 +552,13 @@ Page({
       })
       return;
     }
+    if (that.data.carIdChoosed == '') {
+      wx.showToast({
+        title: '请选择车型',
+        image: '/resources/images/x.png'
+      })
+      return;
+    }
     if (that.data.name == '') {
       wx.showToast({
         title: '请填写姓名',
@@ -559,7 +588,7 @@ wx.showToast({
 })
     }).orderrent({
       name: that.data.name,
-      mobile: that.data.mobile,
+      mobile: that.data.phone,
       ordercar: that.data.carNameChoosed,
       day: that.data.days,
       price: that.data.carChoosedfour,
@@ -628,7 +657,101 @@ wx.showToast({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    var that = this
+    if (that.data.addressShow == false){
+        wx.showNavigationBarLoading();
+      // var pageModel = this.data.pageModel;
+      var addressPage = that.data.addressPage;
+      var currentAddressPage = that.data.currentAddressPage;
+      var addressList = that.data.addressList;
 
+      // console.log(++currentAddressPage)
+
+      new Rent(res => {
+        console.log(res)
+        wx.hideNavigationBarLoading() //完成停止加载
+        if (res.data.pageTotal < res.data.currentPage) {
+          wx.hideNavigationBarLoading()
+          that.setData({
+            tips: '',
+            showtips: false
+          })
+        } else {
+          addressList = addressList.concat(res.data.data)
+          that.setData({
+            addressList: addressList,
+            currentAddressPage: res.data.currentPage
+          })
+        }
+
+      }).tenant({
+        page: ++currentAddressPage,
+        pageSize: 10
+      })
+
+
+    }
+
+
+    if (that.data.carShow == false) {
+      wx.showNavigationBarLoading();
+      // var pageModel = this.data.pageModel;
+      var carPage = that.data.carPage;
+      var currentCarPage = that.data.currentCarPage;
+      var carList = that.data.carList;
+
+      console.log(currentCarPage)
+
+      new Rent(res => {
+        console.log(res)
+        wx.hideNavigationBarLoading() //完成停止加载
+        if (res.data.pageTotal < res.data.currentPage) {
+          wx.hideNavigationBarLoading()
+          that.setData({
+            tips: '',
+            showtips: false
+          })
+        } else {
+          carList = carList.concat(res.data.data)
+          that.setData({
+            carList: carList,
+            currentCarPage: res.data.currentPage
+          })
+        }
+
+      }).car({
+        page: ++currentCarPage,
+        pageSize: 10,
+        providerid: that.data.addressIdChoosed
+      })
+
+
+
+      // new Rent(function (res) {
+      //   if (res.data.total == '0') {
+      //     that.setData({
+      //       carModeChoosed: '此门店暂无车辆',
+      //       carModeLength: 0
+      //     })
+      //   } else {
+      //     that.setData({
+      //       carList: res.data.data,
+      //       carModeChoosed: '请选择车型',
+      //       carModeLength: res.data.total
+      //     })
+      //   }
+
+      // }).car({
+      //   pageSize: 10,
+      //   page: 1,
+      //   providerid: e.currentTarget.dataset.id
+      // })
+
+
+
+    }
+
+   
   },
 
   /**

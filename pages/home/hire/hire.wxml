@@ -38,13 +38,13 @@
     </view>
     <view class='right'></view>
   </view>
-  <view class='lineItem border lineItem_access' bindtap='chooseCarMode'>
+  <view class='lineItem border lineItem_access choosedcar' bindtap='chooseCarMode'>
 
     <view class='left' wx:if='{{carChoosedfour != ""}}'>
       <image src='{{carChoosedone}}' mode='widthFix'></image>
     </view>
     <view class='center'>
-      <view class='f16'>{{carModeChoosed}}</view>
+      <view class='f16 clr_mediumGray'>{{carModeChoosed}}</view>
       <view class='f15'>{{carChoosedtwo}}</view>
       <view class='f13'>{{carChoosedthree}}</view>
       <view class='f10'>
@@ -55,7 +55,7 @@
   <view class='right'></view>
 </view>
 
-<view class='flex car_time'>
+<view class='flex car_time border_bottom'>
   <view class='flex-item tc'>
     <view class='f14'>取车时间</view>
     <view class='f17'>
@@ -108,6 +108,7 @@
       </view>
       <view class='right tc clr-white'>
         <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->
+
         <button type="primary" bindtap="getcode" class="captach f15 getcap" disabled="{{disabled}}">{{tips}}</button>
       </view>
     </view>

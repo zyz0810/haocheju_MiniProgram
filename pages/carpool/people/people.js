@@ -254,7 +254,9 @@ var that = this
         wx.showToast({
           title: '发布成功',
           success: function () {
-            wx.navigateBack({})
+            setTimeout(function(){
+              wx.navigateBack({})
+            },3000)
           }
         })
 
@@ -264,8 +266,8 @@ var that = this
         phonenum: that.data.phone,
         start: that.data.start,
         end: that.data.end,
-        startdate: that.data.startdate,
-        starttime: that.data.starttime,
+        startdate: that.data.date,
+        starttime: that.data.time,
         seat: that.data.seat,
         brand: that.data.brand[that.data.brandNum].name,
         series: that.data.system[that.data.systemNum].name,

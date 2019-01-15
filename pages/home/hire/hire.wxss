@@ -88,6 +88,7 @@ button {
 }
 .carMode .lineItem .left{
   width: 30vw;
+  height: 30vw;
 }
 #getcap{
   width: 150rpx;
@@ -142,4 +143,8 @@ button{
 }
 .carMode{
 
+}
+.choosedcar .left{
+  width: 30vw;
+  height: 30vw;
 }

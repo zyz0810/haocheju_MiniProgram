@@ -1,7 +1,6 @@
-// pages/member/carpool/carpool.js
+// pages/member/car/car.js
 let app = getApp()
 let Member = require('../../../service/member.js')
-let Cars = require('../../../service/cars.js')
 let util = require('../../../utils/util.js')
 let config = require('../../../utils/config.js')
 let navCart = require("../../../template/cart/cart.js")
@@ -11,184 +10,187 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tab_current: 1,
-    newCar: false,
-    oldCar: true
+    tab_current: 0,
+    newCar:false,
+    oldCar:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var that = this
     var userId = wx.getStorageSync('userId')
-    new Cars(function (res) {
+    new Member(function(res) {
       that.setData({
-        newList: res.data.return_new.data,
-        newPage: res.data.return_new.pageTotal,
-        newcurrentPage: res.data.return_new.currentPage,
+        newList:res.data.data,
+        newPage: res.data.pageTotal,
+        newcurrentPage: res.data.currentPage,
       })
-    }).carPool({
+    }).collection({
       pageSize: 10,
       page: 1,
       userId: userId,
       type: 1
     })
-    new Cars(function (res) {
+    new Member(function (res) {
       that.setData({
-        oldList: res.data.return_new.data,
-        oldPage: res.data.return_new.pageTotal,
-        oldcurrentPage: res.data.return_new.currentPage,
+        oldList: res.data.data,
+        oldPage: res.data.pageTotal,
+        oldcurrentPage: res.data.currentPage,
       })
-    }).carPool({
+    }).collection({
       pageSize: 10,
       page: 1,
       userId: userId,
       type: 2
     })
   },
-  tabClick: function (e) {
+  tabClick: function(e) {
     var that = this;
     that.setData({
       tab_current: e.currentTarget.dataset.id
     })
-    if (e.currentTarget.dataset.id == 0) {
+    if (e.currentTarget.dataset.id == 0){
       that.setData({
         newCar: false,
         oldCar: true
       })
-    } else {
+    }else{
       that.setData({
         newCar: true,
         oldCar: false
       })
     }
   },
-  goView: function (e) {
-    let id = e.currentTarget.dataset.id
-    let type = e.currentTarget.dataset.type
-    console.log('id:' + id)
+  goNewView: function (e) {
+    var id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'view/view?id=' + id + '&type=' + type,
+      url: '/pages/home/transaction/view/view?id=' + id,
     })
   },
-
+  goOldView:function(e){
+    var id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/home/usedCar/view/view?id=' + id,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     var that = this;
     var userId = wx.getStorageSync('userId')
     wx.showNavigationBarLoading();
     // var pageModel = this.data.pageModel;
 
-    if (that.data.tab_current == 1) {
-      var newPage = that.data.newPage;
-      var newcurrentPage = that.data.newcurrentPage;
-      var newList = that.data.newList;
+    if (that.data.tab_current == 0){
+      var newPage = this.data.newPage;
+      var newcurrentPage = this.data.newcurrentPage;
+      var newList = this.data.newList;
 
 
       // console.log(currentPage)
 
-      new Cars(res => {
+      new Member(res => {
         console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
-        if (res.data.return_new.pageTotal < res.data.return_new.currentPage) {
+        if (res.data.pageTotal < res.data.currentPage) {
           wx.hideNavigationBarLoading()
           that.setData({
             tips: '',
             showtips: false
           })
         } else {
-          newList = newList.concat(res.data.return_new.data)
+          newList = newList.concat(res.data.data)
           this.setData({
             newList: newList,
-            newcurrentPage: res.data.return_new.currentPage
+            newcurrentPage: res.data.currentPage
           })
         }
 
-      }).carPool({
+      }).collection({
         page: ++newcurrentPage,
         pageSize: 10,
         userId: userId,
         type: 1
       })
-    } else {
-      var oldPage = that.data.oldPage;
-      var oldcurrentPage = that.data.oldcurrentPage;
-      var oldList = that.data.oldList;
+    }else{
+      var oldPage = this.data.oldPage;
+      var oldcurrentPage = this.data.oldcurrentPage;
+      var oldList = this.data.oldList;
 
 
       // console.log(currentPage)
 
-      new Cars(res => {
+      new Member(res => {
         console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
-        if (res.data.return_new.pageTotal < res.data.return_new.currentPage) {
+        if (res.data.pageTotal < res.data.currentPage) {
           wx.hideNavigationBarLoading()
           that.setData({
             tips: '',
             showtips: false
           })
         } else {
-          oldList = oldList.concat(res.data.return_new.data)
+          oldList = oldList.concat(res.data.data)
           this.setData({
             oldList: oldList,
-            oldcurrentPage: res.data.return_new.currentPage
+            oldcurrentPage: res.data.currentPage
           })
         }
 
-      }).carPool({
+      }).collection({
         page: ++oldcurrentPage,
         pageSize: 10,
         userId: userId,
         type: 2
       })
     }
-
+    
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

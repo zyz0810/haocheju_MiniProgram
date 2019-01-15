@@ -1,11 +1,11 @@
 <!--pages/member/authentication/authentication.wxml-->
 <view class='lineItem border f16'>
-  <view class='center'><input type='text' placeholder='请输入真实姓名'></input></view>
+  <view class='center'><input type='text' placeholder='请输入真实姓名' bindtap='name'></input></view>
 </view>
 <view class='lineItem border f16'>
   <view class='center'>身份证</view>
 </view>
 <view class='lineItem border f16'>
-  <view class='center'><input type='text' placeholder='请输入证件号码'></input></view>
+  <view class='center'><input type='idcard' placeholder='请输入证件号码' bindinput='idCard'></input></view>
 </view>
-<button type="default" class='clr-white' bindtap="default" hover-class="other-button-hover"> 确定 </button>
+<button type="default" class='clr-white' bindtap="submit" hover-class="other-button-hover"> 确定 </button>
