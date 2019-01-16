@@ -1,35 +1,50 @@
 <view class="top">
   <view class='lineItem clr-white'>
     <view class='left'>
-    <image src='http://m.0556360.com/weixin/images/placeholder/logo.png'></image>
-    <text class='grade clr-white'>v</text>
+      <image src='{{avatar}}'></image>
+      <text class='grade clr-white' style='background:{{verify==1&&idtype==1?"#fffc24":"#ccc"}}'>v</text>
     </view>
     <view class='center'>
-      <view>好车居</view>
-      <view>just do it!</view>
+      <view>{{nickname}}</view>
+      <view>{{signature}}</view>
     </view>
-    <view class='right' bindtap='goEdit'><text class='iconfont icon-icon-edit f20 white'></text></view>
+    <view class='right' bindtap='goEdit'>
+      <text class='iconfont icon-icon-edit f20 white'></text>
+    </view>
   </view>
 </view>
-<view class='menu clr_mediumGray'>
-  <view class='menu_item f12 tc' bindtap='goCarpool'>
+<view class='menu clr_mediumGray clearfix'>
+  <view class='menu_item f12 tc fl' bindtap='goCarpool'>
     <view class='iconfont icon-maiche f24'></view>
     <view>我发布的拼车</view>
   </view>
-   <view class='menu_item f12 tc'>
-   <view class='iconfont icon-icon- f24'></view>
+  <view class='menu_item f12 tc fl' bindtap='goOrder'>
+    <view class='iconfont icon-icon- f24'></view>
     <view>我的订单</view>
   </view>
-   <view class='menu_item f12 tc'>
-   <view class='iconfont icon-shangpinshoucang f24'></view>
+  <!-- <view class='menu_item f12 tc'>
+    <view class='iconfont icon-shangpinshoucang f24'></view>
     <view>我的商品收藏</view>
-  </view>
-   <view class='menu_item f12 tc'>
-   <view class='iconfont icon-shoucang f24'></view>
+  </view> -->
+  <view class='menu_item f12 tc fl' bindtap='goFavorite'>
+    <view class='iconfont icon-shoucang f24'></view>
     <view>我的车辆收藏</view>
   </view>
-  <view class='menu_item f12 tc' bindtap='goCircle'>
-  <view class='iconfont icon-fabiaohuati f24'></view>
+  <view class='menu_item f12 tc fl' bindtap='goCircle'>
+    <view class='iconfont icon-fabiaohuati f24'></view>
     <view>我的发表</view>
+  </view>
+
+  <view class='menu_item f12 tc fl' bindtap='goPhone' hidden='{{phone != ""}}'>
+    <view class='iconfont icon-bdp f24'></view>
+    <view>绑定手机号</view>
+  </view>
+  <view class='menu_item f12 tc fl' bindtap='goAuthentication' hidden='{{idtype==1}}'>
+    <view class='iconfont icon-shimingrenzheng f24'></view>
+    <view>实名认证</view>
+  </view>
+  <view class='menu_item f12 tc fl' bindtap='goFeedback'>
+    <view class='iconfont icon-yijianfankui f24'></view>
+    <view>意见反馈</view>
   </view>
 </view>

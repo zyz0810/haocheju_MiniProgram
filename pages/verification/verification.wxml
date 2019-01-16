@@ -1,0 +1,18 @@
+<!--pages/verification/verification.wxml-->
+<view class='success tc' style="width:100%;position:fixed; top: 200px; left: 0;" hidden='{{success}}'>
+  <text class="iconfont icon-success f60 baseColor"></text>
+  <view class='f20 baseColor' style="margin-top: 10px;">核销成功</view>
+  <view class="f20 baseColor" id="success_txt" style="margin-top: 10px;">{{txt}}</view>
+</view>
+
+<view class='success fail tc' style="width:100%;position:fixed; top: 200px; left: 0;" hidden='{{fail}}'>
+  <text class="iconfont icon-success f60 baseColor"></text>
+  <view class='f20 baseColor' style="margin-top: 10px;">核销成功</view>
+  <view class="f20 baseColor" id="success_txt" style="margin-top: 10px;">{{txt}}</view>
+</view>
+
+<view class="returnBtn" style="width:100%;position: fixed; bottom: 50px; left: 0;">
+  <view class="f14 tc clr_lightGray">点击关闭，可退出小程序</view>
+  <!-- <view class='baseBg f16 white tc return' id="goReturn" style="margin-top: 5px;" bindtap='goReturn'>返回</view> -->
+  <navigator open-type="exit" target="miniProgram" class='baseBg f16 clr-white tc' style='line-height:3em;margin-top: 5px;'>关闭</navigator>
+</view>

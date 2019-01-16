@@ -1,0 +1,49 @@
+/* pages/member/car/car.wxss */
+page{
+  
+}
+.tab{
+  background: #fff;
+  border-bottom: 20rpx solid #f4f4f4;
+}
+.tab{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 40px;
+  line-height: 30px;
+}
+
+.tab .flex-item {
+  padding: 10rpx;
+}
+
+.tab .flex-item>text {
+  display: inline-block;
+  /* width: 90%; */
+}
+
+.tab .flex-item.active>text {
+  color: #0f84de;
+  border-bottom: 2px solid #0f84de;
+}
+.information{
+      margin: 0 2vw 2vw;
+    border-radius: 3px;
+    box-shadow: 0 0 8px #a5d5ff;
+}
+.information .left image{
+    width: 35vw;
+    height: 25vw;
+    margin-right: 2vw;
+}
+.information .center{
+      -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}
+.list{
+  padding-top: 50px;
+}

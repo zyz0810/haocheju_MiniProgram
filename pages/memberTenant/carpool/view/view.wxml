@@ -1,0 +1,73 @@
+<!--pages/carpool/view/view.wxml-->
+<view class='list_item' data-id='{{carPoolId}}' wx:if="{{carPoolType==1}}">
+  <view class='lineItem border'>
+    <view class='left headImg'>
+      <image src='{{headerimg}}' mode='widthFix'></image>
+    </view>
+    <view class='center f15 name'>{{name}}</view>
+    <view class='right f12 clr_lightGray'>{{wz_addtime}}</view>
+  </view>
+  <view class='lineItem site'>
+    <view class='left start_icon f10 clr-white'>起</view>
+    <view class='center f14'>
+      <view>{{start}}</view>
+      <view class='f12 clr_lightGray'>{{start_address}}</view>
+    </view>
+  </view>
+  <view class='lineItem site'>
+    <view class='left end_icon f10 clr-white'>终</view>
+    <view class='center f14'>
+      <view>{{end}}</view>
+      <view class='f12 clr_lightGray'>{{end_address}}</view>
+    </view>
+  </view>
+  <view class='lineItem site'>
+    <view class='left'></view>
+    <view class='center f14'>
+      <view>提供座位
+        <text class='clr_red'> {{seat}} </text>个
+        <view class='carpool_call f16 clr-white tc' data-id='{{mobile}}' bindtap='callUs'>拨号</view>
+      </view>
+      <view>汽车型号 {{brand}} {{series}}</view>
+      <!-- <view>车牌号 皖322256</view> -->
+      <view>出发时间 {{startdate}} {{starttime}} 16:40</view>
+      <view class='clr_lightGray'>车主留言：{{remarks}}</view>
+    </view>
+  </view>
+</view>
+<view class='list_item' data-id='{{carPoolId}}' wx:if="{{carPoolType==2}}">
+
+  <view class='lineItem border'>
+    <view class='left headImg'>
+      <image src='{{headerimg}}' mode='widthFix'></image>
+    </view>
+    <view class='center f15 name'>{{name}}</view>
+    <view class='right f12 clr_lightGray'>{{wz_addtime}}</view>
+  </view>
+  <view class='lineItem site'>
+    <view class='left start_icon f10 clr-white'>起</view>
+    <view class='center f14'>
+      <view>{{start}}</view>
+      <view class='f12 clr_lightGray'>{{start_address}}</view>
+    </view>
+  </view>
+  <view class='lineItem site'>
+    <view class='left end_icon f10 clr-white'>终</view>
+    <view class='center f14'>
+      <view>{{end}}</view>
+      <view class='f12 clr_lightGray'>{{end_address}}</view>
+    </view>
+  </view>
+  <view class='lineItem site'>
+    <view class='left'></view>
+    <view class='center f14'>
+      <view>座位需求
+        <text class='clr_red'> {{seat}} </text>个
+        <view class='carpool_call f16 clr-white tc' data-id='{{mobile}}' bindtap='callUs'>拨号</view>
+      </view>
+      <!-- <view>车牌号 皖322256</view> -->
+      <view>出发时间 {{startdate}} {{starttime}} 16:40</view>
+      <view class='clr_lightGray'>留言：{{remarks}}</view>
+    </view>
+  </view>
+</view>

@@ -50,7 +50,6 @@ module.exports = class Order extends Ajax {
     super.post({
       url: 'api/order/lists',
       data: data
-
     });
   }
 }

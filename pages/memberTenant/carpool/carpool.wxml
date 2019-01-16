@@ -1,72 +1,82 @@
 <view class='flex tab f15'>
-  <view class='flex-item tr {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tabClick'>
+  <view class='flex-item tr {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tabClick'>
     <text class='tr'>车找人</text>
   </view>
-  <view class='flex-item tl {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tabClick'>
+  <view class='flex-item tl {{tab_current == 2 ? "active":""}}' data-id='2' bindtap='tabClick'>
     <text class='tl'>人找车</text>
   </view>
 </view>
 
-<view class='list'>
-  <view class='list_item'>
-    <view class='carpool_call f16 clr-white tc'>拨号</view>
-    <view class='lineItem border'>
-      <view class='left headImg'>
-        <image src='/resources/images/tabBar/me.png' mode='widthFix'></image>
-      </view>
-      <view class='center f15'>15155133955</view>
-      <view class='right f12 clr_lightGray'>2018-11-12 8:30</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left start_icon f10 clr-white'>起</view>
-      <view class='center f14'>合肥
+<view class='list' hidden='{{newCar}}'>
 
+  <view class='tips' hidden='{{newList.length != 0}}'>没有更多啦</view>
+  <block wx:for="{{newList}}" wx:key="index">
+    <view class='list_item' data-id="{{item.id}}" data-type='1' bindtap='goView'>
+      <view class='carpool_call f16 clr-white tc' data-id='{{item.mobile}}' bindtap='callUs'>拨号</view>
+      <view class='lineItem border'>
+        <view class='left headImg'>
+          <image src='{{item.headerimg}}' mode='widthFix'></image>
+        </view>
+        <view class='center f15'>{{item.name}}</view>
+        <view class='right f12 clr_lightGray'>{{item.wz_addtime}}</view>
       </view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left end_icon f10 clr-white'>终</view>
-      <view class='center f14'>安庆</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left'></view>
-      <view class='center f14'>
-        <view>提供座位
-          <text class='clr_red'> 3 </text>个</view>
-        <view>汽车型号 大众</view>
-        <view>车牌号 皖322256</view>
-        <view>出发时间 2018-08-05 16:40</view>
-        <view class='clr_lightGray'>车主留言：时间可商议</view>
-      </view>
-    </view>
-  </view>
+      <view class='lineItem site'>
+        <view class='left start_icon f10 clr-white'>起</view>
+        <view class='center f14'>{{item.start}}
 
-  <view class='list_item'>
-    <view class='carpool_call f16 clr-white tc'>拨号</view>
-    <view class='lineItem border'>
-      <view class='left headImg'>
-        <image src='/resources/images/tabBar/me.png' mode='widthFix'></image>
+        </view>
       </view>
-      <view class='center f15'>15155133955</view>
-      <view class='right f12 clr_lightGray'>2018-11-12 8:30</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left start_icon f10 clr-white'>起</view>
-      <view class='center f14'>合肥</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left end_icon f10 clr-white'>终</view>
-      <view class='center f14'>安庆</view>
-    </view>
-    <view class='lineItem site'>
-      <view class='left'></view>
-      <view class='center f14'>
-        <view>座位需求
-          <text class='clr_red'> 3 </text>个</view>
-        <view>汽车型号 大众</view>
-        <view>出发时间 2018-08-05 16:40</view>
-        <view class='clr_lightGray'>留言：时间可商议，可提前预约，时间可商议，可提前预约，时间可商议，可提前预约。</view>
+      <view class='lineItem site'>
+        <view class='left end_icon f10 clr-white'>终</view>
+        <view class='center f14'>{{item.end}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left'></view>
+        <view class='center f14'>
+          <view>提供座位
+            <text class='clr_red'> {{item.seat}} </text>个</view>
+          <view>{{item.brand}} {{item.series}}</view>
+          <!-- <view>车牌号 皖322256</view> -->
+          <view>出发时间 {{item.startdate}} {{item.starttime}}</view>
+          <view class='clr_lightGray'>车主留言：{{item.remark}}</view>
+        </view>
       </view>
     </view>
-  </view>
 
+  </block>
+</view>
+
+
+<view class='list' hidden='{{oldCar}}'>
+  <view class='tips' hidden='{{oldList.length != 0}}'>没有更多啦</view>
+  <block wx:for="{{oldList}}" wx:key="index">
+    <view class='list_item' data-id="{{item.id}}" data-type='2' bindtap='goView'>
+      <view class='carpool_call f16 clr-white tc' data-id='{{item.mobile}}' bindtap='callUs'>拨号</view>
+      <view class='lineItem border'>
+        <view class='left headImg'>
+          <image src='{{item.headerimg}}' mode='widthFix'></image>
+        </view>
+        <view class='center f15'>{{item.name}}</view>
+        <view class='right f12 clr_lightGray'>{{item.wz_addtime}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left start_icon f10 clr-white'>起</view>
+        <view class='center f14'>{{item.start}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left end_icon f10 clr-white'>终</view>
+        <view class='center f14'>{{item.end}}</view>
+      </view>
+      <view class='lineItem site'>
+        <view class='left'></view>
+        <view class='center f14'>
+          <view>座位需求
+            <text class='clr_red'> {{item.seat}} </text>个</view>
+          <!-- <view>汽车型号 大众</view> -->
+          <view>出发时间 {{item.startdate}} {{item.starttime}}</view>
+          <view class='clr_lightGray'>留言：{{item.remark}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
 </view>

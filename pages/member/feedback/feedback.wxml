@@ -25,6 +25,6 @@
     </view>
   </view>
 
-  <button type="default" class='clr-white' bindtap="submit" hover-class="other-button-hover"> 提交 </button>
+  <button type="default" class='clr-white' form-type='submit' bindtap="submit" hover-class="other-button-hover"> 提交 </button>
 
 </view>

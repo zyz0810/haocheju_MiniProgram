@@ -18,18 +18,22 @@
     <view class='center f15'>我的订单</view>
     <view class='right f12 clr_lightGray'>查看全部订单</view>
   </view>
-  <view class='flex clr_mediumGray' data-current="1">
-    <view class='flex-item tc' bindtap='goOrder'>
+  <view class='flex clr_mediumGray'>
+    <view class='flex-item tc' data-current="1" bindtap='goOrder'>
       <text class='iconfont icon-daifukuan f18'></text>
-      <view class='f12'>代付款</view>
+      <view class='f12'>待付款</view>
     </view>
     <view class='flex-item tc' data-current="2" bindtap='goOrder'>
-      <text class='iconfont icon-daishouhuo'></text>
-      <view class='f12'>代收货</view>
+      <text class='iconfont icon-weishiyongyouhuiquan f18'></text>
+      <view class='f12'>未使用</view>
     </view>
     <view class='flex-item tc' data-current="3" bindtap='goOrder'>
-      <text class='iconfont icon-weishiyongyouhuiquan'></text>
-      <view class='f12'>未使用</view>
+      <text class='iconfont icon-yishiyongyouhuiquan f18'></text>
+      <view class='f12'>已核销</view>
+    </view>
+    <view class='flex-item tc' data-current="4" bindtap='goOrder'>
+      <text class='iconfont icon-icon- f18'></text>
+      <view class='f12'>已完成</view>
     </view>
   </view>
 </view>

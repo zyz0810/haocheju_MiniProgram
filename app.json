@@ -1,16 +1,16 @@
 {
   "pages": [
     "pages/member/member",
+    "pages/verification/verification",
+    
+    "pages/circle/test/test",
+    "pages/memberTenant/memberTenant",
     "pages/member/collection/collection",
-    
     "pages/circle/edit/edit",
-    
     "pages/circle/circle",
     "pages/home/home",
     "pages/home/hire/hire",
-    
     "pages/home/usedCar/buy/buy",
-    
     "pages/carpool/people/people",
     "pages/carpool/car/car",
     "pages/member/dealer/dealer",
@@ -26,7 +26,6 @@
     "pages/home/school/school",
     "pages/home/school/view/view",
     "pages/home/roadRescue/roadRescue",
-    
     "pages/member/edit/edit",
     "pages/discount/discount",
     "pages/home/trial/trial",
@@ -39,19 +38,14 @@
     "pages/home/transaction/transaction",
     "pages/news/news",
     "pages/member/order/use/use",
-    "pages/memberTenant/memberTenant",
     "pages/member/order/order",
-    
-    
     "pages/home/accessories/view/view",
     "pages/home/insurance/offer/offer",
     "pages/home/insurance/claims/claims",
     "pages/home/insurance/product/product",
     "pages/home/usedCar/view/view",
     "pages/pay/pay",
-    
     "pages/home/usedCar/view/pic/pic",
-    
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
     "pages/home/hire/car/car",
@@ -72,7 +66,6 @@
     "pages/memberTenant/insurance/claims/claims",
     "pages/memberTenant/insurance/offer/offer",
     "pages/memberTenant/insurance/insurance",
-    
     "pages/member/carpool/carpool",
     "pages/member/carpool/view/view",
     "pages/memberTenant/carpool/carpool",

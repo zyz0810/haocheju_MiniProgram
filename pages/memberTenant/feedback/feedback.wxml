@@ -1,0 +1,30 @@
+<!--pages/member/feedback/feedback.wxml-->
+<textarea placeholder='请描述下您的问题，帮助我们更好的了解' bindinput='content'></textarea>
+
+
+<view class='img clearfix'>
+  <block wx:for="{{pics}}" wx:key="index">
+    <view class='chooseImg'>
+      <image src='{{item}}' data-src='{{item}}' data-id='{{index}}' mode='widthFix' bindtap='previewImage'></image>
+      <text class='iconfont icon-quxiao f26 delete' bindtap='deleteImg' data-id='{{index}}'></text>
+    </view>
+  </block>
+  <view class='chooseImg' bindtap='chooseImg' hidden='{{pics.length > 0}}'>
+    <image src='http://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
+  </view>
+</view>
+
+<view class='cont'>
+  <view class='lineItem f16 border'>
+    <view class='center'>
+      <input type='number' placeholder='请输入手机号' value='{{phone}}' bindinput='phone'></input>
+    </view>
+    <view class='right tc clr-white'>
+      <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->
+      <button type="primary" bindtap="getcap" class="captach f15" id='getcap' disabled="{{disabled}}">{{tips}}</button>
+    </view>
+  </view>
+
+  <button type="default" class='clr-white' bindtap="submit" hover-class="other-button-hover"> 提交 </button>
+
+</view>

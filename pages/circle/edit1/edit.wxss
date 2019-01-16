@@ -1,0 +1,42 @@
+/* pages/circle/edit/edit.wxss */
+.container{
+  padding: 0 2%;
+  background: #fff;
+}
+.flex{
+  line-height: 3em;
+}
+textarea{
+  width: 96%;
+  padding: 2%;
+  margin: 2% 0;
+  background: #f2f2f2;
+}
+.img{
+  font-size: 0;
+  padding: 2vw 0 2vw 2vw;
+}
+.img>view{
+  width: 29.3vw;
+  height: 29.3vw;
+  margin: 0 2vw 2vw 0;
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+image{
+  width: 100%;
+}
+.img text{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.chooseImg{
+  width: 29vw;
+  height: 29vw;
+  line-height: 29.3vw;
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  float: left;
+}

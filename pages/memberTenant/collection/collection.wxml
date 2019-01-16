@@ -1,0 +1,44 @@
+<!--pages/member/car/car.wxml-->
+<view class='flex tab f15'>
+  <view class='flex-item tr {{tab_current == 0 ? "active":""}}' data-id='0' bindtap='tabClick'>
+    <text class='tr'>新车</text>
+  </view>
+  <view class='flex-item tl {{tab_current == 1 ? "active":""}}' data-id='1' bindtap='tabClick'>
+    <text class='tl'>二手车</text>
+  </view>
+</view>
+<!-- <view class='lineItemTitle f14'>2018年7月</view> -->
+
+<view class='list' hidden='{{newCar}}'>
+<view class='tips' hidden='{{newList.length != 0}}'>没有更多啦</view>
+  <block wx:for="{{newList}}" wx:key="index">
+    <view class='lineItem border information' data-id='{{item.productid}}' bindtap='goNewView'>
+      <view class='left'>
+        <image src='{{item.logo}}'></image>
+      </view>
+      <view class='center'>
+        <view class='f14 gray02 overtwo'>{{item.name}} {{item.config}}</view>
+        <view class='f14 yellow01'>{{item.price}}元</view>
+        <!-- <view class='f11 clr_lightGray'>已有3人购买</view> -->
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class='list' hidden='{{oldCar}}'>
+<view class='tips' hidden='{{oldList.length != 0}}'>没有更多啦</view>
+<block wx:for="{{oldList}}" wx:key="index">
+  <view class='lineItem border information' data-id='{{item.productid}}' bindtap='goOldView'>
+    <view class='left'>
+      <image src='{{item.logo}}'></image>
+    </view>
+    <view class='center'>
+      <view class='f14 gray02 overtwo'>{{item.name}} {{item.config}}</view>
+      <view class='f14 yellow01'>{{item.price}}元</view>
+      <!-- <view class='f11 clr_lightGray'>已有3人购买</view> -->
+    </view>
+  </view>
+  </block>
+</view>
+
+

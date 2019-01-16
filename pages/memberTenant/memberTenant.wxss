@@ -38,7 +38,7 @@
 .menu .menu_item{
   width: 25%;
   margin-top: 50rpx;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .menu .menu_item .iconfont{

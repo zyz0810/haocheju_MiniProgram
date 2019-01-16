@@ -1,6 +1,6 @@
 /* pages/member/edit/edit.wxss */
 page{
-  background: url("http://m.0556360.com/weixin/images/static/member/edit_bg.png") #fff no-repeat;
+  background: url("https://www.chexiangguan.com/weixin/images/static/member/edit_bg.png") #fff no-repeat;
       background-size: 100% auto;
     background-position: 0 100%;
 }

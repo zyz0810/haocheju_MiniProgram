@@ -94,20 +94,23 @@ Page({
     }
 
     wx.uploadFile({
-      url: BASE_URL + 'Api/Circle/pullcircle',
+      url: BASE_URL + 'Api/Circle/xcxpullcircle',
       // filePath:'',
       filePath: that.data.pics[0],
       // filePath:'http://tmp/wx968b7c21f293681f.o6zAJs1eLRDrAxyOccJqWAYfaj5I.HimpcHSx08Bibf55eed6c281893ebc829f83e1fe4623.jpg',
       name: 'file',
+      header: {
+        'content-type': 'multipart/form-data'
+      },
       formData: {
-        // 'content': that.data.content,
-        'userId': userId
+        content: that.data.content,
+        userId: userId
       },
       success(res) {
 
 
 
-        console.log(res)
+        console.log(that.data.pics[0])
         console.log('打印')
         // var str = res.data
 

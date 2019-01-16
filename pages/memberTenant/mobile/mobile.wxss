@@ -1,0 +1,14 @@
+/* pages/member/mobile/mobile.wxss */
+button{
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto 20rpx;
+}
+
+#getcap{
+  width: 200rpx;
+  background:#00a0e9;
+  border-radius: 10rpx;
+  margin: 0;
+  padding: 0;
+}

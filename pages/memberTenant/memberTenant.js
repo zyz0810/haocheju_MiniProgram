@@ -1,40 +1,38 @@
-// pages/memberTenant/memberTenant.js
-let app = getApp(),
-  util = require("../../utils/util.js")
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+let app = getApp()
+let Member = require('../../service/member.js')
+let util = require('../../utils/util.js')
+let config = require('../../utils/config.js')
+let navCart = require("../../template/cart/cart.js")
+Page(Object.assign({}, navCart, {
   data: {
-
+    memberInfo: {}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
-  goEdit:function(){
-    util.navigateTo({
-      url: 'edit/edit',
-    })
+  onShow: function () {
+    var userId = wx.getStorageSync('userId')
+    new Member(res => {
+      console.log(res)
+      this.setData({
+        avatar: res.data.avatar,
+        nickname: res.data.nickname ? res.data.nickname : res.data.username,
+        signature: res.data.signature,
+        phone: res.data.phone,
+        type: res.data.type,
+        idtype: res.data.idtype,
+        verify: res.data.verify
+      })
+    }).view({ userId: userId })
   },
-
-  goInsurance:function(){
+  goCarpool: function () {
     util.navigateTo({
-      url: 'insurance/insurance',
+      url: 'carpool/carpool',
     })
   },
   goCircle: function () {
     util.navigateTo({
       url: 'circle/circle',
-    })
-  },
-  goCarpool:function(){
-    util.navigateTo({
-      url: 'carpool/carpool',
     })
   },
   goOrder: function (e) {
@@ -43,52 +41,46 @@ Page({
       url: 'order/order?id=' + id,
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  goEdit: function () {
+    util.navigateTo({
+      url: 'edit/edit',
+    })
+  },
+  goCar: function () {
+    util.navigateTo({
+      url: 'collection/collection',
+    })
+  },
+  goInsurance: function () {
+    util.navigateTo({
+      url: '/pages/home/insurance/insurance',
+    })
+  },
+  goAuthentication: function () {
+    util.navigateTo({
+      url: 'authentication/authentication',
+    })
+  },
+  goFavorite: function () {
+    util.navigateTo({
+      url: 'collection/collection',
+    })
+  },
+  goDealer: function () {
+    util.navigateTo({
+      url: 'dealer/dealer',
+    })
+  },
+  goFeedback: function () {
+    util.navigateTo({
+      url: 'feedback/feedback',
+    })
+  },
+  goPhone: function () {
+    util.navigateTo({
+      url: 'mobile/mobile',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+}))

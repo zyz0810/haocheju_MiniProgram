@@ -33,9 +33,10 @@ Page({
   onShow: function() {
 
   },
-  phone: function(e) {
+  name: function(e) {
+    console.log(e)
     this.setData({
-      phone: e.detail.value
+      name: e.detail.value
     })
   },
   idCard: function(e) {
