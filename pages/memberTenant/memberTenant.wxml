@@ -48,3 +48,7 @@
     <view>意见反馈</view>
   </view>
 </view>
+<view class='technology tc'>
+  <image src='/resources/images/logo3-1.png' mode='widthFix'></image>
+  <view class='f12'>安徽社坛文化传媒有限公司技术支持</view>
+</view>

@@ -29,7 +29,7 @@ Page({
   },
   goReturn:function(){
     wx.redirectTo({
-      url: '/pages/member/order/order?id=4',
+      url: '/pages/member/order/order?id=3',
     })
   },
 

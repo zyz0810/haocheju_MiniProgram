@@ -12,42 +12,42 @@ Page({
    */
   data: {
     pics: [],
-    phone:'',
-    images:'',
-    content:''
+    phone: '',
+    images: '',
+    content: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
-  phone: function (e) {
+  phone: function(e) {
     this.setData({
       phone: e.detail.value
     })
   },
-  content: function (e) {
+  content: function(e) {
     this.setData({
       content: e.detail.value
     })
   },
-  chooseImg: function () {
+  chooseImg: function() {
     var that = this,
       pics = this.data.pics;
 
@@ -56,19 +56,23 @@ Page({
       count: 1, // 最多可以选择的图片张数，默认9
       sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
       sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
-      success: function (res) {
-        var imgsrc = res.tempFilePaths;
-        pics = pics.concat(imgsrc);
+      success: function(res) {
+        var tempFilePaths = res.tempFilePaths;
+        pics = pics.concat(tempFilePaths);
         that.setData({
           pics: pics
         });
 
-   
+
         wx.uploadFile({
           url: BASE_URL + 'api/users/uploads', // 仅为示例，非真实的接口地址
-          filePath: res.tempFilePaths[0],
+          filePath: tempFilePaths[0],
           name: 'file',
           success(res) {
+
+            console.log('图片')
+            console.log(tempFilePaths[0])
+            console.log('图片')
             var str = res.data
 
             str = str.replace(" ", "");
@@ -85,22 +89,22 @@ Page({
 
 
       },
-      fail: function () {
+      fail: function() {
         // fail
       },
-      complete: function () {
+      complete: function() {
         // complete
       }
     })
   },
-  previewImage: function (e) {
+  previewImage: function(e) {
     var current = e.target.dataset.src;
     wx.previewImage({
       current: current,
       urls: this.data.pics
     })
   },
-  deleteImg: function (e) {
+  deleteImg: function(e) {
     var that = this
     var index = e.currentTarget.dataset.id;
     console.log(index)
@@ -111,47 +115,52 @@ Page({
     })
 
   },
-  submit:function(){
-    var that= this
+  submit: function() {
+    var that = this
     var userId = wx.getStorageSync('userId')
-    new Member(function(res){
-        wx.showToast({
-          title: '提交成功',
-        })
-    }).feedback({ userId: userId, phone: that.data.phone, images: that.data.images, content: that.data.content })
+    new Member(function(res) {
+      wx.showToast({
+        title: '提交成功',
+      })
+    }).feedback({
+      userId: userId,
+      phone: that.data.phone,
+      images: that.data.images,
+      content: that.data.content
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

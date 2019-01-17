@@ -15,7 +15,7 @@ module.exports = class Order extends Ajax {
   }
 
   /**
-   * 发表动态
+   * 公众号发表动态
    * images[{file 文件}]  图片集合
    * content  发布内容
    * userId  会员ID
@@ -30,6 +30,21 @@ module.exports = class Order extends Ajax {
     });
   }
 
+  /**
+   * 小程序发表动态
+   * images[{file 文件}]  图片集合
+   * content  发布内容
+   * userId  会员ID
+   */
+  uploadImgxcx(data) {
+    super.post({
+      url: "Api/Circle/xcxpullcircle",
+      data: data,
+      contentType: false,
+      processData: false,
+      success: this.fn
+    });
+  }
   /**
    * 点赞
    * pid     说说ID

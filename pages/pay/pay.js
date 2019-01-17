@@ -87,11 +87,18 @@ Page(Object.assign({}, {
           success(res) { 
             wx.showToast({
               title: '支付成功',
+              success:function(){
+                setTimeout(function(){
+                  util.navigateTo({
+                    url: '/pages/member/order/order?id=2',
+                  })
+                },2000)
+              }
             })
           },
           fail(res) { 
             wx.showToast({
-              title: '失败',
+              title: '支付失败',
             })
           }
         })

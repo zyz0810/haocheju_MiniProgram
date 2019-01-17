@@ -38,7 +38,7 @@
 .menu .menu_item{
   width: 25%;
   margin-top: 50rpx;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .menu .menu_item .iconfont{
@@ -59,4 +59,13 @@
 }
 .order .flex-item>view{
   line-height: 2em;
+}
+.technology{
+  color:#86969e;
+  padding: 10rpx 0;
+  margin: 20rpx 0;
+  background: #fff;
+}
+.technology image{
+  width: 30%;
 }

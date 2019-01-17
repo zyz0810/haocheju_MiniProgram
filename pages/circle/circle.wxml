@@ -16,7 +16,9 @@
 
           <view class='img clearfix'>
             <block wx:for='{{item.images}}' wx:for-item='items' wx:key='items.id' wx:for-index="indexI">
-              <image src='{{items}}' data-src='{{items}}' data-id='{{item.id}}' data-index='{{index}}' mode='widthFix' bindtap='previewImage'></image>
+              <view class='imgView'>
+                <image src='{{items}}' data-src='{{items}}' data-id='{{item.id}}' data-index='{{index}}' mode='widthFix' bindtap='previewImage'></image>
+              </view>
             </block>
 
           </view>
@@ -65,14 +67,16 @@
 
     </view>
     <!-- <view class='mask' bindtap='hiddenReply' hidden='{{item.replyInput}}'></view> -->
+    <form>
     <view class='reply_input lineItem f14' data-index='{{index}}' hidden='{{item.replyInput}}'>
       <view class='center'>
-        <input type='text' placeholder='回复{{name}}：' bindinput='content' focus='true' confirm-hold="true" confirm-type="发送" bindconfirm="goSend"></input>
+        <input type='text' placeholder='回复{{name}}：' bindinput='content' value='{{content}}' confirm-type="send" focus='{{focus}}' bindconfirm="goSend"></input>
       </view>
       <view class='right'>
-        <text class='send_btn baseBg f14 clr-white' data-cont='' data-id='{{item.id}}' data-index='{{index}}' bindtap='goSend'>发送</text>
+        <button class='send_btn baseBg f14 clr-white' data-cont='' data-id='{{item.id}}' data-index='{{index}}' formType="reset" bindtap='goSend'>发送</button>
       </view>
     </view>
+    </form>
   </block>
 
 </view>

@@ -40,12 +40,12 @@ Page(Object.assign({}, swiperAutoHeight, {
     new Cars(res => {
       console.log(res)
       wx.setNavigationBarTitle({
-        title: res.data.cartype,
+        title: res.data.carname + res.data.cartype,
       })
       var carcontent = res.data.carcontent;
       this.setData({
         banner: res.data.banner,
-        name: res.data.cartype,
+        name: res.data.carname + res.data.cartype,
         price: res.data.carprice,
         tenant: res.data.goodname,
         brandlogo: res.data.brandlogo,
@@ -57,7 +57,8 @@ Page(Object.assign({}, swiperAutoHeight, {
         warranty: res.data.warranty,
         carcontent: res.data.carcontent,
         isCollection: res.data.isCollection,
-        providerid: res.data.providerid
+        providerid: res.data.providerid,
+        cid: res.data.cid
       })
       WxParse.wxParse('carcontent', 'html', carcontent, that, 0);
     }).newView({
@@ -134,7 +135,26 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: that.data.name,
+      path: '/pages/home/transaction/view/view?id=' + that.data.carId,
+      desc: that.data.engine + that.data.drivingmode + that.data.gearbox + that.data.bodywork,
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 }))

@@ -265,7 +265,27 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: '车相关拼车',
+      path: '/pages/carpool/car/car',
+      desc: '地铁挤，打车贵，拼个小车不排队，车相关拼车通过实名制、高保险和评星等级制度,人人参与，顺路捎，让拼车拥有完善的安全体系。',
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
+
 })

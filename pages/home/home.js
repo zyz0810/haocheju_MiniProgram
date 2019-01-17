@@ -116,48 +116,30 @@ Page(Object.assign({}, swiperAutoHeight, {
       url: './../news/view/view?id=' + id,
     })
   },
-
   /**
-   * 页面上拉触底事件的处理函数
-   */
-
-  // onReachBottom: function() {
-  //   var that = this;
-  //   wx.showNavigationBarLoading();
-  //   // var pageModel = this.data.pageModel;
-  //   var newPageModel = this.data.paging.newsell;
-  //   var newsell = this.data.newsell;
-  //   new Product(function(data) {
-  //     wx.hideNavigationBarLoading() //完成停止加载
-  //     if (data.pageModel.totalPages < data.pageModel.pageNumber) {
-  //       that.setData({
-  //         tips: '',
-  //         showtips: false
-  //       })
-  //     } else {
-  //       newsell = newsell.concat(data.data)
-  //       that.setData({
-  //         newsell: newsell,
-  //         loading: false,
-  //         tips: '努力加载中',
-  //         showtips: false
-  //       })
-  //     }
-  //   }).listT({
-  //     id: app.globalData.tenantId,
-  //     pageNumber: ++newPageModel.pageNumber,
-  //     pageSize: 10,
-  //     tagIds: 2
-  //   })
-  // },
-
-
-
-
-
-  __pt_toDetail(e) {
-    wx.navigateTo({
-      url: '/pages/home/productDetails/productDetails?id=' + e.currentTarget.dataset.id,
-    })
+     * 用户点击右上角分享
+     */
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: '车相关',
+      path: '/pages/home/home',
+      desc:'宁愿跑起来被拌倒无数次，也不要规规矩矩走一辈子。不在直线超你，也不在弯道超你，只想自由自在轰鸣在路上。车子与您相关，车相关为你服务',
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
+ 
 }))

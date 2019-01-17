@@ -12,7 +12,8 @@ Page(Object.assign({}, swiperAutoHeight, {
   data: {
 
     replyInput: false,
-    name: ''
+    name: '',
+    focus: false
   },
 
   /**
@@ -38,13 +39,7 @@ Page(Object.assign({}, swiperAutoHeight, {
     new Member(res => {
       console.log(res)
       this.setData({
-        // avatar: res.data.avatar,
         myname: res.data.nickname ? res.data.nickname : res.data.username,
-        // signature: res.data.signature,
-        // phone: res.data.phone,
-        // type: res.data.type,
-        // idtype: res.data.idtype,
-        // verify: res.data.verify
       })
     }).view({
       userId: userId
@@ -58,11 +53,11 @@ Page(Object.assign({}, swiperAutoHeight, {
         currentPage: res.data.return_new.currentPage
       })
 
-
       var list = res.data.return_new.data
       for (let i = 0; i < list.length; i++) {
         list[i].show = true
         list[i].replyInput = true
+        list[i].focus = false
       }
       this.setData({
         list: list
@@ -158,9 +153,9 @@ Page(Object.assign({}, swiperAutoHeight, {
       listArr = that.data.list,
       index = e.currentTarget.dataset.index;
     console.log(index)
-   
-        listArr[index].replyInput = false
-    
+
+    listArr[index].replyInput = false
+    listArr[index].focus = true
 
     that.setData({
       list: listArr
@@ -179,11 +174,13 @@ Page(Object.assign({}, swiperAutoHeight, {
       index = e.currentTarget.dataset.index;
     console.log(index)
     if (listArr[index].show == false) {
-      listArr[index].show = true,
-        listArr[index].replyInput = false
+      listArr[index].show = true
+      listArr[index].replyInput = false
+      listArr[index].focus = true
     } else {
       listArr[index].show = false
       listArr[index].replyInput = true
+      listArr[index].focus = false
     }
 
     // new Contact(function(res) {
@@ -209,11 +206,6 @@ Page(Object.assign({}, swiperAutoHeight, {
   },
 
 
-  hiddenReply: function() {
-    this.setData({
-      replyInput: false
-    })
-  },
   goSend: function(e) {
     let cont = e.currentTarget.dataset.cont;
     var that = this
@@ -235,9 +227,11 @@ Page(Object.assign({}, swiperAutoHeight, {
       console.log(comment)
 
       listArr[index].replyInput = true
+      listArr[index].focus = false
 
       that.setData({
-        list: listArr
+        list: listArr,
+        content: ''
       })
 
 
@@ -278,10 +272,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
-  
     var userId = wx.getStorageSync('userId')
-
     var that = this;
     wx.showNavigationBarLoading();
     // var pageModel = this.data.pageModel;
@@ -302,7 +293,14 @@ Page(Object.assign({}, swiperAutoHeight, {
           showtips: false
         })
       } else {
-        list = list.concat(res.data.return_new.data)
+        // list = list.concat(res.data.return_new.data)
+        var list1 = res.data.return_new.data
+        for (let i = 0; i < list1.length; i++) {
+          list1[i].show = true
+          list1[i].replyInput = true
+          list1[i].focus = false
+        }
+        list = list.concat(list1)
         this.setData({
           list: list,
           currentPage: res.data.return_new.currentPage
@@ -316,41 +314,30 @@ Page(Object.assign({}, swiperAutoHeight, {
       type: 1
     })
 
-
-
-
-
-
-
-    // new Contact(res => {
-    //   console.log(res)
-    //   this.setData({
-    //     banner: res.data.return_banner,
-    //     list: res.data.return_new.data
-    //   })
-
-
-    //   var list = res.data.return_new.data
-    //   for (let i = 0; i < list.length; i++) {
-    //     list[i].show = true
-    //     list[i].replyInput = true
-    //   }
-    //   this.setData({
-    //     list: list
-    //   })
-
-    // }).list({
-    //   page: 1,
-    //   pageSize: 10,
-    //   userId: userId,
-    //   type: 1
-    // })
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: that.data.title,
+      path: '/pages/circle/circle',
+      imageUrl: '/resources/images/logo.png',
+      success: function(res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function(res) {
+        // 转发失败
+      }
+    }
   }
 }))

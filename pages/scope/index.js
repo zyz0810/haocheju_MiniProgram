@@ -39,6 +39,7 @@ Page({
         // const globalMemberInfo = getApp().globalData.memberInfo
         // globalMemberInfo.username = e.detail.userInfo.nickName
         // globalMemberInfo.userhead = e.detail.userInfo.avatarUrl
+
         wx.navigateBack({
         })
       }).update({

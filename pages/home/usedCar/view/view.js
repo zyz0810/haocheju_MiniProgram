@@ -64,7 +64,8 @@ Page(Object.assign({}, swiperAutoHeight, {
         servicefeedesc: res.data.servicefeedesc,
         totalprice: res.data.totalprice,
         useproperty: res.data.useproperty,
-        providerid: res.data.providerid
+        providerid: res.data.providerid,
+        cid: res.data.cid
       })
       WxParse.wxParse('carintroduce', 'html', carintroduce, that, 0);
       WxParse.wxParse('servicefeedesc', 'html', servicefeedesc, that, 0);
@@ -149,7 +150,26 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: that.data.name + that.data.carname,
+      path: '/pages/home/used/view/view?id=' + that.data.carId,
+      desc: that.data.useproperty + that.data.color + that.data.displacement + that.data.gearbox,
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 }))

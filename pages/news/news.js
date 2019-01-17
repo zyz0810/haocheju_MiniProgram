@@ -127,7 +127,26 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: '车相关资讯',
+      path: '/pages/news/news',
+      desc: '车相关资讯频道提供最新最全的汽车资讯,汽车行情,汽车科技新闻,汽车文化,用车知识,热点活动与车展赛事等汽车信息',
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg', 
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 }))

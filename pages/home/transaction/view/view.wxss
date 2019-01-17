@@ -31,7 +31,7 @@
   width: 50%
 }
 .cont image{
-  width: 100%;
+  max-width: 100%;
 }
 .flex .flex-item.buy_btn {
     -webkit-box-flex: 2;
