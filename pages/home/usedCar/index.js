@@ -90,7 +90,14 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        hotList: res.data.return_hot.data,
+        commendList: res.data.return_oldcar.data,
+      })
+    }).usedCommend()
   },
 
   /**

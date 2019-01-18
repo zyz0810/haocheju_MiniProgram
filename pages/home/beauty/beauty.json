@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "美容装饰"
+  "navigationBarTitleText": "美容装饰",
+  "enablePullDownRefresh": true
 }

@@ -40,8 +40,13 @@ Page(Object.assign({}, swiperAutoHeight,{
         banner: res.data.return_banner,
         hotList: res.data.return_oldcar.data,
         commendList: res.data.return_newcar.data,
+        commendPage: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
       })
-    }).newList()
+    }).newList({
+      page: 1,
+      pageSize: 10
+    })
   },
   goOldView: function (e) {
     let id = e.currentTarget.dataset.id
@@ -75,13 +80,56 @@ Page(Object.assign({}, swiperAutoHeight,{
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        hotList: res.data.return_oldcar.data,
+        commendList: res.data.return_newcar.data,
+        commendPage: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
+      })
+    }).newList({
+      page: 1,
+      pageSize: 10
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var that = this;
+    wx.showNavigationBarLoading();
+    // var pageModel = this.data.pageModel;
+    var commendPage = this.data.commendPage;
+    var currentPage = this.data.currentPage;
+    var commendList = this.data.commendList;
+
+
+    console.log(currentPage)
+
+    new Cars(res => {
+      console.log(res)
+      wx.hideNavigationBarLoading() //完成停止加载
+      if (res.data.return_newcar.pageTotal < res.data.return_newcar.currentPage) {
+        wx.hideNavigationBarLoading()
+        that.setData({
+          tips: '',
+          showtips: false
+        })
+      } else {
+        commendList = commendList.concat(res.data.return_newcar.data)
+        this.setData({
+          commendPage: commendPage,
+          currentPage: res.data.return_newcar.currentPage
+        })
+      }
+
+    }).newList({
+      page: ++currentPage,
+      pageSize: 10
+    })
 
   },
 

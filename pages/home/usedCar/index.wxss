@@ -6,7 +6,7 @@ page {
 
 .bg {
   padding: 4%;
-  background: url("http://www.chexiangguan.com/weixin/images/static/usedCar/bg.png") no-repeat;
+  background: url("https://www.chexiangguan.com/weixin/images/static/usedCar/bg.png") no-repeat;
   background-size: 100% 90%;
 }
 

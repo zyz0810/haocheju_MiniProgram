@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "汽车人才"
+  "navigationBarTitleText": "汽车人才",
+  "enablePullDownRefresh": true
 }

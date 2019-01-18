@@ -1,6 +1,6 @@
 <!--pages/memberTenant/insurance/offer/offer.wxml-->
 <view class='banner'>
-  <image src='http://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+  <image src='https://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
 </view>
 <view class='areaCont f17' hidden='{{area}}'>
     <text data-txt='京' bindtap='areaChoose'>京</text>
@@ -40,7 +40,7 @@
     <view class='left'>车牌号</view>
     <view class='center' style='position: relative'>
       <view class='area_txt' bindtap='areaShow'>{{areaTxt}}
-        <image src='http://www.chexiangguan.com/weixin/images/static/trial/arrow.png'></image>
+        <image src='https://www.chexiangguan.com/weixin/images/static/trial/arrow.png'></image>
       </view>
       <input type='text' placeholder='请输入车牌号' bindinput='license' style='margin-left:30px;'></input>
     </view>

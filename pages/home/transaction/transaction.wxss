@@ -97,7 +97,7 @@ swiper{
   z-index: 99;
   width: 100%;
   padding: 10rpx 0; 
-  background: url('http://m.0556360.com/weixin/images/static/home/search_bg.png') no-repeat;
+  background: url('https://www.chexiangguan.com/weixin/images/static/home/search_bg.png') no-repeat;
 }
 .search_frame .iconfont{
   position: absolute;

@@ -45,7 +45,7 @@
         </view>
       </block>
       <view class='chooseImg' bindtap='chooseImg' hidden='{{pics.length > 0}}'>
-        <image src='http://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
+        <image src='https://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
       </view>
     </view>
     <view class='center'>
@@ -63,7 +63,7 @@
         </view>
       </block>
       <view class='chooseImg' bindtap='chooseShop' hidden='{{shop.length > 0}}'>
-        <image src='http://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
+        <image src='https://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
       </view>
     </view>
     <view class='center'>
@@ -81,7 +81,7 @@
         </view>
       </block>
       <view class='chooseImg' bindtap='chooseLicense' hidden='{{license.length > 0}}'>
-        <image src='http://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
+        <image src='https://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
       </view>
     </view>
     <view class='center'>

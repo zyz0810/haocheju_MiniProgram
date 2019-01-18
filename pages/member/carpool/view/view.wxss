@@ -1,6 +1,6 @@
 /* pages/carpool/view/view.wxss */
 page{
-      background: url(http://www.chexiangguan.com/weixin/images/static/member/car_bg.png) #fff no-repeat;
+      background: url(https://www.chexiangguan.com/weixin/images/static/member/car_bg.png) #fff no-repeat;
     background-size: 100% auto;
     background-position: 0 100%;
 }

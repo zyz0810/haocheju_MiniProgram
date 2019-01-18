@@ -78,7 +78,27 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    //获取内容
+    new Personnel(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        job: res.data.return_job.data,
+        jobPage: res.data.return_job.pageTotal,
+        currentPage: res.data.return_job.currentPage
+      })
 
+      if (res.data.return_job.data.length == 0) {
+        this.setData({
+          tips: '暂无列表',
+          showtips: false
+        })
+      }
+
+    }).list({
+      page: 1,
+      pageSize: 10
+    })
   },
 
   /**

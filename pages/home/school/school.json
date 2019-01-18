@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "网上驾校"
+  "navigationBarTitleText": "网上驾校",
+  "enablePullDownRefresh": true
 }

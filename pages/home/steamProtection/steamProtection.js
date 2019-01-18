@@ -16,17 +16,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取首页内容
-    new Product(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        hotList: res.data.return_hot.data,
-        commendList: res.data.return_shop.data,
-        commendPage: res.data.return_shop.pageTotal,
-        currentPage: res.data.return_shop.currentPage
-      })
-    }).list({ page: 1, pageSize: 10, type: 3 })
+   
   },
 
   /**
@@ -40,7 +30,17 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //获取首页内容
+    new Product(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        hotList: res.data.return_hot.data,
+        commendList: res.data.return_shop.data,
+        commendPage: res.data.return_shop.pageTotal,
+        currentPage: res.data.return_shop.currentPage
+      })
+    }).list({ page: 1, pageSize: 10, type: 3 })
   },
   goView: function (e) {
     let id = e.currentTarget.dataset.id
@@ -68,7 +68,17 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    //获取首页内容
+    new Product(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        hotList: res.data.return_hot.data,
+        commendList: res.data.return_shop.data,
+        commendPage: res.data.return_shop.pageTotal,
+        currentPage: res.data.return_shop.currentPage
+      })
+    }).list({ page: 1, pageSize: 10, type: 3 })
   },
 
   /**

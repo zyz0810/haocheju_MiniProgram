@@ -1,6 +1,6 @@
 /* pages/home/school/school.wxss */
 page{
-  background: url("http://m.0556360.com/weixin/images/static/usedCar/bg.png") no-repeat;
+  background: url("https://www.chexiangguan.com/weixin/images/static/usedCar/bg.png") no-repeat;
   background-size: 100% auto;
 }
 .bg {

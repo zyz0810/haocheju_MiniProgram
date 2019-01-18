@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "道路救援"
+  "navigationBarTitleText": "道路救援",
+  "enablePullDownRefresh": true
 }

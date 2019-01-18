@@ -62,7 +62,7 @@ button {
 }
 
 .arrow {
-  background: url(http://m.0556360.com/weixin/images/static/hire/arrow.png) no-repeat 100%;
+  background: url(https://www.chexiangguan.com/weixin/images/static/hire/arrow.png) no-repeat 100%;
   position: relative;
 }
 

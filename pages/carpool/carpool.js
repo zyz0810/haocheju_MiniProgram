@@ -118,7 +118,23 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        oneList: res.data.return_new.data,
+        onePage: res.data.return_new.pageTotal,
+        currentOnePage: res.data.return_new.currentPage
+      })
+    }).carPool({ page: 1, pageSize: 10, type: '1' })
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        twoList: res.data.return_new.data,
+        twoPage: res.data.return_new.pageTotal,
+        currentTwoPage: res.data.return_new.currentPage
+      })
+    }).carPool({ page: 1, pageSize: 10, type: '2' })
   },
 
   /**

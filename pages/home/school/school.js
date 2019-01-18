@@ -64,7 +64,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    var that = this
 
+    new Drivers(res => {
+      console.log(res)
+      this.setData({
+        list: res.data.return_job.data,
+        schoolPage: res.data.return_job.pageTotal,
+        currentPage: res.data.return_job.currentPage,
+      })
+    }).list({
+      page: '1', pageSize: 10
+    })
   },
 
   /**

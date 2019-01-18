@@ -9,15 +9,6 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: true,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
     newsPage: '',
     currentPage:''
   },
@@ -82,7 +73,18 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    new Zixun(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        news: res.data.return_new.data,
+        newsPage: res.data.return_new.pageTotal,
+        currentPage: res.data.return_new.currentPage
+      })
+    }).list({
+      page: 1,
+      pageSize: 10
+    })
   },
 
   /**

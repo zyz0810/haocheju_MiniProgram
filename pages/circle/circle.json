@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "车友圈"
+  "navigationBarTitleText": "车友圈",
+  "enablePullDownRefresh": true
 }

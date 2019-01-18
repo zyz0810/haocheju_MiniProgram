@@ -10,7 +10,7 @@
     </view>
   </block>
   <view class='chooseImg' bindtap='chooseImg' hidden='{{pics.length > 0}}'>
-    <image src='http://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/dealer/dealer.png'></image>
   </view>
 </view>
 

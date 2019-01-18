@@ -9,13 +9,28 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面的初始数据
    */
   data: {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     new Product(res => {
       console.log(res)
       this.setData({
@@ -25,75 +40,77 @@ Page(Object.assign({}, swiperAutoHeight, {
         productPage: res.data.return_shop.pageTotal,
         currentPage: res.data.return_shop.currentPage
       })
-    }).list({ flag: 1})
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-  goSearch:function(e){
-      console.log(e)
-    let txt = e.currentTarget.dataset.txt;
-    util.navigateTo({
-      url: '../search/search?keyWord='+txt,
+    }).list({
+      flag: 1,
+      page: 1,
+      pageSize: 10,
     })
   },
-  searchKey: function (e) {
+  goSearch: function(e) {
+    console.log(e)
+    let txt = e.currentTarget.dataset.txt;
+    util.navigateTo({
+      url: '../search/search?keyWord=' + txt,
+    })
+  },
+  searchKey: function(e) {
     console.log(e)
     let key = e.detail.value
     this.setData({
       keyWord: key
     })
   },
-  goSearchBtn: function (e) {
+  goSearchBtn: function(e) {
     console.log(e)
     let txt = this.data.keyWord;
     util.navigateTo({
       url: '../search/search?keyWord=' + txt,
     })
   },
-  goView:function(e){
+  goView: function(e) {
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: '/pages/home/product/view?id='+id,
+      url: '/pages/home/product/view?id=' + id,
     })
   },
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh: function() {
+    new Product(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        brand: res.data.list,
+        product: res.data.return_shop.data,
+        productPage: res.data.return_shop.pageTotal,
+        currentPage: res.data.return_shop.currentPage
+      })
+    }).list({
+      flag: 1,
+      page: 1,
+      pageSize: 10,
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     var that = this;
     wx.showNavigationBarLoading();
     // var pageModel = this.data.pageModel;
@@ -131,7 +148,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 }))

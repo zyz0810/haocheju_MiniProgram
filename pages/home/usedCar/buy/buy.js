@@ -204,7 +204,23 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    var that = this
+    new Cars(function (res) {
+      that.setData({
+        brandlist: res.data.brandlist,
+        pricelist: res.data.pricelist,
+        typelist: res.data.typelist,
+        list: res.data.return_newcar.data,
+        page: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
+      })
+    }).usedList({
+      pageSize: 10,
+      page: 1,
+      brandname: 0,
+      price: 0,
+      type: 0
+    })
   },
 
   /**

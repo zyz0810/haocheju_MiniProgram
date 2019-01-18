@@ -265,7 +265,41 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    var that = this
+    var userId = wx.getStorageSync('userId')
+    new Member(res => {
+      console.log(res)
+      this.setData({
+        myname: res.data.nickname ? res.data.nickname : res.data.username,
+      })
+    }).view({
+      userId: userId
+    })
+    new Contact(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        list: res.data.return_new.data,
+        listPage: res.data.return_new.pageTotal,
+        currentPage: res.data.return_new.currentPage
+      })
 
+      var list = res.data.return_new.data
+      for (let i = 0; i < list.length; i++) {
+        list[i].show = true
+        list[i].replyInput = true
+        list[i].focus = false
+      }
+      this.setData({
+        list: list
+      })
+
+    }).list({
+      page: 1,
+      pageSize: 10,
+      userId: userId,
+      type: 1
+    })
   },
 
   /**

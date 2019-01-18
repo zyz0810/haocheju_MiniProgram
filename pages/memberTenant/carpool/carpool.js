@@ -106,7 +106,32 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this
+    var userId = wx.getStorageSync('userId')
+    new Cars(function (res) {
+      that.setData({
+        newList: res.data.return_new.data,
+        newPage: res.data.return_new.pageTotal,
+        newcurrentPage: res.data.return_new.currentPage,
+      })
+    }).carPool({
+      pageSize: 10,
+      page: 1,
+      userId: userId,
+      type: 1
+    })
+    new Cars(function (res) {
+      that.setData({
+        oldList: res.data.return_new.data,
+        oldPage: res.data.return_new.pageTotal,
+        oldcurrentPage: res.data.return_new.currentPage,
+      })
+    }).carPool({
+      pageSize: 10,
+      page: 1,
+      userId: userId,
+      type: 2
+    })
   },
 
   /**

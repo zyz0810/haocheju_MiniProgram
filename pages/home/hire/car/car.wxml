@@ -1,7 +1,7 @@
 <!--pages/home/hire/car/car.wxml-->
 <view class='lineItem' bindtap='goAuthentication'>
   <view class='left'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_big.jpg'></image>
   </view>
   <view class='center clr_lightGray'>
     <view class='f15'>别克凯越</view>
@@ -12,7 +12,7 @@
 </view>
 <view class='lineItem' bindtap='goAuthentication'>
   <view class='left'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_big.jpg'></image>
   </view>
   <view class='center clr_lightGray'>
     <view class='f15'>别克凯越</view>
@@ -23,7 +23,7 @@
 </view>
 <view class='lineItem' bindtap='goAuthentication'>
   <view class='left'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_big.jpg'></image>
   </view>
   <view class='center clr_lightGray'>
     <view class='f15'>别克凯越</view>
@@ -34,7 +34,7 @@
 </view>
 <view class='lineItem' bindtap='goAuthentication'>
   <view class='left'>
-    <image src='http://m.0556360.com/weixin/images/static/home/ad_big.jpg'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_big.jpg'></image>
   </view>
   <view class='center clr_lightGray'>
     <view class='f15'>别克凯越</view>

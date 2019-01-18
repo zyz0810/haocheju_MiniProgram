@@ -10,7 +10,7 @@
 
 <view class='hire' hidden='{{tab_current == 0 ? false:true}}'>
   <view class='banner'>
-    <image src='http://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   </view>
   <!-- <view class='lineItem border mode f16'>
     <view class='left'>安庆</view>
@@ -129,7 +129,7 @@
 <view class='driving' hidden='{{tab_current == 1 ? false:true}}'>
 
   <view class='banner'>
-    <image src='http://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/banner01.jpg' mode='widthFix'></image>
   </view>
 
 

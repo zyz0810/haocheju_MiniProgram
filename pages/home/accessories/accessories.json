@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "用品配车"
+  "navigationBarTitleText": "用品配车",
+  "enablePullDownRefresh": true
 }

@@ -149,16 +149,47 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    var that = this
+    new Tenant(res => {
+      console.log(res)
+      wx.setNavigationBarTitle({
+        title: res.data.goods.providername
+      })
+      this.setData({
+        banner: res.data.goods.images,
+        address: res.data.goods.address,
+        phone: res.data.goods.phone,
+        providername: res.data.goods.providername,
+        newList: res.data.return_newcar.data,
+        newsPage: res.data.return_newcar.pageTotal,
+        newsCurrentPage: res.data.return_newcar.currentPage,
+      })
+    }).newCar({
+      providerid: that.data.tenantId,
+      page: 1,
+      pageSize: 10
+    })
 
+
+
+    new Tenant(res => {
+      console.log(res)
+      this.setData({
+        usedList: res.data.return_oldcar.data,
+        usedPage: res.data.return_oldcar.pageTotal,
+        usedCurrentPage: res.data.return_oldcar.currentPage,
+      })
+    }).usedCar({
+      providerid: that.data.tenantId,
+      page: 1,
+      pageSize: 10
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
-
-
 
     var that = this;
     wx.showNavigationBarLoading();

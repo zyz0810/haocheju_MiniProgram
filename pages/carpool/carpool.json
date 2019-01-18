@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "在线拼车"
+  "navigationBarTitleText": "在线拼车",
+  "enablePullDownRefresh": true
 }

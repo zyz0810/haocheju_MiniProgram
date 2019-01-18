@@ -17,22 +17,8 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      keyWord: options.keyWord ? options.keyWord:""
+      keyWord: options.keyWord ? options.keyWord : ""
     })
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        product: res.data.return_newcar.data,
-        productPage: res.data.return_newcar.pageTotal,
-        currentPage: res.data.return_newcar.currentPage
-      })
-    }).usedList({
-      pageSize: 10,
-      page: 1,
-      brandname: that.data.keyWord,
-      price: 0,
-      type: 0
-      })
   },
 
   /**
@@ -46,7 +32,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        product: res.data.return_newcar.data,
+        productPage: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
+      })
+    }).usedList({
+      pageSize: 10,
+      page: 1,
+      brandname: that.data.keyWord,
+      price: 0,
+      type: 0
+    })
   },
 
   /**
@@ -67,7 +67,21 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this
+    new Cars(res => {
+      console.log(res)
+      this.setData({
+        product: res.data.return_newcar.data,
+        productPage: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
+      })
+    }).usedList({
+      pageSize: 10,
+      page: 1,
+      brandname: that.data.keyWord,
+      price: 0,
+      type: 0
+    })
   },
 
   /**

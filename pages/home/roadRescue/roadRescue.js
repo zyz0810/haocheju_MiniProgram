@@ -77,7 +77,16 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var userId = wx.getStorageSync('userId')
+    new Personnel(res => {
+      console.log(res)
+      this.setData({
+        banner: res.data.return_banner,
+        road: res.data.return_job.data,
+        roadPage: res.data.return_job.pageTotal,
+        currentPage: res.data.return_job.currentPage
+      })
+    }).road({ page: 1, pageSize: 10 })
   },
 
   /**

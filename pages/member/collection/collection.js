@@ -108,7 +108,32 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    var that = this
+    var userId = wx.getStorageSync('userId')
+    new Member(function (res) {
+      that.setData({
+        newList: res.data.data,
+        newPage: res.data.pageTotal,
+        newcurrentPage: res.data.currentPage,
+      })
+    }).collection({
+      pageSize: 10,
+      page: 1,
+      userId: userId,
+      type: 1
+    })
+    new Member(function (res) {
+      that.setData({
+        oldList: res.data.data,
+        oldPage: res.data.pageTotal,
+        oldcurrentPage: res.data.currentPage,
+      })
+    }).collection({
+      pageSize: 10,
+      page: 1,
+      userId: userId,
+      type: 2
+    })
   },
 
   /**
