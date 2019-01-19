@@ -205,7 +205,7 @@ Page(Object.assign({}, swiperAutoHeight, {
       new Tenant(res => {
         console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
-        if (res.data.return_newcar.totalPages < res.data.return_newcar.currentPage) {
+        if (res.data.return_newcar.pageTotal < res.data.return_newcar.currentPage) {
           wx.hideNavigationBarLoading()
           that.setData({
             tips: '',
@@ -236,7 +236,7 @@ Page(Object.assign({}, swiperAutoHeight, {
       new Tenant(res => {
         console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
-        if (res.data.return_oldcar.totalPages < res.data.return_oldcar.currentPage) {
+        if (res.data.return_oldcar.pageTotal < res.data.return_oldcar.currentPage) {
           wx.hideNavigationBarLoading()
           that.setData({
             tips: '',

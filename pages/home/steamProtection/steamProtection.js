@@ -45,7 +45,6 @@ Page(Object.assign({}, swiperAutoHeight, {
   goView: function (e) {
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-
       url: '/pages/home/product/view?id=' + id,
     })
   },
@@ -98,7 +97,7 @@ Page(Object.assign({}, swiperAutoHeight, {
     new Product(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
-      if (res.data.return_shop.totalPages < res.data.return_shop.currentPage) {
+      if (res.data.return_shop.pageTotal < res.data.return_shop.currentPage) {
         wx.hideNavigationBarLoading()
         that.setData({
           tips: '',

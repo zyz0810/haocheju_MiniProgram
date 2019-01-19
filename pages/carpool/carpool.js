@@ -38,13 +38,13 @@ Page({
   callUs: function (e) {
     console.log(e)
     wx.makePhoneCall({
-      phoneNumber: '0551-67698098',
+      phoneNumber: e.currentTarget.dataset.id,
       success(res) {
 
       },
       fail(err) {
         if (err.errMsg.indexOf('cancel') === -1) {
-          util.errShow('0551-67698098', 5000)
+          util.errShow(e.currentTarget.dataset.id, 5000)
         }
 
       }
@@ -156,7 +156,7 @@ Page({
       new Cars(res => {
         console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
-        if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
+        if (res.data.return_new.pageTotal < res.data.return_new.currentPage) {
           wx.hideNavigationBarLoading()
           that.setData({
             tips: '',
@@ -179,7 +179,7 @@ Page({
       new Cars(res => {
         console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
-        if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
+        if (res.data.return_new.pageTotal < res.data.return_new.currentPage) {
           wx.hideNavigationBarLoading()
           that.setData({
             tips: '',

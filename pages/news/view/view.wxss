@@ -4,6 +4,7 @@
   height: 100%;
   background: #fff;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .top{
   color: #666;

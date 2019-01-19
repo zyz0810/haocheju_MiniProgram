@@ -13,6 +13,7 @@ Page(Object.assign({}, swiperAutoHeight, {
 
     replyInput: false,
     name: '',
+    content:'',
     focus: false
   },
 

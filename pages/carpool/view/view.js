@@ -77,6 +77,22 @@ Page({
     }
     
   },
+  //联系我们
+  callUs: function (e) {
+    console.log(e)
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.id,
+      success(res) {
+
+      },
+      fail(err) {
+        if (err.errMsg.indexOf('cancel') === -1) {
+          util.errShow(e.currentTarget.dataset.id, 5000)
+        }
+
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

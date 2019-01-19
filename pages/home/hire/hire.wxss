@@ -100,7 +100,8 @@ button {
   width: 8vw;
 }
 .lineItem.driving_address{
-  align-items: baseline;
+  /* align-items: baseline; */
+   align-items: center;
 }
 .lineItem.driving_address .left{
   /* align-items:  flex-start; */

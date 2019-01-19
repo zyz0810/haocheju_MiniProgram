@@ -105,7 +105,7 @@ Page(Object.assign({}, swiperAutoHeight, {
     new Zixun(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
-      if (res.data.return_new.totalPages < res.data.return_new.currentPage) {
+      if (res.data.return_new.pageTotal < res.data.return_new.currentPage) {
         wx.hideNavigationBarLoading()
         that.setData({
           tips: '',

@@ -240,7 +240,7 @@ Page({
     new Cars(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
-      if (res.data.return_newcar.totalPages < res.data.return_newcar.currentPage) {
+      if (res.data.return_newcar.pageTotal < res.data.return_newcar.currentPage) {
         wx.hideNavigationBarLoading()
         that.setData({
           tips: '',

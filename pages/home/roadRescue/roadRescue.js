@@ -106,7 +106,7 @@ Page(Object.assign({}, swiperAutoHeight, {
     new Personnel(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
-      if (res.data.return_job.totalPages < res.data.return_job.currentPage) {
+      if (res.data.return_job.pageTotal < res.data.return_job.currentPage) {
         wx.hideNavigationBarLoading()
         that.setData({
           tips: '',
