@@ -103,6 +103,8 @@ Page(Object.assign({}, swiperAutoHeight, {
     console.log(e)
     var current = e.currentTarget.dataset.src;
     var index = e.currentTarget.dataset.index;
+    console.log('预览图片')
+    console.log(current)
     console.log(index)
     console.log(that.data.list[index])
     wx.previewImage({
@@ -317,9 +319,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onReachBottom: function () {
 
-
     var userId = wx.getStorageSync('userId')
-
     var that = this;
     wx.showNavigationBarLoading();
     // var pageModel = this.data.pageModel;
@@ -340,7 +340,14 @@ Page(Object.assign({}, swiperAutoHeight, {
           showtips: false
         })
       } else {
-        list = list.concat(res.data.return_new.data)
+        // list = list.concat(res.data.return_new.data)
+        var list1 = res.data.return_new.data
+        for (let i = 0; i < list1.length; i++) {
+          list1[i].show = true
+          list1[i].replyInput = true
+          list1[i].focus = false
+        }
+        list = list.concat(list1)
         this.setData({
           list: list,
           currentPage: res.data.return_new.currentPage
@@ -350,10 +357,8 @@ Page(Object.assign({}, swiperAutoHeight, {
     }).list({
       page: ++currentPage,
       pageSize: 10,
-      userId: userId,
+      userId: userId
     })
-
-
 
   },
 

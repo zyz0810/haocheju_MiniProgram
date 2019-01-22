@@ -32,6 +32,8 @@
   <view class='tips' hidden='{{oneList.length!=0}}'>没有更多啦</view>
   <block wx:for="{{oneList}}" wx:key="index">
     <view class='list_item' data-id='{{item.id}}' data-type='1' bindtap='goView'>
+
+      <view class='state' hidden='{{item.ready == 1}}'><image src='/resources/images/carpool/state.png'></image></view>
       
       <view class='lineItem border'>
         <view class='left headImg'>
@@ -69,7 +71,7 @@
 <view class='tips' hidden='{{twoList.length!=0}}'>没有更多啦</view>
   <block wx:for="{{twoList}}" wx:key="index">
     <view class='list_item' data-id='{{item.id}}' data-type='2' bindtap='goView'>
-      
+      <view class='state' hidden='{{item.ready == 1}}'><image src='/resources/images/carpool/state.png'></image></view>
       <view class='lineItem border'>
         <view class='left headImg'>
           <image src='{{item.headerimg}}' mode='widthFix'></image>

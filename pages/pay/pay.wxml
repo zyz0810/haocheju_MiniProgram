@@ -1,6 +1,6 @@
 <!-- <include src="/template/actionsheet/actionsheet.wxml" /> -->
-<include src="/template/password/payPassword.wxml" />
-<include src="/template/jumpPay/jumpPay.wxml" />
+<!-- <include src="/template/password/payPassword.wxml" />
+<include src="/template/jumpPay/jumpPay.wxml" /> -->
 <!--pages/pay/pay.wxml-->
 
 <view class='border_bottom information_person'>
@@ -45,12 +45,12 @@
 
 
 
-<view class="actionsheetMask" catchtouchmove="ActionsheetCatchMove" bindtap="ActionsheetHide" hidden="{{actionsheet}}"></view>
+<view class="actionsheetMask" catchtouchmove="ActionsheetCatchMove" bindtap="actionsheetHide" hidden="{{actionsheet}}"></view>
 <!-- <view class="actionsheetMask" catchtouchmove="ActionsheetCatchMove" bindtap="ActionsheetHide"></view> -->
 <view class="actionsheetWrap" hidden="{{actionsheet}}">
   <view class="lineItem">
     <view class='center f15 tc bold'>支付方式</view>
-    <view class='right f14 clr_lightGray' bindtap="ActionsheetHide">关闭</view>
+    <view class='right f14 clr_lightGray' bindtap="actionsheetHide">关闭</view>
   </view>
   <view class="content lineItem">
     <view class='left'><text class='iconfont icon-weixin clr_wxGreen f24'></text></view>

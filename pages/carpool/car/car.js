@@ -126,69 +126,106 @@ Page({
   },
   bindStart: function() {
     var that = this
-    wx.getLocation({
-      type: 'gcj02',
+    wx.getSetting({
       success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(latitude, longitude)
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18,
-        //   success: function(res) {
 
-        console.log('打开地图')
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '提示',
+            content: '未授予地址权限，是否前往设置',
+            success: function(res) {
+              if (res.confirm) {
+                wx.openSetting()
+              }
+            }
+          })
 
-        wx.chooseLocation({
-          success: function(res) {
-            console.log('选点')
-            console.log(res)
+        } else {
+          wx.getLocation({
+            type: 'gcj02',
+            success(res) {
+              const latitude = res.latitude
+              const longitude = res.longitude
+              const speed = res.speed
+              const accuracy = res.accuracy
+              console.log(latitude, longitude)
+              // wx.openLocation({
+              //   latitude,
+              //   longitude,
+              //   scale: 18,
+              //   success: function(res) {
 
-            that.setData({
-              start: res.name,
-              startAddress: res.address
-            })
-          },
-        })
-        //   }
-        // })
+              console.log('打开地图')
+
+              wx.chooseLocation({
+                success: function(res) {
+                  console.log('选点')
+                  console.log(res)
+
+                  that.setData({
+                    start: res.name,
+                    startAddress: res.address
+                  })
+                },
+              })
+              //   }
+              // })
+            }
+          })
+        }
       }
     })
   },
-  bindEnd: function () {
+  bindEnd: function() {
     var that = this
-    wx.getLocation({
-      type: 'gcj02',
+    wx.getSetting({
       success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(latitude, longitude)
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18,
-        //   success: function(res) {
 
-        console.log('打开地图')
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '提示',
+            content: '未授予地址权限，是否前往设置',
+            success: function(res) {
+              if (res.confirm) {
+                wx.openSetting()
+              }
+            }
+          })
 
-        wx.chooseLocation({
-          success: function (res) {
-            console.log('选点')
-            console.log(res)
+        } else {
+          wx.getLocation({
+            type: 'gcj02',
+            success(res) {
+              const latitude = res.latitude
+              const longitude = res.longitude
+              const speed = res.speed
+              const accuracy = res.accuracy
+              console.log(latitude, longitude)
+              // wx.openLocation({
+              //   latitude,
+              //   longitude,
+              //   scale: 18,
+              //   success: function(res) {
 
-            that.setData({
-              end: res.name,
-              endAddress: res.address
-            })
-          },
-        })
-        //   }
-        // })
+              console.log('打开地图')
+
+              wx.chooseLocation({
+                success: function(res) {
+                  console.log('选点')
+                  console.log(res)
+
+                  that.setData({
+                    end: res.name,
+                    endAddress: res.address
+                  })
+                },
+              })
+              //   }
+              // })
+            }
+          })
+        }
+
       }
     })
   },
@@ -202,7 +239,7 @@ Page({
         wx.showToast({
           title: '发布成功',
           success: function() {
-            setTimeout(function () {
+            setTimeout(function() {
               wx.navigateBack({})
             }, 3000)
           }
@@ -265,7 +302,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -275,14 +312,14 @@ Page({
       path: '/pages/carpool/car/car',
       desc: '地铁挤，打车贵，拼个小车不排队，车相关拼车通过实名制、高保险和评星等级制度,人人参与，顺路捎，让拼车拥有完善的安全体系。',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
-      success: function (res) {
+      success: function(res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
           icon: 'success'
         })
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
       }
     }

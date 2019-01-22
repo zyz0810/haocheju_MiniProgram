@@ -4,10 +4,13 @@ page{
     background-size: 100% auto;
     background-position: 0 100%;
 }
+.container{
+  padding: 2% 0 0;
+}
 .list_item{
       width: 92vw;
     padding-bottom: 2vw;
-    margin: 2vw auto;
+    margin: 0 auto 2vw;
     border-radius: 3px;
     box-shadow: 0 0 8px #d9ebf7;
     position: relative;
@@ -70,4 +73,23 @@ page{
     line-height: 9vw;
     background: -webkit-linear-gradient(#1a89df,#0971c0);
     background: linear-gradient(#1a89df,#0971c0);
+}
+.state{
+  position: absolute;
+  top: 50rpx;
+  right: 50rpx;
+  z-index: 999;
+  width: 150rpx;
+  height: 150rpx;
+}
+.state image{
+  width: 100%;
+  height: 100%;
+}
+.setOut{
+  width: 80%;
+  line-height: 2;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  background: #ec0909;
 }

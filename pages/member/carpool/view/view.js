@@ -51,7 +51,9 @@ Page({
           startdate: res.data.startdate,
           starttime: res.data.starttime,
           mobile: res.data.mobile,
-          remark: res.data.remark
+          remark: res.data.remarks,
+          ready: res.data.ready,
+          carpoolId:res.data.id
         })
 
       }).carpoolDetail({ id: that.data.carPoolId });
@@ -69,12 +71,28 @@ Page({
           mobile: res.data.mobile,
           startdate: res.data.startdate,
           starttime: res.data.starttime,
-          remark: res.data.remark
+          remark: res.data.remarks,
+          ready: res.data.ready,
+          carpoolId: res.data.id
         })
 
       }).carpoolDetail({ id: that.data.carPoolId });
     }
     
+  },
+  editCarpool: function (e) {
+    let id = e.currentTarget.dataset.id
+    var that = this
+    new Cars(function () {
+    that.setData({
+      ready:'2'
+    })
+    wx.showToast({
+      title: '状态为已出发',
+    })
+
+    }).editCarpool({ id: id })
+
   },
 
   /**

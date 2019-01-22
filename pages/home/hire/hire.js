@@ -32,10 +32,10 @@ Page({
     addressIdChoosed: '',
     carShow: true,
     carChoosedfour: '',
-    phone:'',
-    code:'',
-    name:'',
-    carIdChoosed:''
+    phone: '',
+    code: '',
+    name: '',
+    carIdChoosed: ''
   },
   chooseShop: function() {
     this.setData({
@@ -117,69 +117,107 @@ Page({
 
   bindStart: function() {
     var that = this
-    wx.getLocation({
-      type: 'gcj02',
+    wx.getSetting({
       success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(latitude, longitude)
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18,
-        //   success: function(res) {
 
-        console.log('打开地图')
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '提示',
+            content: '未授予地址权限，是否前往设置',
+            success: function(res) {
+              if (res.confirm) {
+                wx.openSetting()
+              }
+            }
+          })
 
-        wx.chooseLocation({
-          success: function(res) {
-            console.log('选点')
-            console.log(res)
+        } else {
+          wx.getLocation({
+            type: 'gcj02',
+            success(res) {
+              const latitude = res.latitude
+              const longitude = res.longitude
+              const speed = res.speed
+              const accuracy = res.accuracy
+              console.log(latitude, longitude)
+              // wx.openLocation({
+              //   latitude,
+              //   longitude,
+              //   scale: 18,
+              //   success: function(res) {
 
-            that.setData({
-              start: res.name,
-              startAddress: res.address
-            })
-          },
-        })
-        //   }
-        // })
+              console.log('打开地图')
+
+              wx.chooseLocation({
+                success: function(res) {
+                  console.log('选点')
+                  console.log(res)
+
+                  that.setData({
+                    start: res.name,
+                    startAddress: res.address
+                  })
+                },
+              })
+              //   }
+              // })
+            }
+          })
+        }
+
       }
     })
   },
   bindEnd: function() {
     var that = this
-    wx.getLocation({
-      type: 'gcj02',
+    wx.getSetting({
       success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(latitude, longitude)
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18,
-        //   success: function(res) {
 
-        console.log('打开地图')
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '提示',
+            content: '未授予地址权限，是否前往设置',
+            success: function(res) {
+              if (res.confirm) {
+                wx.openSetting()
+              }
+            }
+          })
 
-        wx.chooseLocation({
-          success: function(res) {
-            console.log('选点')
-            console.log(res)
+        } else {
+          wx.getLocation({
+            type: 'gcj02',
+            success(res) {
+              const latitude = res.latitude
+              const longitude = res.longitude
+              const speed = res.speed
+              const accuracy = res.accuracy
+              console.log(latitude, longitude)
+              // wx.openLocation({
+              //   latitude,
+              //   longitude,
+              //   scale: 18,
+              //   success: function(res) {
 
-            that.setData({
-              end: res.name,
-              endAddress: res.address
-            })
-          },
-        })
-        //   }
-        // })
+              console.log('打开地图')
+
+              wx.chooseLocation({
+                success: function(res) {
+                  console.log('选点')
+                  console.log(res)
+
+                  that.setData({
+                    end: res.name,
+                    endAddress: res.address
+                  })
+                },
+              })
+              //   }
+              // })
+            }
+          })
+        }
+
       }
     })
   },
@@ -291,7 +329,7 @@ Page({
       that.setData({
         addressList: res.data.data,
         addressPage: res.data.pageTotal,
-        currentAddressPage : res.data.currentPage
+        currentAddressPage: res.data.currentPage
       })
     }).tenant({
       pageSize: 10,
@@ -354,21 +392,21 @@ Page({
     })
 
     new Rent(function(res) {
-      if (res.data.total == '0'){
+      if (res.data.total == '0') {
         that.setData({
-          carModeChoosed:'此门店暂无车辆',
-          carModeLength:0
+          carModeChoosed: '此门店暂无车辆',
+          carModeLength: 0
         })
-      }else{
+      } else {
         that.setData({
           carList: res.data.data,
           carModeChoosed: '请选择车型',
           carModeLength: res.data.total,
           carPage: res.data.pageTotal,
-          currentCarPage : res.data.currentPage
+          currentCarPage: res.data.currentPage
         })
       }
-    
+
     }).car({
       pageSize: 10,
       page: 1,
@@ -386,7 +424,7 @@ Page({
       })
       return
     }
-    if (this.data.carModeLength == '0'){
+    if (this.data.carModeLength == '0') {
       wx.showToast({
         title: '此门店暂无车辆',
         image: '/resources/images/x.png'
@@ -580,12 +618,12 @@ Page({
       })
       return;
     }
-    
+
     new Rent(function() {
 
-wx.showToast({
-  title: '租车成功',
-})
+      wx.showToast({
+        title: '租车成功',
+      })
     }).orderrent({
       name: that.data.name,
       mobile: that.data.phone,
@@ -598,23 +636,23 @@ wx.showToast({
     })
   },
 
-  name: function (e) {
+  name: function(e) {
     this.setData({
       name: e.detail.value
     })
   },
-  phone: function (e) {
+  phone: function(e) {
     this.setData({
       phone: e.detail.value
     })
   },
-  code: function (e) {
+  code: function(e) {
     this.setData({
       code: e.detail.value
     })
   },
   //获取验证码
-  getcode: function () {
+  getcode: function() {
     var that = this
     if (that.data.phone.length == 0) {
       util.errShow('请填写手机号');
@@ -658,8 +696,8 @@ wx.showToast({
    */
   onReachBottom: function() {
     var that = this
-    if (that.data.addressShow == false){
-        wx.showNavigationBarLoading();
+    if (that.data.addressShow == false) {
+      wx.showNavigationBarLoading();
       // var pageModel = this.data.pageModel;
       var addressPage = that.data.addressPage;
       var currentAddressPage = that.data.currentAddressPage;
@@ -751,13 +789,13 @@ wx.showToast({
 
     }
 
-   
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -767,14 +805,14 @@ wx.showToast({
       path: '/pages/home/hire/hire',
       desc: '车相关为网友提供代驾租车等信息查询和发布服务,是寻找和发布代驾租车信息的最佳平台。',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
-      success: function (res) {
+      success: function(res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
           icon: 'success'
         })
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
       }
     }

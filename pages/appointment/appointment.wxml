@@ -38,14 +38,23 @@
 </view>
 
 <view hidden='{{typeOld}}'>
- <view class='lineItem car' data-id='{{carId}}' bindtap='goUsedView'>
+  <view class='lineItem car' data-id='{{carId}}' bindtap='goUsedView'>
     <view class='left'>
-      <text class='tag f12'>新车</text>
+      <text class='tag f12'>二手车</text>
       <image src='{{brandlogo}}'></image>
     </view>
     <view class='center'>
       <view class='f14'>{{carname}} {{cartype}}</view>
-      <view class='f12'>配置：{{carconfig}}</view>
+      <view class='f12'>配置：{{carconfig}}
+        <!-- <block wx:for="{{carconfig}}" wx:key="index">
+          <view class='clr_mediumGray'>
+            <text>{{item.name}}</text>
+            <text>{{item.val}}</text>
+          </view>
+        </block> -->
+
+
+      </view>
       <view class='f12 yellow01'>销售价：{{carprice}}元</view>
     </view>
   </view>
@@ -53,12 +62,12 @@
   <view class='cont'>
     <view class='lineItem f16 border'>
       <view class='center'>
-        <input type='number' placeholder='请输入姓名' bindinput='name'></input>
+        <input type='number' placeholder='请输入姓名' value='{{name}}' bindinput='name'></input>
       </view>
     </view>
     <view class='lineItem f16 border'>
       <view class='center'>
-        <input type='number' placeholder='请输入手机号' bindinput='phone'></input>
+        <input type='number' placeholder='请输入手机号' value='{{phone}}' bindinput='phone'></input>
       </view>
       <view class='right tc clr-white'>
         <!-- <input type='button' id="getcap" class="f12" value="发送验证码" bindtap='getcap'></input> -->

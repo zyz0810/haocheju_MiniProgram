@@ -3,7 +3,6 @@ let app = getApp()
 let Member = require('../../../service/member.js')
 let util = require('../../../utils/util.js')
 let config = require('../../../utils/config.js')
-let navCart = require("../../../template/cart/cart.js")
 Page({
 
   /**

@@ -51,8 +51,8 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-  * 获取品牌
-  */
+   * 获取品牌
+   */
   brand(data) {
     super.post({
       url: 'api/brandlist/first',
@@ -61,10 +61,10 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 新车详情
-     * @param id 新车Id
-     * @param userId  用户Id
-     */
+   * 新车详情
+   * @param id 新车Id
+   * @param userId  用户Id
+   */
   newView(data) {
     super.post({
       url: 'Api/Newcar/detail',
@@ -73,10 +73,10 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-    * 二手车详情
-    * @param id 二手车Id
-    * @param userId  用户Id
-    */
+   * 二手车详情
+   * @param id 二手车Id
+   * @param userId  用户Id
+   */
   usedView(data) {
     super.post({
       url: 'api/oldcar/detail',
@@ -85,11 +85,11 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 收藏车辆
-     * @param userId 用户Id
-     * @param productId  车Id
-     * @param type  1、新车 2、二手车
-     */
+   * 收藏车辆
+   * @param userId 用户Id
+   * @param productId  车Id
+   * @param type  1、新车 2、二手车
+   */
   favorite(data) {
     super.post({
       url: 'Api/Collect/pullcollect',
@@ -98,9 +98,9 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 取消收藏车辆
-     * @param 	cid 收藏ID
-     */
+   * 取消收藏车辆
+   * @param 	cid 收藏ID
+   */
   delFavorite(data) {
     super.post({
       url: 'Api/Collect/cancelcollect',
@@ -109,9 +109,9 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 新车预约详情
-     * @param 	productId 车Id
-     */
+   * 新车预约详情
+   * @param 	productId 车Id
+   */
   subscribeNew(data) {
     super.post({
       url: 'Api/Newcar/newcontent',
@@ -120,9 +120,9 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 二手车预约详情
-     * @param 	productId 车Id
-     */
+   * 二手车预约详情
+   * @param 	productId 车Id
+   */
   subscribeOld(data) {
     super.post({
       url: 'Api/Oldcar/oldcontent',
@@ -130,13 +130,13 @@ module.exports = class cars extends Ajax {
     });
 
   }
- /**
-     * 预约车辆
-     * @param 	username 姓名
-     * phonenum 手机号
-     * type 1、新车 2、二手车
-     * productId 车子Id
-     */
+  /**
+   * 预约车辆
+   * @param 	username 姓名
+   * phonenum 手机号
+   * type 1、新车 2、二手车
+   * productId 车子Id
+   */
   subscribe(data) {
     super.post({
       url: 'api/subscribe/pull',
@@ -145,10 +145,10 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 拼车列表
-     * @param page  页码
-     * @param type  1、车找人 2人找车
-     */
+   * 拼车列表
+   * @param page  页码
+   * @param type  1、车找人 2人找车
+   */
   carPool(data) {
     super.post({
       url: 'Api/Carpool/poollist',
@@ -157,9 +157,9 @@ module.exports = class cars extends Ajax {
 
   }
   /**
-     * 拼车详情
-     * @param id
-     */
+   * 拼车详情
+   * @param id
+   */
   carpoolDetail(data) {
     super.post({
       url: 'api/carpool/detail',
@@ -167,13 +167,24 @@ module.exports = class cars extends Ajax {
     });
 
   }
- /**
-     * 拼车表单
-     * @param type  、车找人 2 人找车
-     */
+  /**
+   * 拼车表单
+   * @param type  、车找人 2 人找车
+   */
   pullpool(data) {
     super.post({
       url: 'Api/Carpool/pullpool',
+      data: data
+    });
+
+  }
+  /**
+   * 修改拼车状态
+   * @param id  拼车Id
+   */
+  editCarpool(data) {
+    super.post({
+      url: 'Api/Carpool/modify',
       data: data
     });
 

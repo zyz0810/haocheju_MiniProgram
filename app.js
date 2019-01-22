@@ -1,4 +1,4 @@
-let aldstat = require("./utils/ald-stat.js");
+// let aldstat = require("./utils/ald-stat.js");
 let Member = require('/service/member.js')
 let util = require('/utils/util.js')
 let config = require('/utils/config.js')
@@ -14,40 +14,8 @@ App({
   loginOkCallbackList: [],
   onLaunch(opData) {
     let that = this
-    let username = '', headImg = '';
-
-
-
-//     wx.login({
-//       success(res) {
-//         if (res.code) {
-
-// debugger
-// console.log('登陆成功')
-//           new Member(res => {
-//             debugger
-//             console.log(66565)
-//             console.log('1121' + res.unionid)
-//             console.log(res)
-//             wx.setStorageSync('openid', res.data.openid)
-//             wx.setStorageSync('unionid', res.data.unionid)
-            
-//           }).loginC({
-//             code: res.code
-//           })
-
-//         } else {
-//           console.log('登录失败！' + res.errMsg)
-//         }
-//       }
-//     })
-
-
-
-
-
-   
-
+    let username = '',
+      headImg = '';
 
     wx.login({
       success(data) {
@@ -55,12 +23,10 @@ App({
 
         console.log(data.code)
         //用户登陆成功
-        tryLogin({ code: data.code }, (res) => {
-
-
+        tryLogin({
+          code: data.code
+        }, (res) => {
           that.globalData.LOGIN_STATUS = true
-
-
 
           // new Member(res => {
 
@@ -84,7 +50,17 @@ App({
         })
       }
 
+    })
 
+
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+      }
     })
 
 
@@ -97,42 +73,36 @@ App({
         }
       }
     })
-
   }
-
-  
 })
 
 //登陆，获取sessionid
-var tryLogin = (function () {
+var tryLogin = (function() {
   let count = 0
-  return function (data, fn) {
+  return function(data, fn) {
     if (count >= config.LOGIN_ERROR_TRY_COUNT) {
       util.errShow('登陆超时')
       return
     }
-    console.log(8989)
- 
-    new Member(function (res) {
+
+    new Member(function(res) {
       if (res.data.openid || res.data.unionid !== null) {
         //设置请求session到本地
-
         wx.setStorageSync('openid', res.data.openid)
         wx.setStorageSync('unionid', res.data.unionid)
-
 
         fn ? fn(res) : ''
       } else {
         console.log(8722)
-        setTimeout(function () {
+        setTimeout(function() {
           tryLogin(data.code)
           count++
         }, config.LOGIN_ERROR_TRY_TIMEOUT)
       }
-    }, function (err) {
-      
+    }, function(err) {
+
       util.errShow('登陆失败', 50000)
-      }).loginC({
+    }).loginC({
       code: data.code,
     })
   }

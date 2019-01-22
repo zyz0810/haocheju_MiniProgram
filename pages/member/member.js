@@ -2,8 +2,7 @@ let app = getApp()
 let Member = require('../../service/member.js')
 let util = require('../../utils/util.js')
 let config = require('../../utils/config.js')
-let navCart = require("../../template/cart/cart.js")
-Page(Object.assign({}, navCart, {
+Page(Object.assign({}, {
   data: {
     memberInfo: {}
   },
@@ -11,6 +10,18 @@ Page(Object.assign({}, navCart, {
     
   },
   onShow: function () {
+
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        }
+      }
+    })
+
     var userId = wx.getStorageSync('userId')
     new Member(res => {
       console.log(res)

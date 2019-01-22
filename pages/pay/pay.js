@@ -43,7 +43,12 @@ Page(Object.assign({}, {
     })
   },
 
-
+  actionsheetHide() {
+    // this.ActionsheetInitData()
+    this.setData({
+      actionsheet: true
+    })
+  },
 
   //买家留言
   inputMemo: function(e) {

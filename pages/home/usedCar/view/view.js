@@ -39,7 +39,7 @@ Page(Object.assign({}, swiperAutoHeight, {
     new Cars(res => {
       console.log(res)
       wx.setNavigationBarTitle({
-        title: res.data.cartype,
+        title: res.data.carname + res.data.cartype,
       })
       var carintroduce = res.data.carintroduce;
       var servicefeedesc = res.data.servicefeedesc;
@@ -65,7 +65,8 @@ Page(Object.assign({}, swiperAutoHeight, {
         totalprice: res.data.totalprice,
         useproperty: res.data.useproperty,
         providerid: res.data.providerid,
-        cid: res.data.cid
+        cid: res.data.cid,
+        config: res.data.config
       })
       WxParse.wxParse('carintroduce', 'html', carintroduce, that, 0);
       WxParse.wxParse('servicefeedesc', 'html', servicefeedesc, that, 0);

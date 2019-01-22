@@ -1,7 +1,3 @@
 {
-  "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "technical-component": "/component/technical/technical",
-    "shadow-component": "/component/shadow/shadow"
-  }
+  "navigationBarTitleText": "我的"
 }

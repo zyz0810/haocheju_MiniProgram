@@ -2,9 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/member/member",
-   
     "pages/circle/circle",
-    
     "pages/verification/verification",
     "pages/circle/test/test",
     "pages/memberTenant/memberTenant",
@@ -93,7 +91,7 @@
       },
       {
         "pagePath": "pages/circle/circle",
-        "text": "车友圈",
+        "text": "拼车论坛",
         "iconPath": "/resources/images/tabBar/circle.png",
         "selectedIconPath": "/resources/images/tabBar/circle_sel.png"
       },
@@ -122,5 +120,10 @@
     "navigationBarBackgroundColor": "#0f84de",
     "navigationBarTitleText": ".",
     "navigationBarTextStyle": "#fff"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为了更好的为您服务"
+    }
   }
 }

@@ -104,7 +104,13 @@ Page(Object.assign({}, swiperAutoHeight, {
     console.log(that.data.list[index])
     wx.previewImage({
       current: current,
-      urls: that.data.list[index].images
+      urls: that.data.list[index].images,
+      success:function(){
+        console.log('预览图片成功')
+      },
+      fail:function(){
+        console.log('预览图片失败')
+      }
     })
 
   },

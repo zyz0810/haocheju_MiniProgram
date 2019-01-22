@@ -2,8 +2,7 @@
 let swiperAutoHeight = require("../../template/swiperIndex/swiper.js"),
   app = getApp(),
   util = require("../../utils/util.js"),
-  Cars = require("../../service/cars.js"),
-  navCart = require("../../template/cart/cart.js")
+  Cars = require("../../service/cars.js")
 Page({
 
   /**

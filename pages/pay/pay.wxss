@@ -1,6 +1,5 @@
 /*actionsheet  */
-@import "/template/password/payPassword";
-@import "/template/jumpPay/jumpPay.wxss";
+
 
 /* pages/pay/pay.wxss */
 .information_person,.information_order{

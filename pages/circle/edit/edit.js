@@ -4,7 +4,6 @@ let app = getApp(),
   Contact = require("../../../service/contact.js"),
   Member = require("../../../service/member.js")
 let config = require('../../../utils/config.js')
-let navCart = require("../../../template/cart/cart.js")
 let BASE_URL = config.BASE_URL
 Page({
 

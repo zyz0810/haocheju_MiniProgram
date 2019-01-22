@@ -55,7 +55,7 @@ Page({
   bindBrandChange: function(e) {
     console.log('品牌', e)
 
-var that = this
+    var that = this
     var id = this.data.brand[e.detail.value].id
     this.setData({
       brandNum: e.detail.value,
@@ -63,12 +63,14 @@ var that = this
     })
 
 
- 
-    new Cars(function (res) {
+
+    new Cars(function(res) {
       that.setData({
         system: res.data
       })
-    }).mode({ carId: id })
+    }).mode({
+      carId: id
+    })
 
 
   },
@@ -97,27 +99,27 @@ var that = this
   onReady: function() {
 
   },
-  name: function (e) {
+  name: function(e) {
     this.setData({
       name: e.detail.value
     })
   },
-  phone: function (e) {
+  phone: function(e) {
     this.setData({
       phone: e.detail.value
     })
   },
-  start: function (e) {
+  start: function(e) {
     this.setData({
       start: e.detail.value
     })
   },
-  end: function (e) {
+  end: function(e) {
     this.setData({
       end: e.detail.value
     })
   },
-  remarks: function (e) {
+  remarks: function(e) {
     this.setData({
       remarks: e.detail.value
     })
@@ -128,7 +130,7 @@ var that = this
   onShow: function() {
     var that = this
     var userId = wx.getStorageSync('userId')
-    new Member(function (res) {
+    new Member(function(res) {
       that.setData({
         name: res.data.username ? res.data.username : res.data.nickname,
         phone: res.data.phone
@@ -153,20 +155,22 @@ var that = this
     }).view({
       userId: userId
     })
-    new Cars(function(res){
+    new Cars(function(res) {
       that.setData({
         brand: res.data.productList,
         brandId: res.data.productList[0].id
       })
-      new Cars(function (res) {
+      new Cars(function(res) {
         that.setData({
           system: res.data
         })
-      }).mode({ carId: res.data.productList[0].id })
+      }).mode({
+        carId: res.data.productList[0].id
+      })
     }).brand()
 
-    
-    
+
+
   },
   // chooseMode:function(e){
   //   var that = this
@@ -176,87 +180,133 @@ var that = this
   //     })
   //   }).mode({ carId: that.data.brandId })
   // },
-  bindStart: function () {
+  bindStart: function() {
     var that = this
-    wx.getLocation({
-      type: 'gcj02',
+
+    console.log('点击地图')
+
+
+    wx.getSetting({
       success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(latitude, longitude)
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18,
-        //   success: function(res) {
 
-        console.log('打开地图')
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '提示',
+            content: '未授予地址权限，是否前往设置',
+            success: function(res) {
+              if (res.confirm) {
+                wx.openSetting()
+              }
+            }
+          })
 
-        wx.chooseLocation({
-          success: function (res) {
-            console.log('选点')
-            console.log(res)
+        } else {
+          wx.getLocation({
+            type: 'gcj02',
+            success(res) {
+              const latitude = res.latitude
+              const longitude = res.longitude
+              const speed = res.speed
+              const accuracy = res.accuracy
+              console.log(latitude, longitude)
+              // wx.openLocation({
+              //   latitude,
+              //   longitude,
+              //   scale: 18,
+              //   success: function(res) {
 
-            that.setData({
-              start: res.name,
-              startAddress: res.address
-            })
-          },
-        })
-        //   }
-        // })
+              console.log('打开地图')
+
+              wx.chooseLocation({
+                success: function(res) {
+                  console.log('选点')
+                  console.log(res)
+
+                  that.setData({
+                    start: res.name,
+                    startAddress: res.address
+                  })
+                },
+              })
+              //   }
+              // })
+            }
+          })
+        }
       }
     })
+
+
+
+
   },
-  bindEnd: function () {
+  bindEnd: function() {
     var that = this
-    wx.getLocation({
-      type: 'gcj02',
+    wx.getSetting({
       success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(latitude, longitude)
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18,
-        //   success: function(res) {
 
-        console.log('打开地图')
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '提示',
+            content: '未授予地址权限，是否前往设置',
+            success: function(res) {
+              if (res.confirm) {
+                wx.openSetting()
+              }
+            }
+          })
 
-        wx.chooseLocation({
-          success: function (res) {
-            console.log('选点')
-            console.log(res)
+        } else {
+          wx.getLocation({
+            type: 'gcj02',
+            success(res) {
+              const latitude = res.latitude
+              const longitude = res.longitude
+              const speed = res.speed
+              const accuracy = res.accuracy
+              console.log(latitude, longitude)
+              // wx.openLocation({
+              //   latitude,
+              //   longitude,
+              //   scale: 18,
+              //   success: function(res) {
 
-            that.setData({
-              end: res.name,
-              endAddress: res.address
-            })
-          },
-        })
-        //   }
-        // })
+              console.log('打开地图')
+
+              wx.chooseLocation({
+                success: function(res) {
+                  console.log('选点')
+                  console.log(res)
+
+                  that.setData({
+                    end: res.name,
+                    endAddress: res.address
+                  })
+                },
+              })
+              //   }
+              // })
+            }
+          })
+        }
+
       }
     })
+
   },
-  submit: function () {
+  submit: function() {
     var userId = wx.getStorageSync('userId')
     var that = this
 
 
     if (that.data.checked) {
-      new Cars(function (data) {
+      new Cars(function(data) {
         wx.showToast({
           title: '发布成功',
-          success: function () {
-            setTimeout(function(){
+          success: function() {
+            setTimeout(function() {
               wx.navigateBack({})
-            },3000)
+            }, 3000)
           }
         })
 
@@ -316,7 +366,7 @@ var that = this
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -326,14 +376,14 @@ var that = this
       path: '/pages/carpool/people/people',
       desc: '地铁挤，打车贵，拼个小车不排队，车相关拼车通过实名制、高保险和评星等级制度,人人参与，顺路捎，让拼车拥有完善的安全体系。',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
-      success: function (res) {
+      success: function(res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
           icon: 'success'
         })
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
       }
     }

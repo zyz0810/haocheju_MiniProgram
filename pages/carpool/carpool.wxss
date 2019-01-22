@@ -34,18 +34,31 @@ page {
   border-bottom: 2px solid #0f84de;
 }
 
-.list_item{
-      width: 92vw;
-    padding-bottom: 2vw;
-    margin: 2vw auto;
-    border-radius: 3px;
-    box-shadow: 0 0 8px #d9ebf7;
-    position: relative;
+.list_item {
+  width: 92vw;
+  padding-bottom: 2vw;
+  margin: 2vw auto;
+  border-radius: 3px;
+  box-shadow: 0 0 8px #d9ebf7;
+  position: relative;
 }
-.list_item .site{
-      width: 96%;
-    padding: 2% 0 0;
-    margin: 0 2vw;
+.state{
+  position: absolute;
+  top: 50rpx;
+  right: 50rpx;
+  z-index: 999;
+  width: 150rpx;
+  height: 150rpx;
+}
+.state image{
+  width: 100%;
+  height: 100%;
+}
+
+.list_item .site {
+  width: 96%;
+  padding: 2% 0 0;
+  margin: 0 2vw;
 }
 
 .headImg {
@@ -53,7 +66,8 @@ page {
   height: 9vw;
   border-radius: 50%;
 }
-.name{
+
+.name {
   margin: 0 20rpx;
 }
 
@@ -67,17 +81,18 @@ page {
   height: 6vw;
   margin-right: 2vw;
   border-radius: 50%;
-  justify-content:center;
+  justify-content: center;
 }
 
 .start_icon {
   background: #0f84de;
 }
+
 .end_icon {
-    background: #ec0909;
+  background: #ec0909;
 }
 
-.start_icon,.end_icon {
+.start_icon, .end_icon {
   display: inline-block;
   width: 6vw;
   height: 6vw;
@@ -85,19 +100,21 @@ page {
   margin-right: 2vw;
   border-radius: 50%;
 }
-.site .center>view{
+
+.site .center>view {
   line-height: 1.6em;
 }
 
 .carpool_call {
   position: absolute;
-    top: 0;
-    right: 2vw;
-    z-index: 99;
-    display: block;
-    width: 20vw;
-    height: 9vw;
-    line-height: 9vw;
-    background: -webkit-linear-gradient(#1a89df,#0971c0);
-    background: linear-gradient(#1a89df,#0971c0);
+  top: 0;
+  right: 2vw;
+  z-index: 99;
+  display: block;
+  width: 20vw;
+  height: 9vw;
+  line-height: 9vw;
+  border-radius: 10rpx;
+  background: -webkit-linear-gradient(#1a89df, #0971c0);
+  background: linear-gradient(#1a89df, #0971c0);
 }

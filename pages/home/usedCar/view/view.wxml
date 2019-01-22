@@ -6,7 +6,7 @@
     <text class='f14 clr-white' data-id='{{carId}}' bindtap='goPicture' hidden='{{!countpic}}'>共{{countpic}}张照片</text>
   </view>
   <view class='lineItem'>
-    <view class='center clr_gray01 f16 overTwo'>{{carname}}</view>
+    <view class='center clr_gray01 f16 overTwo'>{{carname}}{{cartype}}</view>
   </view>
   <view class='lineItem price'>
     <view class='center'>
@@ -60,6 +60,14 @@
         <view>{{color}}</view>
         <view>颜色</view>
       </view>
+    </view>
+  </view>
+  <view class='parameter config'>
+    <view class='title_common f15'>车辆配置</view>
+    <view class='cont f12 clearfix'>
+      <block wx:for="{{config}}" wx:key="index">
+        <view class='f12 clr_mediumGray fl'>{{item.name}}{{item.val}}</view>
+      </block>
     </view>
   </view>
   <view class='parameter'>

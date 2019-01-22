@@ -1,8 +1,7 @@
 // pages/carpool/view/view.js
 let app = getApp(),
   util = require("../../../utils/util.js"),
-  Cars = require("../../../service/cars.js"),
-  navCart = require("../../../template/cart/cart.js")
+  Cars = require("../../../service/cars.js")
 Page({
 
   /**
@@ -41,7 +40,7 @@ Page({
         that.setData({
           headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
           name: res.data.name,
-          wz_addtime: res.data.wz_addtime,
+          wz_addtime: res.data.addtime,
           start: res.data.start,
           start_address: res.data.start_address,
           end: res.data.end,
@@ -52,7 +51,7 @@ Page({
           startdate: res.data.startdate,
           starttime: res.data.starttime,
           mobile: res.data.mobile,
-          remark: res.data.remark
+          remark: res.data.remarks
         })
 
       }).carpoolDetail({ id: that.data.carPoolId });

@@ -101,3 +101,6 @@
   padding: 5rpx 20rpx;
   background: rgba(0, 0, 0, 0.3);
 }
+.config .cont>view{
+  width: 50%;
+}

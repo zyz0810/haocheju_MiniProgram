@@ -4,7 +4,6 @@ let Member = require('../../../service/member.js')
 let Cars = require('../../../service/cars.js')
 let util = require('../../../utils/util.js')
 let config = require('../../../utils/config.js')
-let navCart = require("../../../template/cart/cart.js")
 Page({
 
   /**
@@ -42,6 +41,24 @@ Page({
         newPage: res.data.return_new.pageTotal,
         newcurrentPage: res.data.return_new.currentPage,
       })
+
+
+
+      
+      var list = res.data.return_new.data
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].ready=='1'){
+          list[i].setOut = false
+        }else{
+          list[i].setOut = true 
+        }
+        
+      }
+      that.setData({
+        newList: list
+      })
+
+
     }).carPool({
       pageSize: 10,
       page: 1,
@@ -54,6 +71,21 @@ Page({
         oldPage: res.data.return_new.pageTotal,
         oldcurrentPage: res.data.return_new.currentPage,
       })
+
+
+      var list = res.data.return_new.data
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].ready == '1') {
+          list[i].setOut = false
+        } else {
+          list[i].setOut = true
+        }
+
+      }
+      that.setData({
+        oldList: list
+      })
+
     }).carPool({
       pageSize: 10,
       page: 1,
@@ -66,7 +98,7 @@ Page({
     that.setData({
       tab_current: e.currentTarget.dataset.id
     })
-    if (e.currentTarget.dataset.id == 0) {
+    if (e.currentTarget.dataset.id == 1) {
       that.setData({
         newCar: false,
         oldCar: true
@@ -87,6 +119,37 @@ Page({
     })
   },
 
+
+  editCarpool:function(e){
+    let id = e.currentTarget.dataset.id
+    let index = e.currentTarget.dataset.index
+    var that = this
+    new Cars(function(){
+      if (that.data.tab_current == 1){
+        var list = that.data.newList
+        list[index].setOut = true
+        list[index].ready = '2'
+        that.setData({
+          newList:list
+        })
+
+       
+      }else{
+        var list = that.data.oldList
+        list[index].setOut = true
+        list[index].ready = '2'
+        that.setData({
+          oldList: list
+        })
+      }
+      wx.showToast({
+        title: '状态为已出发',
+      })
+
+
+    }).editCarpool({id:id})
+
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -114,6 +177,18 @@ Page({
         newPage: res.data.return_new.pageTotal,
         newcurrentPage: res.data.return_new.currentPage,
       })
+      var list = res.data.return_new.data
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].ready == '1') {
+          list[i].setOut = false
+        } else {
+          list[i].setOut = true
+        }
+
+      }
+      that.setData({
+        newList: list
+      })
     }).carPool({
       pageSize: 10,
       page: 1,
@@ -125,6 +200,18 @@ Page({
         oldList: res.data.return_new.data,
         oldPage: res.data.return_new.pageTotal,
         oldcurrentPage: res.data.return_new.currentPage,
+      })
+      var list = res.data.return_new.data
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].ready == '1') {
+          list[i].setOut = false
+        } else {
+          list[i].setOut = true
+        }
+
+      }
+      that.setData({
+        oldList: list
       })
     }).carPool({
       pageSize: 10,
@@ -161,7 +248,21 @@ Page({
             showtips: false
           })
         } else {
-          newList = newList.concat(res.data.return_new.data)
+
+          var list = res.data.return_new.data
+          for (let i = 0; i < list.length; i++) {
+            if (list[i].ready == '1') {
+              list[i].setOut = false
+            } else {
+              list[i].setOut = true
+            }
+
+          }
+          // this.setData({
+          //   newList: list
+          // })
+
+          newList = newList.concat(rlist)
           this.setData({
             newList: newList,
             newcurrentPage: res.data.return_new.currentPage
@@ -192,7 +293,16 @@ Page({
             showtips: false
           })
         } else {
-          oldList = oldList.concat(res.data.return_new.data)
+          var list = res.data.return_new.data
+          for (let i = 0; i < list.length; i++) {
+            if (list[i].ready == '1') {
+              list[i].setOut = false
+            } else {
+              list[i].setOut = true
+            }
+
+          }
+          oldList = oldList.concat(list)
           this.setData({
             oldList: oldList,
             oldcurrentPage: res.data.return_new.currentPage
