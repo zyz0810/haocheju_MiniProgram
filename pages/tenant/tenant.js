@@ -42,41 +42,53 @@ Page(Object.assign({}, swiperAutoHeight, {
   onShow: function() {
     //获取首页内容
     var that = this
-    new Tenant(res => {
-      console.log(res)
-      wx.setNavigationBarTitle({
-        title: res.data.goods.providername
-      })
-      this.setData({
-        banner: res.data.goods.images,
-        address: res.data.goods.address,
-        phone: res.data.goods.phone,
-        providername: res.data.goods.providername,
-        newList: res.data.return_newcar.data,
-        newsPage: res.data.return_newcar.pageTotal,
-        newsCurrentPage: res.data.return_newcar.currentPage,
-      })
-    }).newCar({
-      providerid: that.data.tenantId,
-      page: 1,
-      pageSize: 10
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Tenant(res => {
+            console.log(res)
+            wx.setNavigationBarTitle({
+              title: res.data.goods.providername
+            })
+            that.setData({
+              banner: res.data.goods.images,
+              address: res.data.goods.address,
+              phone: res.data.goods.phone,
+              providername: res.data.goods.providername,
+              newList: res.data.return_newcar.data,
+              newsPage: res.data.return_newcar.pageTotal,
+              newsCurrentPage: res.data.return_newcar.currentPage,
+            })
+          }).newCar({
+            providerid: that.data.tenantId,
+            page: 1,
+            pageSize: 10
+          })
+
+
+
+          new Tenant(res => {
+            console.log(res)
+            that.setData({
+              usedList: res.data.return_oldcar.data,
+              usedPage: res.data.return_oldcar.pageTotal,
+              usedCurrentPage: res.data.return_oldcar.currentPage,
+            })
+          }).usedCar({
+            providerid: that.data.tenantId,
+            page: 1,
+            pageSize: 10
+          })
+
+        }
+      }
     })
 
-
-
-    new Tenant(res => {
-      console.log(res)
-      this.setData({
-        usedList: res.data.return_oldcar.data,
-        usedPage: res.data.return_oldcar.pageTotal,
-        usedCurrentPage: res.data.return_oldcar.currentPage,
-      })
-    }).usedCar({
-      providerid: that.data.tenantId,
-      page: 1,
-      pageSize: 10
-    })
-
+    
   },
   tabClick: function(e) {
     let currentTab = e.currentTarget.dataset.id
@@ -151,6 +163,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   onPullDownRefresh: function() {
     var that = this
     new Tenant(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       wx.setNavigationBarTitle({
         title: res.data.goods.providername

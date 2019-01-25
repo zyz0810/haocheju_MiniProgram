@@ -33,19 +33,30 @@ Page({
    */
   onShow: function () {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Cars(res => {
-      console.log(res)
-      wx.setNavigationBarTitle({
-        title: res.data.cartype,
-      })
-      this.setData({
-        pic: res.data.pic
-      })
-    }).usedView({
-      id: that.data.carId,
-      userId: userId
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Cars(res => {
+            console.log(res)
+            wx.setNavigationBarTitle({
+              title: res.data.cartype,
+            })
+            that.setData({
+              pic: res.data.pic
+            })
+          }).usedView({
+            id: that.data.carId,
+            userId: userId
+          })
+        }
+      }
     })
+    
   },
 
   /**

@@ -32,7 +32,7 @@
           <view class='f14'>{{item.name}} {{item.type}}</view>
           <view class='f12'>配置：{{item.carconfig}}</view>
           <view class='f12 yellow01'>销售价：{{item.carprice}}元
-            <text class='fr call' data-id='{{item.productid}}' catchtap='callUs'>立即预约</text>
+            <text class='fr call' data-id='{{item.productid}}' catchtap='appointment'>立即预约</text>
           </view>
         </view>
       </view>
@@ -50,7 +50,7 @@
           <view class='f14'>{{item.name}} {{item.type}}</view>
           <view class='f12'>配置：{{item.carconfig}}</view>
           <view class='f12 yellow01'>销售价：{{item.saleprice}}元
-            <text class='fr call' data-id='{{item.productid}}' catchtap='appointment'>立即预约</text>
+            <text class='fr call' data-id='{{item.oldproductid}}' catchtap='appointment'>立即预约</text>
           </view>
         </view>
       </view>

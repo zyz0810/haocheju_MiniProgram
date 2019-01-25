@@ -129,46 +129,60 @@ Page({
    */
   onShow: function() {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Member(function(res) {
-      that.setData({
-        name: res.data.username ? res.data.username : res.data.nickname,
-        phone: res.data.phone
-      })
-      if (res.data.phone == '') {
-        wx.showModal({
-          title: '',
-          content: '请先绑定手机',
-          success(res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-              util.navigateTo({
-                url: '/pages/member/mobile/mobile',
-              })
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-              wx.navigateBack({})
-            }
-          }
-        })
-      }
-    }).view({
-      userId: userId
-    })
-    new Cars(function(res) {
-      that.setData({
-        brand: res.data.productList,
-        brandId: res.data.productList[0].id
-      })
-      new Cars(function(res) {
-        that.setData({
-          system: res.data
-        })
-      }).mode({
-        carId: res.data.productList[0].id
-      })
-    }).brand()
 
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Member(function (res) {
+            that.setData({
+              name: res.data.username ? res.data.username : res.data.nickname,
+              phone: res.data.phone
+            })
+            if (res.data.phone == '') {
+              wx.showModal({
+                title: '',
+                content: '请先绑定手机',
+                success(res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                    util.navigateTo({
+                      url: '/pages/member/mobile/mobile',
+                    })
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                    wx.navigateBack({})
+                  }
+                }
+              })
+            }
+          }).view({
+            userId: userId
+          })
+          new Cars(function (res) {
+            that.setData({
+              brand: res.data.productList,
+              brandId: res.data.productList[0].id
+            })
+            new Cars(function (res) {
+              that.setData({
+                system: res.data
+              })
+            }).mode({
+              carId: res.data.productList[0].id
+            })
+          }).brand()
+
+        }
+      }
+    })
+
+    
 
 
   },

@@ -11,12 +11,12 @@
 </view>
 
 <view class='contacts'>
-  <view class='lineItem f16'>
+  <view class='lineItem f16 {{name == null?"none":""}}'>
     <view class='center'>{{name}}</view>
   </view>
    <view class='lineItem f13'>
-    <view class='center' hidden='{{!position}}'>{{position}}</view>
-    <view class='right call f13' data-id='{{mobile}}' bindtap='callUs' hidden='{{mobile}}'>拨号联系</view>
+    <view class='center {{position == null?"none":""}}' data-id='{{position == null}}'>{{position}}</view>
+    <view class='right call f13 {{mobile == null?"none":""}}' data-id='{{mobile}}' bindtap='callUs'>拨号联系</view>
   </view>
 </view>
 

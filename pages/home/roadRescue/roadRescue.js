@@ -31,16 +31,29 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userId = wx.getStorageSync('userId')
-    new Personnel(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        road: res.data.return_job.data,
-        roadPage: res.data.return_job.pageTotal,
-        currentPage: res.data.return_job.currentPage
-      })
-    }).road({ page: 1, pageSize: 10 })
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Personnel(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              road: res.data.return_job.data,
+              roadPage: res.data.return_job.pageTotal,
+              currentPage: res.data.return_job.currentPage
+            })
+          }).road({ page: 1, pageSize: 10 })
+        }
+      }
+    })
+    
+
   },
   callUs: function (e) {
     console.log(e)
@@ -79,6 +92,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   onPullDownRefresh: function () {
     var userId = wx.getStorageSync('userId')
     new Personnel(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,

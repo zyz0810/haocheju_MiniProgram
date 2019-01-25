@@ -1,6 +1,4 @@
 @import "/template/actionsheet/actionsheet.wxss";
-@import "/template/password/payPassword.wxss";
-@import "/template/jumpPay/jumpPay.wxss";
 
 page {
   background: #f1f1f1;

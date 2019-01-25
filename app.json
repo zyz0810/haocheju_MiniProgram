@@ -4,7 +4,6 @@
     "pages/member/member",
     "pages/circle/circle",
     "pages/verification/verification",
-    "pages/circle/test/test",
     "pages/memberTenant/memberTenant",
     "pages/member/collection/collection",
     "pages/circle/edit/edit",
@@ -71,12 +70,7 @@
     "pages/discount/view/view",
     "pages/home/index",
     "pages/news/view/view",
-    "pages/pay/fastPay",
-    "pages/pay/success",
-    "pages/pay/payZero",
-    "pages/member/password/password",
-    "pages/member/bind/bind",
-    "pages/include/captcha/captcha"
+    "pages/member/bind/bind"
   ],
   "tabBar": {
     "color": "#666666",

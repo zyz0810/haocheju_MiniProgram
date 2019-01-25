@@ -35,27 +35,40 @@ Page({
   onShow: function () {
     //获取内容
     var that = this
-    new Personnel(res => {
-      console.log(res)
-      var content = res.data.content
-      wx.setNavigationBarTitle({
-        title: res.data.job
-      })
-      this.setData({
-        jobName: res.data.job,
-        money: res.data.money,
-        address: res.data.address,
-        experience: res.data.experience,
-        education: res.data.education,
-        position: res.data.position,
-        mobile: res.data.mobile,
-        name: res.data.name,
-        content: res.data.content
-      })
-      WxParse.wxParse('content', 'html', content, that, 0);
-    }).view({
-      id: that.data.jobId
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Personnel(res => {
+            console.log(res)
+            var content = res.data.content
+            wx.setNavigationBarTitle({
+              title: res.data.job
+            })
+            that.setData({
+              jobName: res.data.job,
+              money: res.data.money,
+              address: res.data.address,
+              experience: res.data.experience,
+              education: res.data.education,
+              position: res.data.position,
+              mobile: res.data.mobile,
+              name: res.data.name,
+              content: res.data.content
+            })
+            WxParse.wxParse('content', 'html', content, that, 0);
+          }).view({
+            id: that.data.jobId
+          })
+        }
+      }
     })
+
+   
   },
   callUs: function (e) {
     console.log(e)
@@ -67,7 +80,7 @@ Page({
       },
       fail(err) {
         if (err.errMsg.indexOf('cancel') === -1) {
-          util.errShow('0551-67698098', 5000)
+          util.errShow(phone, 5000)
         }
 
       }

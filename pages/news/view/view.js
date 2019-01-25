@@ -39,24 +39,35 @@ Page({
   onShow: function () {
   
     var that = this
-    //获取内容
-    new Zixun(res => {
-      console.log(res)
-      var content = res.data.content;
-      wx.setNavigationBarTitle({
-        title: res.data.title
-      })
-      this.setData({
-        title: res.data.title,
-        author: res.data.author,
-        addtime: res.data.addtime,
-        hitcount: res.data.hitcount,
-        content: res.data.content
-      })
-      WxParse.wxParse('content', 'html', content, that, 0);
-    }).view({
-      id: that.data.newsId
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          //获取内容
+          new Zixun(res => {
+            console.log(res)
+            var content = res.data.content;
+            wx.setNavigationBarTitle({
+              title: res.data.title
+            })
+            that.setData({
+              title: res.data.title,
+              author: res.data.author,
+              addtime: res.data.addtime,
+              hitcount: res.data.hitcount,
+              content: res.data.content
+            })
+            WxParse.wxParse('content', 'html', content, that, 0);
+          }).view({
+            id: that.data.newsId
+          })
+        }
+      }
     })
+    
   },
 
   /**

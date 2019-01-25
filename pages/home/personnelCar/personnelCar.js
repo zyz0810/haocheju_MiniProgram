@@ -32,31 +32,43 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function () {
     //获取内容
-    new Personnel(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        job: res.data.return_job.data,
-        jobPage: res.data.return_job.pageTotal,
-        currentPage: res.data.return_job.currentPage
-      })
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Personnel(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              job: res.data.return_job.data,
+              jobPage: res.data.return_job.pageTotal,
+              currentPage: res.data.return_job.currentPage
+            })
 
-      if (res.data.return_job.data.length == 0){
-        this.setData({
-          tips: '暂无列表',
-          showtips:false
-        })
+            if (res.data.return_job.data.length == 0) {
+              that.setData({
+                tips: '暂无列表',
+                showtips: false
+              })
+            }
+
+          }).list({
+            page: 1,
+            pageSize: 10
+          })
+        }
       }
-
-    }).list({
-      page: 1,
-      pageSize: 10
     })
+    
   },
   goView:function(e){
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'view/view' + id,
+      url: 'view/view?jobId=' + id,
     })
   },
 
@@ -80,6 +92,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   onPullDownRefresh: function () {
     //获取内容
     new Personnel(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,

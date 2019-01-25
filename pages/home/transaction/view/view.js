@@ -36,35 +36,49 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function() {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Cars(res => {
-      console.log(res)
-      wx.setNavigationBarTitle({
-        title: res.data.carname + res.data.cartype,
-      })
-      var carcontent = res.data.carcontent;
-      this.setData({
-        banner: res.data.banner,
-        name: res.data.carname + res.data.cartype,
-        price: res.data.carprice,
-        tenant: res.data.goodname,
-        brandlogo: res.data.brandlogo,
-        engine: res.data.engine,
-        totalfuel: res.data.totalfuel,
-        drivingmode: res.data.drivingmode,
-        bodywork: res.data.bodywork,
-        gearbox: res.data.gearbox,
-        warranty: res.data.warranty,
-        carcontent: res.data.carcontent,
-        isCollection: res.data.isCollection,
-        providerid: res.data.providerid,
-        cid: res.data.cid
-      })
-      WxParse.wxParse('carcontent', 'html', carcontent, that, 0);
-    }).newView({
-      id: that.data.carId,
-      userId: userId
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Cars(res => {
+            console.log(res)
+            wx.setNavigationBarTitle({
+              title: res.data.carname + res.data.cartype,
+            })
+            var carcontent = res.data.carcontent;
+            that.setData({
+              banner: res.data.banner,
+              name: res.data.carname + res.data.cartype,
+              price: res.data.carprice,
+              tenant: res.data.goodname,
+              brandlogo: res.data.brandlogo,
+              engine: res.data.engine,
+              totalfuel: res.data.totalfuel,
+              drivingmode: res.data.drivingmode,
+              bodywork: res.data.bodywork,
+              gearbox: res.data.gearbox,
+              warranty: res.data.warranty,
+              carcontent: res.data.carcontent,
+              isCollection: res.data.isCollection,
+              providerid: res.data.providerid,
+              cid: res.data.cid
+            })
+            WxParse.wxParse('carcontent', 'html', carcontent, that, 0);
+          }).newView({
+            id: that.data.carId,
+            userId: userId
+          })
+
+        }
+      }
     })
+
+    
+
   },
   collect:function(e){
     console.log(1212)

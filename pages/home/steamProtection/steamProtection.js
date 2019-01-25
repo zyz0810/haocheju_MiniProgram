@@ -31,16 +31,28 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function () {
     //获取首页内容
-    new Product(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        hotList: res.data.return_hot.data,
-        commendList: res.data.return_shop.data,
-        commendPage: res.data.return_shop.pageTotal,
-        currentPage: res.data.return_shop.currentPage
-      })
-    }).list({ page: 1, pageSize: 10, type: 3 })
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Product(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              hotList: res.data.return_hot.data,
+              commendList: res.data.return_shop.data,
+              commendPage: res.data.return_shop.pageTotal,
+              currentPage: res.data.return_shop.currentPage
+            })
+          }).list({ page: 1, pageSize: 10, type: 3 })
+        }
+      }
+    })
+   
   },
   goView: function (e) {
     let id = e.currentTarget.dataset.id
@@ -69,6 +81,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   onPullDownRefresh: function () {
     //获取首页内容
     new Product(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,

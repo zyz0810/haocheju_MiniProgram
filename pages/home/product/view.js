@@ -35,24 +35,34 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function() {
     var that = this
-  
-    new Product(res => {
-      console.log(res)
-      wx.setNavigationBarTitle({
-        title: res.data.shopgoods
-      })
-      var detail = res.data.detail
-      this.setData({
-        banner: res.data.images,
-        shopgoods: res.data.shopgoods,
-        price: res.data.price,
-        oldPrice: res.data.cost,
-        detail: res.data.detail
-      })
-      WxParse.wxParse('detail', 'html', detail, that, 0);
-    }).view({
-      id: that.data.productId
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Product(res => {
+            console.log(res)
+            wx.setNavigationBarTitle({
+              title: res.data.shopgoods
+            })
+            var detail = res.data.detail
+            that.setData({
+              banner: res.data.images,
+              shopgoods: res.data.shopgoods,
+              price: res.data.price,
+              oldPrice: res.data.cost,
+              detail: res.data.detail
+            })
+            WxParse.wxParse('detail', 'html', detail, that, 0);
+          }).view({
+            id: that.data.productId
+          })
+        }
+      }
     })
+    
   },
   goBuy: function(e) {
     var userId = wx.getStorageSync('userId')

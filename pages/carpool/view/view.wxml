@@ -1,6 +1,9 @@
 <!--pages/carpool/view/view.wxml-->
 <view class='container'>
   <view class='list_item' data-id='{{carPoolId}}' wx:if="{{carPoolType==1}}">
+   <view class='state' hidden='{{ready == 1}}'>
+      <image src='/resources/images/carpool/state.png'></image>
+    </view>
     <view class='lineItem border'>
       <view class='left headImg'>
         <image src='{{headerimg}}' mode='widthFix'></image>
@@ -37,7 +40,9 @@
     </view>
   </view>
   <view class='list_item' data-id='{{carPoolId}}' wx:if="{{carPoolType==2}}">
-
+ <view class='state' hidden='{{ready == 1}}'>
+      <image src='/resources/images/carpool/state.png'></image>
+    </view>
     <view class='lineItem border'>
       <view class='left headImg'>
         <image src='{{headerimg}}' mode='widthFix'></image>

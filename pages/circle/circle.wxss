@@ -1,5 +1,6 @@
 /* pages/circle/circle.wxss */
 
+
 swiper image {
   width: 100%;
 }
@@ -20,28 +21,29 @@ swiper image {
 .img {
   padding-top: 2%;
 }
-.imgView{
+
+.imgView {
   display: inline-block;
-width: 31%;
+  width: 31%;
   height: 25vw;
   margin: 0 2% 2% 0;
   overflow: hidden;
 }
+
 .img image {
   width: 100%;
   height: 100%;
-  
   cursor: pointer;
   float: left;
 }
 
 .reply {
-  line-height: 1.5em;
+  line-height: 2;
   padding: 0 2% 2%;
 }
 
 .praise {
-  padding: 2% 2% 0;
+  padding: 2% 2% 1%;
 }
 
 .praise>text {
@@ -50,10 +52,11 @@ width: 31%;
 
 .operationTxt {
   position: relative;
-  padding: 0;
+  padding: 0 0 0 0;
   margin: 8px 0 0;
   border-radius: 3px;
   background: #f3f3f5;
+  font-size: 0;
 }
 
 .arrow_top {
@@ -150,13 +153,15 @@ width: 31%;
   border: 1px solid #f2f2f2;
   border-radius: 20rpx;
 }
-.send_btn{
+
+.send_btn {
   padding: 5rpx 20rpx;
   border-radius: 15rpx;
   width: 100%;
   line-height: 1.6;
 }
-.mask{
+
+.mask {
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0);

@@ -126,15 +126,27 @@ Page(Object.assign({}, {
     var that = this
     var id = that.data.currentTab
 
-    console.log('当前' + id)
-    paging(that, that.data.sType[id], id, 'up', function() {
-      for (var i = 0; i < that.data.sType.length; i++) {
-        if (i == id) {
-          continue
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+
+          console.log('当前' + id)
+          paging(that, that.data.sType[id], id, 'up', function () {
+            for (var i = 0; i < that.data.sType.length; i++) {
+              if (i == id) {
+                continue
+              }
+              paging(that, that.data.sType[i], i, 'up')
+            }
+          })
         }
-        paging(that, that.data.sType[i], i, 'up')
       }
     })
+
   },
   // PayTempSuccess(val) {
   //   var that = this

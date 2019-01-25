@@ -34,64 +34,71 @@ Page({
    */
   onShow: function () {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Cars(function (res) {
-      that.setData({
-        newList: res.data.return_new.data,
-        newPage: res.data.return_new.pageTotal,
-        newcurrentPage: res.data.return_new.currentPage,
-      })
-
-
-
-      
-      var list = res.data.return_new.data
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].ready=='1'){
-          list[i].setOut = false
-        }else{
-          list[i].setOut = true 
-        }
-        
-      }
-      that.setData({
-        newList: list
-      })
-
-
-    }).carPool({
-      pageSize: 10,
-      page: 1,
-      userId: userId,
-      type: 1
-    })
-    new Cars(function (res) {
-      that.setData({
-        oldList: res.data.return_new.data,
-        oldPage: res.data.return_new.pageTotal,
-        oldcurrentPage: res.data.return_new.currentPage,
-      })
-
-
-      var list = res.data.return_new.data
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].ready == '1') {
-          list[i].setOut = false
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
         } else {
-          list[i].setOut = true
+          var userId = wx.getStorageSync('userId')
+          new Cars(function (res) {
+            that.setData({
+              newList: res.data.return_new.data,
+              newPage: res.data.return_new.pageTotal,
+              newcurrentPage: res.data.return_new.currentPage,
+            })
+            var list = res.data.return_new.data
+            for (let i = 0; i < list.length; i++) {
+              if (list[i].ready == '1') {
+                list[i].setOut = false
+              } else {
+                list[i].setOut = true
+              }
+
+            }
+            that.setData({
+              newList: list
+            })
+
+
+          }).carPool({
+            pageSize: 10,
+            page: 1,
+            userId: userId,
+            type: 1
+          })
+          new Cars(function (res) {
+            that.setData({
+              oldList: res.data.return_new.data,
+              oldPage: res.data.return_new.pageTotal,
+              oldcurrentPage: res.data.return_new.currentPage,
+            })
+
+
+            var list = res.data.return_new.data
+            for (let i = 0; i < list.length; i++) {
+              if (list[i].ready == '1') {
+                list[i].setOut = false
+              } else {
+                list[i].setOut = true
+              }
+
+            }
+            that.setData({
+              oldList: list
+            })
+
+          }).carPool({
+            pageSize: 10,
+            page: 1,
+            userId: userId,
+            type: 2
+          })
         }
-
       }
-      that.setData({
-        oldList: list
-      })
-
-    }).carPool({
-      pageSize: 10,
-      page: 1,
-      userId: userId,
-      type: 2
     })
+   
   },
   tabClick: function (e) {
     var that = this;
@@ -172,6 +179,7 @@ Page({
     var that = this
     var userId = wx.getStorageSync('userId')
     new Cars(function (res) {
+      wx.stopPullDownRefresh()
       that.setData({
         newList: res.data.return_new.data,
         newPage: res.data.return_new.pageTotal,

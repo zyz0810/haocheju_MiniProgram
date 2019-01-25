@@ -38,16 +38,27 @@ Page({
    */
   onShow: function () {
     var that = this
-    new Order(function(res){
-        that.setData({
-          trade_num: res.data.order.trade_no,
-          img: res.data.img,
-          shopgoods: res.data.goods.shopgoods,
-          cost: res.data.order.cost,
-          nickname: res.data.info.nickname,
-          addtime: res.data.order.addtime
-        })
-    }).detail({ trade_no: that.data.trade_no });
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Order(function (res) {
+            that.setData({
+              trade_num: res.data.order.trade_no,
+              img: res.data.img,
+              shopgoods: res.data.goods.shopgoods,
+              cost: res.data.order.cost,
+              nickname: res.data.info.nickname,
+              addtime: res.data.order.addtime
+            })
+          }).detail({ trade_no: that.data.trade_no });
+        }
+      }
+    })
+    
   },
 
   /**

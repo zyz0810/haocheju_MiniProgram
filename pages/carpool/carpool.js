@@ -63,23 +63,38 @@ Page({
    */
   onShow: function () {
     //获取首页内容
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        oneList: res.data.return_new.data,
-        onePage: res.data.return_new.pageTotal,
-        currentOnePage: res.data.return_new.currentPage
-      })
-    }).carPool({ page: 1, pageSize: 10, type: '1' })
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        twoList: res.data.return_new.data,
-        twoPage: res.data.return_new.pageTotal,
-        currentTwoPage: res.data.return_new.currentPage
-      })
-    }).carPool({ page: 1, pageSize: 10, type: '2' })
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Cars(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              oneList: res.data.return_new.data,
+              onePage: res.data.return_new.pageTotal,
+              currentOnePage: res.data.return_new.currentPage
+            })
+          }).carPool({ page: 1, pageSize: 10, type: '1' })
+          new Cars(res => {
+            console.log(res)
+            that.setData({
+              twoList: res.data.return_new.data,
+              twoPage: res.data.return_new.pageTotal,
+              currentTwoPage: res.data.return_new.currentPage
+            })
+          }).carPool({ page: 1, pageSize: 10, type: '2' })
+        }
+      }
+    })
+
+
+
+    
   },
   findCar:function(){
     util.navigateTo({
@@ -118,6 +133,7 @@ Page({
    */
   onPullDownRefresh: function () {
     new Cars(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,
@@ -127,6 +143,7 @@ Page({
       })
     }).carPool({ page: 1, pageSize: 10, type: '1' })
     new Cars(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         twoList: res.data.return_new.data,

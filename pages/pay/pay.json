@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "确认订单",
-  "usingComponents": {
-    "technicalCart-component": "/component/technicalCart/technical"
-  }
+  "navigationBarTitleText": "确认订单"
 }

@@ -51,25 +51,37 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function () {
     var that = this
-    new Drivers(res => {
-      console.log(res)
-      wx.setNavigationBarTitle({
-        title: res.data.name
-      })
-      var abstract = res.data.abstract
-      this.setData({
-        banner: res.data.banner,
-        name: res.data.name,
-        mobile: res.data.mobile,
-        grade: res.data.grade,
-        college: res.data.college,
-        qualified: res.data.qualified,
-        address: res.data.address,
-        abstract: res.data.abstract,
-        environment: res.data.environment
-      })
-      WxParse.wxParse('abstract', 'html', abstract, that, 0);
-    }).view({ id: that.data.schoolId})
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Drivers(res => {
+            console.log(res)
+            wx.setNavigationBarTitle({
+              title: res.data.name
+            })
+            var abstract = res.data.abstract
+            that.setData({
+              banner: res.data.banner,
+              name: res.data.name,
+              mobile: res.data.mobile,
+              grade: res.data.grade,
+              college: res.data.college,
+              qualified: res.data.qualified,
+              address: res.data.address,
+              abstract: res.data.abstract,
+              environment: res.data.environment
+            })
+            WxParse.wxParse('abstract', 'html', abstract, that, 0);
+          }).view({ id: that.data.schoolId })
+        }
+      }
+    })
+    
   },
 
   /**

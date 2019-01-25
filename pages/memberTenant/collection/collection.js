@@ -33,31 +33,42 @@ Page({
    */
   onShow: function() {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Member(function(res) {
-      that.setData({
-        newList:res.data.data,
-        newPage: res.data.pageTotal,
-        newcurrentPage: res.data.currentPage,
-      })
-    }).collection({
-      pageSize: 10,
-      page: 1,
-      userId: userId,
-      type: 1
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Member(function (res) {
+            that.setData({
+              newList: res.data.data,
+              newPage: res.data.pageTotal,
+              newcurrentPage: res.data.currentPage,
+            })
+          }).collection({
+            pageSize: 10,
+            page: 1,
+            userId: userId,
+            type: 1
+          })
+          new Member(function (res) {
+            that.setData({
+              oldList: res.data.data,
+              oldPage: res.data.pageTotal,
+              oldcurrentPage: res.data.currentPage,
+            })
+          }).collection({
+            pageSize: 10,
+            page: 1,
+            userId: userId,
+            type: 2
+          })
+        }
+      }
     })
-    new Member(function (res) {
-      that.setData({
-        oldList: res.data.data,
-        oldPage: res.data.pageTotal,
-        oldcurrentPage: res.data.currentPage,
-      })
-    }).collection({
-      pageSize: 10,
-      page: 1,
-      userId: userId,
-      type: 2
-    })
+    
   },
   tabClick: function(e) {
     var that = this;

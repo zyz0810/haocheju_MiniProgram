@@ -1,9 +1,9 @@
 <!--pages/circle/circle.wxml-->
 <import src="/template/swiperIndex/swiper.wxml" />
-<view bindtap='publish' class="publish f40 tc">+</view>
+<view bindtap='publish' class="publish f40 tc" wx:if='{{circle}}'>+</view>
 <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap',showDot:true}}"></template>
-<view class='list'>
-  <block wx:for='{{list}}' wx:key='index'>
+<view class='list' wx:if='{{circle}}'>
+  <view wx:for='{{list}}' wx:key='index'>
     <view class='list_item' data-id='{{item.id}}'>
       <view class='lineItem head'>
         <view class='left headImg'>
@@ -27,7 +27,7 @@
             <view class='center prise_btn' data-index='{{index}}' bindtap='contBtn'>
               <text class="iconfont icon-pinglun f20 blue01 operation_btn"></text>
             </view>
-            <view class='flex prise_cont f14' hidden='{{item.show}}'>
+            <view class='flex prise_cont f14' wx:if='{{item.show}}'>
 
               <view class='flex-item tc' data-id='{{item.id}}' data-index='{{index}}' hidden='{{item.isspot != 0}}' bindtap='like'>
                 <text class='iconfont icon-heart f16'></text>点赞
@@ -46,13 +46,13 @@
             <view class='praise' hidden='{{item.spotlist.length==0}}'>
               <text class='iconfont icon-heart f13 blue02'></text>
 
-              <block wx:for="{{item.spotlist}}" wx:for-item="items" wx:key="items.id" wx:for-index="indexspotlist">
+              <block wx:for="{{item.spotlist}}" wx:for-item="items" wx:key="items.id" wx:for-index="indexspotlist" wx:if='{{item.spotlist.length!=0}}'>
                 <text class='blue02 f13' data-id='{{items.id}}' wx:if="{{indexspotlist == 0}}">{{items.nickname}}</text>
                 <text class='blue02 f13' data-id='{{items.id}}' wx:if="{{indexspotlist != 0}}">, {{items.nickname}}</text>
               </block>
               <!-- <text class='blue02 f13'>,11</text> -->
             </view>
-            <view class='reply top_border' hidden='{{item.comment.length==0}}'>
+            <view class='reply top_border f13' wx:if='{{item.comment.length!=0}}'>
               <block wx:for="{{item.comment}}" wx:for-item="items" wx:key="items.id" wx:for-index="indexs">
                 <view class='f13 clr_mediumGray' data-id='{{item.id}}' data-name='{{items.author}}' data-index='{{index}}' bindtap='goPReply'>
                   <text class='blue01'>{{items.author}}</text>
@@ -68,15 +68,21 @@
     </view>
     <!-- <view class='mask' bindtap='hiddenReply' hidden='{{item.replyInput}}'></view> -->
     <form>
-    <view class='reply_input lineItem f14' data-index='{{index}}' hidden='{{item.replyInput}}'>
-      <view class='center'>
-        <input type='text' placeholder='回复{{name}}：' bindinput='content' value='{{content}}' confirm-type="send" focus='{{focus}}' bindconfirm="goSend"></input>
+      <view class='reply_input lineItem f14' data-index='{{index}}' wx:if='{{item.replyInput}}'>
+        <view class='center'>
+          <input type='text' placeholder='回复{{name}}：' data-id='{{item.id}}' data-index='{{index}}' bindinput='content' value='{{item.contentcComment}}' confirm-type="send" focus='{{item.focus}}' bindconfirm="goInputSend" bindblur="goBlur"></input>
+        </view>
+        <view class='right'>
+          <button class='send_btn baseBg f14 clr-white' data-cont='' data-id='{{item.id}}' data-index='{{index}}' formType="reset" bindtap='goSend'>发送</button>
+        </view>
       </view>
-      <view class='right'>
-        <button class='send_btn baseBg f14 clr-white' data-cont='' data-id='{{item.id}}' data-index='{{index}}' formType="reset" bindtap='goSend'>发送</button>
-      </view>
-    </view>
     </form>
-  </block>
+  </view>
 
+</view>
+
+
+
+<view class='tc' style='margin:50px auto;' wx:if='{{circlePage}}'>
+  <text>此功能暂未开放</text>
 </view>

@@ -33,20 +33,31 @@ Page({
    */
   onShow: function () {
     var that = this
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        product: res.data.return_newcar.data,
-        productPage: res.data.return_newcar.pageTotal,
-        currentPage: res.data.return_newcar.currentPage
-      })
-    }).usedList({
-      pageSize: 10,
-      page: 1,
-      brandname: that.data.keyWord,
-      price: 0,
-      type: 0
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Cars(res => {
+            console.log(res)
+            that.setData({
+              product: res.data.return_newcar.data,
+              productPage: res.data.return_newcar.pageTotal,
+              currentPage: res.data.return_newcar.currentPage
+            })
+          }).usedList({
+            pageSize: 10,
+            page: 1,
+            brandname: that.data.keyWord,
+            price: 0,
+            type: 0
+          })
+        }
+      }
     })
+ 
   },
 
   /**
@@ -69,6 +80,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     new Cars(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         product: res.data.return_newcar.data,

@@ -32,17 +32,27 @@ Page({
    */
   onShow: function () {
     var that = this
-
-    new Drivers(res => {
-      console.log(res)
-      this.setData({
-        list: res.data.return_job.data,
-        schoolPage: res.data.return_job.pageTotal,
-        currentPage: res.data.return_job.currentPage,
-      })
-    }).list({
-      page: '1', pageSize: 10
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Drivers(res => {
+            console.log(res)
+            that.setData({
+              list: res.data.return_job.data,
+              schoolPage: res.data.return_job.pageTotal,
+              currentPage: res.data.return_job.currentPage,
+            })
+          }).list({
+            page: '1', pageSize: 10
+          })
+        }
+      }
     })
+    
   },
 
 
@@ -67,6 +77,7 @@ Page({
     var that = this
 
     new Drivers(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         list: res.data.return_job.data,

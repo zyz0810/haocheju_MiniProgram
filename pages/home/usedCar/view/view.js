@@ -35,45 +35,57 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function () {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Cars(res => {
-      console.log(res)
-      wx.setNavigationBarTitle({
-        title: res.data.carname + res.data.cartype,
-      })
-      var carintroduce = res.data.carintroduce;
-      var servicefeedesc = res.data.servicefeedesc;
-      this.setData({
-        banner: res.data.banner,
-        attribution: res.data.attribution,
-        cardate: res.data.cardate,
-        carintroduce: res.data.carintroduce,
-        carname: res.data.carname,
-        cartype: res.data.cartype,
-        cid: res.data.cid,
-        color: res.data.color,
-        countpic: res.data.countpic,
-        displacement: res.data.displacement,
-        gearbox: res.data.gearbox,
-        goodname: res.data.goodname,
-        isCollection: res.data.isCollection,
-        licenceproperty: res.data.licenceproperty,
-        mileage: res.data.mileage,
-        productiondate: res.data.productiondate,
-        saleprice: res.data.saleprice,
-        servicefeedesc: res.data.servicefeedesc,
-        totalprice: res.data.totalprice,
-        useproperty: res.data.useproperty,
-        providerid: res.data.providerid,
-        cid: res.data.cid,
-        config: res.data.config
-      })
-      WxParse.wxParse('carintroduce', 'html', carintroduce, that, 0);
-      WxParse.wxParse('servicefeedesc', 'html', servicefeedesc, that, 0);
-    }).usedView({
-      id: that.data.carId,
-      userId: userId
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Cars(res => {
+            console.log(res)
+            wx.setNavigationBarTitle({
+              title: res.data.carname + res.data.cartype,
+            })
+            var carintroduce = res.data.carintroduce;
+            var servicefeedesc = res.data.servicefeedesc;
+            that.setData({
+              banner: res.data.banner,
+              attribution: res.data.attribution,
+              cardate: res.data.cardate,
+              carintroduce: res.data.carintroduce,
+              carname: res.data.carname,
+              cartype: res.data.cartype,
+              cid: res.data.cid,
+              color: res.data.color,
+              countpic: res.data.countpic,
+              displacement: res.data.displacement,
+              gearbox: res.data.gearbox,
+              goodname: res.data.goodname,
+              isCollection: res.data.isCollection,
+              licenceproperty: res.data.licenceproperty,
+              mileage: res.data.mileage,
+              productiondate: res.data.productiondate,
+              saleprice: res.data.saleprice,
+              servicefeedesc: res.data.servicefeedesc,
+              totalprice: res.data.totalprice,
+              useproperty: res.data.useproperty,
+              providerid: res.data.providerid,
+              cid: res.data.cid,
+              config: res.data.config
+            })
+            WxParse.wxParse('carintroduce', 'html', carintroduce, that, 0);
+            WxParse.wxParse('servicefeedesc', 'html', servicefeedesc, that, 0);
+          }).usedView({
+            id: that.data.carId,
+            userId: userId
+          })
+        }
+      }
     })
+    
   },
   collect: function (e) {
     console.log(1212)

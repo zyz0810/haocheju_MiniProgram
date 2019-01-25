@@ -6,11 +6,11 @@ Page(Object.assign({}, {
   data: {
     memberInfo: {}
   },
-  onLoad: function (options) {
-    
-  },
-  onShow: function () {
+  onLoad: function(options) {
 
+  },
+  onShow: function() {
+    var that = this
 
     wx.getSetting({
       success(res) {
@@ -18,75 +18,77 @@ Page(Object.assign({}, {
           wx.navigateTo({
             url: '/pages/scope/index',
           })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Member(res => {
+            console.log(res)
+            that.setData({
+              avatar: res.data.avatar,
+              nickname: res.data.nickname ? res.data.nickname : res.data.username,
+              signature: res.data.signature,
+              phone: res.data.phone,
+              type: res.data.type,
+              idtype: res.data.idtype,
+              verify: res.data.verify
+            })
+          }).view({
+            userId: userId
+          })
         }
       }
     })
-
-    var userId = wx.getStorageSync('userId')
-    new Member(res => {
-      console.log(res)
-      this.setData({
-        avatar: res.data.avatar,
-        nickname: res.data.nickname ? res.data.nickname : res.data.username,
-        signature: res.data.signature,
-        phone: res.data.phone,
-        type: res.data.type,
-        idtype: res.data.idtype,
-        verify: res.data.verify
-      })
-    }).view({ userId: userId })
   },
-  goCarpool: function () {
+  goCarpool: function() {
     util.navigateTo({
       url: 'carpool/carpool',
     })
   },
-  goCircle:function(){
+  goCircle: function() {
     util.navigateTo({
       url: 'circle/circle',
     })
   },
-  goOrder:function(e){
+  goOrder: function(e) {
     var id = e.currentTarget.dataset.current
     util.navigateTo({
       url: 'order/order?id=' + id,
     })
   },
-  goEdit: function () {
+  goEdit: function() {
     util.navigateTo({
       url: 'edit/edit',
     })
   },
-  goCar:function(){
+  goCar: function() {
     util.navigateTo({
       url: 'collection/collection',
     })
   },
-  goInsurance: function () {
+  goInsurance: function() {
     util.navigateTo({
       url: '/pages/home/insurance/insurance',
     })
   },
-  goAuthentication:function(){
+  goAuthentication: function() {
     util.navigateTo({
       url: 'authentication/authentication',
     })
   },
-  goFavorite:function(){
+  goFavorite: function() {
     util.navigateTo({
       url: 'collection/collection',
     })
   },
-  goDealer: function () {
+  goDealer: function() {
     util.navigateTo({
       url: 'dealer/dealer',
     })
   },
-  goFeedback:function() {
+  goFeedback: function() {
     util.navigateTo({
       url: 'feedback/feedback',
     })
-  }, 
+  },
   goPhone: function() {
     util.navigateTo({
       url: 'mobile/mobile',

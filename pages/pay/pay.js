@@ -22,25 +22,70 @@ Page(Object.assign({}, {
   onShow: function (){
 
     var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
 
-    new Order(res => {
-      console.log(res)
-      this.setData({
-        goodsDesc: res.data.goods.desc,
-        goodsLogo: res.data.goods.logo,
-        shopgoods: res.data.goods.shopgoods,
-        // oldPrice: res.data.price,
-        nickname: res.data.info.nickname,
-        phone: res.data.info.phone,
-        addtime: res.data.order.addtime,
-        cost: res.data.order.cost,
-        discount: res.data.order.discount,
-        money: res.data.order.money,
-        trade_no: res.data.order.trade_no
-      })
-    }).detail({
-      trade_no: that.data.trade_no
+
+
+
+          var userId = wx.getStorageSync('userId')
+          new Member(function (res) {
+        
+            if (res.data.phone == '') {
+              wx.showModal({
+                title: '',
+                content: '请先绑定手机',
+                success(res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                    util.navigateTo({
+                      url: '/pages/member/mobile/mobile',
+                    })
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                    wx.navigateBack({})
+                  }
+                }
+              })
+            }
+
+          }).view({
+            userId: userId
+          });
+
+          new Order(res => {
+            console.log(res)
+            that.setData({
+              goodsDesc: res.data.goods.desc,
+              goodsLogo: res.data.goods.logo,
+              shopgoods: res.data.goods.shopgoods,
+              // oldPrice: res.data.price,
+              nickname: res.data.info.nickname,
+              phone: res.data.info.phone,
+              addtime: res.data.order.addtime,
+              cost: res.data.order.cost,
+              discount: res.data.order.discount,
+              money: res.data.order.money,
+              trade_no: res.data.order.trade_no
+            })
+          }).detail({
+            trade_no: that.data.trade_no
+          })
+
+
+
+
+        }
+      }
     })
+
+
+    
   },
 
   actionsheetHide() {

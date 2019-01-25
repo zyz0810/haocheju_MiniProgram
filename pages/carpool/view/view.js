@@ -35,45 +35,62 @@ Page({
    */
   onShow: function () {
     var that = this
-    if (that.data.carPoolType == '1'){
-      new Cars(function (res) {
-        that.setData({
-          headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
-          name: res.data.name,
-          wz_addtime: res.data.addtime,
-          start: res.data.start,
-          start_address: res.data.start_address,
-          end: res.data.end,
-          end_address: res.data.end_address,
-          seat: res.data.seat,
-          brand: res.data.brand,
-          series: res.data.series,
-          startdate: res.data.startdate,
-          starttime: res.data.starttime,
-          mobile: res.data.mobile,
-          remark: res.data.remarks
-        })
 
-      }).carpoolDetail({ id: that.data.carPoolId });
-    }else{
-      new Cars(function (res) {
-        that.setData({
-          headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
-          name: res.data.name,
-          wz_addtime: res.data.wz_addtime,
-          start: res.data.start,
-          start_address: res.data.start_address,
-          end: res.data.end,
-          end_address: res.data.end_address,
-          seat: res.data.seat,
-          mobile: res.data.mobile,
-          startdate: res.data.startdate,
-          starttime: res.data.starttime,
-          remark: res.data.remark
-        })
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
 
-      }).carpoolDetail({ id: that.data.carPoolId });
-    }
+          if (that.data.carPoolType == '1') {
+            new Cars(function (res) {
+              that.setData({
+                headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
+                name: res.data.name,
+                wz_addtime: res.data.addtime,
+                start: res.data.start,
+                start_address: res.data.start_address,
+                end: res.data.end,
+                end_address: res.data.end_address,
+                seat: res.data.seat,
+                brand: res.data.brand,
+                series: res.data.series,
+                startdate: res.data.startdate,
+                starttime: res.data.starttime,
+                mobile: res.data.mobile,
+                remark: res.data.remarks,
+                ready: res.data.ready
+              })
+
+            }).carpoolDetail({ id: that.data.carPoolId });
+          } else {
+            new Cars(function (res) {
+              that.setData({
+                headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
+                name: res.data.name,
+                wz_addtime: res.data.wz_addtime,
+                start: res.data.start,
+                start_address: res.data.start_address,
+                end: res.data.end,
+                end_address: res.data.end_address,
+                seat: res.data.seat,
+                mobile: res.data.mobile,
+                startdate: res.data.startdate,
+                starttime: res.data.starttime,
+                remark: res.data.remarks,
+                ready: res.data.ready
+              })
+
+            }).carpoolDetail({ id: that.data.carPoolId });
+          }
+        }
+      }
+    })
+
+
+    
     
   },
   //联系我们

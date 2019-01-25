@@ -29,15 +29,28 @@ Page(Object.assign({}, swiperAutoHeight, {
 
   onShow(){
     //获取首页内容
-    new First(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        menu: res.data.return_meun,
-        ad: res.data.return_place,
-        news: res.data.return_new
-      })
-    }).do()
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new First(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              menu: res.data.return_meun,
+              ad: res.data.return_place,
+              news: res.data.return_new
+            })
+          }).do()
+        }
+      }
+    })
+    
+
   },
   
   goMenu:function(e){

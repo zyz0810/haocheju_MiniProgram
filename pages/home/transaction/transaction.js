@@ -34,19 +34,31 @@ Page(Object.assign({}, swiperAutoHeight,{
    */
   onShow: function () {
     //获取首页内容
-    new Cars(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        hotList: res.data.return_oldcar.data,
-        commendList: res.data.return_newcar.data,
-        commendPage: res.data.return_newcar.pageTotal,
-        currentPage: res.data.return_newcar.currentPage
-      })
-    }).newList({
-      page: 1,
-      pageSize: 10
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Cars(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              hotList: res.data.return_oldcar.data,
+              commendList: res.data.return_newcar.data,
+              commendPage: res.data.return_newcar.pageTotal,
+              currentPage: res.data.return_newcar.currentPage
+            })
+          }).newList({
+            page: 1,
+            pageSize: 10
+          })
+        }
+      }
     })
+   
   },
   goOldView: function (e) {
     let id = e.currentTarget.dataset.id
@@ -81,6 +93,7 @@ Page(Object.assign({}, swiperAutoHeight,{
    */
   onPullDownRefresh: function () {
     new Cars(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,

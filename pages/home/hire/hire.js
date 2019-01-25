@@ -325,16 +325,29 @@ Page({
    */
   onShow: function() {
     var that = this
-    new Rent(function(res) {
-      that.setData({
-        addressList: res.data.data,
-        addressPage: res.data.pageTotal,
-        currentAddressPage: res.data.currentPage
-      })
-    }).tenant({
-      pageSize: 10,
-      page: 1
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Rent(function (res) {
+            that.setData({
+              addressList: res.data.data,
+              addressPage: res.data.pageTotal,
+              currentAddressPage: res.data.currentPage
+            })
+          }).tenant({
+            pageSize: 10,
+            page: 1
+          })
+        }
+      }
     })
+
+   
   },
   tab_switch: function(e) {
     var that = this;

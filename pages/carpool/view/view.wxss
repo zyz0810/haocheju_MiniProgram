@@ -81,3 +81,15 @@ page {
   background: -webkit-linear-gradient(#1a89df, #0971c0);
   background: linear-gradient(#1a89df, #0971c0);
 }
+.state{
+  position: absolute;
+  top: 50rpx;
+  right: 50rpx;
+  z-index: 999;
+  width: 150rpx;
+  height: 150rpx;
+}
+.state image{
+  width: 100%;
+  height: 100%;
+}

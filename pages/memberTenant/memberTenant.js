@@ -10,19 +10,31 @@ Page(Object.assign({}, {
 
   },
   onShow: function () {
-    var userId = wx.getStorageSync('userId')
-    new Member(res => {
-      console.log(res)
-      this.setData({
-        avatar: res.data.avatar,
-        nickname: res.data.nickname ? res.data.nickname : res.data.username,
-        signature: res.data.signature,
-        phone: res.data.phone,
-        type: res.data.type,
-        idtype: res.data.idtype,
-        verify: res.data.verify
-      })
-    }).view({ userId: userId })
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Member(res => {
+            console.log(res)
+            that.setData({
+              avatar: res.data.avatar,
+              nickname: res.data.nickname ? res.data.nickname : res.data.username,
+              signature: res.data.signature,
+              phone: res.data.phone,
+              type: res.data.type,
+              idtype: res.data.idtype,
+              verify: res.data.verify
+            })
+          }).view({ userId: userId })
+        }
+      }
+    })
+    
   },
   goCarpool: function () {
     util.navigateTo({

@@ -41,18 +41,30 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function() {
     //获取内容
-    new Zixun(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        news: res.data.return_new.data,
-        newsPage: res.data.return_new.pageTotal,
-        currentPage: res.data.return_new.currentPage
-      })
-    }).list({
-      page: 1,
-      pageSize: 10
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Zixun(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              news: res.data.return_new.data,
+              newsPage: res.data.return_new.pageTotal,
+              currentPage: res.data.return_new.currentPage
+            })
+          }).list({
+            page: 1,
+            pageSize: 10
+          })
+        }
+      }
     })
+   
   },
 
   /**
@@ -74,6 +86,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onPullDownRefresh: function() {
     new Zixun(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,

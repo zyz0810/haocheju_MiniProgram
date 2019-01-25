@@ -35,49 +35,60 @@ Page({
    */
   onShow: function () {
     var that = this
-    if (that.data.carPoolType == '1'){
-      new Cars(function (res) {
-        that.setData({
-          headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
-          name: res.data.name,
-          wz_addtime: res.data.wz_addtime,
-          start: res.data.start,
-          start_address: res.data.start_address,
-          end: res.data.end,
-          end_address: res.data.end_address,
-          seat: res.data.seat,
-          brand: res.data.brand,
-          series: res.data.series,
-          startdate: res.data.startdate,
-          starttime: res.data.starttime,
-          mobile: res.data.mobile,
-          remark: res.data.remarks,
-          ready: res.data.ready,
-          carpoolId:res.data.id
-        })
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          if (that.data.carPoolType == '1') {
+            new Cars(function (res) {
+              that.setData({
+                headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
+                name: res.data.name,
+                wz_addtime: res.data.wz_addtime,
+                start: res.data.start,
+                start_address: res.data.start_address,
+                end: res.data.end,
+                end_address: res.data.end_address,
+                seat: res.data.seat,
+                brand: res.data.brand,
+                series: res.data.series,
+                startdate: res.data.startdate,
+                starttime: res.data.starttime,
+                mobile: res.data.mobile,
+                remark: res.data.remarks,
+                ready: res.data.ready,
+                carpoolId: res.data.id
+              })
 
-      }).carpoolDetail({ id: that.data.carPoolId });
-    }else{
-      new Cars(function (res) {
-        that.setData({
-          headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
-          name: res.data.name,
-          wz_addtime: res.data.wz_addtime,
-          start: res.data.start,
-          start_address: res.data.start_address,
-          end: res.data.end,
-          end_address: res.data.end_address,
-          seat: res.data.seat,
-          mobile: res.data.mobile,
-          startdate: res.data.startdate,
-          starttime: res.data.starttime,
-          remark: res.data.remarks,
-          ready: res.data.ready,
-          carpoolId: res.data.id
-        })
+            }).carpoolDetail({ id: that.data.carPoolId });
+          } else {
+            new Cars(function (res) {
+              that.setData({
+                headerimg: res.data.headerimg ? res.data.headerimg : '/resources/images/logo.png',
+                name: res.data.name,
+                wz_addtime: res.data.wz_addtime,
+                start: res.data.start,
+                start_address: res.data.start_address,
+                end: res.data.end,
+                end_address: res.data.end_address,
+                seat: res.data.seat,
+                mobile: res.data.mobile,
+                startdate: res.data.startdate,
+                starttime: res.data.starttime,
+                remark: res.data.remarks,
+                ready: res.data.ready,
+                carpoolId: res.data.id
+              })
 
-      }).carpoolDetail({ id: that.data.carPoolId });
-    }
+            }).carpoolDetail({ id: that.data.carPoolId });
+          }
+        }
+      }
+    })
+    
     
   },
   editCarpool: function (e) {

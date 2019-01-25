@@ -34,49 +34,61 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onShow: function () {
     var that = this
-    var userId = wx.getStorageSync('userId')
-    new Member(res => {
-      console.log(res)
-      this.setData({
-        // avatar: res.data.avatar,
-        myname: res.data.nickname ? res.data.nickname : res.data.username,
-        // signature: res.data.signature,
-        // phone: res.data.phone,
-        // type: res.data.type,
-        // idtype: res.data.idtype,
-        // verify: res.data.verify
-      })
-    }).view({
-      userId: userId
-    })
-    new Contact(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        list: res.data.return_new.data,
-        listPage: res.data.return_new.pageTotal,
-        currentPage: res.data.return_new.currentPage
-      })
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          var userId = wx.getStorageSync('userId')
+          new Member(res => {
+            console.log(res)
+            that.setData({
+              // avatar: res.data.avatar,
+              myname: res.data.nickname ? res.data.nickname : res.data.username,
+              // signature: res.data.signature,
+              // phone: res.data.phone,
+              // type: res.data.type,
+              // idtype: res.data.idtype,
+              // verify: res.data.verify
+            })
+          }).view({
+            userId: userId
+          })
+          new Contact(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              list: res.data.return_new.data,
+              listPage: res.data.return_new.pageTotal,
+              currentPage: res.data.return_new.currentPage
+            })
 
 
-      var list = res.data.return_new.data
-      for (let i = 0; i < list.length; i++) {
-        list[i].show = true
-        list[i].replyInput = true
-      }
-      this.setData({
-        list: list
-      })
+            var list = res.data.return_new.data
+            for (let i = 0; i < list.length; i++) {
+              list[i].show = true
+              list[i].replyInput = true
+            }
+            that.setData({
+              list: list
+            })
 
-    }).list({
-      page: 1,
-      pageSize: 10,
-      userId: userId,
-    })
+          }).list({
+            page: 1,
+            pageSize: 10,
+            userId: userId,
+          })
 
     // console.log(that.data.list.length)
 
 
+        }
+      }
+    })
+
+    
 
   },
   publish: function () {

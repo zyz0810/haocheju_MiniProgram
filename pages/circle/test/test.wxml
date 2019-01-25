@@ -1,5 +1,0 @@
-<!--pages/circle/test/test.wxml-->
-<button bindtap='chooseImg'>选择图片</button>
-<view><image src='{{img_l}}' bindtap='preview_img'></image></view>
- 
-<button bindtap='up_img'>上传</button>

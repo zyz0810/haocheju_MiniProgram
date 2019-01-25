@@ -45,22 +45,33 @@ Page({
    */
   onShow: function() {
     var that = this
-    new Cars(function(res) {
-      that.setData({
-        brandlist: res.data.brandlist,
-        pricelist: res.data.pricelist,
-        typelist: res.data.typelist,
-        list: res.data.return_newcar.data,
-        page: res.data.return_newcar.pageTotal,
-        currentPage: res.data.return_newcar.currentPage
-      })
-    }).usedList({
-      pageSize: 10,
-      page: 1,
-      brandname: 0,
-      price: 0,
-      type: 0
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Cars(function (res) {
+            that.setData({
+              brandlist: res.data.brandlist,
+              pricelist: res.data.pricelist,
+              typelist: res.data.typelist,
+              list: res.data.return_newcar.data,
+              page: res.data.return_newcar.pageTotal,
+              currentPage: res.data.return_newcar.currentPage
+            })
+          }).usedList({
+            pageSize: 10,
+            page: 1,
+            brandname: 0,
+            price: 0,
+            type: 0
+          })
+        }
+      }
     })
+    
   },
   listLoad(){
     var that = this
@@ -206,6 +217,7 @@ Page({
   onPullDownRefresh: function() {
     var that = this
     new Cars(function (res) {
+      wx.stopPullDownRefresh()
       that.setData({
         brandlist: res.data.brandlist,
         pricelist: res.data.pricelist,

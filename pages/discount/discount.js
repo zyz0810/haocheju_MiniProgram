@@ -31,20 +31,35 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    new Product(res => {
-      console.log(res)
-      this.setData({
-        banner: res.data.return_banner,
-        brand: res.data.list,
-        product: res.data.return_shop.data,
-        productPage: res.data.return_shop.pageTotal,
-        currentPage: res.data.return_shop.currentPage
-      })
-    }).list({
-      flag: 1,
-      page: 1,
-      pageSize: 10,
+
+    var that = this
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '/pages/scope/index',
+          })
+        } else {
+          new Product(res => {
+            console.log(res)
+            that.setData({
+              banner: res.data.return_banner,
+              brand: res.data.list,
+              product: res.data.return_shop.data,
+              productPage: res.data.return_shop.pageTotal,
+              currentPage: res.data.return_shop.currentPage
+            })
+          }).list({
+            flag: 1,
+            page: 1,
+            pageSize: 10,
+          })
+        }
+      }
     })
+
+
+
   },
   goSearch: function(e) {
     console.log(e)
@@ -92,6 +107,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    */
   onPullDownRefresh: function() {
     new Product(res => {
+      wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
         banner: res.data.return_banner,
@@ -120,7 +136,7 @@ Page(Object.assign({}, swiperAutoHeight, {
 
 
     console.log(currentPage)
-    
+
     new Product(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载

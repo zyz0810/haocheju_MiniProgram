@@ -1,4 +1,4 @@
-<include src="/template/jumpPay/jumpPay.wxml" />
+
 <view class="page">
   <!-- <loading wx:if="{{loading}}">加载中</loading> -->
   <shadow-component />
@@ -61,8 +61,6 @@
       </scroll-view>
     </swiper-item>
   </swiper>
-  <include src="/template/actionsheet/actionsheet.wxml" />
-  <include src="/template/password/payPassword.wxml" />
 </view>
 
 <!-- <template name="orderList">
