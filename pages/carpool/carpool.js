@@ -226,9 +226,8 @@ Page({
       // 来自页面内转发按钮
     }
     return {
-      title: '车相关拼车',
+      title: '每天都有大量真实的拼车回家信息供大家选择,是拼车网友寻找拼车信息的在线平台',
       path: '/pages/carpool/carpool',
-      desc: '每天都有大量真实的拼车回家信息供大家选择,是拼车网友寻找拼车信息的在线平台',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
       success: function (res) {
         // 转发成功

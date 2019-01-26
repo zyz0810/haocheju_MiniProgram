@@ -147,9 +147,8 @@ Page({
       // 来自页面内转发按钮
     }
     return {
-      title: '车相关拼车',
-      path: '/pages/carpool/view/view',
-      desc: '车相关人人参与 顺路捎,分享经济平台。',
+      title: '车相关人人参与 顺路捎,分享经济平台。', 
+      path: '/pages/carpool/view/view?id=' + that.data.carPoolId + '&type=' + that.data.carPoolType,
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
       success: function (res) {
         // 转发成功

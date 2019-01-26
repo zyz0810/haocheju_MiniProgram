@@ -462,7 +462,7 @@ Page(Object.assign({}, {
     return {
       title: that.data.title,
       path: '/pages/circle/circle',
-      imageUrl: '/resources/images/logo.png',
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
       success: function (res) {
         // 转发成功
         wx.showToast({

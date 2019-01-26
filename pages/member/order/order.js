@@ -346,43 +346,6 @@ Page(Object.assign({}, {
     // })
   },
 
-  //分享
-  onShareAppMessage: function(res) {
-    var that = this;
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      return {
-        title: '分享红包给好友',
-        imageUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513153921871&di=a0573973131999f9028fe2d629bb6fbc&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20150801%2Fmp25280062_1438402600048_1.png',
-        path: 'pages/member/share/share?&id=' + that.data.couponId + '&username=' + that.data.username,
-        success: function(res) {
-          // 转发成功
-          wx.showToast({
-            title: '转发成功',
-            icon: 'success'
-          })
-          // that.popupHidden()
-        },
-        fail: function(res) {
-          // 转发失败
-        }
-      }
-    }
-    return {
-      title: '分享',
-      path: 'pages/home/home?&extension=' + app.globalData.memberInfo.id,
-      success: function(res) {
-        // 转发成功
-        wx.showToast({
-          title: '转发成功',
-          icon: 'success'
-        })
-      },
-      fail: function(res) {
-        // 转发失败
-      }
-    }
-  },
 
   methodBtn(e) {
     var info = e.currentTarget.dataset.info

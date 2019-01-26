@@ -138,9 +138,8 @@ Page(Object.assign({}, swiperAutoHeight, {
       // 来自页面内转发按钮
     }
     return {
-      title: '车相关',
+      title: '宁愿跑起来被拌倒无数次，也不要规规矩矩走一辈子。不在直线超你，也不在弯道超你，只想自由自在轰鸣在路上。车子与您相关，车相关为你服务',
       path: '/pages/home/home',
-      desc:'宁愿跑起来被拌倒无数次，也不要规规矩矩走一辈子。不在直线超你，也不在弯道超你，只想自由自在轰鸣在路上。车子与您相关，车相关为你服务',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
       success: function (res) {
         // 转发成功

@@ -169,9 +169,8 @@ Page(Object.assign({}, swiperAutoHeight, {
       // 来自页面内转发按钮
     }
     return {
-      title: that.data.name + that.data.carname,
+      title: that.data.useproperty + that.data.color + that.data.displacement + that.data.gearbox,
       path: '/pages/home/used/view/view?id=' + that.data.carId,
-      desc: that.data.useproperty + that.data.color + that.data.displacement + that.data.gearbox,
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
       success: function (res) {
         // 转发成功

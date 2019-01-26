@@ -165,6 +165,24 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: '优惠多多',
+      path: '/pages/discount/discount',
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 }))

@@ -279,6 +279,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+    }
+    return {
+      title: '你只看到我的背影，却无法感受我的激情，你有你的A8，我们有属于我们自己的机车，你嘲笑我，不知四轮的安逸，我可怜你，不懂速度的真谛。',
+      path: '/pages/home/usedCar/buy/buy',
+      imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

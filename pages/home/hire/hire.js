@@ -814,9 +814,8 @@ Page({
       // 来自页面内转发按钮
     }
     return {
-      title: '车相关拼车',
+      title: '车相关为网友提供代驾租车等信息查询和发布服务,是寻找和发布代驾租车信息的最佳平台。',
       path: '/pages/home/hire/hire',
-      desc: '车相关为网友提供代驾租车等信息查询和发布服务,是寻找和发布代驾租车信息的最佳平台。',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
       success: function(res) {
         // 转发成功
