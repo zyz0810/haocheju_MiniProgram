@@ -1,6 +1,6 @@
 // pages/home/maintain/view/view.js
 let swiperAutoHeight = require("../../../../template/swiperIndex/swiper.js"),
-  Ruzhu = require("../../../../service/ruzhu.js"),
+  Cars = require("../../../../service/cars.js"),
   app = getApp(),
   WxParse = require('../../../wxParse/wxParse.js'),
   util = require("../../../../utils/util.js")
@@ -44,24 +44,33 @@ Page(Object.assign({}, swiperAutoHeight, {
           })
         } else {
           var userId = wx.getStorageSync('userId')
-          new Ruzhu(res => {
+          new Cars(res => {
             console.log(res)
             wx.setNavigationBarTitle({
-              title: res.data.name,
+              title: res.data.carname + res.data.cartype,
             })
             var carcontent = res.data.carcontent;
             that.setData({
-              banner: res.data.bannerlogo,
-              logo: res.data.logo,
-              name: res.data.name,
-              opentime: res.data.opentime,
-              address: res.data.address,
-              lant: res.data.lant,
-              long: res.data.long,
-              phone: res.data.phone
+              banner: res.data.banner,
+              name: res.data.carname + res.data.cartype,
+              price: res.data.carprice,
+              tenant: res.data.goodname,
+              brandlogo: res.data.brandlogo,
+              engine: res.data.engine,
+              totalfuel: res.data.totalfuel,
+              drivingmode: res.data.drivingmode,
+              bodywork: res.data.bodywork,
+              gearbox: res.data.gearbox,
+              warranty: res.data.warranty,
+              carcontent: res.data.carcontent,
+              isCollection: res.data.isCollection,
+              providerid: res.data.providerid,
+              cid: res.data.cid
             })
-          }).view({
-            id: that.data.carId
+            WxParse.wxParse('carcontent', 'html', carcontent, that, 0);
+          }).newView({
+            id: that.data.carId,
+            userId: userId
           })
 
         }
@@ -71,27 +80,44 @@ Page(Object.assign({}, swiperAutoHeight, {
     
 
   },
-
-
-  call: function (e) {
-    console.log(e)
-    let phone = e.currentTarget.dataset.id
-    wx.makePhoneCall({
-      phoneNumber: phone,
-      success(res) {
-
-      },
-      fail(err) {
-        if (err.errMsg.indexOf('cancel') === -1) {
-          util.errShow(phone, 5000)
-        }
-
-      }
+  collect:function(e){
+    console.log(1212)
+    
+    var userId = wx.getStorageSync('userId')
+    var that = this
+    console.log(that.data.carId)
+    let collectId = e.currentTarget.dataset.id
+    if (collectId == 0){
+      new Cars(function (res) {
+       that.setData({
+         isCollection:'1',
+         cid: res.data.cid
+       })
+        // toast.show('收藏成功');
+      }).favorite({ userId: userId, productId: that.data.carId, type: '1' })
+    }else{
+      new Cars(function (data) {
+        that.setData({
+          isCollection: '0',
+          cid: ''
+        })
+        // toast.show('收藏成功');
+      }).delFavorite({ cid: that.data.cid })
+    }
+  },
+  goTenant: function (e) {
+    let id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/tenant/tenant?id=' + id,
+    })
+  },
+  goBuy: function(e) {
+    let id = e.currentTarget.dataset.id
+    util.navigateTo({
+      url: '/pages/appointment/appointment?typeNew=false&typeOld=true&id=' + id,
     })
   },
 
-
-  
   /**
    * 生命周期函数--监听页面隐藏
    */

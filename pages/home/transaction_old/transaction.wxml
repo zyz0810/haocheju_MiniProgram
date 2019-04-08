@@ -1,0 +1,53 @@
+<import src="/template/swiperIndex/swiper.wxml" />
+<!--pages/home/maintain/maintain.wxml-->
+<view class='search_frame'>
+  <text class='iconfont icon-sousuo f16 baseColor'></text>
+  <input type='text' class='f12' placeholder='搜索 车品牌/型号'></input>
+</view>
+
+<template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner.img,fn:'adTap'}}"></template>
+
+<view class='title_common f15'>本周热销榜</view>
+<view class='hot_list'>
+  <block wx:for="{{hotList}}" wx:key="index">
+    <view class='hot_item' data-id='{{item.oldproductid}}' bindtap='goOldView'>
+      <text class='hot_num f16'>{{index+1}}</text>
+      <image src='{{item.applistthumb ? item.applistthumb : "/resources/images/logo.png"}}' mode='widthFix'></image>
+      <view class='f14 clr_gray01 overtwo name'>{{item.carname}} {{item.cartype}} {{item.carconfig}}</view>
+      <view class='yellow01 f13 price'>销售价：{{item.saleprice}}元</view>
+    </view>
+  </block>
+</view>
+
+<view class='title_common f15'>推荐导购</view>
+<view class='commend_list'>
+
+  <block wx:for="{{commendList}}" wx:key="index">
+    <view class='commend_item' data-id='1' bindtap='goView'>
+      <image src='{{item.carbanner ? item.carbanner : "/resources/images/logo.png"}}' mode='widthFix'></image>
+      <view class='yellow01 f13 price'>{{item.carprice}}万元</view>
+      <view class='f14 overtwo name gray02'>{{item.carname}} {{item.cartype}} {{item.carconfig}}</view>
+      <!-- <view class='f10 overone clr_lightGray'>已有3人购买</view> -->
+    </view>
+  </block>
+
+
+  <!-- <view class='commend_item' data-id='1' bindtap='goView'>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <view class='yellow01 f13 price'>8.99万元</view>
+    <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
+    <view class='f10 overone clr_lightGray'>已有3人购买</view>
+  </view>
+  <view class='commend_item' data-id='1' bindtap='goView'>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <view class='yellow01 f13 price'>8.99万元</view>
+    <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
+    <view class='f10 overone clr_lightGray'>已有3人购买</view>
+  </view>
+  <view class='commend_item' data-id='1' bindtap='goView'>
+    <image src='https://www.chexiangguan.com/weixin/images/static/home/ad_small.jpg' mode='widthFix'></image>
+    <view class='yellow01 f13 price'>8.99万元</view>
+    <view class='f14 overtwo name gray02'>比速 比速T5 2017款1.5T手动尊贵型</view>
+    <view class='f10 overone clr_lightGray'>已有3人购买</view>
+  </view> -->
+</view>

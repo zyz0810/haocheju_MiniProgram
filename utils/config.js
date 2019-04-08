@@ -3,9 +3,9 @@
 module.exports = {
   //ajax请求baseurl
   // 测试环境
-  // BASE_URL: "https://che.0556360.com/",
+  BASE_URL: "https://che.0556360.com/",
   // 生产环境
-  BASE_URL: "https://www.chexiangguan.com/",
+  // BASE_URL: "https://www.chexiangguan.com/",
   //登陆失败后尝试重复登陆次数
   LOGIN_ERROR_TRY_COUNT: 5,
   //登陆失败后多长时间间隔重新发起登陆请求

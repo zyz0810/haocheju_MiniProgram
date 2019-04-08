@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "租车代驾"
+  "navigationBarTitleText": "租车",
+  "enablePullDownRefresh": true
 }

@@ -1,0 +1,94 @@
+/* pages/home/maintain/view/view.wxss */
+@import "../../../wxParse/wxParse.wxss";
+.container{
+  padding-bottom: 53px;
+}
+.price .center{
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.price .center text{
+  margin-right: 20rpx;
+}
+.old_price{
+  text-decoration:  line-through;
+}
+.tag text{
+  margin-right: 20rpx;
+}
+.parameter{
+  padding: 2% 0;
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-top: 1rpx solid #f2f2f2;
+   border-bottom: 1rpx solid #f2f2f2;
+}
+.cont{
+  padding: 0 4%;
+  line-height: 1.6em;
+}
+.cont>view{
+  width: 50%
+}
+.cont image{
+  max-width: 100%;
+}
+.flex .flex-item.buy_btn {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    flex: 2;
+    
+    color: #fff;
+    background: #febf00;
+}
+.collect{
+  background: #e9e9e9;
+}
+.bottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 53px;
+  background: #fff;
+}
+.bottom .flex-item>text{
+  display: block;
+  line-height: 1;
+}
+.bottom .flex-item>text:first-child{
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+.tenantLogo{
+  width: 18vw;
+  position: relative;
+}
+.tenantLogo::after{
+  border-left: 1px solid #cdcdcd;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    -webkit-transform: scaleX(.5);
+    transform: scaleX(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    content: " ";
+    position: absolute;
+    color: #cdcdcd;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.tenantLogo image{
+  width: 96%;
+  margin-left: 4%;
+}
+.new_instro{
+  padding: 0 2%;
+}
+.new_instro .center>view{
+ line-height: 2;
+}

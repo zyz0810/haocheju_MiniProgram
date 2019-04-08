@@ -1,0 +1,39 @@
+/* pages/member/dealer/dealer.wxss */
+
+.container {
+  margin: 20rpx 0;
+}
+
+.lineItem {
+  align-items: center;
+}
+
+.left {
+  width: 100px;
+  align-items: center;
+}
+.chooseImg{
+  width: 100px;
+  height: 100px;
+  margin: 0 2%;
+  overflow: hidden;
+  position: relative;
+}
+.delete{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.chooseImg image{
+  width: 100%;
+  height: 100%;
+}
+button{
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto 20rpx;
+}
+.remark{
+  margin: 2%;
+  line-height: 1.8em;
+}

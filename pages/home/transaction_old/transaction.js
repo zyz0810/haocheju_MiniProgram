@@ -1,10 +1,9 @@
 // pages/home/maintain/maintain.js
 let swiperAutoHeight = require("../../../template/swiperIndex/swiper.js"),
-  Cars = require("../../../service/cars.js"),
-  Ruzhu = require("../../../service/ruzhu.js"),
+  Cars = require("../../../service/cars.js"), 
   app = getApp(),
   util = require("../../../utils/util.js")
-Page(Object.assign({}, swiperAutoHeight, {
+Page(Object.assign({}, swiperAutoHeight,{
 
   /**
    * 页面的初始数据
@@ -13,31 +12,27 @@ Page(Object.assign({}, swiperAutoHeight, {
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 1000,
-    commendList: [],
-    ad: ''
+    duration: 1000
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
+  onLoad: function (options) {
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
-
-
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     //获取首页内容
     var that = this
     wx.getSetting({
@@ -47,107 +42,106 @@ Page(Object.assign({}, swiperAutoHeight, {
             url: '/pages/scope/index',
           })
         } else {
-          new Ruzhu(res => {
+          new Cars(res => {
             console.log(res)
             that.setData({
-              ad: res.data.images,
               banner: res.data.return_banner,
-              commendList: res.data.list.data,
-              commendPage: res.data.list.pageTotal,
-              currentPage: res.data.list.currentPage
+              hotList: res.data.return_oldcar.data,
+              commendList: res.data.return_newcar.data,
+              commendPage: res.data.return_newcar.pageTotal,
+              currentPage: res.data.return_newcar.currentPage
             })
-          }).list({
+          }).newList({
             page: 1,
-            pageSize: 10,
-            type: 2
+            pageSize: 10
           })
         }
       }
     })
-
+   
   },
-
-
-  goView: function(e) {
+  goOldView: function (e) {
     let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'view/view?id=' + id,
+      url: '/pages/home/usedCar/view/view?id=' + id,
     })
   },
 
-  ruzhu: function() {
+  goView:function(e){
+    let id = e.currentTarget.dataset.id
     util.navigateTo({
-      url: 'setIn/setIn',
+      url: 'view/view?id='+id,
     })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     new Cars(res => {
       wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
-        ad: res.data.images,
         banner: res.data.return_banner,
-        commendList: res.data.list.data,
-        commendPage: res.data.list.pageTotal,
-        currentPage: res.data.list.currentPage
+        hotList: res.data.return_oldcar.data,
+        commendList: res.data.return_newcar.data,
+        commendPage: res.data.return_newcar.pageTotal,
+        currentPage: res.data.return_newcar.currentPage
       })
     }).newList({
       page: 1,
-      pageSize: 10,
-      type: 2
+      pageSize: 10
     })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     var that = this;
     wx.showNavigationBarLoading();
     // var pageModel = this.data.pageModel;
     var commendPage = this.data.commendPage;
     var currentPage = this.data.currentPage;
     var commendList = this.data.commendList;
+
+
     console.log(currentPage)
-    new Ruzhu(res => {
+
+    new Cars(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
-      if (res.data.list.pageTotal < res.data.list.currentPage) {
+      if (res.data.return_newcar.pageTotal < res.data.return_newcar.currentPage) {
         wx.hideNavigationBarLoading()
         that.setData({
           tips: '',
           showtips: false
         })
       } else {
-        commendList = commendList.concat(res.data.list.data)
+        commendList = commendList.concat(res.data.return_newcar.data)
         this.setData({
           commendPage: commendPage,
-          currentPage: res.data.list.currentPage
+          currentPage: res.data.return_newcar.currentPage
         })
       }
 
-    }).list({
+    }).newList({
       page: ++currentPage,
-      pageSize: 10,
-      type: 2
+      pageSize: 10
     })
 
   },
@@ -155,23 +149,23 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
     }
     return {
-      title: '车相关为网友提供代驾租车等信息查询和发布服务,是寻找和发布代驾租车信息的最佳平台。',
-      path: '/pages/home/hire/hire',
+      title: '你只看到我的背影，却无法感受我的激情，你有你的A8，我们有属于我们自己的机车，你嘲笑我，不知四轮的安逸，我可怜你，不懂速度的真谛。',
+      path: '/pages/home/transaction/transaction',
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
-      success: function(res) {
+      success: function (res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
           icon: 'success'
         })
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
       }
     }

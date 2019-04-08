@@ -1,0 +1,65 @@
+<import src="/template/swiperProduct/swiper.wxml" />
+<import src="../../../wxParse/wxParse.wxml" />
+<!--pages/home/maintain/view/view.wxml-->
+<view class='container'>
+  <!-- <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper> -->
+  <template is="adSwiper" data="{{_swiper,name:'top',data:banner,key:banner,fn:'adTap',showDot:true}}"></template>
+  <view class='lineItem border'>
+    <view class='center clr_gray01 f16 overTwo'>{{name}}</view>
+  </view>
+  <!-- <view class='lineItem price'>
+    <view class='center'>
+      <text class='clr_gray01'>一口价</text>
+      <text class='yellow01'>￥45.6</text>
+      <text class='clr_mediumGray old_price'>￥100</text>
+    </view>
+  </view>
+  <view class='lineItemTitle f10 clr_lightGray tag'>
+    <text>认证商家</text>
+    <text>专属顾问</text>
+  </view> -->
+  <view class='lineItem new_instro f14'>
+    <view class='center'>
+      <view class='{{!tenant ? "":"border_bottom"}} yellow01'>售价：{{price}}元</view>
+      <view hidden='{{!tenant}}' bindtap='goTenant'>商家：{{tenant}}</view>
+    </view>
+    <view class='right tenantLogo'><image src='{{brandlogo}}' mode='widthFix'></image></view>
+  </view>
+  <view class='parameter'>
+    <!-- <view class='title_common'>产品参数</view> -->
+    <view class='cont f12 clr_mediumGray clearfix'>
+      <view class='overone fl' hidden='{{!engine}}'>发动机：{{engine}}</view>
+      <view class='overone fl' hidden='{{!totalfuel}}'>百公里油耗：{{totalfuel}}  </view>
+      <view class='overone fl' hidden='{{!drivingmode}}'>驱动方式：{{drivingmode}}</view>
+      <view class='overone fl' hidden='{{!bodywork}}'>车身结构：{{bodywork}}</view>
+      <view class='overone fl' hidden='{{!gearbox}}'>变速箱：{{gearbox}}</view>
+      <view class='overone fl' hidden='{{!warranty}}'>整车质保：{{warranty}}</view>
+    </view>
+  </view>
+  <view class='parameter'>
+    <view class='title_common'>亮点介绍</view>
+
+    <view class='cont f12'>
+        <template is="wxParse" data="{{wxParseData:carcontent.nodes}}" />
+    </view>
+  </view>
+  <view class='flex tc f16 bottom clr_lightGray'>
+    <view class='flex-item collect {{isCollection==0?"":"yellow01"}}' data-id='{{isCollection}}' data-cid='{{cid}}' bindtap='collect'>
+      <text class='iconfont {{isCollection==0?" icon-heart":" icon-icon3"}}   f24'></text>
+      <text>{{isCollection==0?"收藏":"已收藏"}}</text>
+    </view>
+    <view class='flex-item clr_lightGray' hidden='{{!providerid}}' data-id='{{providerid}}' bindtap='goTenant'>
+      <text class='iconfont icon-shangjia f24'></text>
+      <text>商家</text>
+    </view>
+    <view class='flex-item buy_btn' data-id='{{carId}}' bindtap='goBuy'>
+      <view>立即预约</view>
+    </view>
+  </view>
+</view>

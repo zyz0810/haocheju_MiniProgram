@@ -1,0 +1,151 @@
+/* pages/home/hire/hire.wxss */
+
+.tab .flex-item {
+  padding: 20rpx 0;
+}
+
+.tab .flex-item.active text {
+  border-bottom: 2px solid #fff;
+}
+
+.driving_time .center {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.driving_time .center picker {
+  width: 50%;
+}
+
+button {
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto;
+}
+
+.mode .left {
+  padding-right: 20rpx;
+  margin-right: 20rpx;
+  border-right: 1px solid #666;
+}
+
+.mode .right {
+  flex-direction: row;
+  background: #ededed;
+  border-radius: 10rpx;
+}
+
+.mode .right text {
+  padding: 10rpx 20rpx;
+}
+
+.mode .right text.active {
+  color: #fff;
+  padding: 10rpx 20rpx;
+  background: #0f84de;
+  border-radius: 10rpx;
+}
+
+.lineItem {
+  justify-content: center;
+  align-items: center;
+}
+
+.car_time {
+  background: #fff;
+}
+
+.car_time .flex-item:nth-child(1), .car_time .flex-item:nth-child(3) {
+  padding-top: 8%;
+  padding-bottom: 2%;
+  line-height: 2;
+}
+
+.arrow {
+  background: url(https://www.chexiangguan.com/weixin/images/static/hire/arrow.png) no-repeat 100%;
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: #fff;
+  border: 2px solid #0f84de;
+  border-radius: 50%;
+}
+
+.address,.carMode {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 999;
+}
+.carMode .lineItem .left{
+  width: 30vw;
+  height: 30vw;
+}
+#getcap{
+  width: 150rpx;
+  background:#00a0e9;
+  border-radius: 10rpx;
+}
+
+.driving .lineItem .left{
+  width: 8vw;
+}
+.lineItem.driving_address{
+  /* align-items: baseline; */
+   align-items: center;
+}
+.lineItem.driving_address .left{
+  /* align-items:  flex-start; */
+}
+.driving_address .center>view:first-child{
+  padding-bottom: 2%;
+}
+
+.driving_address .center>view:last-child{
+  padding-top: 2%;
+}
+.start_icon {
+  background: #0f84de;
+}
+.end_icon {
+    background: #ec0909;
+}
+
+.start_icon,.end_icon {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  line-height: 6vw;
+  margin-right: 2vw;
+  border-radius: 50%;
+}
+button{
+  color: #fff !important;
+  background: #0f84de !important;
+  margin: 50rpx auto 20rpx;
+  padding: 0;
+}
+
+.getcap{
+  width: 200rpx;
+  background:#00a0e9;
+  border-radius: 10rpx;
+  margin: 0;
+  padding: 0;
+}
+.carMode{
+
+}
+.choosedcar .left{
+  width: 30vw;
+  height: 30vw;
+}

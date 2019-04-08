@@ -1,6 +1,7 @@
 // pages/home/maintain/maintain.js
 let swiperAutoHeight = require("../../../template/swiperIndex/swiper.js"),
   Cars = require("../../../service/cars.js"), 
+  Ruzhu = require("../../../service/ruzhu.js"), 
   app = getApp(),
   util = require("../../../utils/util.js")
 Page(Object.assign({}, swiperAutoHeight,{
@@ -12,7 +13,9 @@ Page(Object.assign({}, swiperAutoHeight,{
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    commendList:[],
+    ad:''
   },
 
   /**
@@ -29,6 +32,8 @@ Page(Object.assign({}, swiperAutoHeight,{
 
   },
 
+
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -42,35 +47,37 @@ Page(Object.assign({}, swiperAutoHeight,{
             url: '/pages/scope/index',
           })
         } else {
-          new Cars(res => {
+          new Ruzhu(res => {
             console.log(res)
             that.setData({
+              ad: res.data.images,
               banner: res.data.return_banner,
-              hotList: res.data.return_oldcar.data,
-              commendList: res.data.return_newcar.data,
-              commendPage: res.data.return_newcar.pageTotal,
-              currentPage: res.data.return_newcar.currentPage
+              commendList: res.data.list.data,
+              commendPage: res.data.list.pageTotal,
+              currentPage: res.data.list.currentPage
             })
-          }).newList({
+          }).list({
             page: 1,
-            pageSize: 10
+            pageSize: 10,
+            type:1
           })
         }
       }
     })
    
   },
-  goOldView: function (e) {
-    let id = e.currentTarget.dataset.id
-    util.navigateTo({
-      url: '/pages/home/usedCar/view/view?id=' + id,
-    })
-  },
+
 
   goView:function(e){
     let id = e.currentTarget.dataset.id
     util.navigateTo({
       url: 'view/view?id='+id,
+    })
+  },
+
+  ruzhu:function(){
+    util.navigateTo({
+      url: 'setIn/setIn',
     })
   },
 
@@ -96,15 +103,16 @@ Page(Object.assign({}, swiperAutoHeight,{
       wx.stopPullDownRefresh()
       console.log(res)
       this.setData({
+        ad: res.data.images,
         banner: res.data.return_banner,
-        hotList: res.data.return_oldcar.data,
-        commendList: res.data.return_newcar.data,
-        commendPage: res.data.return_newcar.pageTotal,
-        currentPage: res.data.return_newcar.currentPage
+        commendList: res.data.list.data,
+        commendPage: res.data.list.pageTotal,
+        currentPage: res.data.list.currentPage
       })
     }).newList({
       page: 1,
-      pageSize: 10
+      pageSize: 10,
+      type: 1
     })
   },
 
@@ -118,30 +126,28 @@ Page(Object.assign({}, swiperAutoHeight,{
     var commendPage = this.data.commendPage;
     var currentPage = this.data.currentPage;
     var commendList = this.data.commendList;
-
-
     console.log(currentPage)
-
-    new Cars(res => {
+    new Ruzhu(res => {
       console.log(res)
       wx.hideNavigationBarLoading() //完成停止加载
-      if (res.data.return_newcar.pageTotal < res.data.return_newcar.currentPage) {
+      if (res.data.list.pageTotal < res.data.list.currentPage) {
         wx.hideNavigationBarLoading()
         that.setData({
           tips: '',
           showtips: false
         })
       } else {
-        commendList = commendList.concat(res.data.return_newcar.data)
+        commendList = commendList.concat(res.data.list.data)
         this.setData({
           commendPage: commendPage,
-          currentPage: res.data.return_newcar.currentPage
+          currentPage: res.data.list.currentPage
         })
       }
 
-    }).newList({
+    }).list({
       page: ++currentPage,
-      pageSize: 10
+      pageSize: 10,
+      type: 1
     })
 
   },

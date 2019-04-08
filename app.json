@@ -1,13 +1,16 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/home/hire/hire",
+    "pages/home/transaction/transaction",
+    "pages/home/transaction/setIn/setIn",
     "pages/member/member",
     "pages/circle/circle",
     "pages/verification/verification",
     "pages/memberTenant/memberTenant",
     "pages/member/collection/collection",
     "pages/circle/edit/edit",
-    "pages/home/hire/hire",
+    "pages/home/hire/setIn/setIn",
     "pages/home/usedCar/buy/buy",
     "pages/carpool/people/people",
     "pages/carpool/car/car",
@@ -32,7 +35,6 @@
     "pages/home/product/view",
     "pages/home/maintain/maintain",
     "pages/home/beauty/beauty",
-    "pages/home/transaction/transaction",
     "pages/news/news",
     "pages/member/order/use/use",
     "pages/member/order/order",
@@ -45,7 +47,6 @@
     "pages/home/usedCar/view/pic/pic",
     "pages/member/authentication/authentication",
     "pages/memberTenant/authentication/authentication",
-    "pages/home/hire/car/car",
     "pages/home/personnelCar/view/view",
     "pages/home/steamProtection/steamProtection",
     "pages/home/steamProtection/view/view",
@@ -110,10 +111,10 @@
     ]
   },
   "window": {
-    "backgroundTextStyle": "#F85151",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#0f84de",
-    "navigationBarTitleText": ".",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTitleText": "dark",
+    "navigationBarTextStyle": "white"
   },
   "permission": {
     "scope.userLocation": {

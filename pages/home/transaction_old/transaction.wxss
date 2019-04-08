@@ -1,0 +1,115 @@
+/* pages/home/maintain/maintain.wxss */
+
+page {
+  background: #fff;
+}
+
+swiper{
+  margin-top: 100rpx;
+}
+
+.hot_list {
+  padding-left: 4vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.hot_item {
+  display: inline-block;
+  width: 42vw;
+  padding-bottom: 3vw;
+  margin-right: 3vw;
+  border: 1px solid #f4f4f4;
+  position: relative;
+}
+
+.hot_item image {
+  width: 42vw;
+  height: 25vw;
+  margin-bottom: 10rpx;
+}
+
+.hot_item>view {
+  padding: 0 2vw;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.price {
+  margin-top: 10rpx;
+}
+.name{
+  height: 80rpx;
+  line-height: 40rpx;
+}
+
+.hot_num {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  display: block;
+  width: 7vw;
+  line-height: 1;
+  padding-left: 2vw;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #fff;
+  background: -webkit-linear-gradient(left, #ff9c01, #fc1200);
+  background: linear-gradient(90deg, #ff9c01, #fc1200);
+}
+
+.commend_list{
+  padding: 0 4vw;
+}
+
+.commend_item{
+      display: inline-block;
+    width: 44.3vw;
+    padding-bottom: 3vw;
+    border: 1px solid #f4f4f4;
+    margin-bottom: 2vw;
+}
+.commend_item image{
+  width: 44.3vw;
+  height: 26vw;
+}
+
+.commend_item:nth-child(2n+1){
+      margin-right: 2vw;
+}
+.name{
+  margin: 1vw 0 2vw;
+}
+.commend_item>view{
+      padding: 0 2vw;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.search_frame{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  padding: 10rpx 0; 
+  background: url('https://www.chexiangguan.com/weixin/images/static/home/search_bg.png') no-repeat;
+}
+.search_frame .iconfont{
+  position: absolute;
+  top: 35rpx;
+  left: 60rpx;
+}
+.search_frame input{
+  width: 80%;
+  height: 60rpx;
+  background: #fff;
+  padding: 0 10rpx 0 60rpx;
+  margin: 10rpx auto;
+  box-shadow: 0 0 5rpx #f2f2f2;
+  border-radius: 5rpx;
+}

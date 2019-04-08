@@ -25,7 +25,7 @@
 文件路径：/data/wwwroot/www.0556360.com
 
 
-接口文档：wiki.susonghaoniu.com  用户名zyz_0810  密码：zyz19930810123
+接口文档：wiki.susonghaoniu.com  用户名zyz_0810  密码：zyz19930810123   用户名2：sunhuailiang   用户名2：shl123456
 
 后台：http://che.0556360.com/index/index/index  用户名：admin   密码：123456
 
