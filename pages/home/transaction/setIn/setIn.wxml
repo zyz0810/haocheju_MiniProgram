@@ -14,13 +14,8 @@
   </view>
   <view class='lineItem f14 clr_mediumGray border_bottom'>
     <view class='left clr_lightGray'>地址</view>
-    <!-- <view class='center'>
-      <input type='text' placeholder-class='gray01' placeholder='请输入地址' bindinput='address'></input>
-    </view> -->
-
-
     <view class='center' bindtap='bindStart'>
-      <input type='text' placeholder='请输入地址' placeholder-class='gray01' value='{{start}}({{lant}}{{long}})'></input>
+      <input type='text' placeholder='请输入地址' placeholder-class='gray01' value='{{start}}{{lant}}{{long}}'></input>
       <view>{{start_address}}</view>
     </view>
     <view class='right' style='width:50px;' bindtap='bindStart'>
@@ -52,8 +47,6 @@
       <view class='f12 gray01'>图片尺寸：480*480px,图片小于500k，支持jpg、gif、bmp、png格式。</view>
     </view>
   </view>
-
-
 
   <button type="default" class='clr-white' bindtap="submit" hover-class="other-button-hover"> 提交 </button>
   <view class='f12 clr_mediumGray remark'>您的个人信息一经提交，可能会收到买车意向客户的咨询（如个人、经销商、中介机构等），请保持电话通畅并保证车辆信息的真实性。提交即代表您同意

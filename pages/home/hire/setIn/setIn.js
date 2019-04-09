@@ -66,7 +66,6 @@ Page({
               }
             }
           })
-
         } else {
           wx.getLocation({
             type: 'gcj02',
@@ -76,14 +75,7 @@ Page({
               const speed = res.speed
               const accuracy = res.accuracy
               console.log(latitude, longitude)
-              // wx.openLocation({
-              //   latitude,
-              //   longitude,
-              //   scale: 18,
-              //   success: function(res) {
-
               console.log('打开地图')
-
               wx.chooseLocation({
                 success: function(res) {
                   console.log('选点')
@@ -97,8 +89,6 @@ Page({
                   })
                 },
               })
-              //   }
-              // })
             }
           })
         }
@@ -270,7 +260,7 @@ Page({
       opentime: that.data.time,
       long: that.data.long,
       lant: that.data.lant,
-      type: 1
+      type: 2
     })
   },
 

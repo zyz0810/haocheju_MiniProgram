@@ -20,8 +20,7 @@
 
 
     <view class='center' bindtap='bindStart'>
-      <input type='text' placeholder='请输入地址' placeholder-class='gray01' value='{{start}}({{lant}}{{long}})'></input>
-      <view>{{start_address}}</view>
+      <input type='text' placeholder='请输入地址' placeholder-class='gray01' value='{{start}}{{lant}}{{long}}'></input>
     </view>
     <view class='right' style='width:50px;' bindtap='bindStart'>
       <text class='iconfont icon-dingweiweizhi clr_lightGray'></text>
