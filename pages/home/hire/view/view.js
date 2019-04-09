@@ -11,7 +11,7 @@ Page(Object.assign({}, swiperAutoHeight, {
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**
@@ -20,7 +20,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   onLoad: function(options) {
     let carId = options.id
     this.setData({
-      carId:carId
+      carId: carId
     })
   },
 
@@ -67,13 +67,19 @@ Page(Object.assign({}, swiperAutoHeight, {
         }
       }
     })
-
-    
-
   },
 
-
-  call: function (e) {
+  goTenant: function(e) {
+    console.log(e)
+    let lant = Number(e.currentTarget.dataset.lant)
+    let long = Number(e.currentTarget.dataset.long)
+    wx.openLocation({
+      latitude: lant,
+      longitude: long,
+      scale: 18
+    })
+  },
+  call: function(e) {
     console.log(e)
     let phone = e.currentTarget.dataset.id
     wx.makePhoneCall({
@@ -91,7 +97,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   },
 
 
-  
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -123,7 +129,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -133,14 +139,14 @@ Page(Object.assign({}, swiperAutoHeight, {
       path: '/pages/home/transaction/view/view?id=' + that.data.carId,
       desc: that.data.engine + that.data.drivingmode + that.data.gearbox + that.data.bodywork,
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
-      success: function (res) {
+      success: function(res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
           icon: 'success'
         })
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
       }
     }
