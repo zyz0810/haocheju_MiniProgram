@@ -17,7 +17,7 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let carId = options.id
     this.setData({
       carId: carId
@@ -27,14 +27,14 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     var that = this
     wx.getSetting({
       success(res) {
@@ -49,7 +49,7 @@ Page(Object.assign({}, swiperAutoHeight, {
             wx.setNavigationBarTitle({
               title: res.data.name,
             })
-            var carcontent = res.data.carcontent;
+            var desc = res.data.desc;
             that.setData({
               banner: res.data.bannerlogo,
               logo: res.data.logo,
@@ -58,8 +58,10 @@ Page(Object.assign({}, swiperAutoHeight, {
               address: res.data.address,
               lant: res.data.lant,
               long: res.data.long,
-              phone: res.data.phone
+              phone: res.data.phone,
+              desc: res.data.desc
             })
+            WxParse.wxParse('desc', 'html', desc, that, 0);
           }).view({
             id: that.data.carId
           })
@@ -69,7 +71,7 @@ Page(Object.assign({}, swiperAutoHeight, {
     })
   },
 
-  goTenant: function(e) {
+  goTenant: function (e) {
     console.log(e)
     let lant = Number(e.currentTarget.dataset.lant)
     let long = Number(e.currentTarget.dataset.long)
@@ -79,7 +81,7 @@ Page(Object.assign({}, swiperAutoHeight, {
       scale: 18
     })
   },
-  call: function(e) {
+  call: function (e) {
     console.log(e)
     let phone = e.currentTarget.dataset.id
     wx.makePhoneCall({
@@ -101,35 +103,35 @@ Page(Object.assign({}, swiperAutoHeight, {
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -139,14 +141,14 @@ Page(Object.assign({}, swiperAutoHeight, {
       path: '/pages/home/transaction/view/view?id=' + that.data.carId,
       desc: that.data.engine + that.data.drivingmode + that.data.gearbox + that.data.bodywork,
       imageUrl: 'https://www.chexiangguan.com/weixin/images/placeholder/logo2.jpg',
-      success: function(res) {
+      success: function (res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
           icon: 'success'
         })
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
       }
     }

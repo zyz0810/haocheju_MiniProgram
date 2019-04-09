@@ -27,5 +27,9 @@
       <text class='iconfont icon-dianhua1 f40 baseColor'></text>
     </view>
   </view>
+  <view class='lineItem bordernone'>
+    <view class='left clr_lightGray'><text class='iconfont icon-miaoshu'></text></view>
+    <view class='center'><template is="wxParse" data="{{wxParseData:desc.nodes}}" /></view>
+  </view>
 
 </view>

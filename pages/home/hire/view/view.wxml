@@ -19,13 +19,17 @@
       营业时间：{{opentime}}</view>
   </view>
   <view class='lineItem bordernone'>
-    <view class='left clr_lightGray' bindtap='goTenant'>
+    <view class='left clr_lightGray' data-lant='{{lant}}' data-long='{{long}}' bindtap='goTenant'>
       <text class='iconfont icon-dingweiweizhi' style='margin-top:30rpx;'></text>
     </view>
-    <view class='center f16' bindtap='goTenant'>{{address}}</view>
+    <view class='center f16' data-lant='{{lant}}' data-long='{{long}}' bindtap='goTenant'>{{address}}</view>
     <view class='right' data-id='{{phone}}' bindtap='call'>
       <text class='iconfont icon-dianhua1 f40 baseColor'></text>
     </view>
+  </view>
+  <view class='lineItem bordernone'>
+    <view class='left clr_lightGray'><text class='iconfont icon-miaoshu'></text></view>
+    <view class='center'><template is="wxParse" data="{{wxParseData:desc.nodes}}" /></view>
   </view>
 
 </view>

@@ -49,7 +49,7 @@ Page(Object.assign({}, swiperAutoHeight, {
             wx.setNavigationBarTitle({
               title: res.data.name,
             })
-            var carcontent = res.data.carcontent;
+            var desc = res.data.desc;
             that.setData({
               banner: res.data.bannerlogo,
               logo: res.data.logo,
@@ -58,8 +58,10 @@ Page(Object.assign({}, swiperAutoHeight, {
               address: res.data.address,
               lant: res.data.lant,
               long: res.data.long,
-              phone: res.data.phone
+              phone: res.data.phone,
+              desc: res.data.desc
             })
+            WxParse.wxParse('desc', 'html', desc, that, 0);
           }).view({
             id: that.data.carId
           })
